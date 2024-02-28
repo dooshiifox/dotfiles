@@ -1,13 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  # ow-mod-man = {
-  #   url = "github:ow-mods/ow-mod-man";
-  #   inputs.nixpkgs.follows = "nixpkgs";
-  # };
-
-  # nixpkgs.overlays = [ inputs.ow-mod-man.overlays.default ];
-
   users.users.dooshii = {
     isNormalUser = true;
     description = "kit fox";
@@ -35,7 +28,12 @@
       # Developing
       ################
 
-      vscode           # Code editor
+      # Code editor, allows for Nix configurations
+      (vscode-with-extensions.override {
+        vscodeExtensions = with vscode-extensions; [
+            bbenoist.nix
+        ];
+      })
       jetbrains.clion  # C/C++ code editor
       
       # Android / iOS
