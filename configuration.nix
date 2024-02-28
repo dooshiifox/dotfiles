@@ -11,7 +11,7 @@
       ./packages.nix
     ];
 
-  nixpkgs.overlays = [ inputs.ow-mod-man.overlays.default ];
+  # nixpkgs.overlays = [ inputs.ow-mod-man.overlays.default ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.permittedInsecurePackages = [
