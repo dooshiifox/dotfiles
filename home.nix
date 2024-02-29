@@ -54,6 +54,9 @@
     nodejs_21 # Javascript runtime; also provided npm
     nodePackages.pnpm # Faster, less disk space npm
 
+    # Python
+    python3
+
     # C/C++
     cmake # Makefile support
 
