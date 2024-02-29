@@ -26,6 +26,9 @@
       mkcd = {
         body = "mkdir -p $argv; cd $argv;"; 
       };
+      fish_greeting = {
+        body = "echo \"Welcome to the fish shell\""; 
+      };
     };
   };
 }
