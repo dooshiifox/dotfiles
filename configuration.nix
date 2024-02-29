@@ -10,10 +10,22 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./packages.nix
   ];
 
-  # nixpkgs.overlays = [ inputs.ow-mod-man.overlays.default ];
+  users.users.dooshii = {
+    isNormalUser = true;
+    description = "kit fox";
+    extraGroups = ["networkmanager" "wheel"];
+    # User packages should be defined in home.nix
+  };
+
+  environment.systemPackages = with pkgs; [
+    vim
+    wget
+    lshw
+    libnotify
+    git
+  ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
   nixpkgs.config.permittedInsecurePackages = [
