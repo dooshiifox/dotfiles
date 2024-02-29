@@ -4,6 +4,10 @@
   inputs,
   ...
 }: {
+  imports = [
+    ./programs
+  ];
+
   home.username = "dooshii";
   home.homeDirectory = "/home/dooshii";
 
@@ -33,12 +37,6 @@
     # Developing
     ################
 
-    # Code editor, allows for Nix configurations
-    (vscode-with-extensions.override {
-      vscodeExtensions = with vscode-extensions; [
-        bbenoist.nix
-      ];
-    })
     jetbrains.clion # C/C++ code editor
 
     # Android / iOS
