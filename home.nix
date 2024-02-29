@@ -134,7 +134,7 @@
     enable = true;
     settings = {
       shell = {
-        program = "/usr/bin/env fish";
+        program = "fish";
       };
       window = {
         dynamic_title = true;
