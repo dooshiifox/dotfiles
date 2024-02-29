@@ -28,7 +28,7 @@
     nixosConfigurations.dooshii = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       # Enable accessing `inputs` in config files
-      specialArgs = {inherit inputs;};
+      specialArgs = {inherit inputs; "PROJECT_ROOT" = builtins.toString ./.; };
       modules = [
         # Import the previous configuration.nix we used,
         # so the old configuration file still takes effect
@@ -44,6 +44,10 @@
           home-manager.users.dooshii = import ./home.nix;
 
           # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
+          home-manager.extraSpecialArgs = {
+            inherit inputs;
+            "PROJECT_ROOT" = builtins.toString ./.;
+          };
         }
       ];
     };

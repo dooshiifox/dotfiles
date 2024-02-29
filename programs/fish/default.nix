@@ -1,8 +1,6 @@
 # A better terminal
 # https://github.com/nix-community/home-manager/blob/master/modules/programs/fish.nix
-{ ... }: 
-let PROJECT_ROOT = builtins.toString ./.;
-in {
+{ PROJECT_ROOT, ... }:  {
   programs.fish = {
     enable = true;
     shellAliases = {
