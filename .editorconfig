@@ -1,0 +1,4 @@
+# Use 2-space indentation in .nix files
+[.nix]
+indent_style = space
+indent_size = 2
