@@ -1,23 +1,5 @@
 {
   "nodes": {
-    "flake-utils": {
-      "inputs": {
-        "systems": "systems"
-      },
-      "locked": {
-        "lastModified": 1701680307,
-        "narHash": "sha256-kAuep2h5ajznlPMD9rnQyffWG8EM/C73lejGofXvdM8=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "4022d587cbbfd70fe950c1e2083a02621806a725",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1708979614,
@@ -34,68 +16,9 @@
         "type": "github"
       }
     },
-    "ow-mod-man": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "pnpm2nix": "pnpm2nix"
-      },
-      "locked": {
-        "lastModified": 1707718993,
-        "narHash": "sha256-AfqpLL3cGZLKW5/BE6SaBe4S8GzYM2GKUZU8mFH5uX4=",
-        "owner": "ow-mods",
-        "repo": "ow-mod-man",
-        "rev": "b24184b64abb296429637c0e5b586e070840ff98",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ow-mods",
-        "repo": "ow-mod-man",
-        "type": "github"
-      }
-    },
-    "pnpm2nix": {
-      "inputs": {
-        "flake-utils": "flake-utils",
-        "nixpkgs": [
-          "ow-mod-man",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1702270329,
-        "narHash": "sha256-Q3pg+Qc6OfVwf53o2lGoky5G4hDed0YkWw6PxocxPNE=",
-        "owner": "nzbr",
-        "repo": "pnpm2nix-nzbr",
-        "rev": "b88c9601da369ad4bc4fec1d5c28f830886e4ceb",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nzbr",
-        "repo": "pnpm2nix-nzbr",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
-        "nixpkgs": "nixpkgs",
-        "ow-mod-man": "ow-mod-man"
-      }
-    },
-    "systems": {
-      "locked": {
-        "lastModified": 1681028828,
-        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
-        "owner": "nix-systems",
-        "repo": "default",
-        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-systems",
-        "repo": "default",
-        "type": "github"
+        "nixpkgs": "nixpkgs"
       }
     }
   },

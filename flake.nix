@@ -10,12 +10,15 @@
     # };
   };
 
-  outputs = inputs@{ self, nixpkgs, ... }: {
-
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    ...
+  }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       # Enable accessing `inputs` in config files
-      specialArgs = { inherit inputs; };
+      specialArgs = {inherit inputs;};
       modules = [
         # Import the previous configuration.nix we used,
         # so the old configuration file still takes effect
