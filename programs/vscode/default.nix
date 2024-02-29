@@ -74,13 +74,7 @@
       wayou.vscode-todo-highlight
       yechunan.json-color-token
       yoavbls.pretty-ts-errors
-    ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-      {
-        name = "theme";
-        publisher = "dooshii";
-        version = "0.0.1";
-        vsix = "./theme/dooshtheme-0.0.1.zip";
-      }
+      # TODO: Local theme
     ];
 
     userSettings = {
@@ -423,6 +417,7 @@
       "dart.debugExternalPackageLibraries" = false;
       "dart.debugSdkLibraries" = false;
     };
+
     keybindings = [
       {
         "key" = "alt+`";
