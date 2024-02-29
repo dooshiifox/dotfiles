@@ -4,10 +4,10 @@
   inputs = {
     # NixOS official package source, using the nixos-23.11 branch here
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
-    ow-mod-man = {
-      url = "github:ow-mods/ow-mod-man";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # ow-mod-man = {
+    #   url = "github:ow-mods/ow-mod-man";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
   outputs = inputs@{ self, nixpkgs, ... }: {

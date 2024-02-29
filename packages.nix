@@ -13,6 +13,7 @@
       candy-icons                # Modern desktop icons
       gnomeExtensions.pop-shell  # Pop_OS! extension stuff (like grid view)
       megasync                   # Backups
+      eww                        # Custom bar at top of screen
       
       # Web browser
       firefox                 # Web browser
@@ -120,8 +121,9 @@
       protontricks     # Steam's Proton helpers
       wine             # Window compatibility
       winetricks       # Wine helpers
-      inputs.ow-mod-man.packages.x86_64-linux.owmods-gui
-      inputs.ow-mod-man.packages.x86_64-linux.owmods-cli
+      # TODO: fix
+      # inputs.ow-mod-man.packages.x86_64-linux.owmods-gui
+      # inputs.ow-mod-man.packages.x86_64-linux.owmods-cli
     ];
   };
 
