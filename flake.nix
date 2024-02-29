@@ -15,7 +15,7 @@
     nixpkgs,
     ...
   }: {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.dooshii = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       # Enable accessing `inputs` in config files
       specialArgs = {inherit inputs;};

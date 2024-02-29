@@ -15,6 +15,9 @@
       baobab # GNOME pie chart disk usage
       candy-icons # Modern desktop icons
       gnomeExtensions.pop-shell # Pop_OS! extension stuff (like grid view)
+      gnomeExtensions.rounded-window-corners
+      gnomeExtensions.pano
+      gnomeExtensions.hide-top-bar
       megasync # Backups
       eww # Custom bar at top of screen
 
