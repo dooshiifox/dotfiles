@@ -1,0 +1,139 @@
+#!/usr/bin/env fish
+
+if [ (count $argv) = 0 ]
+	# set headphones
+	# set taiga
+	# set keyboard
+	set mpdmpris
+	set eww
+	set ffcp
+	# set mouse
+end
+
+for option in $argv
+	switch "$option"
+		case -h --headphone
+			set headphones
+		case -n --network
+			set network
+			set sudo
+		case -t --taiga
+			set taiga
+		case -k --keyboard
+			set keyboard
+			set sudo
+		case -m --mouse
+			set mouse
+		case -mk -km
+			set keyboard
+			set mouse
+		case --mpdmpris
+			set mpdmpris
+		case --eww
+			set eww
+		case --ffcp
+			set ffcp
+		case \*
+			printf "error: unknown option %s\n" $option
+			set invalid_flag
+	end
+end
+
+if set -q invalid_flag
+	printf "exiting program"
+	exit
+end
+
+if set -q sudo
+	sudo echo "Starting initialisation script..."
+else
+	echo "Starting initialisation script..."
+end
+
+if set -q headphones
+	# Connect to headphones
+	echo "Connecting to headphones..."
+	bluetoothctl connect 00:16:94:3F:3D:45
+end
+
+if set -q network
+	sudo virsh net-start default
+end
+
+if set -q taiga
+	taiga
+end
+
+if set -q keyboard
+	g213-led --list-keyboards | read keyboard
+	# Check keyboard plugged in
+	if [ "$keyboard" != "Matching or compatible device not found !" ]
+	    echo "Changing keyboard colour..."
+	    # Change keyboard colour
+	    sudo g213-led -r 1 2c54c3
+	    sudo g213-led -r 2 ce4ec7
+	    sudo g213-led -r 3 d3197f
+	    sudo g213-led -r 4 f36532
+	    sudo g213-led -r 5 f4aa27
+	end
+end
+
+if set -q mpdmpris
+	mpd-mpris & disown $1
+end
+if set -q eww
+	eww daemon && eww open bar
+end
+if set -q ffcp
+	/home/dooshii/Documents/init-force-full-composition-pipeline.sh
+end
+
+if set -q mouse
+	# Read the list of devices into $devicenames
+	ratbagctl | read devicenames
+	if [ "$devicenames" != "No devices available." ]
+		echo "Changing mouse settings (may lag a bit)..."
+		# Set $mousedevicename to the first device name in the list
+		# (It's structured as `<device ident>: <real device name>`)
+		set mousedevicename (string split -n ':' $devicenames)[1]
+	
+		# DPI
+		ratbagctl $mousedevicename dpi set 3000
+		# Polling rate
+		ratbagctl $mousedevicename rate set 1000
+		# Color
+		ratbagctl $mousedevicename led 0 set mode on
+		ratbagctl $mousedevicename led 0 set color f5b323
+		ratbagctl $mousedevicename led 0 set brightness 1
+		ratbagctl $mousedevicename led 0 set duration 0
+		ratbagctl $mousedevicename led 1 set mode on
+		ratbagctl $mousedevicename led 1 set color f58923
+		ratbagctl $mousedevicename led 1 set brightness 1
+		ratbagctl $mousedevicename led 1 set duration 0
+		# Buttons
+		# Left-click
+		ratbagctl $mousedevicename button 0 action set button 1
+		# Right-click
+		ratbagctl $mousedevicename button 1 action set button 2
+		# Middle-click
+		ratbagctl $mousedevicename button 2 action set button 3
+		# Above thumb rest bottom (Backward)
+		ratbagctl $mousedevicename button 3 action set button 4
+		# Above thumb rest top (Forward)
+		ratbagctl $mousedevicename button 4 action set button 5
+		# Where thumb rests (dud)
+		ratbagctl $mousedevicename button 5 action set button 11
+		# Next to leftclick bottom (dud)
+		ratbagctl $mousedevicename button 6 action set button 11
+		# Next to leftclick top (dud)
+		ratbagctl $mousedevicename button 7 action set button 11
+		# Below scrollwheel (dud)
+		ratbagctl $mousedevicename button 8 action set button 11
+		# Wheel right
+		ratbagctl $mousedevicename button 9 action set special wheel-right
+		# Wheel left
+		ratbagctl $mousedevicename button 10 action set special wheel-left
+	end
+end
+
+echo "Finished!"
