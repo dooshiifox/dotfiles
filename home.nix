@@ -84,6 +84,7 @@
     autojump # `cd` but better
     bat # `cat` but better
     ripgrep # `grep` but better
+    eza # `ls` but better
     curl # Transferring files
     neofetch # Info about your system
     thefuck # Corrects previous commands (i.e. you forgot `sudo`)
