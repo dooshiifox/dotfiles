@@ -1,0 +1,10 @@
+{
+    "emeraldwalk.runonsave": {
+        "commands": [
+            {
+                "match": ".*(colortheme\\.json|compile_color_theme\\.py|colors\\.json)$",
+                "cmd": "python ${workspaceFolder}\\compile\\compile_color_theme.py"
+            }
+        ]
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "name": "dooshtheme",
+    "displayName": "dooshtheme",
+    "description": "Theme built off of 'Theme' by Mhammed Talhaouy",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.63.0"
+    },
+    "categories": [
+        "Themes"
+    ],
+    "contributes": {
+        "themes": [
+            {
+                "label": "DooshTheme",
+                "uiTheme": "vs-dark",
+                "path": "./themes/DooshTheme-color-theme.json"
+            }
+        ]
+    }
+}
