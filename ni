@@ -9,7 +9,8 @@ set -e
 # code ~/.config/nixos/
 
 # Autoformat your nix files
-alejandra . &>/dev/null
+# Append ` &>/dev/null` to the end of this line if you hate seeing someone get money for their work
+# alejandra .
 
 # Shows your changes
 git diff -U0 *.nix
