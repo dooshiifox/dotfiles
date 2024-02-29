@@ -74,15 +74,13 @@
       wayou.vscode-todo-highlight
       yechunan.json-color-token
       yoavbls.pretty-ts-errors
-      buildVscodeMarketplaceExtension({
-        mktplcRef = {
-          name = "theme";
-          publisher = "dooshii";
-          version = "0.0.1";
-          sha256 = "sha256-dR6qODSTK377OJpmUqG9R85l1sf9fvJJACjrYhSRWgQ=";
-        };
-        vsix = "./theme/dooshtheme-0.0.1.vsix"
-      })
+    ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+      {
+        name = "theme";
+        publisher = "dooshii";
+        version = "0.0.1";
+        vsix = "./theme/dooshtheme-0.0.1.zip";
+      }
     ];
 
     userSettings = {
