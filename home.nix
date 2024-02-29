@@ -66,7 +66,6 @@
 
     # Git
     gitg # Visual git viewer
-    gh # Github cli
 
     # Misc
     docker # Containerization
@@ -75,16 +74,11 @@
     ################
     # Terminal
     ################
-    fish # A better shell
-
-    # Commands
     autojump # `cd` but better
     bat # `cat` but better
-    ripgrep # `grep` but better
     eza # `ls` but better
     curl # Transferring files
     neofetch # Info about your system
-    thefuck # Corrects previous commands (i.e. you forgot `sudo`)
     tokei # Count lines of code
     websocat # Connect to websockets for development
     wmctrl # Interact with X window managers
@@ -107,9 +101,7 @@
     mpd # Music player daemon
     mpd-mpris # Implements MPRIS for MPD (MPRIS is a standardised protocal)
     ymuse # MPD front-end
-    obs-studio # Record your desktop
     obsidian # Markdown editor
-    mpv # Video & audio player
     vlc # Video & audio player
 
     # Piracy

@@ -570,5 +570,6 @@
       }
     ];
   };
+  
   xdg.mimeApps.defaultApplications."text/plain" = "code.desktop";
 }
