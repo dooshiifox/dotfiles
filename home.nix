@@ -108,11 +108,17 @@
     ffmpeg # Command-line audio & video manipulation
     helvum # Pipe audio and connect up inputs and outputs
     playerctl # Interact with MPRIS-compatible programs from the command line
-    mpc-cli # Interact with MPD from the command line
-    ymuse # MPD front-end
     obsidian # Markdown editor
     vlc # Video & audio player
     pamixer # Pulseaudio cli mixer
+
+    # FIXME: `mpd` and `mpd-mpris` are also provided as home-manager services,
+    # however I couldn't get them to read my stickers or persistently keep
+    # their state.
+    mpd # Music Player Daemon
+    mpd-mpris # Implement MPRIS protocal for MPD
+    ymuse # MPD front-end
+    mpc-cli # Interact with MPD from the command line
 
     # Piracy
     qbittorrent # Torrent downloader
