@@ -5,8 +5,8 @@ with lib.hm.gvariant; {
     settings = {
       "org/gnome/desktop/interface".color-scheme = "prefer-dark";
       "org/gnome/desktop/wm/preferences" = {
-        num-workspaces = "10";
-        resize-with-right-button = "true";
+        num-workspaces = 10;
+        resize-with-right-button = true;
       };
 
       "org/gnome/shell" = {
@@ -135,7 +135,7 @@ with lib.hm.gvariant; {
       };
 
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-        binding = "<Ctrl><Alt>t";
+        binding = "<Super>t";
         command = "alacritty";
         name = "Open terminal";
       };
