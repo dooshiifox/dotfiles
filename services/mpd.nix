@@ -4,6 +4,6 @@
   services.mpd = {
     enable = true;
 
-    dataDir = ./mpd;
+    # dataDir = ./mpd;
   };
 }
