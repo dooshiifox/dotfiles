@@ -29,11 +29,11 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
   nixpkgs.config.permittedInsecurePackages = [
     "electron-25.9.0"
+    "freeimage-unstable-2021-11-01"
   ];
 
   nixpkgs.overlays = [
     inputs.nix-vscode-extensions.overlays.default
-    inputs.ow-mod-man.overlays.default
   ];
 
   # https://support.system76.com/articles/system76-software/#nixos

@@ -135,8 +135,8 @@
     wine # Window compatibility
     winetricks # Wine helpers
     # TODO: fix
-    # inputs.ow-mod-man.packages.x86_64-linux.owmods-gui
-    # inputs.ow-mod-man.packages.x86_64-linux.owmods-cli
+    inputs.ow-mod-man.packages.x86_64-linux.owmods-gui
+    inputs.ow-mod-man.packages.x86_64-linux.owmods-cli
   ];
 
   dconf = {
