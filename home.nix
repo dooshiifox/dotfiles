@@ -101,6 +101,7 @@
     ymuse # MPD front-end
     obsidian # Markdown editor
     vlc # Video & audio player
+    pamixer # Pulseaudio cli mixer
 
     # Piracy
     qbittorrent # Torrent downloader
