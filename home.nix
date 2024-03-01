@@ -142,6 +142,7 @@
   dconf = {
     enable = true;
     settings."org/gnome/desktop/wm.preferences".resize-with-right-button = "true";
+    settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
   };
 
   # This value determines the home Manager release that your
