@@ -1,7 +1,6 @@
 #!/usr/bin/env fish
 
 if [ (count $argv) = 0 ]
-	set headphones
 	set keyboard
 	set ffcp
 	set mouse
@@ -9,8 +8,6 @@ end
 
 for option in $argv
 	switch "$option"
-		case -h --headphone
-			set headphones
 		case -k --keyboard
 			set keyboard
 			set sudo
@@ -19,6 +16,7 @@ for option in $argv
 		case -mk -km
 			set keyboard
 			set mouse
+			set sudo
 		case --ffcp
 			set ffcp
 		case \*
@@ -38,12 +36,6 @@ else
 	echo "Starting initialisation script..."
 end
 
-if set -q headphones
-	# Connect to headphones
-	echo "Connecting to headphones..."
-	bluetoothctl connect 00:16:94:3F:3D:45
-end
-
 if set -q keyboard
 	g213-led --list-keyboards | read keyboard
 	# Check keyboard plugged in
@@ -59,7 +51,7 @@ if set -q keyboard
 end
 
 if set -q ffcp
-	./init-force-full-composition-pipeline
+	$NIX_CONFIG/scripts/system/init-force-full-composition-pipeline
 end
 
 if set -q mouse
