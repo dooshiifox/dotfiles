@@ -8,4 +8,4 @@ windows=$(eww list-windows)
 [[ $windows == *"*power-overlay"* ]] && eww close power-overlay
 [[ $windows == *"*notifications-overlay"* ]] && eww close notifications-overlay
 
-[[ $windows != *"*$1"* ]] && eww open $1 --screen 0
+[[ $windows != *"*$1"* ]] && eww open $1

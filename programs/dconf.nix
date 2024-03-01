@@ -1,4 +1,5 @@
-{lib, ...}: with lib.hm.gvariant; {
+{lib, ...}:
+with lib.hm.gvariant; {
   dconf = {
     enable = true;
     settings = {
