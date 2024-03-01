@@ -33,6 +33,7 @@
 
   nixpkgs.overlays = [
     inputs.nix-vscode-extensions.overlays.default
+    inputs.ow-mod-man.overlays.default
   ];
 
   # https://support.system76.com/articles/system76-software/#nixos

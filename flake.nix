@@ -13,10 +13,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
-    # ow-mod-man = {
-    #   url = "github:ow-mods/ow-mod-man";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    ow-mod-man = {
+      url = "github:ow-mods/ow-mod-man";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
