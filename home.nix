@@ -43,6 +43,7 @@
     gnomeExtensions.color-picker # Color picker
     gnomeExtensions.unite
     gettext # Compiling hide-top-bar
+    glib # ^^^
 
     # Social
     telegram-desktop # Telegram client
