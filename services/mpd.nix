@@ -7,34 +7,42 @@
 
   mpdmprisPkg = pkgs.mpd-mpris;
 in {
+  # DONT FALL FOR THEIR LIES!!
+  # This follows the HOME MANAGER way of doing things, not the NIXOS way
+  # as described in the manual https://nixos.org/manual/nixos/stable/options.html#opt-systemd.services._name_
   systemd.user.services.mpd = {
-    enable = true;
-    description = "Music Player Daemon";
+    Unit = {
+      Description = "Music Player Daemon";
+      After = ["network.target" "sound.target"];
+    };
 
-    after = ["network.target" "sound.target"];
-    wantedBy = ["default.target"];
+    Install = {
+      WantedBy = ["default.target"];
+    };
 
-    environment = "PATH=${config.home.profileDirectory}/bin";
-
-    script = "${mpdPkg}/bin/mpd --no-daemon";
-    serviceConfig = {
+    Service = {
+      ExecStart = "${mpdPkg}/bin/mpd --no-daemon";
+      Environment = "PATH=${config.home.profileDirectory}/bin";
       Type = "notify";
     };
   };
 
   systemd.user.services.mpd-mpris = {
-    enable = true;
-    description = "mpd-mpris: An implementation of the MPRIS protocol for MPD";
+    Unit = {
+      Description = "mpd-mpris: An implementation of the MPRIS protocol for MPD";
+      After = ["network.target" "sound.target"];
+      Requires = ["mpd.service"];
+    };
 
-    after = ["mpd.service"];
-    requires = ["mpd.service"];
-    wantedBy = ["default.target"];
+    Install = {
+      WantedBy = ["default.target"];
+    };
 
-    script = "${mpdmprisPkg}/bin/mpd-mpris -no-instance";
-    serviceConfig = {
+    Service = {
       Type = "simple";
       Restart = "on-failure";
       RestartSec = "5s";
+      ExecStart = "${mpdmprisPkg}/bin/mpd-mpris -no-instance";
     };
   };
 }
