@@ -1,70 +1,72 @@
 #!/usr/bin/env python3
 
-import json
-import gi
+# import json
+# import gi
 
-gi.require_version("Wnck", "3.0")
-from gi.repository import Wnck, GLib
-from ..music.utils import cmd
+# TODO: Fix this system
 
-
-def onchange(screen, _):
-    # Get every window and create a set of all workspace numbers in use
-    windows = screen.get_windows()
-    active_workspace = screen.get_active_workspace().get_number()
-    active_window = screen.get_active_window()
-
-    active_window_title = ""
-    active_window_icon = ""
-    active_window_class = ""
-    if active_window is not None:
-        active_window_title = active_window.get_name()
-        active_window_class = active_window.get_class_group_name()
-        active_window_icon = cmd(
-            f'geticons "{active_window_class}" -s 24 -c 1 | head -n 1'
-        )
-
-    used_workspaces = set()
-    for window in windows:
-        workspace = window.get_workspace()
-        if workspace is None:
-            # Something like an `eww` bar
-            continue
-
-        used_workspaces.add(workspace.get_number())
-
-    print(
-        json.dumps(
-            {
-                "app": {
-                    "title": active_window_title,
-                    "icon": active_window_icon,
-                    "class": active_window_class,
-                },
-                "workspaces": [
-                    [
-                        {"id": (i + 1) % 10, "open": i in used_workspaces}
-                        for i in range(0, active_workspace)
-                    ],
-                    (active_workspace + 1) % 10,
-                    [
-                        {"id": (i + 1) % 10, "open": i in used_workspaces}
-                        for i in range(active_workspace + 1, 10)
-                    ],
-                ],
-            }
-        ),
-        flush=True,
-    )
+# gi.require_version("Wnck", "3.0")
+# from gi.repository import Wnck, GLib
+# from ..music.utils import cmd
 
 
-if __name__ == "__main__":
-    # Initialize Wnck and the main loop
-    screen = Wnck.Screen.get_default()
-    screen.connect("active-window-changed", onchange)
-    screen.connect("active-workspace-changed", onchange)
+# def onchange(screen, _):
+#     # Get every window and create a set of all workspace numbers in use
+#     windows = screen.get_windows()
+#     active_workspace = screen.get_active_workspace().get_number()
+#     active_window = screen.get_active_window()
 
-    try:
-        GLib.MainLoop().run()
-    except KeyboardInterrupt:
-        pass
+#     active_window_title = ""
+#     active_window_icon = ""
+#     active_window_class = ""
+#     if active_window is not None:
+#         active_window_title = active_window.get_name()
+#         active_window_class = active_window.get_class_group_name()
+#         active_window_icon = cmd(
+#             f'geticons "{active_window_class}" -s 24 -c 1 | head -n 1'
+#         )
+
+#     used_workspaces = set()
+#     for window in windows:
+#         workspace = window.get_workspace()
+#         if workspace is None:
+#             # Something like an `eww` bar
+#             continue
+
+#         used_workspaces.add(workspace.get_number())
+
+#     print(
+#         json.dumps(
+#             {
+#                 "app": {
+#                     "title": active_window_title,
+#                     "icon": active_window_icon,
+#                     "class": active_window_class,
+#                 },
+#                 "workspaces": [
+#                     [
+#                         {"id": (i + 1) % 10, "open": i in used_workspaces}
+#                         for i in range(0, active_workspace)
+#                     ],
+#                     (active_workspace + 1) % 10,
+#                     [
+#                         {"id": (i + 1) % 10, "open": i in used_workspaces}
+#                         for i in range(active_workspace + 1, 10)
+#                     ],
+#                 ],
+#             }
+#         ),
+#         flush=True,
+#     )
+
+
+# if __name__ == "__main__":
+#     # Initialize Wnck and the main loop
+#     screen = Wnck.Screen.get_default()
+#     screen.connect("active-window-changed", onchange)
+#     screen.connect("active-workspace-changed", onchange)
+
+#     try:
+#         GLib.MainLoop().run()
+#     except KeyboardInterrupt:
+#         pass

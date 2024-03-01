@@ -31,7 +31,6 @@
     gnomeExtensions.pano
     gnomeExtensions.hide-top-bar
     megasync # Backups
-    libwnck2
 
     # Social
     telegram-desktop # Telegram client
@@ -63,6 +62,7 @@
         with ps; [
           pygobject3
           colorthief
+          mpd2
         ]))
 
     # C/C++
