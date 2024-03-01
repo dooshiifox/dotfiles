@@ -31,7 +31,7 @@
     gnomeExtensions.pano
     gnomeExtensions.hide-top-bar
     megasync # Backups
-    libwnck
+    libwnck2
 
     # Social
     telegram-desktop # Telegram client
