@@ -4,6 +4,7 @@
     ./alacritty.nix
     ./autojump.nix
     ./bat.nix
+    ./dconf.nix
     ./eww.nix
     ./eza.nix
     ./firefox.nix
