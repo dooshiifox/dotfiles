@@ -17,7 +17,8 @@ in {
     };
 
     Service = {
-      ExecStart = "${pkg}/bin/eww daemon && eww open bar";
+      # Auto-starts the daemon
+      ExecStart = "${pkg}/bin/eww open bar";
       ExecStop = "${pkg}/bin/eww kill";
       Type = "oneshot";
       RemainAfterExit = true;
