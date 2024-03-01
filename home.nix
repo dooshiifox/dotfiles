@@ -32,6 +32,7 @@
     gnomeExtensions.hide-top-bar # Remove stinky top bar eww
     gnomeExtensions.gsconnect # KDE Connect for Gnome. Connect to your phone!
     gnomeExtensions.color-picker # Color picker
+    gnomeExtensions.unite
     megasync # Backups
 
     # Social
