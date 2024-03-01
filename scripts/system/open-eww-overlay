@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-windows=$(eww windows)
+windows=$(eww list-windows)
 [[ $windows == *"*music-overlay"* ]] && eww close music-overlay
 [[ $windows == *"*audio-overlay"* ]] && eww close audio-overlay
 [[ $windows == *"*wifi-overlay"* ]] && eww close wifi-overlay

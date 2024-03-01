@@ -115,6 +115,8 @@
     # FIXME: `mpd` and `mpd-mpris` are also provided as home-manager services,
     # however I couldn't get them to read my stickers or persistently keep
     # their state.
+    # However, I did create home-manager systemd services for them in
+    # `./services/mpd.nix`
     mpd # Music Player Daemon
     mpd-mpris # Implement MPRIS protocal for MPD
     ymuse # MPD front-end
@@ -138,12 +140,6 @@
     inputs.ow-mod-man.packages.x86_64-linux.owmods-gui
     inputs.ow-mod-man.packages.x86_64-linux.owmods-cli
   ];
-
-  dconf = {
-    enable = true;
-    settings."org/gnome/desktop/wm.preferences".resize-with-right-button = "true";
-    settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
-  };
 
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
