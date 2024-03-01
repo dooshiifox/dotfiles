@@ -7,7 +7,7 @@
       "," = "clear";
       "cat" = "bat $argv";
       "celeste" = "ulimit -n 8192 && /home/dooshii/Documents/Games/Celeste/Celeste";
-      "ewwr" = "eww kill && ewwm 0 && eww daemon & disown $1 && eww open bar";
+      "ewwr" = "eww kill && eww daemon & disown $1 && eww open bar";
       "i" = "${PROJECT_ROOT}/scripts/init.fish $argv";
       "jk" = "cd ..";
       "jkk" = "cd ../..";
