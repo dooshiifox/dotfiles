@@ -10,11 +10,11 @@
 ; "scripts/workspace")
 (deflisten workspace
   :initial "{\"app\":{\"title\":\"\",\"icon\":\"\"},\"workspaces\":[[],1,[{\"id\":2,\"open\":false},{\"id\":3,\"open\":false},{\"id\":4,\"open\":false},{\"id\":5,\"open\":false},{\"id\":6,\"open\":false},{\"id\":7,\"open\":false},{\"id\":8,\"open\":false},{\"id\":9,\"open\":false},{\"id\":0,\"open\":false}]]}"
-  "~/nixos/scripts/system/workspace"
+  "$NIX_CONFIG/scripts/system/workspace"
 )
 (deflisten music
   :initial "{\"artist\":\"...\",\"album\":\"...\",\"title\":\"...\",\"duration\":0.0,\"duration_str\":\"0:00\",\"status\":\"stopped\",\"shuffle\":false,\"loop\":\"None\"}"
-  "~/nixos/scripts/music/data"
+  "$NIX_CONFIG/scripts/music/data"
 )
 (deflisten music-volume
   :initial "0"
@@ -26,15 +26,15 @@
 )
 (deflisten music-cover
   :initial "{\"cols\":[\"#CDB1F8\", \"#A2BBF6\"],\"file\":\"\"}"
-  "~/nixos/scripts/music/cover"
+  "$NIX_CONFIG/scripts/music/cover"
 )
 (deflisten music-rating
   :initial "{\"rating\":0,\"base_bias\":1}"
-  "~/nixos/scripts/music/rating"
+  "$NIX_CONFIG/scripts/music/rating"
 )
 ; (deflisten appname
   ;   :initial "{\"title\":\"\",\"icon\":\"\"}"
-  ;   "~/nixos/appname"
+  ;   "$NIX_CONFIG/appname"
 ; )
 (defpoll datetime
   :initial "{\"wday\":\"...\",\"yrnum\":1970,\"monum\":1,\"mo\":\"...\",\"day\":\"...\",\"daynum\":1,\"hr\":\"...\",\"min\":\"...\",\"sec\":\"...\"}"
@@ -54,32 +54,32 @@
 (defpoll weeks
   :interval "999999999999s"
   :initial "[[1,1,1,1,1,1,1],[1,1,1,1,1,1,1],[1,1,1,1,1,1,1],[1,1,1,1,1,1,1],[1,1,1,1,1,1,1],[1,1,1,1,1,1,1]]"
-  `~/nixos/scripts/system/calendar current`
+  `$NIX_CONFIG/scripts/system/calendar current`
 )
 (defpoll weather_info
   :interval "15m"
   :initial "{\"temp\":\"??\",\"feels_like\":\"??\",\"high\":\"??\",\"low\":\"??\",\"sunrise\":\"\",\"sunset\":\"\",\"desc\":\"...\",\"city\":\"...\",\"icon\":\"?\",\"icon_code\":\"\",\"hex\":\"#adadff\",\"quote_1\":\"Loading in!!!\",\"quote_2\":\"Just wait a moment...\"} "
-  `~/nixos/scripts/local/weather`
+  `$NIX_CONFIG/scripts/local/weather`
 )
 (defpoll battery
   :initial "{\"level\":0,\"perc\":\"0\",\"time\":\"-\",\"charging\":\"n\"}"
   :interval "1s"
-  "~/nixos/scripts/system/battery"
+  "$NIX_CONFIG/scripts/system/battery"
 )
 (defpoll volume
   :initial "{\"level\":0,\"perc\":\"0\",\"mute\":true}"
   :interval "1s"
-  "~/nixos/scripts/system/volume"
+  "$NIX_CONFIG/scripts/system/volume"
 )
 (defpoll wifi
   :initial "{\"online\":false}"
   :interval "15s"
-  "~/nixos/scripts/system/wifi"
+  "$NIX_CONFIG/scripts/system/wifi"
 )
 (defpoll brightness
   :initial "{\"perc\":0,\"level\":0}"
   :interval "1s"
-  "~/nixos/scripts/system/brightness --get"
+  "$NIX_CONFIG/scripts/system/brightness --get"
 )
 (defvar mails '[]')
 (defvar mail-loading false)
@@ -149,19 +149,19 @@
           (label :text "x")
         )
         (for entry in {workspace.workspaces[0]}
-          (button :onclick "~/nixos/scripts/system/workspace_move ${entry.id}" :class "ws-btn ws${entry.id} ws-${entry.open ? 'occupied' : ''}" {entry.id})
+          (button :onclick "$NIX_CONFIG/scripts/system/workspace_move ${entry.id}" :class "ws-btn ws${entry.id} ws-${entry.open ? 'occupied' : ''}" {entry.id})
         )
       )
     )
     (button
-      :onclick {ws-open && ws-priority ? "~/nixos/scripts/system/workspace_move ${workspace.workspaces[1]}" : "${EWW_CMD} update ws-open=true; ${EWW_CMD} update ws-priority=true"}
+      :onclick {ws-open && ws-priority ? "$NIX_CONFIG/scripts/system/workspace_move ${workspace.workspaces[1]}" : "${EWW_CMD} update ws-open=true; ${EWW_CMD} update ws-priority=true"}
       :class "ws-btn ws${workspace.workspaces[1]} ws-focus"
       "${workspace.workspaces[1]}"
     )
     (revealer :transition "slideright" :duration "0.2s" :reveal {ws-open && ws-priority}
       (box :orientation "h" :space-evenly "false"
         (for entry in {workspace.workspaces[2]}
-          (button :onclick "~/nixos/scripts/system/workspace_move ${entry.id}" :class "ws-btn ws${entry.id} ws-${entry.open ? 'occupied' : ''}" {entry.id})
+          (button :onclick "$NIX_CONFIG/scripts/system/workspace_move ${entry.id}" :class "ws-btn ws${entry.id} ws-${entry.open ? 'occupied' : ''}" {entry.id})
         )
       )
     )
@@ -204,7 +204,7 @@
     (button
       :class "music-box rounded-xl animate-bg hover:bg-white|40 p-0.5"
       :valign "center"
-      :onclick ".~/nixos/scripts/system/open-eww-overlay music-overlay"
+      :onclick ".$NIX_CONFIG/scripts/system/open-eww-overlay music-overlay"
       :onmiddleclick "playerctl -p \"$(playerctl -l | grep \"mpd.instance\" | head -n 1)\" play-pause"
       :onrightclick "playerctl -p \"$(playerctl -l | grep \"mpd.instance\" | head -n 1)\" play-pause"
       (box :class "music-inner"
@@ -269,7 +269,7 @@
 (defwidget volume []
   (button
     :class "animate-bg hover:bg-white|20 px-2 rounded-md"
-    :onclick "~/nixos/scripts/system/open-eww-overlay audio-overlay"
+    :onclick "$NIX_CONFIG/scripts/system/open-eww-overlay audio-overlay"
     :onrightclick "${EWW_CMD} update volume-shows=${volume-shows == 0 ? 1 : 0}"
     :onmiddleclick "${EWW_CMD} update volume-shows=${volume-shows == 0 ? 1 : 0}"
     (box :class {volume.mute ? "text-gray-600" : "text-gray-300"} :orientation "h" :space-evenly false
@@ -283,7 +283,7 @@
   )
 )
 (defwidget wifi []
-  (button :class "animate-bg hover:bg-white|20 px-2 rounded-md" :onclick "~/nixos/scripts/system/open-eww-overlay wifi-overlay"
+  (button :class "animate-bg hover:bg-white|20 px-2 rounded-md" :onclick "$NIX_CONFIG/scripts/system/open-eww-overlay wifi-overlay"
     (box :class "${wifi.online ? 'text-gray-300' : 'text-gray-600'} font-icon" :orientation "h" :space-evenly false
       (label :text "")
     )
@@ -292,7 +292,7 @@
 (defwidget brightness []
   (button
     :class "animate-bg hover:bg-white|20 px-2 rounded-md"
-    :onclick "~/nixos/scripts/system/open-eww-overlay brightness-overlay"
+    :onclick "$NIX_CONFIG/scripts/system/open-eww-overlay brightness-overlay"
     :onrightclick "${EWW_CMD} update bright-shows=${bright-shows == 0 ? 1 : 0}"
     :onmiddleclick "${EWW_CMD} update bright-shows=${bright-shows == 0 ? 1 : 0}"
     (box :class "text-gray-300" :orientation "h" :space-evenly false
@@ -323,12 +323,12 @@
   )
 )
 (defwidget power []
-  (button :class "power" :onclick "~/nixos/scripts/system/open-eww-overlay power-overlay"
+  (button :class "power" :onclick "$NIX_CONFIG/scripts/system/open-eww-overlay power-overlay"
     (label :class "font-icon" :text "")
   )
 )
 (defwidget arch []
-  (button :class "arch" :onclick "~/nixos/scripts/system/open-eww-overlay notifications-overlay"
+  (button :class "arch" :onclick "$NIX_CONFIG/scripts/system/open-eww-overlay notifications-overlay"
     (label :class "font-icon" :text "")
   )
 )

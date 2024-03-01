@@ -2,8 +2,6 @@
 
 My system uses NixOS. This configuration assumes:
 
--   These dotfiles are placed at `~/nixos/`
-    -   Currently, only the `eww` scripts rely on this.
 -   You've symlinked `flake.lock` and `flake.nix` inside `/etc/nixos/`
 -   You've copied `programs/vscode/theme` to `~/.vscode/extensions/`
 -   You've set up your mail config in `scripts/local/mailsconf.py`

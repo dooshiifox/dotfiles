@@ -27,7 +27,7 @@
       (button
         :width 24
         :class "font-medium text-gray-300 animate-bg hover:bg-white|20 rounded-md"
-        :onclick "~/nixos/scripts/system/brightness --set 100 && ${EWW_CMD} update brightness=$(~/nixos/scripts/system/brightness --get)"
+        :onclick "$NIX_CONFIG/scripts/system/brightness --set 100 && ${EWW_CMD} update brightness=$($NIX_CONFIG/scripts/system/brightness --get)"
         {["󰃞", "󰃟", "󰃠"][brightness.level]}
       )
       (scale :value {brightness.perc ?: 0}
@@ -37,7 +37,7 @@
         :height 4
         :style "border-radius: 2px;"
         :orientation "h"
-        :onchange "~/nixos/scripts/system/brightness --set {} && ${EWW_CMD} update brightness=$(~/nixos/scripts/system/brightness --get)"
+        :onchange "$NIX_CONFIG/scripts/system/brightness --set {} && ${EWW_CMD} update brightness=$($NIX_CONFIG/scripts/system/brightness --get)"
         :class "active-slider"
       )
       (label

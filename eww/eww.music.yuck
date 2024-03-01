@@ -47,7 +47,7 @@
             :style "border-radius: 2px;"
             :orientation "h"
             :timeout "5s"
-            :onchange "~/nixos/scripts/music/music-pos {}"
+            :onchange "$NIX_CONFIG/scripts/music/music-pos {}"
             :class "music-slider"
           )
           (box :orientation "h" :space-evenly false :class "text-white|60 mt-1 font-mono"
