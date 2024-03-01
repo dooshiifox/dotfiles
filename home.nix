@@ -56,6 +56,7 @@
 
     # Python
     python3
+    python311Packages.pygobject3 # Access to `gi`
 
     # C/C++
     cmake # Makefile support
@@ -82,6 +83,7 @@
     websocat # Connect to websockets for development
     wmctrl # Interact with X window managers
     bc # Arbitrary precision math
+    jq # JSON processor
 
     ################
     # Media

@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/usr/bin/env bash
 
 PASSWORD=$(nmcli dev wifi show-password | awk '/Password/ {print $2}')
 NETWORKS=$(printf '%s' "$(nmcli -f ssid,rate,signal,bars,security,in-use -t dev wifi)" | jq -scR '
