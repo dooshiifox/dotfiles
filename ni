@@ -10,7 +10,7 @@ set -e
 
 # Autoformat your nix files
 # Append ` &>/dev/null` to the end of this line if you hate seeing someone get money for their work
-# alejandra .
+alejandra .
 
 # Shows your changes
 git diff -U0 *.nix

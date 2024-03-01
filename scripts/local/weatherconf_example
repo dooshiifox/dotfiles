@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-# Weather data
-KEY="" # Your openweathermap API key. See https://home.openweathermap.org/users/sign_in
-ID=""    # City ID. See http://bulk.openweathermap.org/sample/
-UNIT=""	# Available options : 'metric' or 'imperial'
+# Your openweathermap API key. See https://home.openweathermap.org/users/sign_in
+KEY=""
+# City ID. See http://bulk.openweathermap.org/sample/
+ID=""
+# Available options : 'metric' or 'imperial'
+UNIT=""
