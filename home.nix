@@ -56,7 +56,7 @@
 
     # Python
     python3
-    python311Packages.pygobject3 # Access to `gi`
+    python311Packages.pip
 
     # C/C++
     cmake # Makefile support
