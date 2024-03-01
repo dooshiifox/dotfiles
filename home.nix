@@ -2,6 +2,7 @@
   config,
   pkgs,
   inputs,
+  PROJECT_ROOT,
   ...
 }: {
   imports = [
@@ -10,6 +11,12 @@
 
   home.username = "dooshii";
   home.homeDirectory = "/home/dooshii";
+
+  home.sessionVariables = {
+    BROWSER = "firefox-developer-edition";
+    EDITOR = "code";
+    NIXOS = PROJECT_ROOT;
+  };
 
   home.packages = with pkgs; [
     ################

@@ -19,8 +19,6 @@
     "x-scheme-handler/https"
   ];
 in {
-  home.sessionVariables.BROWSER = "firefox-developer-edition";
-
   xdg.mimeApps.defaultApplications = builtins.listToAttrs (map (mimeType: {
       name = mimeType;
       value = ["firefox-developer-edition.desktop"];

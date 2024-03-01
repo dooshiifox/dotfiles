@@ -31,11 +31,6 @@
     "electron-25.9.0"
   ];
 
-  # Env
-  environment.variables = {
-    EDITOR = "code";
-  };
-
   nixpkgs.overlays = [
     inputs.nix-vscode-extensions.overlays.default
   ];
