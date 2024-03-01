@@ -81,6 +81,7 @@
     tokei # Count lines of code
     websocat # Connect to websockets for development
     wmctrl # Interact with X window managers
+    bc # Arbitrary precision math
 
     ################
     # Media
