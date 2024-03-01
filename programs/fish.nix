@@ -8,7 +8,7 @@
       "cat" = "bat";
       "celeste" = "ulimit -n 8192 && /home/dooshii/Documents/Games/Celeste/Celeste";
       "ewwr" = "eww kill && eww daemon & disown $1 && eww open bar";
-      "i" = "${PROJECT_ROOT}/scripts/init.fish";
+      "i" = "${PROJECT_ROOT}/scripts/system/init";
       "jk" = "cd ..";
       "jkk" = "cd ../..";
       "jkkk" = "cd ../../..";
