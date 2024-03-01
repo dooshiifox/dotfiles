@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  config,
+  ...
+}: let
   mpdPkg = pkgs.mpd;
 
   mpdmprisPkg = pkgs.mpd-mpris;
