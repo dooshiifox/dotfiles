@@ -1,4 +1,8 @@
-{lib, ...}:
+{
+  lib,
+  PROJECT_ROOT,
+  ...
+}:
 with lib.hm.gvariant; {
   dconf = {
     enable = true;
@@ -141,7 +145,7 @@ with lib.hm.gvariant; {
       };
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
         binding = "<Super>m";
-        command = "$NIX_CONFIG/scripts/system/open-eww-overlay music-overlay";
+        command = "${PROJECT_ROOT}/scripts/system/open-eww-overlay music-overlay";
         name = "Toggle EWW music overlay";
       };
     };
