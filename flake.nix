@@ -28,7 +28,10 @@
     nixosConfigurations.dooshii = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       # Enable accessing `inputs` in config files
-      specialArgs = {inherit inputs; "PROJECT_ROOT" = builtins.toString ./.; };
+      specialArgs = {
+        inherit inputs;
+        "PROJECT_ROOT" = builtins.toString ./.;
+      };
       modules = [
         # Import the previous configuration.nix we used,
         # so the old configuration file still takes effect

@@ -3,10 +3,11 @@
   pkgs,
   inputs,
   ...
-}: let mimeTypes = [
-  "application/json"
-  "text/plain"
-];
+}: let
+  mimeTypes = [
+    "application/json"
+    "text/plain"
+  ];
 in {
   programs.vscode = {
     enable = true;
@@ -571,10 +572,10 @@ in {
       }
     ];
   };
-  
+
   xdg.mimeApps.defaultApplications = builtins.listToAttrs (map (mimeType: {
-    name = mimeType;
-    value = ["code.desktop"];
-  })
-  mimeTypes);
+      name = mimeType;
+      value = ["code.desktop"];
+    })
+    mimeTypes);
 }

@@ -1,6 +1,6 @@
 # A better terminal
 # https://github.com/nix-community/home-manager/blob/master/modules/programs/fish.nix
-{ PROJECT_ROOT, ... }:  {
+{PROJECT_ROOT, ...}: {
   programs.fish = {
     enable = true;
     shellAliases = {
@@ -24,11 +24,11 @@
     };
     functions = {
       mkcd = {
-        body = "mkdir -p $argv; cd $argv;"; 
+        body = "mkdir -p $argv; cd $argv;";
       };
       fish_greeting = {
         # Echo whatever you want here
-        body = ""; 
+        body = "";
       };
     };
   };
