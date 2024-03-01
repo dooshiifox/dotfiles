@@ -22,11 +22,6 @@
     gnomeExtensions.pano
     gnomeExtensions.hide-top-bar
     megasync # Backups
-    eww # Custom bar at top of screen
-
-    # Web browser
-    firefox # Web browser
-    firefox-devedition-bin # Web browser with added developer
 
     # Social
     telegram-desktop # Telegram client
@@ -74,9 +69,6 @@
     ################
     # Terminal
     ################
-    autojump # `cd` but better
-    bat # `cat` but better
-    eza # `ls` but better
     curl # Transferring files
     neofetch # Info about your system
     tokei # Count lines of code

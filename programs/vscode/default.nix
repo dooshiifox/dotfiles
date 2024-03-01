@@ -3,7 +3,11 @@
   pkgs,
   inputs,
   ...
-}: {
+}: let mimeTypes = [
+  "application/json"
+  "text/plain"
+];
+in {
   programs.vscode = {
     enable = true;
 
@@ -297,9 +301,6 @@
       "rust-analyzer.inlayHints.typeHints.hideNamedConstructor" = true;
       "rust-analyzer.inlayHints.lifetimeElisionHints.useParameterNames" = true;
       "rust-analyzer.inlayHints.bindingModeHints.enable" = true;
-      "yaml.schemas" = {
-        "file:///home/dooshii/.vscode/extensions/atlassian.atlascode-3.0.2/resources/schemas/pipelines-schema.json" = "bitbucket-pipelines.yml";
-      };
       "workbench.colorTheme" = "DooshTheme";
       "github.copilot.enable" = {
         "*" = true;
@@ -571,5 +572,9 @@
     ];
   };
   
-  xdg.mimeApps.defaultApplications."text/plain" = "code.desktop";
+  xdg.mimeApps.defaultApplications = builtins.listToAttrs (map (mimeType: {
+    name = mimeType;
+    value = ["code.desktop"];
+  })
+  mimeTypes);
 }

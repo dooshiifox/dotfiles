@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 s="$(nvidia-settings -q CurrentMetaMode -t)"
 
 if [[ "${s}" != "" ]]; then

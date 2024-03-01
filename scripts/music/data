@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+playerctl -p "$(playerctl -l | grep "mpd.instance" | head -n 1)" -F -f '{"artist":"{{ markup_escape(artist) }}","album":"{{ markup_escape(album) }}","title":"{{ markup_escape(title) }}","duration":{{ mpris:length / 1000000 }},"duration_str":"{{ duration(mpris:length) }}","status":"{{ lc(status) }}","shuffle":{{ shuffle }},"loop":"{{ loop }}" }' metadata | while read -r event; do
+    event=${event//&apos;/\'}
+    event=${event//&quot;/\\\"}
+    event=${event//&amp;/\&}
+    echo $event
+done

@@ -1,8 +1,13 @@
 {
   imports = [
-    ./fish
     ./vscode
     ./alacritty.nix
+    ./autojump.nix
+    ./bat.nix
+    ./eww.nix
+    ./eza.nix
+    ./firefox.nix
+    ./fish.nix
     ./gh.nix
     ./git.nix
     ./mpv.nix

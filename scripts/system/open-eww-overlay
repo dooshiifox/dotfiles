@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+windows=$(eww windows)
+[[ $windows == *"*music-overlay"* ]] && eww close music-overlay
+[[ $windows == *"*audio-overlay"* ]] && eww close audio-overlay
+[[ $windows == *"*wifi-overlay"* ]] && eww close wifi-overlay
+[[ $windows == *"*brightness-overlay"* ]] && eww close brightness-overlay
+[[ $windows == *"*power-overlay"* ]] && eww close power-overlay
+[[ $windows == *"*notifications-overlay"* ]] && eww close notifications-overlay
+
+[[ $windows != *"*$1"* ]] && eww open $1 --screen 0

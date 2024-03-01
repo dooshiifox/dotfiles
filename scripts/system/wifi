@@ -1,0 +1,29 @@
+#! /bin/bash
+
+PASSWORD=$(nmcli dev wifi show-password | awk '/Password/ {print $2}')
+NETWORKS=$(printf '%s' "$(nmcli -f ssid,rate,signal,bars,security,in-use -t dev wifi)" | jq -scR '
+    split("\n") |
+    map(split(":")) |
+    map({
+        "network": .[0],
+        "rate": .[1],
+        "signal": .[2],
+        "bars": .[3],
+        "security": .[4],
+        "inUse": (.[5] == "*")
+    }) |
+    map(select(.network != ""))'
+)
+ACTIVE_NETWORK=$(echo "$NETWORKS" | jq -cr "map(select(.inUse == true)) | .[0]")
+ACTIVE_NETWORK_NAME=$(echo "$ACTIVE_NETWORK" | jq -cr ".network")
+INACTIVE_NETWORK=$(echo "$NETWORKS" | jq -cr "map(select(.inUse == false)) | map(select(.network != \"$ACTIVE_NETWORK_NAME\")) | unique_by(.network)")
+
+echo -n "{\"password\":\"$PASSWORD\","
+echo -n "\"active\":$ACTIVE_NETWORK,\"inactive\":$INACTIVE_NETWORK,"
+
+if (ping -c 1 archlinux.org || ping -c 1 google.com || ping -c 1 bitbucket.org || ping -c 1 github.com || ping -c 1 sourceforge.net) &>/dev/null; then
+    echo -n '"online":true'
+else
+    echo -n '"online":false'
+fi
+echo "}"

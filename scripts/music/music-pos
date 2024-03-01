@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+ids=$(pgrep music-pos)
+for id in $ids; do
+    if [[ $id != $$ ]]; then
+        kill $id
+    fi
+done
+POSITION=$1
+STATUS=$(playerctl status)
+playerctl pause
+playerctl position 10000-
+sleep 0.1
+playerctl position ${POSITION}+
+if [[ $STATUS == "Playing" ]]; then
+    playerctl play
+fi

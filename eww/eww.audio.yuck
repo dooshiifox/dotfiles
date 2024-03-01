@@ -1,0 +1,104 @@
+(defwindow audio-overlay
+  :monitor 0
+  :geometry (geometry
+    ;; :x "360px"
+    :x "-360px"
+    ;; :y "0px"
+    :y "32px"
+    :width "164px"
+    :height "50px"
+  :anchor "top right")
+  :exclusive false
+  :focusable false
+  :stacking "overlay"
+  (box
+    :orientation "h"
+    :halign "center"
+    :valign "start"
+    :vexpand false
+    :hexpand false
+    (audio-overlay-widget)
+  )
+)
+
+(defpoll sinks
+  :interval "1s"
+  :initial "[]"
+  "~/nixos/scripts/system/sinks"
+)
+
+; Mute
+; Volume slider
+; Current sink
+; List all sinks
+
+(defwidget audio-overlay-widget []
+  (box :width 164 :class "mt-1 p-2 bg-gray-800 rounded-lg font-sans" :orientation "v" :space-evenly false :spacing 8
+    (box :orientation "v" :space-evenly false :spacing 8
+      (for sink in {sinks.active}
+        (box :orientation "v" :space-evenly false :spacing 4
+          (box :orientation "h" :space-evenly false :spacing 6
+            (label :xalign 0 :wrap true :class "text-white text-sm px-2 font-medium" :text {sink.desc})
+          )
+          (box :orientation "h" :space-evenly false :spacing 6
+            (button
+              :width 24
+              :class "font-medium ${sink.mute ? "text-gray-600" : "text-gray-300"} animate-bg hover:bg-white|20 rounded-md"
+              :onclick "pactl set-sink-mute ${sink.index} toggle && ${EWW_CMD} update volume=$(~/nixos/scripts/system/volume)"
+              {sink.mute ? "" : sink.perc < 30 ? "" : sink.perc < 60 ? "" : ""}
+            )
+            (scale :value {sink.perc ?: 0}
+              :min 0
+              :max {101}
+              :width 100
+              :height 4
+              :style "border-radius: 2px;"
+              :orientation "h"
+              :onchange "pactl set-sink-volume ${sink.index} {}% && ${EWW_CMD} update volume=$(~/nixos/scripts/system/volume)"
+              :class {sink.mute ? "inactive-slider" : "active-slider"}
+            )
+            (label
+              :width 28
+              :class "font-medium text-xs font-mono ${sink.mute ? "text-gray-600" : "text-gray-300"}"
+              :text "${sink.perc != 'null' ? (round(sink.perc, 0) < 10 ? "0${round(sink.perc, 0)}" : round(sink.perc, 0)) : '00'}%"
+            )
+          )
+        )
+      )
+    )
+    
+    (box :orientation "h" :space-evenly false :height 1 :class "bg-gray-700 my-1 mx-2")
+    
+    (box :orientation "v" :space-evenly false :spacing 8
+      (for sink in {sinks.inactive}
+        (box :orientation "v" :space-evenly false :spacing 4
+          (box :orientation "h" :space-evenly false :spacing 6
+            (label :xalign 0 :wrap true :class "text-gray-400 text-sm px-2" :text {sink.desc})
+          )
+          (box :orientation "h" :space-evenly false :spacing 6
+            (button
+              :width 24
+              :class "font-medium ${sink.mute ? "text-gray-600" : "text-gray-300"} animate-bg hover:bg-white|20 rounded-md"
+              :onclick "pactl set-sink-mute ${sink.index} toggle && ${EWW_CMD} update volume=$(~/nixos/scripts/system/volume) && ${EWW_CMD} update sinks=$(~/nixos/scripts/system/sinks)"
+              {sink.mute ? "" : sink.perc < 30 ? "" : sink.perc < 60 ? "" : ""}
+            )
+            (label
+              :width 28
+              :class "font-medium text-xs font-mono ${sink.mute ? "text-gray-600" : "text-gray-300"}"
+              :text "${sink.perc != 'null' ? (round(sink.perc, 0) < 10 ? "0${round(sink.perc, 0)}" : round(sink.perc, 0)) : '00'}%"
+            )
+            
+            (box :hexpand true)
+            
+            (button
+              :width 24
+              :class "font-medium text-gray-300 animate-bg hover:bg-white|20 rounded-md"
+              :onclick "pactl set-default-sink ${sink.index} && ${EWW_CMD} update volume=$(~/nixos/scripts/system/volume) && ${EWW_CMD} update sinks=$(~/nixos/scripts/system/sinks)"
+              ""
+            )
+          )
+        )
+      )
+    )
+  )
+)

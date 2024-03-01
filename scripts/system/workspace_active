@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+monitors=/tmp/hypr/monitors_temp
+hyprctl monitors > $monitors
+activemonitor=$(grep -B 7 "focused: yes" "$monitors" | awk 'NR==1 {print $2}')
+echo $(grep -A 3 "$activemonitor" "$monitors" | awk 'NR==4 {print $1}' RS='(' FS=')')

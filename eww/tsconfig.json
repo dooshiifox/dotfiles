@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "module": "esnext",
+        "baseUrl": ".",
+        "allowJs": true,
+        "esModuleInterop": true,
+        "lib": ["esnext", "DOM"],
+        "moduleResolution": "node",
+        "target": "esnext"
+    },
+    "include": ["miniwind.ts"]
+}

@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+VOLUME=$(pamixer --get-volume)
+MUTE=$(pamixer --get-mute)
+
+echo -n "{"
+if [[ ($VOLUME -lt 30) ]]; then
+	echo -n '"level":0'
+elif [[ ($VOLUME -lt 60) ]]; then
+	echo -n '"level":1'
+else
+	echo -n '"level":2'
+fi
+
+echo -n ",\"perc\":$VOLUME,\"mute\":$MUTE}"

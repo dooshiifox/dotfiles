@@ -1,24 +1,16 @@
 #!/usr/bin/env fish
 
 if [ (count $argv) = 0 ]
-	# set headphones
-	# set taiga
-	# set keyboard
-	set mpdmpris
-	set eww
+	set headphones
+	set keyboard
 	set ffcp
-	# set mouse
+	set mouse
 end
 
 for option in $argv
 	switch "$option"
 		case -h --headphone
 			set headphones
-		case -n --network
-			set network
-			set sudo
-		case -t --taiga
-			set taiga
 		case -k --keyboard
 			set keyboard
 			set sudo
@@ -27,10 +19,6 @@ for option in $argv
 		case -mk -km
 			set keyboard
 			set mouse
-		case --mpdmpris
-			set mpdmpris
-		case --eww
-			set eww
 		case --ffcp
 			set ffcp
 		case \*
@@ -40,7 +28,7 @@ for option in $argv
 end
 
 if set -q invalid_flag
-	printf "exiting program"
+	printf "exiting init script"
 	exit
 end
 
@@ -56,36 +44,22 @@ if set -q headphones
 	bluetoothctl connect 00:16:94:3F:3D:45
 end
 
-if set -q network
-	sudo virsh net-start default
-end
-
-if set -q taiga
-	taiga
-end
-
 if set -q keyboard
 	g213-led --list-keyboards | read keyboard
 	# Check keyboard plugged in
 	if [ "$keyboard" != "Matching or compatible device not found !" ]
-	    echo "Changing keyboard colour..."
-	    # Change keyboard colour
-	    sudo g213-led -r 1 2c54c3
-	    sudo g213-led -r 2 ce4ec7
-	    sudo g213-led -r 3 d3197f
-	    sudo g213-led -r 4 f36532
-	    sudo g213-led -r 5 f4aa27
+		echo "Changing keyboard colour..."
+		# Change keyboard colour
+		sudo g213-led -r 1 2c54c3
+		sudo g213-led -r 2 ce4ec7
+		sudo g213-led -r 3 d3197f
+		sudo g213-led -r 4 f36532
+		sudo g213-led -r 5 f4aa27
 	end
 end
 
-if set -q mpdmpris
-	mpd-mpris & disown $1
-end
-if set -q eww
-	eww daemon && eww open bar
-end
 if set -q ffcp
-	/home/dooshii/Documents/init-force-full-composition-pipeline.sh
+	./init-force-full-composition-pipeline
 end
 
 if set -q mouse

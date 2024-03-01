@@ -1,0 +1,99 @@
+(defwindow wifi-overlay
+  :monitor 0
+  :geometry (geometry
+    ;; :x "290px"
+    :x "-290px"
+    ;; :y "0px"
+    :y "32px"
+    :width "240px"
+    :height "50px"
+  :anchor "top right")
+  :exclusive false
+  :focusable false
+  :stacking "overlay"
+  (box
+    :orientation "h"
+    :halign "center"
+    :valign "start"
+    :vexpand false
+    :hexpand false
+    (wifi-overlay-widget)
+  )
+)
+
+(defwidget wifi-overlay-widget []
+  (box :width 240 :class "mt-1 p-2 bg-gray-800 rounded-lg font-sans" :orientation "v" :space-evenly false :spacing 4
+    (box :orientation "v" :space-evenly false :spacing 4
+      (label :xalign 0 :wrap true :class "text-white text-sm px-2 font-medium" :text {wifi.active == "null" ? "-" : wifi.active.network})
+      (label :xalign 1 :class "text-gray-500 text-xs px-2" :text {wifi.password})
+      (box :orientation "h" :class "px-2 mt-1" :space-evenly false :spacing 6
+        (label
+          :class "text-xss text-gray-300"
+          :style "font-stretch: ultra-condensed;"
+          :text {wifi.active == "null" ? "..." : ["▁▁▁▁", "▂▁▁▁", "▂▄▁▁", "▂▄▆▁", "▂▄▆█"][strlength(replace(wifi.active.bars, " ", ""))]}
+        )
+        (label
+          :class "text-xss text-gray-400 font-mono mt-1"
+          :text {wifi.active == "null" ? "..." : wifi.active.signal + "%"}
+        )
+        (box :orientation "h" :hexpand true
+          (label
+            :class "font-medium text-xs text-gray-300 font-mono"
+            :hexpand true
+            :xalign 1
+            :text {wifi.active == "null" ? "..." : replace(wifi.active.rate, " Mbit/s", "")}
+          )
+          (label
+            :class "text-xss text-gray-400 font-mono"
+            :text {wifi.active == "null" ? "..." : "Mbps"}
+          )
+        )
+        (label
+          :class "text-xs text-gray-300 font-mono"
+          :hexpand true
+          :xalign 1
+          :text {wifi.active == "null" ? "..." : wifi.active.security}
+        )
+      )
+    )
+    
+    (box :orientation "h" :space-evenly false :height 9 :class "bg-gray-700 my-1 mx-2")
+    
+    (box :orientation "v" :space-evenly false :spacing 8
+      (for conn in {wifi.inactive}
+        (box :orientation "v" :space-evenly false :spacing 4
+          (label :xalign 0 :wrap true :class "text-white text-sm px-2 font-medium" :text {conn.network})
+          (box :orientation "h" :class "px-2 mt-1" :space-evenly false :spacing 6
+            (label
+              :class "text-xss text-gray-300"
+              :style "font-stretch: ultra-condensed;"
+              :text {["▁▁▁▁", "▂▁▁▁", "▂▄▁▁", "▂▄▆▁", "▂▄▆█"][strlength(replace(conn.bars, " ", ""))]}
+            )
+            (label
+              :class "text-xss text-gray-400 font-mono mt-1"
+              :text {conn.signal + "%"}
+            )
+            (box :orientation "h" :hexpand true
+              (label
+                :class "font-medium text-xs text-gray-300 font-mono"
+                :hexpand true
+                :xalign 1
+                :text {replace(conn.rate, " Mbit/s", "")}
+              )
+              (label
+                :class "text-xss text-gray-400 font-mono"
+                :text {"Mbps"}
+              )
+            )
+            (label
+              :class "text-xs text-gray-300 font-mono"
+              :hexpand true
+              :xalign 1
+              :text {conn.security}
+            )
+          )
+        )
+      )
+    )
+  )
+)

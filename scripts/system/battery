@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+
+## Get battery info
+LINE=$(acpi | grep -v " 0%")
+BATTERY=$(echo $LINE | awk -F ', ' 'END {print $2}' | tr -d \%,)
+CHARGE=$(echo $LINE | awk -F ': ' 'END {print $2}' | tr -d \,)
+TIME_ACPI=$(echo $LINE | awk -F ', ' 'END {print $3}' | awk -F ' ' 'END {print $1}')
+TIME_HOUR=$(echo $TIME_ACPI | awk -F ':' 'END {print $1}')
+TIME_MIN=$(echo $TIME_ACPI | awk -F ':' 'END {print $2}')
+TIME_SEC=$(echo $TIME_ACPI | awk -F ':' 'END {print $3}')
+if [[ $TIME_ACPI == "" ]]; then TIME="-"
+elif [[ $TIME_HOUR != 00 ]]; then TIME="${TIME_HOUR}h ${TIME_MIN}m"
+elif [[ $TIME_MIN != 00 ]]; then TIME="${TIME_MIN}m ${TIME_SEC}s"
+else TIME="-"; fi
+
+echo -n "{"
+if [[ ($CHARGE = *"Charging"*) || ($CHARGE = *"Full"*) ]]; then
+	echo -n '"charging": "y"'
+elif [[ $CHARGE = *"Not charging"* ]]; then
+	echo -n '"charging": "m"'
+else
+	echo -n '"charging": "n"'
+fi
+
+echo -n ",\"time\":\"$TIME\","
+
+if [[ ($BATTERY -lt 10) ]]; then
+	echo -n '"level":0'
+elif [[ ($BATTERY -lt 20) ]]; then
+	echo -n '"level":1'
+elif [[ ($BATTERY -lt 30) ]]; then
+	echo -n '"level":2'
+elif [[ ($BATTERY -lt 40) ]]; then
+	echo -n '"level":3'
+elif [[ ($BATTERY -lt 50) ]]; then
+	echo -n '"level":4'
+elif [[ ($BATTERY -lt 60) ]]; then
+	echo -n '"level":5'
+elif [[ ($BATTERY -lt 70) ]]; then
+	echo -n '"level":6'
+elif [[ ($BATTERY -lt 80) ]]; then
+	echo -n '"level":7'
+elif [[ ($BATTERY -lt 90) ]]; then
+	echo -n '"level":8'
+elif [[ ($BATTERY -lt 95) ]]; then
+	echo -n '"level":9'
+else
+	echo -n '"level":10'
+fi
+
+echo -n ","
+echo -n "\"perc\":\"$BATTERY\""
+
+echo -n "}"

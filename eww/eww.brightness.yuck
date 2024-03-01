@@ -1,0 +1,50 @@
+(defwindow brightness-overlay
+  :monitor 0
+  :geometry (geometry
+    ;; :x "240px"
+    :x "-240px"
+    ;; :y "0px"
+    :y "32px"
+    :width "100px"
+    :height "30px"
+  :anchor "top right")
+  :exclusive false
+  :focusable false
+  :stacking "overlay"
+  (box
+    :orientation "h"
+    :halign "center"
+    :valign "start"
+    :vexpand false
+    :hexpand false
+    (brightness-overlay-widget)
+  )
+)
+
+(defwidget brightness-overlay-widget []
+  (box :class "mt-1 p-1 bg-gray-800 rounded-lg font-sans" :orientation "v" :space-evenly false
+    (box :orientation "h":space-evenly false :spacing 6
+      (button
+        :width 24
+        :class "font-medium text-gray-300 animate-bg hover:bg-white|20 rounded-md"
+        :onclick "~/nixos/scripts/system/brightness --set 100 && ${EWW_CMD} update brightness=$(~/nixos/scripts/system/brightness --get)"
+        {["󰃞", "󰃟", "󰃠"][brightness.level]}
+      )
+      (scale :value {brightness.perc ?: 0}
+        :min 0
+        :max {101}
+        :width 100
+        :height 4
+        :style "border-radius: 2px;"
+        :orientation "h"
+        :onchange "~/nixos/scripts/system/brightness --set {} && ${EWW_CMD} update brightness=$(~/nixos/scripts/system/brightness --get)"
+        :class "active-slider"
+      )
+      (label
+        :width 28
+        :class "font-medium text-xs font-mono text-gray-300"
+        :text "${brightness.perc != 'null' ? (round(brightness.perc, 0) < 10 ? "0${round(brightness.perc, 0)}" : round(brightness.perc, 0)) : '00'}%"
+      )
+    )
+  )
+)

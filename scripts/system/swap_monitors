@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+# Get the currently-active desktop
+active_desktop=$(wmctrl -d | grep "*" | awk '{print $1}')
+
+# Get all windows on the currently-active desktop
+# A line has the example format of
+# `0x03600007  1 -36  50   1956 1076 dooshii ymuse`
+# The desktop is the second column
+windows=$(wmctrl -l -G | awk -v desktop="$active_desktop" '$2==desktop')
+
+# Now for each monitor, get the id, x position, and y positon (first, third, and
+# fourth columns, respectively)
+# If the x > 1080, then it's on the right monitor. sub 1080 from the x
+# Else, it's on the left monitor. add 1080 to the x
+# Then, move the window to the new position
+while read -r window; do
+    id=$(echo "$window" | awk '{print $1}')
+    x=$(echo "$window" | awk '{print $3}')
+    y=$(echo "$window" | awk '{print $4}')
+    if [ "$x" -gt 1080 ]; then
+        x=$((x - 1080))
+    else
+        x=$((x + 1080))
+    fi
+    wmctrl -i -r "$id" -e 0,"$x","$y",-1,-1
+done <<< "$windows"

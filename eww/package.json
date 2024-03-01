@@ -1,0 +1,16 @@
+{
+    "name": "miniwind",
+    "version": "1.0.0",
+    "description": "",
+    "main": "miniwind.js",
+    "type": "module",
+    "scripts": {
+        "build": "tsc && node miniwind.js",
+        "miniwind": "node miniwind.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "typescript": "^4.9.5"
+    }
+}
