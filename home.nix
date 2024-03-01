@@ -51,7 +51,7 @@
     cargo-audit # Audit for security vulnerabilities
 
     # Javascript
-    nodejs_21 # Javascript runtime; also provided npm
+    nodejs_21 # Javascript runtime; also provides npm
     nodePackages.pnpm # Faster, less disk space npm
 
     # Python
@@ -97,8 +97,6 @@
     helvum # Pipe audio and connect up inputs and outputs
     playerctl # Interact with MPRIS-compatible programs from the command line
     mpc-cli # Interact with MPD from the command line
-    mpd # Music player daemon
-    mpd-mpris # Implements MPRIS for MPD (MPRIS is a standardised protocal)
     ymuse # MPD front-end
     obsidian # Markdown editor
     vlc # Video & audio player
