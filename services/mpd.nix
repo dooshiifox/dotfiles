@@ -3,5 +3,7 @@
 {
   services.mpd = {
     enable = true;
+
+    dataDir = ./mpd;
   };
 }

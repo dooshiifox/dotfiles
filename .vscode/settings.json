@@ -1,0 +1,10 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "mpd-sticker",
+            "database": "/home/dooshii/.config/mpd/sticker.sql"
+        }
+    ]
+}

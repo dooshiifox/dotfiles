@@ -27,9 +27,11 @@
     baobab # GNOME pie chart disk usage
     candy-icons # Modern desktop icons
     gnomeExtensions.pop-shell # Pop_OS! extension stuff (like grid view)
-    gnomeExtensions.rounded-window-corners
-    gnomeExtensions.pano
-    gnomeExtensions.hide-top-bar
+    gnomeExtensions.rounded-window-corners # Rounded window corners
+    gnomeExtensions.pano # Global clipboard manager
+    gnomeExtensions.hide-top-bar # Remove stinky top bar eww
+    gnomeExtensions.gsconnect # KDE Connect for Gnome. Connect to your phone!
+    gnomeExtensions.color-picker # Color picker
     megasync # Backups
 
     # Social
