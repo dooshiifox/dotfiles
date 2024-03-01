@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-windows=$(eww list-windows)
-[[ $windows == *"*music-overlay"* ]] && eww close music-overlay
-[[ $windows == *"*audio-overlay"* ]] && eww close audio-overlay
-[[ $windows == *"*wifi-overlay"* ]] && eww close wifi-overlay
-[[ $windows == *"*brightness-overlay"* ]] && eww close brightness-overlay
-[[ $windows == *"*power-overlay"* ]] && eww close power-overlay
-[[ $windows == *"*notifications-overlay"* ]] && eww close notifications-overlay
+active_windows=$(eww active-windows)
+[[ $active_windows == *"music-overlay"* ]] && eww close music-overlay
+[[ $active_windows == *"audio-overlay"* ]] && eww close audio-overlay
+[[ $active_windows == *"wifi-overlay"* ]] && eww close wifi-overlay
+[[ $active_windows == *"brightness-overlay"* ]] && eww close brightness-overlay
+[[ $active_windows == *"power-overlay"* ]] && eww close power-overlay
+[[ $active_windows == *"notifications-overlay"* ]] && eww close notifications-overlay
 
-[[ $windows != *"*$1"* ]] && eww open $1
+[[ $active_windows != *"$1"* ]] && eww open $1

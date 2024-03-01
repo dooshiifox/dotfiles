@@ -20,12 +20,14 @@
         normal.family = "DankMono Nerd Font";
         size = 11.0;
       };
-      keyboard.bindings = {
-        action = "Paste";
-        key = "V";
-        mode = "~Vi";
-        mods = "Control|Shift|Alt";
-      };
+      keyboard.bindings = [
+        {
+          action = "Paste";
+          key = "V";
+          mode = "~Vi";
+          mods = "Control|Shift|Alt";
+        }
+      ];
       colors = {
         indexed_colors = [
           {
@@ -40,17 +42,14 @@
             color = "#3c3836";
             index = 18;
           }
-
           {
             color = "#504945";
             index = 19;
           }
-
           {
             color = "#bdae93";
             index = 20;
           }
-
           {
             color = "#ebdbb2";
             index = 21;
