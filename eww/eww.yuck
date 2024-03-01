@@ -204,7 +204,7 @@
     (button
       :class "music-box rounded-xl animate-bg hover:bg-white|40 p-0.5"
       :valign "center"
-      :onclick ".$NIX_CONFIG/scripts/system/open-eww-overlay music-overlay"
+      :onclick "$NIX_CONFIG/scripts/system/open-eww-overlay music-overlay"
       :onmiddleclick "playerctl -p \"$(playerctl -l | grep \"mpd.instance\" | head -n 1)\" play-pause"
       :onrightclick "playerctl -p \"$(playerctl -l | grep \"mpd.instance\" | head -n 1)\" play-pause"
       (box :class "music-inner"
