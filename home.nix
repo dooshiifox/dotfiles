@@ -57,6 +57,7 @@
     # Python
     python3
     python311Packages.pip
+    python311Packages.pygobject3 # Python bindings for GObject
 
     # C/C++
     cmake # Makefile support
