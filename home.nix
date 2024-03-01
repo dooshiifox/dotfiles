@@ -42,6 +42,7 @@
     # gnomeExtensions.gsconnect # KDE Connect for Gnome. Connect to your phone!
     gnomeExtensions.color-picker # Color picker
     gnomeExtensions.unite
+    gettext # Compiling hide-top-bar
 
     # Social
     telegram-desktop # Telegram client
