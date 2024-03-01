@@ -55,9 +55,12 @@
     nodePackages.pnpm # Faster, less disk space npm
 
     # Python
-    python3
-    python311Packages.pip
-    python311Packages.pygobject3 # Python bindings for GObject
+    (python311.withPackages
+      (ps:
+        with ps; [
+          pygobject3
+          colorthief
+        ]))
 
     # C/C++
     cmake # Makefile support
