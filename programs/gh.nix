@@ -3,8 +3,10 @@
 {
   programs.gh = {
     enable = true;
-    aliases = {
-      co = "pr checkout";
+    settings = {
+      aliases = {
+        co = "pr checkout";
+      };
     };
   };
 }
