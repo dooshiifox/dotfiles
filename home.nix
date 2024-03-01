@@ -83,6 +83,7 @@
 
     # C/C++
     cmake # Makefile support
+    gnumake # Supplies `make`
 
     # Nix
     alejandra # Format nix files, used by ni
