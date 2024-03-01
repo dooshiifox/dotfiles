@@ -5,6 +5,12 @@
             "driver": "SQLite",
             "name": "mpd-sticker",
             "database": "/home/dooshii/.config/mpd/sticker.sql"
+        },
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "mpd-local",
+            "database": "${workspaceFolder:nixos}/services/mpd/sticker.sql"
         }
     ]
 }
