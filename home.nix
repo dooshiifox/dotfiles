@@ -7,10 +7,12 @@
 }: {
   imports = [
     ./programs
+    ./services
   ];
 
   home.username = "dooshii";
   home.homeDirectory = "/home/dooshii";
+  xdg.userDirs.enable = true;
 
   home.sessionVariables = {
     BROWSER = "firefox-developer-edition";
