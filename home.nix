@@ -26,14 +26,22 @@
     ################
     baobab # GNOME pie chart disk usage
     candy-icons # Modern desktop icons
+    megasync # Backups
+
+    # FIXME: Prevent manual installs of these things.
+    # Ensure you enable these in GNOME Extensions
+    # With Pop Shell, disable mouse stacking
+    # Can't customize keybinds with Pop Shell yet: https://github.com/NixOS/nixpkgs/issues/92265
     gnomeExtensions.pop-shell # Pop_OS! extension stuff (like grid view)
-    gnomeExtensions.rounded-window-corners # Rounded window corners
+    # Not ported to GNOME 45 yet
+    # gnomeExtensions.rounded-window-corners # Rounded window corners
     gnomeExtensions.pano # Global clipboard manager
-    gnomeExtensions.hide-top-bar # Remove stinky top bar eww
-    gnomeExtensions.gsconnect # KDE Connect for Gnome. Connect to your phone!
+    # Not ported to GNOME 45 yet
+    # gnomeExtensions.hide-top-bar # Remove stinky top bar eww
+    # Just doesn't work.
+    # gnomeExtensions.gsconnect # KDE Connect for Gnome. Connect to your phone!
     gnomeExtensions.color-picker # Color picker
     gnomeExtensions.unite
-    megasync # Backups
 
     # Social
     telegram-desktop # Telegram client
