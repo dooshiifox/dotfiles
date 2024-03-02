@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 playerctl -p "$(playerctl -l | grep "mpd.instance" | head -n 1)" -F -f '{{ artist }}{{ album }}{{ title }}{{ mpris:length }}{{ mpris:artUrl }}' metadata | while read -r event; do
-    $NIX_CONFIG/scripts/music/cover.py
+    ./cover.py
 done

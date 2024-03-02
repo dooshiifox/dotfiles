@@ -81,6 +81,7 @@
           pygobject3
           colorthief
           mpd2
+          requests
         ]))
 
     # C/C++
