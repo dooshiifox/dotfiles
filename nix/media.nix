@@ -34,7 +34,7 @@
       authFile = pkgs.writeTextFile {
         name = "deluge-auth";
         text = ''
-          localclient::10
+          localclient:unsecurelmao:10
         '';
       };
     };
