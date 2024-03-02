@@ -44,6 +44,7 @@
     gnomeExtensions.unite
     gettext # Compiling hide-top-bar
     glib # ^^^
+    glib.dev # ^^^
 
     # Social
     telegram-desktop # Telegram client
