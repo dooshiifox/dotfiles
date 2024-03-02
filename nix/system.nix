@@ -1,4 +1,4 @@
-{
+{config, ...}: {
   # https://support.system76.com/articles/system76-software/#nixos
   hardware.system76.enableAll = true;
 
