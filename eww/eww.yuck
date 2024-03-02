@@ -316,9 +316,9 @@
   )
 )
 
-(defwidget power_arch []
-  (box :class "power_arch" :orientation "h" :space-evenly false
-    (arch)
+(defwidget power_timeweather []
+  (box :class "power_timeweather" :orientation "h" :space-evenly false
+    (timeweather)
     (power)
   )
 )
@@ -327,8 +327,8 @@
     (label :class "font-icon" :text "")
   )
 )
-(defwidget arch []
-  (button :class "arch" :onclick "$NIX_SRC/scripts/system/open-eww-overlay notifications-overlay"
-    (label :class "font-icon" :text "")
+(defwidget timeweather []
+  (button :class "timeweather" :onclick "$NIX_SRC/scripts/system/open-eww-overlay notifications-overlay"
+    (label :class "font-icon" :text "")
   )
 )

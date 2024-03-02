@@ -33,10 +33,9 @@
     # With Pop Shell, disable mouse stacking
     # Can't customize keybinds with Pop Shell yet: https://github.com/NixOS/nixpkgs/issues/92265
     gnomeExtensions.pop-shell # Pop_OS! extension stuff (like grid view)
-    # Not ported to GNOME 45 yet
-    # gnomeExtensions.rounded-window-corners # Rounded window corners
     gnomeExtensions.pano # Global clipboard manager
     # Not ported to GNOME 45 yet
+    # gnomeExtensions.rounded-window-corners # Rounded window corners
     # gnomeExtensions.hide-top-bar # Remove stinky top bar eww
     # Just doesn't work.
     # gnomeExtensions.gsconnect # KDE Connect for Gnome. Connect to your phone!
@@ -54,6 +53,14 @@
     # Hardware
     libratbag # Gaming mouse configuration
     g810-led # Logitech keyboard configuration
+    light # Backlight control
+
+    # Fonts
+    nerdfonts
+    nerd-font-patcher
+    # TODO: Port this over
+    # https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=nerd-fonts-inter
+    # For now, manually install.
 
     ################
     # Developing
