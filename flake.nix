@@ -33,20 +33,19 @@
         "PROJECT_ROOT" = builtins.toString ./.;
       };
       modules = [
-        # Import the previous configuration.nix we used,
-        # so the old configuration file still takes effect
-        ./configuration.nix
+        ./nix
 
-        # make home-manager as a module of nixos
-        # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
+        # make home-manager as a module of nixos so that
+        # home-manager configuration will be deployed automatically
+        # when executing `nixos-rebuild switch`
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
 
-          home-manager.users.dooshii = import ./home.nix;
+          home-manager.users.dooshii = import ./home-manager;
 
-          # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
+          # Optionally, use home-manager.extraSpecialArgs to pass arguments
           home-manager.extraSpecialArgs = {
             inherit inputs;
             "PROJECT_ROOT" = builtins.toString ./.;

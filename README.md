@@ -18,3 +18,6 @@ My system uses NixOS. This configuration assumes:
     -   `13` - Snow
     -   `50` - Misty
     -   [Source](https://openweathermap.org/weather-conditions)
+-   You've configured `$HOME/Videos/downloads` to be owned by the `multimedia` group.
+    -   `sudo chown -R multimedia:multimedia $HOME/Videos/downloads`
+    -   `sudo chmod -R g+w $HOME/Videos/downloads`
