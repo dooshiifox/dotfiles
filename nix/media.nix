@@ -24,6 +24,7 @@
     deluge = {
       enable = true;
       group = "multimedia";
+      openFirewall = true;
       web.enable = true;
       dataDir = "/data/media/torrent";
       declarative = true;
@@ -31,12 +32,11 @@
         enabled_plugins = ["Label"];
         outgoing_interface = "wg1";
       };
-      authFile = pkgs.writeTextFile {
-        name = "deluge-auth";
-        text = ''
-          localclient:unsecurelmao:10
-        '';
-      };
+      authFile = pkgs.writeText "deluge-auth" ''
+        localclient:a7bef72a890:10
+        andrew:password:10
+        user3:anotherpass:5
+      '';
     };
   };
 }
