@@ -159,8 +159,7 @@
     winetricks # Wine helpers
     inputs.ow-mod-man.packages.x86_64-linux.owmods-gui
     inputs.ow-mod-man.packages.x86_64-linux.owmods-cli
-    inputs.celeste-olympus.packages.x86_64-linux.olympus
-    inputs.celeste-olympus.packages.x86_64-linux.sharp
+    # TODO: Add Celeste's Olympus mod loader
   ];
 
   # This value determines the home Manager release that your

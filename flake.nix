@@ -17,10 +17,6 @@
       url = "github:ow-mods/ow-mod-man";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    celeste-olympus = {
-      url = "github:scoder12/olympus-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = inputs @ {
