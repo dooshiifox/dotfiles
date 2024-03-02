@@ -9,7 +9,7 @@
     # Include the results of the hardware scan.
     ../hardware-configuration.nix
     ./media.nix
-    ./media.nix
+    ./system.nix
   ];
 
   users.users.dooshii = {
