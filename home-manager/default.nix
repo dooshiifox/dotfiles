@@ -58,6 +58,7 @@
     # Fonts
     nerdfonts
     nerd-font-patcher
+    quicksand
     # TODO: Port this over
     # https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=nerd-fonts-inter
     # For now, manually install.

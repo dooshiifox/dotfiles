@@ -3,7 +3,6 @@
 My system uses NixOS. This configuration assumes:
 
 -   You've symlinked `flake.lock` and `flake.nix` inside `/etc/nixos/`
--   You've copied `programs/vscode/theme` to `~/.vscode/extensions/`
 -   You've set up your mail config in `scripts/local/mailsconf.py`
 -   You've set up your weather config in `scripts/local/weatherconf`
 -   You've downloaded some images to use in the eww weather & time box in `eww/assets`. Files are of the format `weather_{num}{d/n}.jpg`. I'm not sharing the ones I use for copyright reasons (and I don't remember where I got them).
@@ -34,6 +33,12 @@ rmdir patched
 rm -r Inter
 rm Inter-4.0.zip
 ```
+
+Do a similar thing with `Dank Mono`, which I cannot share for legal reasons.
+
+Copy a profile image to `.face` and `.face.jpg` (the JPG is only needed for top bar fallback)
+
+Copy `programs/vscode/theme` to `~/.vscode/extensions/`
 
 Please note that I'm new to Nix! If you have any improvements, please educate me!
 
