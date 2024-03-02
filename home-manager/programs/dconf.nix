@@ -7,7 +7,10 @@ with lib.hm.gvariant; {
   dconf = {
     enable = true;
     settings = {
-      "org/gnome/desktop/interface".color-scheme = "prefer-dark";
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+        icon-theme = "candy-icons";
+      };
       "org/gnome/desktop/wm/preferences" = {
         num-workspaces = 10;
         resize-with-right-button = true;
