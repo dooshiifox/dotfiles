@@ -5,9 +5,6 @@
 (include "eww.power.yuck")
 (include "eww.notifications.yuck")
 
-; (deflisten workspace
-  ;   :initial "[[],1,[{\"id\":2,\"open\":false},{\"id\":3,\"open\":false},{\"id\":4,\"open\":false},{\"id\":5,\"open\":false},{\"id\":6,\"open\":false},{\"id\":7,\"open\":false},{\"id\":8,\"open\":false},{\"id\":9,\"open\":false},{\"id\":0,\"open\":false}]]"
-; "scripts/workspace")
 (deflisten workspace
   :initial "{\"app\":{\"title\":\"\",\"icon\":\"\"},\"workspaces\":[[],1,[{\"id\":2,\"open\":false},{\"id\":3,\"open\":false},{\"id\":4,\"open\":false},{\"id\":5,\"open\":false},{\"id\":6,\"open\":false},{\"id\":7,\"open\":false},{\"id\":8,\"open\":false},{\"id\":9,\"open\":false},{\"id\":0,\"open\":false}]]}"
   "$NIX_SRC/scripts/system/workspace"
@@ -171,7 +168,7 @@
 (defwidget active-app []
   (box :class "active-app" :orientation "h" :halign "start" :space-evenly false
     (button :onclick {icon-open && !ws-priority ? "${EWW_CMD} update icon-open=false; ${EWW_CMD} update ws-priority=false; ${EWW_CMD} update ws-open=false" : "${EWW_CMD} update icon-open=true; ${EWW_CMD} update ws-priority=false"}
-      (image :class "app-icon ${workspace.app.icon ? "" : "rounded-md"}" :path {workspace.app.icon ?: "~/.face"} :image-width 20)
+      (image :class "app-icon ${workspace.app.icon ? "" : "rounded-md"}" :path {workspace.app.icon ?: "/home/dooshii/Pictures/Dooshii/2021 06 01 - pfp - SeagullBlue MODIFIED.jpg"} :image-width 20)
     )
     (revealer :transition "slideright" :duration "0.2s" :reveal {icon-open && !ws-priority}
       (label :class "app-name" :limit-width "35" :text {workspace.app.title ?: "-"} :tooltip {workspace.app.title ?: "-"})
