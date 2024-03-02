@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 playerctl -p "$(playerctl -l | grep "mpd.instance" | head -n 1)" -F -f '{{ artist }}{{ album }}{{ title }}{{ mpris:length }}{{ mpris:artUrl }}' metadata | while read -r event; do
-    ./cover.py
+    python3 $SCRIPT_DIR/cover.py
 done
