@@ -4,6 +4,7 @@ if [ (count $argv) = 0 ]
 	set keyboard
 	set ffcp
 	set mouse
+	set ewwbar
 end
 
 for option in $argv
@@ -19,6 +20,8 @@ for option in $argv
 			set sudo
 		case --ffcp
 			set ffcp
+		case --ewwbar
+			set ewwbar
 		case \*
 			printf "error: unknown option %s\n" $option
 			set invalid_flag
@@ -52,6 +55,10 @@ end
 
 if set -q ffcp
 	$NIX_CONFIG/scripts/system/init-force-full-composition-pipeline
+end
+
+if set -q ewwbar
+	eww open bar
 end
 
 if set -q mouse

@@ -112,6 +112,7 @@
     jq # JSON processor
     zip # `zip` command
     unzip # `unzip` command
+    neofetch # System info
 
     ################
     # Media
