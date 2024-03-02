@@ -53,7 +53,7 @@
     # Hardware
     libratbag # Gaming mouse configuration
     g810-led # Logitech keyboard configuration
-    light # Backlight control
+    xorg.xbacklight # Backlight control
 
     # Fonts
     nerdfonts
