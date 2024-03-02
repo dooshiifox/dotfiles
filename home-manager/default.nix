@@ -157,9 +157,10 @@
     protontricks # Steam's Proton helpers
     wine # Window compatibility
     winetricks # Wine helpers
-    # TODO: fix
     inputs.ow-mod-man.packages.x86_64-linux.owmods-gui
     inputs.ow-mod-man.packages.x86_64-linux.owmods-cli
+    inputs.celeste-olympus.packages.x86_64-linux.olympus
+    inputs.celeste-olympus.packages.x86_64-linux.sharp
   ];
 
   # This value determines the home Manager release that your

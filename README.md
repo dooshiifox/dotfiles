@@ -23,3 +23,13 @@ My system uses NixOS. This configuration assumes:
     -   `sudo chmod -R g+w $HOME/Videos/downloads`
 
 Please note that I'm new to Nix! If you have any improvements, please educate me!
+
+## Notes
+
+### Clean-up old packages
+
+Remove unneeded packages with `nix-store --gc`
+
+### Environment variables
+
+The `NIX_SRC` env variable is set to where the config is built in `/nix/store/...`. You can use this to e.g. reference scripts in `./scripts` from other places.

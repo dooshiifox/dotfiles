@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "celeste-olympus": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1683413112,
+        "narHash": "sha256-AcDUmt6fjtYcD6+HLeX25T8Gh5VY53Yp8erKSieabyg=",
+        "owner": "scoder12",
+        "repo": "olympus-nix",
+        "rev": "0745087d254b83c9199bbbe43911f73104a404a2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "scoder12",
+        "repo": "olympus-nix",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -168,6 +188,7 @@
     },
     "root": {
       "inputs": {
+        "celeste-olympus": "celeste-olympus",
         "home-manager": "home-manager",
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixpkgs": "nixpkgs_2",
