@@ -78,6 +78,11 @@
   :interval "1s"
   "$NIX_SRC/scripts/system/brightness --get"
 )
+(defpoll NIX_SRC
+  :initial ""
+  :interval "10s"
+  "echo $NIX_SRC"
+)
 (defvar mails '[]')
 (defvar mail-loading false)
 (defvar ws-open false)
@@ -168,7 +173,7 @@
 (defwidget active-app []
   (box :class "active-app" :orientation "h" :halign "start" :space-evenly false
     (button :onclick {icon-open && !ws-priority ? "${EWW_CMD} update icon-open=false; ${EWW_CMD} update ws-priority=false; ${EWW_CMD} update ws-open=false" : "${EWW_CMD} update icon-open=true; ${EWW_CMD} update ws-priority=false"}
-      (box :valign "start" :width 20 :height 20 :class "${workspace.app.icon ? '' : 'rounded-md'} bg-cover" :style "background-image: url('${workspace.app.icon ?: '~/.face.jpg'}'); background-position: 50% 50%")
+      (box :valign "start" :width 20 :height 20 :class "${workspace.app.icon ? '' : 'rounded-md'} bg-cover" :style "background-image: url('${workspace.app.icon ?: NIX_SRC + '/face.jpg'}'); background-position: 50% 50%")
     )
     (revealer :transition "slideright" :duration "0.2s" :reveal {icon-open && !ws-priority}
       (label :class "app-name" :limit-width "35" :text {workspace.app.title ?: "-"} :tooltip {workspace.app.title ?: "-"})

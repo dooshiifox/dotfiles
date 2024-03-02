@@ -36,7 +36,7 @@ rm Inter-4.0.zip
 
 Do a similar thing with `Dank Mono`, which I cannot share for legal reasons.
 
-Copy a profile image to `.face` and `.face.jpg` (the JPG is only needed for top bar fallback)
+Copy a profile image to `~/.face` and `./face.jpg` (the JPG is only needed for top bar fallback, place it in the same folder as this readme)
 
 Copy `programs/vscode/theme` to `~/.vscode/extensions/`
 
