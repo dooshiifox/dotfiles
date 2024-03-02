@@ -33,7 +33,7 @@
         "PROJECT_ROOT" = builtins.toString ./.;
       };
       modules = [
-        ./nix
+        ./configuration.nix
 
         # make home-manager as a module of nixos so that
         # home-manager configuration will be deployed automatically
