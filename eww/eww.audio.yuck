@@ -24,7 +24,7 @@
 (defpoll sinks
   :interval "1s"
   :initial "[]"
-  "$NIX_CONFIG/scripts/system/sinks"
+  "$NIX_SRC/scripts/system/sinks"
 )
 
 ; Mute
@@ -44,7 +44,7 @@
             (button
               :width 24
               :class "font-medium ${sink.mute ? "text-gray-600" : "text-gray-300"} animate-bg hover:bg-white|20 rounded-md"
-              :onclick "pactl set-sink-mute ${sink.index} toggle && ${EWW_CMD} update volume=$($NIX_CONFIG/scripts/system/volume)"
+              :onclick "pactl set-sink-mute ${sink.index} toggle && ${EWW_CMD} update volume=$($NIX_SRC/scripts/system/volume)"
               {sink.mute ? "" : sink.perc < 30 ? "" : sink.perc < 60 ? "" : ""}
             )
             (scale :value {sink.perc ?: 0}
@@ -54,7 +54,7 @@
               :height 4
               :style "border-radius: 2px;"
               :orientation "h"
-              :onchange "pactl set-sink-volume ${sink.index} {}% && ${EWW_CMD} update volume=$($NIX_CONFIG/scripts/system/volume)"
+              :onchange "pactl set-sink-volume ${sink.index} {}% && ${EWW_CMD} update volume=$($NIX_SRC/scripts/system/volume)"
               :class {sink.mute ? "inactive-slider" : "active-slider"}
             )
             (label
@@ -79,7 +79,7 @@
             (button
               :width 24
               :class "font-medium ${sink.mute ? "text-gray-600" : "text-gray-300"} animate-bg hover:bg-white|20 rounded-md"
-              :onclick "pactl set-sink-mute ${sink.index} toggle && ${EWW_CMD} update volume=$($NIX_CONFIG/scripts/system/volume) && ${EWW_CMD} update sinks=$($NIX_CONFIG/scripts/system/sinks)"
+              :onclick "pactl set-sink-mute ${sink.index} toggle && ${EWW_CMD} update volume=$($NIX_SRC/scripts/system/volume) && ${EWW_CMD} update sinks=$($NIX_SRC/scripts/system/sinks)"
               {sink.mute ? "" : sink.perc < 30 ? "" : sink.perc < 60 ? "" : ""}
             )
             (label
@@ -93,7 +93,7 @@
             (button
               :width 24
               :class "font-medium text-gray-300 animate-bg hover:bg-white|20 rounded-md"
-              :onclick "pactl set-default-sink ${sink.index} && ${EWW_CMD} update volume=$($NIX_CONFIG/scripts/system/volume) && ${EWW_CMD} update sinks=$($NIX_CONFIG/scripts/system/sinks)"
+              :onclick "pactl set-default-sink ${sink.index} && ${EWW_CMD} update volume=$($NIX_SRC/scripts/system/volume) && ${EWW_CMD} update sinks=$($NIX_SRC/scripts/system/sinks)"
               ""
             )
           )

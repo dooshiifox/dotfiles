@@ -17,7 +17,7 @@
   home.sessionVariables = {
     BROWSER = "firefox-developer-edition";
     EDITOR = "code";
-    NIX_CONFIG = PROJECT_ROOT;
+    NIX_SRC = PROJECT_ROOT;
   };
 
   home.packages = with pkgs; [

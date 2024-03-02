@@ -35,7 +35,7 @@
       :class "rounded p-1 ${mail-loading ? "" : "hover:bg-white|20 animate-bg"}"
       :timeout "1m"
       :valign "start"
-      :onclick "${EWW_CMD} update mail-loading=true; MAILS=`$NIX_CONFIG/scripts/local/mails`; ${EWW_CMD} update mails=\"\${MAILS}\"; ${EWW_CMD} update mail-loading=false"
+      :onclick "${EWW_CMD} update mail-loading=true; MAILS=`$NIX_SRC/scripts/local/mails`; ${EWW_CMD} update mails=\"\${MAILS}\"; ${EWW_CMD} update mail-loading=false"
       (label :text {mail-loading ? "" : ""} :class "text-white")
     )
     (box :orientation "h" :spacing 8 :halign "center" :space-evenly false :hexpand true
@@ -128,7 +128,7 @@
         :class "text-white text-xs font-medium pt-1.5 py-1 hover:bg-white|20 animate-bg rounded mr-2"
         :height 25
         :width 35
-        :onclick "${EWW_CMD} update weeks=\"$($NIX_CONFIG/scripts/system/calendar ${month == 1 ? year - 1 : year} ${month == 1 ? 12 : month - 1})\"; ${EWW_CMD} update month=${month == 1 ? 12 : month - 1}; ${EWW_CMD} update year=${month == 1 ? year - 1 : year}"
+        :onclick "${EWW_CMD} update weeks=\"$($NIX_SRC/scripts/system/calendar ${month == 1 ? year - 1 : year} ${month == 1 ? 12 : month - 1})\"; ${EWW_CMD} update month=${month == 1 ? 12 : month - 1}; ${EWW_CMD} update year=${month == 1 ? year - 1 : year}"
         ""
       )
       (label
@@ -140,7 +140,7 @@
         :class "text-white text-xs font-medium pt-1.5 py-1 hover:bg-white|20 animate-bg rounded ml-2"
         :height 25
         :width 35
-        :onclick "${EWW_CMD} update weeks=\"$($NIX_CONFIG/scripts/system/calendar ${month == 12 ? year + 1 : year} ${month == 12 ? 1 : month + 1})\"; ${EWW_CMD} update month=${month == 12 ? 1 : month + 1}; ${EWW_CMD} update year=${month == 12 ? year + 1 : year}"
+        :onclick "${EWW_CMD} update weeks=\"$($NIX_SRC/scripts/system/calendar ${month == 12 ? year + 1 : year} ${month == 12 ? 1 : month + 1})\"; ${EWW_CMD} update month=${month == 12 ? 1 : month + 1}; ${EWW_CMD} update year=${month == 12 ? year + 1 : year}"
         ""
       )
       
@@ -150,7 +150,7 @@
         :class "text-white text-xs font-medium pt-1.5 py-1 hover:bg-white|20 animate-bg rounded mr-2"
         :height 25
         :width 35
-        :onclick "${EWW_CMD} update weeks=\"$($NIX_CONFIG/scripts/system/calendar ${year - 1} ${month})\"; ${EWW_CMD} update year=${year - 1}"
+        :onclick "${EWW_CMD} update weeks=\"$($NIX_SRC/scripts/system/calendar ${year - 1} ${month})\"; ${EWW_CMD} update year=${year - 1}"
         ""
       )
       (label :class "font-mono text-sm" :text {year})
@@ -158,7 +158,7 @@
         :class "text-white text-xs font-medium pt-1.5 py-1 hover:bg-white|20 animate-bg rounded ml-2"
         :height 25
         :width 35
-        :onclick "${EWW_CMD} update weeks=\"$($NIX_CONFIG/scripts/system/calendar ${year + 1} ${month})\"; ${EWW_CMD} update year=${year + 1}"
+        :onclick "${EWW_CMD} update weeks=\"$($NIX_SRC/scripts/system/calendar ${year + 1} ${month})\"; ${EWW_CMD} update year=${year + 1}"
         ""
       )
     )

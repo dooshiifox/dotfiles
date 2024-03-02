@@ -54,7 +54,7 @@ if set -q keyboard
 end
 
 if set -q ffcp
-	$NIX_CONFIG/scripts/system/init-force-full-composition-pipeline
+	$NIX_SRC/scripts/system/init-force-full-composition-pipeline
 end
 
 if set -q ewwbar
