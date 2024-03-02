@@ -114,6 +114,7 @@
     zip # `zip` command
     unzip # `unzip` command
     neofetch # System info
+    acpi # Batter info
 
     ################
     # Media
@@ -131,6 +132,7 @@
     playerctl # Interact with MPRIS-compatible programs from the command line
     obsidian # Markdown editor
     vlc # Video & audio player
+    pulseaudio # Audio server
     pamixer # Pulseaudio cli mixer
 
     # FIXME: `mpd` and `mpd-mpris` are also provided as home-manager services,
@@ -145,8 +147,7 @@
 
     # Piracy
     qbittorrent # Torrent downloader
-    prowlarr # Torrent index manager
-    radarr # Movie downloader
+    # Other packages can be found in nix/media.nix
 
     ################
     # Games
