@@ -110,6 +110,8 @@
     wmctrl # Interact with X window managers
     bc # Arbitrary precision math
     jq # JSON processor
+    zip # `zip` command
+    unzip # `unzip` command
 
     ################
     # Media
