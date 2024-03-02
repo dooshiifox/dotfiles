@@ -18,9 +18,21 @@ My system uses NixOS. This configuration assumes:
     -   `13` - Snow
     -   `50` - Misty
     -   [Source](https://openweathermap.org/weather-conditions)
--   You've configured `$HOME/Videos/downloads` to be owned by the `multimedia` group.
-    -   `sudo chown -R multimedia:multimedia $HOME/Videos/downloads`
-    -   `sudo chmod -R g+w $HOME/Videos/downloads`
+
+## Post-install
+
+Download and patch the `Inter` font.
+
+```
+wget https://github.com/rsms/inter/releases/download/v4.0/Inter-4.0.zip
+unzip -d Inter Inter-4.0.zip
+nerd-font-patcher --variable-width-glyphs -q -c -out "patched/" Inter/InterVariable.ttf
+nerd-font-patcher --variable-width-glyphs -q -c -out "patched/" Inter/InterVariable-Italic.ttf
+mv patched/* ~/.local/share/fonts
+rmdir patched
+rm -r Inter
+rm Inter-4.0.zip
+```
 
 Please note that I'm new to Nix! If you have any improvements, please educate me!
 
