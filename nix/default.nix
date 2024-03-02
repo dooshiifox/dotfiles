@@ -1,6 +1,10 @@
 # Defines NixOS settings.
 # This file in particular handles imports, the user, and Nix packages.
-{...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
     # Include the results of the hardware scan.
     ../hardware-configuration.nix
