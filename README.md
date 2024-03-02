@@ -29,6 +29,7 @@ unzip -d Inter Inter-4.0.zip
 nerd-font-patcher --variable-width-glyphs -q -c -out "patched/" Inter/InterVariable.ttf
 nerd-font-patcher --variable-width-glyphs -q -c -out "patched/" Inter/InterVariable-Italic.ttf
 mv patched/* ~/.local/share/fonts
+fc-cache -f -v
 rmdir patched
 rm -r Inter
 rm Inter-4.0.zip
