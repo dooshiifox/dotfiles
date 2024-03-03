@@ -22,6 +22,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.firewall.enable = false;
 
   ####################
   #   LOCALIZATION / TIME
