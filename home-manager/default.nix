@@ -54,6 +54,10 @@
     libratbag # Gaming mouse configuration
     g810-led # Logitech keyboard configuration
     xorg.xbacklight # Backlight control
+    acpi # Battery info
+
+    # Networking
+    openssl # SSL/TLS cryptography library
 
     # Fonts
     nerdfonts
@@ -121,8 +125,6 @@
     jq # JSON processor
     zip # `zip` command
     unzip # `unzip` command
-    neofetch # System info
-    acpi # Batter info
 
     ################
     # Media
