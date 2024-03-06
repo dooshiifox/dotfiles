@@ -10,6 +10,7 @@
     ../hardware-configuration.nix
     ./docker.nix
     ./media.nix
+    # ./prisma.nix
     ./system.nix
   ];
 
