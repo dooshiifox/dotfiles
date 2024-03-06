@@ -418,6 +418,7 @@ in {
       };
       "dart.debugExternalPackageLibraries" = false;
       "dart.debugSdkLibraries" = false;
+      "extensions.autoUpdate" = false;
     };
 
     keybindings = [
