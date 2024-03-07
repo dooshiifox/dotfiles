@@ -5,17 +5,28 @@ import imaplib
 import json
 import math
 from multiprocessing.dummy import Pool as ThreadPool
+import os
+import sys
 from typing import Tuple
 
-# Make a `mailsconf.py` file in the same directory as this script
-# For some things like GMail, you will need to do some more steps
-#    - Go here https://myaccount.google.com/security
-#    - Enable 2FA if not already
-#    - Generate an app password for your account
-#    - Use this instead of your normal password
-# Expected structure
-# CONFIG: { server: str, nickname: str, email: str, password: str, color: str, link: str }[]
-from mailsconf import CONFIG
+
+def eprint(*args, **kwargs):
+    print(*args, file=sys.stderr, **kwargs)
+
+
+def parse_imap_mail_config():
+    """JSON parse the `IMAP_MAIL_CONFIG` environment variable"""
+    imap_mail_config = os.getenv("IMAP_MAIL_CONFIG")
+    if imap_mail_config:
+        try:
+            config_dict = json.loads(imap_mail_config)
+            return config_dict
+        except json.JSONDecodeError as e:
+            eprint("Error parsing IMAP mail config JSON:", e)
+            return None
+    else:
+        eprint("IMAP_MAIL_CONFIG environment variable not found.")
+        return None
 
 
 def to_hex(col: Tuple[int, int, int]) -> str:
@@ -67,7 +78,15 @@ def fetch_mail(mail):
         }
 
 
-pool = ThreadPool(len(CONFIG))
-results = pool.map(fetch_mail, CONFIG)
+def main():
+    CONFIG = parse_imap_mail_config()
+    if CONFIG is None:
+        return
+    pool = ThreadPool(len(CONFIG))
+    results = pool.map(fetch_mail, CONFIG)
 
-print(json.dumps(results))
+    print(json.dumps(results))
+
+
+if __name__ == "__main__":
+    main()
