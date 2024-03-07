@@ -1,6 +1,11 @@
 # A better terminal
 # https://github.com/nix-community/home-manager/blob/master/modules/programs/fish.nix
-{PROJECT_ROOT, ...}: {
+{
+  PROJECT_ROOT,
+  pkgs,
+  lib,
+  ...
+}: {
   programs.fish = {
     enable = true;
     shellAliases = {
@@ -31,5 +36,11 @@
         body = "";
       };
     };
+    shellInit = ''
+      set PRISMA_SCHEMA_ENGINE_BINARY ${pkgs.prisma-engines}/bin/schema-engine \
+      set PRISMA_QUERY_ENGINE_BINARY ${pkgs.prisma-engines}/bin/query-engine \
+      set PRISMA_QUERY_ENGINE_LIBRARY ${lib.getLib pkgs.prisma-engines}/lib/libquery_engine.node \
+      set PRISMA_FMT_BINARY ${pkgs.prisma-engines}/bin/prisma-fmt
+    '';
   };
 }

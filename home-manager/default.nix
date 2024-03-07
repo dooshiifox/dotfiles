@@ -86,6 +86,7 @@
     nodejs_21 # Javascript runtime; also provides npm
     nodePackages.pnpm # Faster, less disk space npm
     nodePackages.prisma
+    prisma-engines
 
     # Python
     (python311.withPackages
