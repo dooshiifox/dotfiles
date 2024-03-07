@@ -177,9 +177,11 @@
 
 (defwidget active-app []
   (box :class "active-app" :orientation "h" :halign "start" :space-evenly false
-    (button :onclick {icon-open && !ws-priority ? "${EWW_CMD} update icon-open=false; ${EWW_CMD} update ws-priority=false; ${EWW_CMD} update ws-open=false" : "${EWW_CMD} update icon-open=true; ${EWW_CMD} update ws-priority=false"}
-      (image :class "app-icon" :visible {workspace.app.icon != ""} :path {workspace.app.icon} :image-width 20)
-      (image :class "rounded-md" :visible {workspace.app.icon != ""} :path {face-path} :image-width 20)
+    (button :visible {workspace.app.icon != ""} :onclick {icon-open && !ws-priority ? "${EWW_CMD} update icon-open=false; ${EWW_CMD} update ws-priority=false; ${EWW_CMD} update ws-open=false" : "${EWW_CMD} update icon-open=true; ${EWW_CMD} update ws-priority=false"}
+      (image :path {workspace.app.icon} :image-width 20)
+    )
+    (button :visible {workspace.app.icon == ""} :onclick {icon-open && !ws-priority ? "${EWW_CMD} update icon-open=false; ${EWW_CMD} update ws-priority=false; ${EWW_CMD} update ws-open=false" : "${EWW_CMD} update icon-open=true; ${EWW_CMD} update ws-priority=false"}
+      (image :class "rounded-md" :path {face-path} :image-width 20)
     )
     (revealer :transition "slideright" :duration "0.2s" :reveal {icon-open && !ws-priority}
       (label :class "app-name" :limit-width "35" :text {workspace.app.title ?: "-"} :tooltip {workspace.app.title ?: "-"})
