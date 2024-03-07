@@ -16,8 +16,21 @@ git diff -U0 **/*.nix
 
 echo "NixOS Rebuilding..."
 
+# Move git files so the git repo isn't cloned and instead the folder is.
+# This way we can have a secrets.nix ignored by git and still have it in the system
+# FIXME: This is a hack. Try a wrapping flake that provides secrets and turn
+# this one here into an overlay?
+mkdir -p ./.git-hide
+mv .git ./.git-hide/
+mv .gitignore ./.git-hide/
+
 # Rebuild, output simplified errors, log trackebacks
 sudo nixos-rebuild switch &>nixos-switch.log || (cat nixos-switch.log | grep --color error && false)
+
+# Move them back
+mv ./.git-hide/.git .
+mv ./.git-hide/.gitignore .
+rmdir ./.git-hide
 
 # Get current generation metadata
 current=$(nixos-rebuild list-generations | grep current)

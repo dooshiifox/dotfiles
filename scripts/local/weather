@@ -3,7 +3,7 @@
 source ./weatherconf
 
 # Get data
-weather=`curl -sf "http://api.openweathermap.org/data/2.5/weather?APPID="$KEY"&id="$ID"&units="$UNIT""`
+weather=`curl -sf "http://api.openweathermap.org/data/2.5/weather?APPID="$OPENWEATHER_KEY"&id="$OPENWEATHER_CITY_ID"&units="$OPENWEATHER_UNIT""`
 
 if [ ! -z "$weather" ]; then
 	temp=`echo "$weather" | jq ".main.temp | tonumber | round"`

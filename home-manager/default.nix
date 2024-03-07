@@ -9,6 +9,7 @@
   imports = [
     ./programs
     ./services
+    ./secrets.nix
   ];
 
   home.username = "dooshii";

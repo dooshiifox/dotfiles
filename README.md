@@ -3,8 +3,7 @@
 My system uses NixOS. This configuration assumes:
 
 -   You've symlinked `flake.lock` and `flake.nix` inside `/etc/nixos/`
--   You've set up your mail config in `scripts/local/mailsconf.py`
--   You've set up your weather config in `scripts/local/weatherconf`
+-   You've set up your secrets in `home-manager/secrets.nix`
 -   You've downloaded some images to use in the eww weather & time box in `eww/assets`. Files are of the format `weather_{num}{d/n}.jpg`. I'm not sharing the ones I use for copyright reasons (and I don't remember where I got them).
     -   `d/n` is for day and night.
     -   `01` - Sunny

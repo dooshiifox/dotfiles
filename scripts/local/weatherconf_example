@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-# Your openweathermap API key. See https://home.openweathermap.org/users/sign_in
-KEY=""
-# City ID. See http://bulk.openweathermap.org/sample/
-ID=""
-# Available options : 'metric' or 'imperial'
-UNIT=""
