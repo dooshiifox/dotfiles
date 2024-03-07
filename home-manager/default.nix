@@ -19,10 +19,6 @@
     BROWSER = "firefox-developer-edition";
     EDITOR = "code";
     NIX_SRC = PROJECT_ROOT;
-    PRISMA_SCHEMA_ENGINE_BINARY = "${pkgs.prisma-engines}/bin/schema-engine";
-    PRISMA_QUERY_ENGINE_BINARY = "${pkgs.prisma-engines}/bin/query-engine";
-    PRISMA_QUERY_ENGINE_LIBRARY = "${lib.getLib pkgs.prisma-engines}/lib/libquery_engine.node";
-    PRISMA_FMT_BINARY = "${pkgs.prisma-engines}/bin/prisma-fmt";
   };
 
   home.packages = with pkgs; [
@@ -90,8 +86,6 @@
     # Javascript
     nodejs_21 # Javascript runtime; also provides npm
     nodePackages.pnpm # Faster, less disk space npm
-    nodePackages.prisma
-    prisma-engines
 
     # Python
     (python311.withPackages
