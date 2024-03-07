@@ -37,9 +37,9 @@
       };
     };
     shellInit = ''
-      set PRISMA_SCHEMA_ENGINE_BINARY ${pkgs.prisma-engines}/bin/schema-engine \
-      set PRISMA_QUERY_ENGINE_BINARY ${pkgs.prisma-engines}/bin/query-engine \
-      set PRISMA_QUERY_ENGINE_LIBRARY ${lib.getLib pkgs.prisma-engines}/lib/libquery_engine.node \
+      set PRISMA_SCHEMA_ENGINE_BINARY ${pkgs.prisma-engines}/bin/schema-engine
+      set PRISMA_QUERY_ENGINE_BINARY ${pkgs.prisma-engines}/bin/query-engine
+      set PRISMA_QUERY_ENGINE_LIBRARY ${lib.getLib pkgs.prisma-engines}/lib/libquery_engine.node
       set PRISMA_FMT_BINARY ${pkgs.prisma-engines}/bin/prisma-fmt
     '';
   };
