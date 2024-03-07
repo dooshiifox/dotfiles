@@ -49,6 +49,7 @@
     wget
     lshw
     libnotify
+    inputs.agenix.packages."${system}".default
   ];
 
   # This value determines the NixOS release from which the default

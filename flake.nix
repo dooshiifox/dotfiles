@@ -1,5 +1,5 @@
 {
-  description = "A simple NixOS flake";
+  description = "dooshii's NixOS flake.";
 
   inputs = {
     # NixOS official package source, using the nixos-23.11 branch here
@@ -12,9 +12,16 @@
       # to avoid problems caused by different versions of nixpkgs.
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # VSCode extensions
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+    # Outer Wilds mod manager
     ow-mod-man = {
       url = "github:ow-mods/ow-mod-man";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    # Encryption of secret Nix configurations
+    agenix = {
+      url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -23,6 +30,7 @@
     self,
     nixpkgs,
     home-manager,
+    agenix,
     ...
   }: {
     nixosConfigurations.dooshii = nixpkgs.lib.nixosSystem {
@@ -33,6 +41,9 @@
         "PROJECT_ROOT" = builtins.toString ./.;
       };
       modules = [
+        agenix.nixosModules.default
+
+        ./secrets
         ./nix
 
         # make home-manager as a module of nixos so that
