@@ -43,7 +43,6 @@
       modules = [
         agenix.nixosModules.default
 
-        ./secrets
         ./nix
 
         # make home-manager as a module of nixos so that
