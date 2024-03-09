@@ -101,6 +101,7 @@
     # C/C++
     cmake # Makefile support
     gnumake # Supplies `make`
+    gcc # Provides `gcc` and `cc`. Also required for Rust.
 
     # Nix
     alejandra # Format nix files, used by ni
