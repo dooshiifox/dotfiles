@@ -25,6 +25,7 @@
         sources-android-34
         tools
         ndk-23-1-7779620
+        cmake-3-22-1
       ];
   };
 }
