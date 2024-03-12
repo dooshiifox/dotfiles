@@ -62,7 +62,7 @@ in {
       mtxr.sqltools-driver-pg
       mtxr.sqltools-driver-sqlite
       oderwat.indent-rainbow
-      orta.vscode-jest
+      # orta.vscode-jest # Annoying
       pixl.bevy-snippets
       pkief.material-icon-theme
       prisma.prisma
