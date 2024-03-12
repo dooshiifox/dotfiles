@@ -96,6 +96,7 @@
           colorthief
           mpd2
           requests
+          eyed3
         ]))
 
     # C/C++
