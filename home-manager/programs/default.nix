@@ -2,6 +2,7 @@
   imports = [
     ./vscode
     ./alacritty.nix
+    ./android.nix
     ./bat.nix
     ./dconf.nix
     ./eww.nix

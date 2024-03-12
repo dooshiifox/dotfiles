@@ -35,7 +35,6 @@
     self,
     nixpkgs,
     home-manager,
-    android-nixpkgs,
     ...
   }: {
     nixosConfigurations.dooshii = nixpkgs.lib.nixosSystem {
@@ -61,7 +60,6 @@
           # Optionally, use home-manager.extraSpecialArgs to pass arguments
           home-manager.extraSpecialArgs = {
             inherit inputs;
-            inherit android-nixpkgs;
             "PROJECT_ROOT" = builtins.toString ./.;
           };
         }

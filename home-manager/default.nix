@@ -4,29 +4,13 @@
   inputs,
   lib,
   PROJECT_ROOT,
-  android-nixpkgs,
   ...
 }: {
   imports = [
     ./programs
     ./services
     ./secrets.nix
-
-    android-nixpkgs.hmModule
   ];
-  android-sdk.enable = true;
-
-  # Optional; default path is "~/.local/share/android".
-  android-sdk.path = "${config.home.homeDirectory}/.android/sdk";
-
-  android-sdk.packages = sdk:
-    with sdk; [
-      build-tools-34-0-0
-      cmdline-tools-latest
-      emulator
-      platforms-android-34
-      sources-android-34
-    ];
 
   home.username = "dooshii";
   home.homeDirectory = "/home/dooshii";
