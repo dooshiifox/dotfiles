@@ -17,12 +17,13 @@
 
     packages = sdk:
       with sdk; [
-        build-tools-34-0-0
+        build-tools-30-0-3
         cmdline-tools-latest
         emulator
-        platforms-android-34
+        platforms-android-33
         platform-tools
         sources-android-34
+        tools
       ];
   };
 }
