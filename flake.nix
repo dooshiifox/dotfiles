@@ -35,7 +35,7 @@
     self,
     nixpkgs,
     home-manager,
-    # agenix,
+    android-nixpkgs,
     ...
   }: {
     nixosConfigurations.dooshii = nixpkgs.lib.nixosSystem {
@@ -46,8 +46,6 @@
         "PROJECT_ROOT" = builtins.toString ./.;
       };
       modules = [
-        # agenix.nixosModules.default
-
         ./nix
 
         # make home-manager as a module of nixos so that
@@ -63,6 +61,7 @@
           # Optionally, use home-manager.extraSpecialArgs to pass arguments
           home-manager.extraSpecialArgs = {
             inherit inputs;
+            inherit android-nixpkgs;
             "PROJECT_ROOT" = builtins.toString ./.;
           };
         }
