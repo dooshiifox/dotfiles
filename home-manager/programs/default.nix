@@ -2,7 +2,6 @@
   imports = [
     ./vscode
     ./alacritty.nix
-    ./autojump.nix
     ./bat.nix
     ./dconf.nix
     ./eww.nix
@@ -16,5 +15,6 @@
     ./ripgrep.nix
     ./thefuck.nix
     ./yt-dlp.nix
+    ./zoxide.nix
   ];
 }

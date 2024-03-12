@@ -8,6 +8,13 @@ set -e
 # # Edit your config
 # code ~/.config/nixos/
 
+# If theres a `.git-hide` folder, move it back
+if [ -d ./.git-hide ]; then
+  mv ./.git-hide/.git .
+  mv ./.git-hide/.gitignore .
+  rmdir ./.git-hide
+fi
+
 # Autoformat your nix files
 alejandra .
 
@@ -24,7 +31,7 @@ mkdir -p ./.git-hide
 mv .git ./.git-hide/
 mv .gitignore ./.git-hide/
 
-# Rebuild, output simplified errors, log trackebacks
+# Rebuild, output simplified errors, log tracebacks
 sudo nixos-rebuild switch &>nixos-switch.log || (cat nixos-switch.log | grep --color error && false)
 
 # Move them back

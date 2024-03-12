@@ -20,8 +20,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # Encryption of secret Nix configurations
-    agenix = {
-      url = "github:ryantm/agenix";
+    # agenix = {
+    #   url = "github:ryantm/agenix";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+    # Android development
+    android-nixpkgs = {
+      url = "github:tadfisher/android-nixpkgs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -30,7 +35,7 @@
     self,
     nixpkgs,
     home-manager,
-    agenix,
+    # agenix,
     ...
   }: {
     nixosConfigurations.dooshii = nixpkgs.lib.nixosSystem {
@@ -41,7 +46,7 @@
         "PROJECT_ROOT" = builtins.toString ./.;
       };
       modules = [
-        agenix.nixosModules.default
+        # agenix.nixosModules.default
 
         ./nix
 

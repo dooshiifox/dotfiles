@@ -12,5 +12,8 @@
             "name": "mpd-local",
             "database": "${workspaceFolder:nixos}/services/mpd/sticker.sql"
         }
-    ]
+    ],
+    "files.exclude": {
+        "**/.git": false,
+    },
 }
