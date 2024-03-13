@@ -1,4 +1,4 @@
-{...}: let
+{pkgs, ...}: let
   androidComposition = pkgs.androidenv.composeAndroidPackages {
     buildToolsVersions = ["30.0.3" "33.0.0"];
     platformVersions = ["33"];
@@ -8,6 +8,7 @@
 in {
   programs.adb.enable = true;
   users.users.dooshii.extraGroups = ["adbusers"];
+  nixpkgs.config.android_sdk.accept_license = true;
 
   environment.sessionVariables = {
     GRADLE_OPTS = "-Dorg.gradle.project.android.aapt2FromMavenOverride=${androidSdk}/libexec/android-sdk/build-tools/31.0.0/aapt2";
