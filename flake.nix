@@ -19,16 +19,6 @@
       url = "github:ow-mods/ow-mod-man";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # Encryption of secret Nix configurations
-    # agenix = {
-    #   url = "github:ryantm/agenix";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-    # Android development
-    android-nixpkgs = {
-      url = "github:tadfisher/android-nixpkgs";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = inputs @ {

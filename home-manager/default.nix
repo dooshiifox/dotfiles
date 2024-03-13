@@ -20,8 +20,7 @@
     BROWSER = "firefox-developer-edition";
     EDITOR = "code";
     NIX_SRC = PROJECT_ROOT;
-    # ANDROID_HOME = "${pkgs.android-sdk}";
-  } // config.environment.sessionVariables;
+  };
 
   home.packages = with pkgs; [
     ################
@@ -79,7 +78,6 @@
     # Android / iOS
     android-studio # Android development
     android-tools # Android development: Part 2
-    jdk # Android dependency i think
     flutter # Mobile development
 
     # Rust
