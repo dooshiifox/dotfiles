@@ -9,7 +9,7 @@
   imports = [
     ./programs
     ./services
-    ./secrets.nix
+    ./secrets-example.nix
   ];
 
   home.username = "dooshii";
@@ -21,7 +21,7 @@
     EDITOR = "code";
     NIX_SRC = PROJECT_ROOT;
     # ANDROID_HOME = "${pkgs.android-sdk}";
-  };
+  } // config.environment.sessionVariables;
 
   home.packages = with pkgs; [
     ################
