@@ -8,6 +8,22 @@
     };
     extraConfig = {
       init.defaultBranch = "main";
+
+      # Most of these are taken from this talk
+      # https://www.youtube.com/watch?v=aolI_Rz0ZqY
+
+      # Save how merge conflicts were resolved in the past
+      # and auto-reapply if found in the future.
+      rerere.enabled = true;
+
+      # Change how `git branch` works
+      column.ui = "auto";
+      branch.sort = "-committerdate";
+
+      # Commit signing
+      gpg.format = "ssh";
+      user.signingkey = "~/.ssh/id_rsa.pub";
+      commit.gpgSign = true;
     };
   };
 }
