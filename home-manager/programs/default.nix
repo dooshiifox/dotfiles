@@ -15,6 +15,7 @@
     ./obs-studio.nix
     ./ripgrep.nix
     ./thefuck.nix
+    ./thunderbird.nix
     ./yt-dlp.nix
     ./zoxide.nix
   ];
