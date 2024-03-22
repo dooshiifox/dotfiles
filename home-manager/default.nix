@@ -20,6 +20,7 @@
     BROWSER = "firefox-developer-edition";
     EDITOR = "code";
     NIX_SRC = PROJECT_ROOT;
+    PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
   };
 
   home.packages = with pkgs; [
