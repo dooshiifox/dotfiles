@@ -83,6 +83,8 @@
     # Rust
     rustup # Rust downloader and toolchain switcher
     cargo-audit # Audit for security vulnerabilities
+    pkg-config # Compiling openssl-sys crate
+    sqlite # Compiling libsqlite3-sys crate
 
     # Javascript
     nodejs_21 # Javascript runtime; also provides npm
