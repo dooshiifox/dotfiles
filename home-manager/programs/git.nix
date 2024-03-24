@@ -44,11 +44,11 @@
       # .git/config
       # ```
       # [user]
-      # signingkey = ~/.ssh/id_ed25519_pin.pub
+      # signingkey = ~/.ssh/id_ed25519_<company>.pub
       # [remote "origin"]
-      # url = git@pin.github.com:PayItNow/payitnow.io.git
+      # url = git@<company>.github.com:<Company>/<git repo>.git
       # ```
-      # Note the `pin.github.com` host in `~/.ssh/config`
+      # Note the `<company>.github.com` host in `~/.ssh/config`
       #
       # If you ever need to add another host...
       # ```
