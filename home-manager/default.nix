@@ -172,6 +172,7 @@
     ################
     cubiomes-viewer # Minecraft biome viewer
     prismlauncher # Minecraft launcher
+    ferium # Minecraft mod manager
     steam # Hub for games
     protontricks # Steam's Proton helpers
     wine # Window compatibility
