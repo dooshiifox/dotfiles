@@ -47,6 +47,7 @@
     gettext # Compiling hide-top-bar
     glib # ^^^
     glib.dev # ^^^
+    gnome.gnome-tweaks # Customize GNOME
 
     # Social
     telegram-desktop # Telegram client
