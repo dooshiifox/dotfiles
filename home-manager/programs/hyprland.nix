@@ -1,4 +1,6 @@
 {pkgs, ...}: {
+  home.packages = with pkgs; [bibata-cursors];
+
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
@@ -109,14 +111,11 @@
       misc = {
         disable_hyprland_logo = true;
       };
-    };
-  };
 
-  home.pointerCursor = {
-    gtk.enable = true;
-    # x11.enable = true;
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Classic";
-    size = 16;
+      env = [
+        "HYPRCURSOR_THEME,Bibata-Modern-Classic"
+        "HYPRCURSOR_SIZE,24"
+      ];
+    };
   };
 }
