@@ -14,10 +14,6 @@
     '';
   };
 in {
-  imports = [
-    ./hyprland.nix
-  ];
-
   environment = {
     systemPackages = with pkgs; [
       dbus-hyprland-environment

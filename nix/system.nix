@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   # https://support.system76.com/articles/system76-software/#nixos
   hardware.system76.enableAll = true;
 
@@ -47,18 +51,18 @@
   ####################
 
   # # Enable the X11 windowing system.
-  # services.xserver.enable = true;
+  services.xserver.enable = true;
 
   # # Enable the GNOME Desktop Environment.
   # services.xserver.displayManager.defaultSession = "gnome-xorg";
   # services.xserver.displayManager.gdm.enable = true;
   # services.xserver.desktopManager.gnome.enable = true;
 
-  # # Configure keymap in X11
-  # services.xserver.xkb = {
-  #   layout = "nz";
-  #   variant = "";
-  # };
+  # Configure keymap in X11
+  services.xserver.xkb = {
+    layout = "nz";
+    variant = "";
+  };
 
   ####################
   #   PRINTING
@@ -91,6 +95,7 @@
     enable = true;
     driSupport = true;
     driSupport32Bit = true;
+    extraPackages = [pkgs.nvidia-vaapi-driver];
   };
 
   # Load nvidia driver for Xorg and Wayland
