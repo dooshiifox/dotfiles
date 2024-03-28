@@ -32,7 +32,7 @@ mv .git ./.git-hide/
 mv .gitignore ./.git-hide/
 
 # Rebuild, output simplified errors, log tracebacks
-sudo nixos-rebuild switch &>nixos-switch.log || (cat nixos-switch.log | grep --color error && false)
+sudo nixos-rebuild switch
 
 # Move them back
 mv ./.git-hide/.git .

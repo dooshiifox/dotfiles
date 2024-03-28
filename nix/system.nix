@@ -95,13 +95,21 @@
     enable = true;
     driSupport = true;
     driSupport32Bit = true;
-    extraPackages = [pkgs.nvidia-vaapi-driver];
+    extraPackages = [
+      pkgs.vaapiVdpau
+      pkgs.libvdpau-va-gl
+      pkgs.nvidia-vaapi-driver
+    ];
+    extraPackages32 = with pkgs.pkgsi686Linux; [libva];
   };
 
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = ["nvidia"]; # or "nvidiaLegacy470 etc.
 
+  boot.initrd.kernelModules = ["nvidia"];
+  boot.extraModulePackages = [config.boot.kernelPackages.nvidia_x11];
   hardware.nvidia = {
+    open = true;
     # Modesetting is required.
     modesetting.enable = true;
 
@@ -109,7 +117,7 @@
     # Enable this if you have graphical corruption issues or application crashes after waking
     # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead
     # of just the bare essentials.
-    powerManagement.enable = false;
+    powerManagement.enable = true;
 
     # Fine-grained power management. Turns off GPU when not in use.
     # Experimental and only works on modern Nvidia GPUs (Turing or newer).
@@ -122,7 +130,7 @@
     # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus
     # Only available from driver 515.43.04+
     # Currently alpha-quality/buggy, so false is currently the recommended setting.
-    open = false;
+    # open = false;
 
     # Enable the Nvidia settings menu,
     # accessible via `nvidia-settings`.
@@ -130,17 +138,19 @@
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.stable;
+    forceFullCompositionPipeline = true;
+    # package = pkgs.linuxKernel.packages.linux_5_15.nvidia_x11;
   };
-  hardware.nvidia.prime = {
-    # https://nixos.wiki/wiki/Nvidia
-    sync.enable = true;
-    # offload = {
-    # 	enable = true;
-    # 	enableOffloadCmd = true;
-    # };
+  # hardware.nvidia.prime = {
+  #   # https://nixos.wiki/wiki/Nvidia
+  #   sync.enable = true;
+  #   # offload = {
+  #   # 	enable = true;
+  #   # 	enableOffloadCmd = true;
+  #   # };
 
-    nvidiaBusId = "PCI:1:0:0";
-    intelBusId = "PCI:0:2:0";
-  };
+  #   nvidiaBusId = "PCI:1:0:0";
+  #   intelBusId = "PCI:0:2:0";
+  # };
   # boot.kernelParams = [ "module_blacklist=i915" ];
 }

@@ -45,11 +45,6 @@
         });
       });
     })
-
-    inputs.hypridle.overlays.default
-    inputs.hyprlock.overlays.default
-    inputs.hyprpicker.overlays.default
-    inputs.hyprcursor.overlays.default
   ];
 
   environment.systemPackages = with pkgs; [

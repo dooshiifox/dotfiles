@@ -14,7 +14,10 @@
 
   home.username = "dooshii";
   home.homeDirectory = "/home/dooshii";
-  xdg.userDirs.enable = true;
+  xdg = {
+    userDirs.enable = true;
+    # Portals defined in `nix/wayland.nix`
+  };
 
   home.sessionVariables = {
     BROWSER = "firefox-developer-edition";

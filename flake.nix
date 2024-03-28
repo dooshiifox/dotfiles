@@ -19,16 +19,7 @@
       url = "github:ow-mods/ow-mod-man";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland.url = "github:hyprwm/Hyprland";
-    hypridle.url = "github:hyprwm/hypridle";
-    hyprlock.url = "github:hyprwm/hyprlock";
-    hyprpicker.url = "github:hyprwm/hyprpicker";
     hyprcursor.url = "github:hyprwm/hyprcursor";
-    xdg-portal-hyprland.url = "github:hyprwm/xdg-desktop-portal-hyprland";
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
   };
 
   outputs = inputs @ {
@@ -57,9 +48,6 @@
 
           home-manager.users.dooshii.imports = [
             ./home-manager
-            inputs.hyprland.homeManagerModules.default
-            inputs.hypridle.homeManagerModules.default
-            inputs.hyprlock.homeManagerModules.default
           ];
 
           # Optionally, use home-manager.extraSpecialArgs to pass arguments
