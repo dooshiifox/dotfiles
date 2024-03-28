@@ -96,10 +96,6 @@
       gestures = {
         workspace_swipe = false;
       };
-      device = {
-        name = "glorious-model-o-wireless";
-        sensitivity = "-0.5";
-      };
       misc = {
         disable_hyprland_logo = true;
       };
