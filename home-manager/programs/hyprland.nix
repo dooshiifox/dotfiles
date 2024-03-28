@@ -5,6 +5,11 @@
     xwayland.enable = true;
 
     settings = {
+      monitor = [
+        "HDMI-A-1,1920x1080@60,0x0,1"
+        "eDP-2,3840x2160@144,1920x0,2"
+      ];
+
       "$mod" = "SUPER";
       bind =
         [
@@ -36,17 +41,22 @@
             10)
         );
 
+      bindm = [
+        "$mod,mouse:272,movewindow"
+        "$mod,mouse:273,resizewindow"
+      ];
+
       input = {
         kb_layout = "us";
         follow_mouse = 1;
         force_no_accel = true;
       };
       general = {
-        gaps_in = 10;
-        gaps_out = 20;
-        border_size = 4;
-        "col.active_border" = "rgb(f7768e) rgb(2ac3de)";
-        "col.inactive_border" = "rgb(313244)";
+        gaps_in = 4;
+        gaps_out = 8;
+        border_size = 2;
+        "col.active_border" = "rgb(ffffff)";
+        "col.inactive_border" = "rgba(888a8f88)";
 
         layout = "dwindle";
       };
