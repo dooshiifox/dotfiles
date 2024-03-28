@@ -1,6 +1,7 @@
 {
   imports = [
     ./vscode
+    ./wayland
     ./alacritty.nix
     ./bat.nix
     ./chromium.nix
