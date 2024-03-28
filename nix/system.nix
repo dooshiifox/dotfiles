@@ -53,10 +53,10 @@
   # # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # # Enable the GNOME Desktop Environment.
-  # services.xserver.displayManager.defaultSession = "gnome-xorg";
-  # services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
+  # Enable the GNOME Desktop Environment.
+  services.xserver.displayManager.defaultSession = "gnome-xorg";
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -171,5 +171,5 @@
     nvidiaBusId = "PCI:1:0:0";
     intelBusId = "PCI:0:2:0";
   };
-  # boot.kernelParams = [ "module_blacklist=i915" ];
+  boot.kernelParams = ["module_blacklist=i915"];
 }

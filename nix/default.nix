@@ -11,10 +11,10 @@
     ../hardware-configuration.nix
     ./android.nix
     ./docker.nix
-    ./greetd.nix
+    #    ./greetd.nix
     ./media.nix
     ./system.nix
-    ./wayland.nix
+    #    ./wayland.nix
   ];
 
   users.users.dooshii = {
