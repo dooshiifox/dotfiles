@@ -134,6 +134,7 @@
     zip # `zip` command
     unzip # `unzip` command
     psmisc # `fuser` command
+    pciutils # `lspci` command
 
     ################
     # Media
