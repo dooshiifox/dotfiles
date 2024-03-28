@@ -58,6 +58,8 @@
           home-manager.users.dooshii.imports = [
             ./home-manager
             inputs.hyprland.homeManagerModules.default
+            inputs.hypridle.homeManagerModules.default
+            inputs.hyprlock.homeManagerModules.default
           ];
 
           # Optionally, use home-manager.extraSpecialArgs to pass arguments
