@@ -106,10 +106,10 @@
         new_is_master = true;
       };
       gestures = {
-        workspace_swipe = false;
+        workspace_swipe = true;
       };
       misc = {
-        disable_hyprland_logo = true;
+        disable_hyprland_logo = false;
       };
 
       env = [
