@@ -9,7 +9,6 @@ with lib.hm.gvariant; {
     settings = {
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
-        icon-theme = "candy-icons";
         gtk-enable-primary-paste = false;
       };
       "org/gnome/desktop/wm/preferences" = {

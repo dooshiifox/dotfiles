@@ -31,7 +31,6 @@
     # System
     ################
     baobab # GNOME pie chart disk usage
-    candy-icons # Modern desktop icons
     megasync # Backups
 
     # FIXME: Prevent manual installs of these things.
@@ -70,6 +69,7 @@
     nerdfonts
     nerd-font-patcher
     quicksand
+    cantarell-fonts
     # TODO: Port this over
     # https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=nerd-fonts-inter
     # For now, manually install.

@@ -15,6 +15,7 @@
       ./fish.nix
       ./gh.nix
       ./git.nix
+      ./gtk.nix
       ./mpv.nix
       ./obs-studio.nix
       ./ripgrep.nix
@@ -22,7 +23,8 @@
       ./thunderbird.nix
       ./yt-dlp.nix
       ./zoxide.nix
+      ./dconf.nix
     ]
     ++ lib.optionals (mode == "hypr") [./hyprland.nix]
-    ++ lib.optionals (mode == "gnome") [./dconf.nix];
+    ++ lib.optionals (mode == "gnome") [];
 }

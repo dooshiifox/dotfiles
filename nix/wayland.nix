@@ -81,4 +81,9 @@ in {
       default_session = initial_session;
     };
   };
+
+  services.gnome = {
+    gnome-keyring.enable = true;
+    sushi.enable = true;
+  };
 }
