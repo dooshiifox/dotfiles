@@ -27,13 +27,17 @@
     nixpkgs,
     home-manager,
     ...
-  }: {
+  }: let
+    mode = "gnome";
+    PROJECT_ROOT = builtins.toString ./.;
+  in {
     nixosConfigurations.dooshii = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       # Enable accessing `inputs` in config files
       specialArgs = {
         inherit inputs;
-        "PROJECT_ROOT" = builtins.toString ./.;
+        inherit mode;
+        inherit PROJECT_ROOT;
       };
       modules = [
         ./nix
@@ -53,7 +57,8 @@
           # Optionally, use home-manager.extraSpecialArgs to pass arguments
           home-manager.extraSpecialArgs = {
             inherit inputs;
-            "PROJECT_ROOT" = builtins.toString ./.;
+            inherit mode;
+            inherit PROJECT_ROOT;
           };
         }
       ];

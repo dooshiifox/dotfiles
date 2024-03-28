@@ -4,18 +4,20 @@
   inputs,
   pkgs,
   lib,
+  mode,
   ...
 }: {
-  imports = [
-    # Include the results of the hardware scan.
-    ../hardware-configuration.nix
-    ./android.nix
-    ./docker.nix
-    #    ./greetd.nix
-    ./media.nix
-    ./system.nix
-    #    ./wayland.nix
-  ];
+  imports =
+    [
+      # Include the results of the hardware scan.
+      ../hardware-configuration.nix
+      ./android.nix
+      ./docker.nix
+      ./media.nix
+      ./system.nix
+    ]
+    ++ lib.optionals (mode == "hypr") [./wayland.nix]
+    ++ lib.optionals (mode == "gnome") [./gnome.nix];
 
   users.users.dooshii = {
     isNormalUser = true;
