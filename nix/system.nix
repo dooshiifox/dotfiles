@@ -166,5 +166,5 @@
     nvidiaBusId = "PCI:1:0:0";
     intelBusId = "PCI:0:2:0";
   };
-  boot.kernelParams = ["module_blacklist=i915"];
+  # boot.kernelParams = ["module_blacklist=i915"];
 }
