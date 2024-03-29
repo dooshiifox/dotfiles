@@ -28,7 +28,7 @@
     home-manager,
     ...
   }: let
-    mode = "hypr";
+    mode = "gnome";
     PROJECT_ROOT = builtins.toString ./.;
   in {
     nixosConfigurations.dooshii = nixpkgs.lib.nixosSystem {
