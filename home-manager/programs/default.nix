@@ -5,10 +5,12 @@
 }: {
   imports =
     [
+      ./godot4_mono/use.nix
       ./vscode
       ./alacritty.nix
       ./bat.nix
       ./chromium.nix
+      ./dconf.nix
       ./eww.nix
       ./eza.nix
       ./firefox.nix
@@ -23,7 +25,6 @@
       ./thunderbird.nix
       ./yt-dlp.nix
       ./zoxide.nix
-      ./dconf.nix
     ]
     ++ lib.optionals (mode == "hypr") [./hyprland.nix]
     ++ lib.optionals (mode == "gnome") [];
