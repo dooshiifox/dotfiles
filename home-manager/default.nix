@@ -175,6 +175,7 @@
     ################
     # Games
     ################
+    godot_4 # Game engine # TODO: Upgrade to mono version when thats added
     cubiomes-viewer # Minecraft biome viewer
     prismlauncher # Minecraft launcher
     ferium # Minecraft mod manager

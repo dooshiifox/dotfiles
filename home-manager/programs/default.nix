@@ -5,7 +5,6 @@
 }: {
   imports =
     [
-      ./godot4_mono/use.nix
       ./vscode
       ./alacritty.nix
       ./bat.nix
