@@ -146,6 +146,7 @@
     kdenlive # Ugly video editor
     krita # Ugly image editor
     blender # Not as ugly 3d modeling
+    reaper # DAW
 
     amberol # Simple audio player
     blanket # Pleasant sounds :3
