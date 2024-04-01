@@ -139,6 +139,8 @@
     psmisc # `fuser` command
     pciutils # `lspci` command
 
+    filezilla # FTP GUI client
+
     ################
     # Media
     ################
