@@ -35,6 +35,13 @@
         # Echo whatever you want here
         body = "";
       };
+      nixs = {
+        # Opens firefox at https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query={query}
+        body = "firefox-developer-edition https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=$argv";
+      };
+      mrat = {
+        body = "cd ~/Documents/CodingProjects/mpd-rating/ && pnpm dev --host";
+      };
     };
   };
 }
