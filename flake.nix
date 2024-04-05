@@ -28,7 +28,8 @@
     home-manager,
     ...
   }: let
-    mode = "gnome";
+    # "gnome", "gnome-wayland", "hypr"
+    mode = "gnome-wayland";
     PROJECT_ROOT = builtins.toString ./.;
   in {
     nixosConfigurations.dooshii = nixpkgs.lib.nixosSystem {

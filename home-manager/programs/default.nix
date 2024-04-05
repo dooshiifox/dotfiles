@@ -25,6 +25,5 @@
       ./yt-dlp.nix
       ./zoxide.nix
     ]
-    ++ lib.optionals (mode == "hypr") [./hyprland.nix]
-    ++ lib.optionals (mode == "gnome") [];
+    ++ lib.optionals (mode == "hypr") [./hyprland.nix];
 }
