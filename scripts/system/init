@@ -2,7 +2,7 @@
 
 if [ (count $argv) = 0 ]
 	set keyboard
-	set ffcp
+	# set ffcp
 	set mouse
 	set ewwbar
 end
