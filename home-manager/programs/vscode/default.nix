@@ -77,8 +77,10 @@ in {
       twxs.cmake
       # visualstudiotoolsforunity.vstuc # Also crashes build
       wayou.vscode-todo-highlight
+      xdebug.php-debug
       yechunan.json-color-token
       yoavbls.pretty-ts-errors
+      zobo.php-intellisense
       # TODO: Local theme
     ];
 

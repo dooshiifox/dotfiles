@@ -80,6 +80,7 @@
 
     jetbrains.clion # C/C++ code editor
     postman # API testing
+    php83 # PHP runtime
 
     # Android / iOS
     android-studio # Android development
