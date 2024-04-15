@@ -79,6 +79,7 @@
     ################
 
     jetbrains.clion # C/C++ code editor
+    postman # API testing
 
     # Android / iOS
     android-studio # Android development
