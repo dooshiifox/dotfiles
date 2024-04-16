@@ -121,8 +121,6 @@ in {
       "[json]" = {
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
       };
-      "php.suggest.basic" = false;
-      "php.validate.executablePath" = "/usr/bin/php";
       "search.exclude" = {
         "**/*.anim" = true;
         "**/bower_components" = true;
@@ -236,6 +234,7 @@ in {
       "sqltools.autoOpenSessionFiles" = false;
       "docker.containers.description" = ["Status"];
       "docker.containers.label" = "ContainerName";
+      "php.suggest.basic" = false;
       "php.validate.enable" = false;
       "git.autofetch" = true;
       "tailwindCSS.includeLanguages" = {
