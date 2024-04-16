@@ -18,9 +18,14 @@ from mpd import MPDClient
 
 # Read the playbias from the commandline if it exists as a pipe-seperated array
 # of floats.
+# -1 as the first value means all unrated songs will be added
+#   - sorted by artist
+#   - then by album name
+#   - then by track number
+# immediately to the end of the queue, regardless of `MAX_QUEUE_SIZE`
 # e.g.,
 # DEFAULT_PLAY_BIAS = "100000|0|0|0|0|0.3|0.7|1|0.8|0.6|0.4"
-DEFAULT_PLAY_BIAS = "100000|0|0|0|0|0.1|0.3|0.8|1|0.9|0.6"
+DEFAULT_PLAY_BIAS = "-1|0|0|0|0|0.1|0.3|0.8|1|0.9|0.6"
 bias_str = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_PLAY_BIAS
 PLAY_BIAS: dict[Optional[float], float] = {
     (None if i == 0 else i): bias
@@ -66,6 +71,8 @@ class SongLink:
 @dataclass
 class SongData:
     """General information about a song."""
+
+    file: str
 
     bias: float
     rating: Optional[float]
@@ -120,7 +127,7 @@ class BiasedRandomRating:
             track = int(track) if track is not None else None
 
             self.songs[file] = SongData(
-                1, None, 1, None, artist, album, title, disc, track, duration
+                file, 1, None, 1, None, artist, album, title, disc, track, duration
             )
 
         for result in self.client.sticker_find("song", "", "rating"):
@@ -153,7 +160,29 @@ class BiasedRandomRating:
             link = SongLink(jsoned["to"], jsoned["priority"])
             self.songs[result["file"]].link = link
 
+        self.try_add_unrated_songs()
         self.update_biases()
+
+    def try_add_unrated_songs(self):
+        """
+        If any unrated songs exist and `PLAY_BIAS[None]` is -1,
+        this will add all the unrated songs to the queue in-order.
+
+        It ignores the value of `MAX_QUEUE_SIZE`
+        """
+        if PLAY_BIAS.get(None) == -1:
+            unrated_songs = list(
+                filter(lambda s: s.rating is None, self.songs.values())
+            )
+            unrated_songs.sort(key=lambda s: s.track or 0, reverse=False)
+            unrated_songs.sort(key=lambda s: s.album or "", reverse=False)
+            unrated_songs.sort(key=lambda s: s.artist or "", reverse=False)
+
+            # make sure not to add any songs already in queue
+            songs_in_queue = list(map(lambda s: s["file"], self.client.playlistinfo()))
+            for song in unrated_songs:
+                if song.file not in songs_in_queue:
+                    self.client.add(song.file)
 
     def update_biases(self):
         """Update the bias of each song and the total bias."""

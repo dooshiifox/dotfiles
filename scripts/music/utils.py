@@ -69,15 +69,15 @@ def get_local_art() -> str | None:
 
 
 def get_title() -> str | None:
-    return cmd("playerctl metadata xesam:title")
+    return cmd('mpc current -f "%title%"')
 
 
 def get_album() -> str | None:
-    return cmd("playerctl metadata xesam:album")
+    return cmd('mpc current -f "%album%"')
 
 
 def get_artist() -> str | None:
-    return cmd("playerctl metadata xesam:artist")
+    return cmd('mpc current -f "%artist%"')
 
 
 def is_color(s: str) -> str | None:

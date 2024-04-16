@@ -3,6 +3,8 @@
 
 def get_color_override(album: str | None, song: str | None):
     """Returns overridden colors for a song or album."""
+    print(album, song)
+
     if album is None or song is None:
         return None
 
@@ -19,6 +21,7 @@ def get_color_override(album: str | None, song: str | None):
     # If your searching for exact song, why?
 
     return None
+
 
 OVERRIDE_MAP: dict[tuple[str, str] | str, tuple[str, str]] = {
     "0x10c": ("#000000", "#000000"),
@@ -41,7 +44,10 @@ OVERRIDE_MAP: dict[tuple[str, str] | str, tuple[str, str]] = {
     "music for bugs": ("#dacb9b", "#d6d46b"),
     "Paragon": ("#A5A5A5", "#070707"),
     "Parallel Processing": ("#8f1d54", "#1f2b31"),
-    "Pokémon Scarlet & Pokémon Violet: The Definitive Soundtrack": ("#D65355", "#9950A9"),
+    "Pokémon Scarlet & Pokémon Violet: The Definitive Soundtrack": (
+        "#D65355",
+        "#9950A9",
+    ),
     "Rise of the Obsidian Interstellar": ("#D0AF67", "#622D52"),
     "strawberry jams vol. 1": ("#6ba2d6", "#A55262"),
     "strawberry jams vol. 2": ("#e6265f", "#A55262"),
