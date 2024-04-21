@@ -1,3 +1,4 @@
+# https://github.com/nix-community/home-manager/blob/master/modules/programs/vscode.nix
 {
   config,
   pkgs,
@@ -11,6 +12,15 @@
 in {
   programs.vscode = {
     enable = true;
+    package = (pkgs.vscode.override {isInsiders = true;}).overrideAttrs (oldAttrs: rec {
+      src = builtins.fetchTarball {
+        url = "https://code.visualstudio.com/sha/download?build=insider&os=linux-x64";
+        sha256 = "0jlx3x0r6yyjllca8n5q77am5rkfcgrxx4n2wq5kgyxwz1c4lnv9";
+      };
+      version = "latest";
+
+      buildInputs = oldAttrs.buildInputs ++ [pkgs.krb5];
+    });
 
     # If I run nix build often enough... Also they're annoying.
     enableUpdateCheck = false;
