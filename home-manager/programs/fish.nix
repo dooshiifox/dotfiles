@@ -26,6 +26,7 @@
       "w" = "code /home/dooshii/Documents/CodingProjects/pin/work";
       "x" = "exit";
       "ytdlmp3" = "yt-dlp --extract-audio --audio-format mp3 -o \"%(title)s.%(ext)s\" --embed-thumbnail";
+      "code" = "code-insiders";
     };
     functions = {
       mkcd = {

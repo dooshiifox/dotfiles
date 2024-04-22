@@ -609,7 +609,7 @@ in {
 
   xdg.mimeApps.defaultApplications = builtins.listToAttrs (map (mimeType: {
       name = mimeType;
-      value = ["code.desktop"];
+      value = ["code-insiders.desktop"];
     })
     mimeTypes);
 }

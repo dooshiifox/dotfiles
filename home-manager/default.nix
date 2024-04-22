@@ -21,7 +21,7 @@
 
   home.sessionVariables = {
     BROWSER = "firefox-developer-edition";
-    EDITOR = "code";
+    EDITOR = "code-insiders";
     NIX_SRC = PROJECT_ROOT;
     PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
   };
