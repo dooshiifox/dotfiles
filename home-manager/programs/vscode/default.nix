@@ -430,6 +430,28 @@ in {
       "dart.debugExternalPackageLibraries" = false;
       "dart.debugSdkLibraries" = false;
       "extensions.autoUpdate" = false;
+      "workbench.editor.customLabels.enabled" = true;
+      "workbench.editor.customLabels.patterns" = {
+        # For some reason it needs this `/src/` in there
+        "**/src/routes/+page.svelte" = "[P] /";
+        "**/src/routes/+page.ts" = "[P] /";
+        "**/src/routes/+page.server.ts" = "[PS] /";
+        "**/src/routes/+layout.svelte" = "[L] /";
+        "**/src/routes/+layout.ts" = "[L] /";
+        "**/src/routes/+layout.server.ts" = "[LS] /";
+        "**/routes/*/+page.svelte" = "[P] /\${dirname}";
+        "**/routes/*/+page.ts" = "[P] /\${dirname}";
+        "**/routes/*/+page.server.ts" = "[PS] /\${dirname}";
+        "**/routes/*/+layout.svelte" = "[L] /\${dirname}";
+        "**/routes/*/+layout.ts" = "[L] /\${dirname}";
+        "**/routes/*/+layout.server.ts" = "[LS] /\${dirname}";
+        "**/routes/**/+page.svelte" = "[P] \${dirname(1)}/\${dirname}";
+        "**/routes/**/+page.ts" = "[P] \${dirname(1)}/\${dirname}";
+        "**/routes/**/+page.server.ts" = "[PS] \${dirname(1)}/\${dirname}";
+        "**/routes/**/+layout.svelte" = "[L] \${dirname(1)}/\${dirname}";
+        "**/routes/**/+layout.ts" = "[L] \${dirname(1)}/\${dirname}";
+        "**/routes/**/+layout.server.ts" = "[LS] \${dirname(1)}/\${dirname}";
+      };
     };
 
     keybindings = [

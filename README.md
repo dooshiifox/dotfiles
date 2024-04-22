@@ -37,7 +37,7 @@ Do a similar thing with `Dank Mono`, which I cannot share for legal reasons.
 
 Copy a profile image to `~/.face`.
 
-Copy `programs/vscode/theme` to `~/.vscode/extensions/`
+Copy `home-manager/programs/vscode/theme` to `~/.vscode/extensions/`
 
 Please note that I'm new to Nix! If you have any improvements, please educate me!
 
