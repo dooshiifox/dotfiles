@@ -163,6 +163,8 @@
     pulseaudio # Audio server
     pamixer # Pulseaudio cli mixer
 
+    libreoffice # Office suite
+
     # FIXME: `mpd` and `mpd-mpris` are also provided as home-manager services,
     # however I couldn't get them to read my stickers or persistently keep
     # their state.
