@@ -79,6 +79,7 @@
     ################
 
     jetbrains.clion # C/C++ code editor
+    jetbrains.idea-community-bin # Java code editor
     postman # API testing
     php83 # PHP runtime
 
