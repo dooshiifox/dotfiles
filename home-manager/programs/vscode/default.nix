@@ -452,6 +452,8 @@ in {
         "**/routes/**/+layout.ts" = "[L] \${dirname(1)}/\${dirname}";
         "**/routes/**/+layout.server.ts" = "[LS] \${dirname(1)}/\${dirname}";
       };
+      # Stop trying to say my note writing is a ruby file or something
+      "workbench.editor.languageDetection" = false;
     };
 
     keybindings = [

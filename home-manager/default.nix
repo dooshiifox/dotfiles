@@ -141,6 +141,7 @@
     unzip # `unzip` command
     psmisc # `fuser` command
     pciutils # `lspci` command
+    patchelf # Modify ELF headers to make some stuff work on NixOS
 
     filezilla # FTP GUI client
 
