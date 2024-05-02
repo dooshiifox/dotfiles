@@ -191,6 +191,7 @@
     prismlauncher # Minecraft launcher
     ferium # Minecraft mod manager
     steam # Hub for games
+    steam-run # Use dynamically linked games
     protontricks # Steam's Proton helpers
     wine # Window compatibility
     winetricks # Wine helpers
