@@ -197,7 +197,7 @@
     winetricks # Wine helpers
     inputs.ow-mod-man.packages.x86_64-linux.owmods-gui
     inputs.ow-mod-man.packages.x86_64-linux.owmods-cli
-    # TODO: Add Celeste's Olympus mod loader
+    ns-usbloader # Nintendo Switch homebrew manager
   ];
 
   # This value determines the home Manager release that your
