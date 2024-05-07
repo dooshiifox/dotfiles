@@ -32,6 +32,7 @@
     ################
     baobab # GNOME pie chart disk usage
     megasync # Backups
+    tor # i wanna buy my antiandrogens please
 
     # FIXME: Prevent manual installs of these things.
     # Ensure you enable these in GNOME Extensions
