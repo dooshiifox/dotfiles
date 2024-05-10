@@ -199,6 +199,7 @@
     inputs.ow-mod-man.packages.x86_64-linux.owmods-gui
     inputs.ow-mod-man.packages.x86_64-linux.owmods-cli
     ns-usbloader # Nintendo Switch homebrew manager
+    joycond # Switch Pro controller and joycon support
   ];
 
   # This value determines the home Manager release that your
