@@ -113,7 +113,10 @@
     # C/C++
     cmake # Makefile support
     gnumake # Supplies `make`
-    gcc # Provides `gcc` and `cc`. Also required for Rust.
+    # gcc # Provides `gcc` and `cc`. Also required for Rust.
+    clang # Provides `clang` and `clang++`
+    libcxx # Provides important things for clang I think
+    libcxx.dev # ^
 
     # Nix
     alejandra # Format nix files, used by ni
