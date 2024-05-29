@@ -175,8 +175,9 @@ class BiasedRandomRating:
                 filter(lambda s: s.rating is None, self.songs.values())
             )
             unrated_songs.sort(key=lambda s: s.track or 0, reverse=False)
+            unrated_songs.sort(key=lambda s: s.disc or 0, reverse=False)
             unrated_songs.sort(key=lambda s: s.album or "", reverse=False)
-            unrated_songs.sort(key=lambda s: s.artist or "", reverse=False)
+            # unrated_songs.sort(key=lambda s: s.artist or "", reverse=False)
 
             # make sure not to add any songs already in queue
             songs_in_queue = list(map(lambda s: s["file"], self.client.playlistinfo()))
