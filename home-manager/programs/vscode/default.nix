@@ -48,8 +48,8 @@ in {
       firefox-devtools.vscode-firefox-debug
       formulahendry.auto-rename-tag
       geodesdk.geode
-      github.copilot
-      github.copilot-chat
+      # github.copilot
+      # github.copilot-chat
       ms-azuretools.vscode-docker
       ms-dotnettools.csdevkit
       ms-dotnettools.csharp
