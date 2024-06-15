@@ -26,5 +26,10 @@
       openFirewall = true;
       group = "multimedia";
     };
+    readarr = {
+      enable = true;
+      openFirewall = true;
+      group = "multimedia";
+    };
   };
 }
