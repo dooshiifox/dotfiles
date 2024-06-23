@@ -26,7 +26,7 @@
       windowManager.xmonad = {
         enable = true;
         enableContribAndExtras = true;
-        config = builtins.readFile ./xmonad.hs;
+        # config = builtins.readFile ./xmonad.hs;
       };
     };
 
