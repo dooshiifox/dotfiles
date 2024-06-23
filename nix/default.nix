@@ -17,6 +17,7 @@
       ./system.nix
     ]
     ++ lib.optionals (mode == "hypr") [./hypr.nix]
+    ++ lib.optionals (mode == "xmonad") [./xmonad.nix]
     ++ lib.optionals (mode == "gnome-wayland") [./gnome-wayland.nix]
     ++ lib.optionals (mode == "gnome") [./gnome.nix];
 

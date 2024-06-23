@@ -28,8 +28,8 @@
     home-manager,
     ...
   }: let
-    # "gnome", "gnome-wayland", "hypr"
-    mode = "gnome";
+    # "gnome", "gnome-wayland", "hypr", "xmonad"
+    mode = "xmonad";
     PROJECT_ROOT = builtins.toString ./.;
   in {
     nixosConfigurations.dooshii = nixpkgs.lib.nixosSystem {
