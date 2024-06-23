@@ -15,12 +15,12 @@
   services = {
     xserver = {
       enable = true;
-      autorun = true;
+      # autorun = true;
 
       displayManager = {
         startx.enable = true;
         lightdm.enable = false;
-        defaultSession = "none+xmonad";
+        # defaultSession = "none+xmonad";
       };
 
       windowManager.xmonad = {
@@ -30,10 +30,10 @@
       };
     };
 
-    dbus = {
-      enable = true;
-      packages = [pkgs.dconf];
-    };
-    autorandr.enable = true;
+    # dbus = {
+    #   enable = true;
+    #   packages = [pkgs.dconf];
+    # };
+    # autorandr.enable = true;
   };
 }

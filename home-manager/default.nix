@@ -112,8 +112,12 @@
         ]))
 
     # Haskell (important for xmonad)
-    # haskellPackages.ghcup
-    # haskellPackages.ormolu
+    ghc
+    haskellPackages.cabal-install
+    haskellPackages.haskell-language-server
+    haskellPackages.hoogle
+    haskellPackages.fourmolu
+    haskellPackages.cabal-fmt
 
     # C/C++
     cmake # Makefile support
