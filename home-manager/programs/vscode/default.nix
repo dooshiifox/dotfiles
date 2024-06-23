@@ -50,6 +50,7 @@ in {
       geodesdk.geode
       # github.copilot
       # github.copilot-chat
+      haskell.haskell
       ms-azuretools.vscode-docker
       ms-dotnettools.csdevkit
       ms-dotnettools.csharp

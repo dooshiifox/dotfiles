@@ -110,6 +110,10 @@
           eyed3
         ]))
 
+    # Haskell (important for xmonad)
+    # haskellPackages.ghcup
+    # haskellPackages.ormolu
+
     # C/C++
     cmake # Makefile support
     gnumake # Supplies `make`
