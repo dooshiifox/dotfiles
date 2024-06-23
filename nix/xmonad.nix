@@ -18,7 +18,8 @@
       autorun = true;
 
       displayManager = {
-        lightdm.enable = true;
+        startx.enable = true;
+        lightdm.enable = false;
         defaultSession = "none+xmonad";
       };
 
@@ -27,7 +28,6 @@
         enableContribAndExtras = true;
         config = builtins.readFile ./xmonad.hs;
       };
-      windowManager.default = "xmonad";
     };
 
     dbus = {
