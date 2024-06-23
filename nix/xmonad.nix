@@ -27,6 +27,7 @@
         enableContribAndExtras = true;
         config = builtins.readFile ./xmonad.hs;
       };
+      windowManager.default = "xmonad";
     };
 
     dbus = {
