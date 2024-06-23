@@ -5,7 +5,7 @@ from dataclasses import dataclass
 import json
 import subprocess
 import sys
-from typing import Literal, Optional, Union
+from typing import Literal, Optional
 from random import random as randfloat
 import threading
 import termios
@@ -77,6 +77,7 @@ class SongData:
     bias: float
     rating: Optional[float]
     base_bias: float
+    play_count: int
 
     link: Optional[SongLink]
 
@@ -96,8 +97,12 @@ class BiasedRandomRating:
     client: MPDClient
     total_bias: float
 
+    last_playing_song: Optional[str]
+    """The file of the last song that was playing. `None` if no previous song."""
+
     def __init__(self, client):
         self.client = client
+        self.last_playing_song = None
         self.update_songs()
 
     def update_songs(self):
@@ -127,7 +132,7 @@ class BiasedRandomRating:
             track = int(track) if track is not None else None
 
             self.songs[file] = SongData(
-                file, 1, None, 1, None, artist, album, title, disc, track, duration
+                file, 1, None, 1, 0, None, artist, album, title, disc, track, duration
             )
 
         for result in self.client.sticker_find("song", "", "rating"):
@@ -147,6 +152,15 @@ class BiasedRandomRating:
 
             bias = float(result["sticker"].split("=")[1])
             self.songs[result["file"]].base_bias = bias
+
+        for result in self.client.sticker_find("song", "", "play_count"):
+            if result["file"] not in self.songs:
+                raise SongNotFoundError(
+                    f"Sticker for non-existent song: {result['file']}"
+                )
+
+            play_count = int(result["sticker"].split("=")[1])
+            self.songs[result["file"]].play_count = play_count
 
         for result in self.client.sticker_find("song", "", "link"):
             if result["file"] not in self.songs:
@@ -270,14 +284,46 @@ class BiasedRandomRating:
             self.client.add(song)
             current_queue.append(song)
 
+    def update_play_count(self):
+        """Updates the sticker counting the number of times a song has been played."""
+        current_song = self.client.currentsong()["file"]
+        if self.last_playing_song is None:
+            self.last_playing_song = current_song
+            return
+
+        # User probably pressed pause or something to cause the `player` event
+        # to fire. Just ignore it.
+        if self.last_playing_song == current_song:
+            return
+
+        # A little extra: double-check the previous song was given a rating,
+        # and go back to it if not.
+        previous_song = self.songs[self.last_playing_song]
+        if previous_song is None:
+            print("COULD NOT FIND SONG: ", self.last_playing_song)
+            return
+        if previous_song.rating is None:
+            self.client.previous()
+            self.client.pause()
+            return
+
+        self.last_playing_song = current_song
+        current_song_info = self.songs[current_song]
+        if current_song_info is None:
+            print("COULD NOT FIND SONG: ", current_song)
+            return
+        current_song_info.play_count += 1
+        self.client.sticker_set(
+            "song", current_song, "play_count", current_song_info.play_count
+        )
+
     def listen(self):
         """
         Listen for MPD events and add songs to the queue or
         update the database.
         """
         while True:
-            event = self.client.idle("sticker", "database", "playlist")
-
+            event = self.client.idle("sticker", "database", "playlist", "player")
             if "sticker" in event or "database" in event:
                 # print("Database changed")
                 self.update_songs()
@@ -285,6 +331,8 @@ class BiasedRandomRating:
             if "playlist" in event:
                 # print("Playlist changed")
                 self.add_songs_to_queue()
+            if "player" in event:
+                self.update_play_count()
 
 
 def read_single_keypress():
