@@ -84,6 +84,7 @@
     jetbrains.idea-community-bin # Java code editor
     postman # API testing
     php83 # PHP runtime
+    mitmproxy # Reverse engineer mobile APIs
 
     # Android / iOS
     android-studio # Android development
