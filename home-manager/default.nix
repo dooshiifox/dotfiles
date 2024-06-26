@@ -167,6 +167,7 @@
     krita # Ugly image editor
     blender # Not as ugly 3d modeling
     reaper # DAW
+    lmms # DAW
 
     amberol # Simple audio player
     blanket # Pleasant sounds :3
