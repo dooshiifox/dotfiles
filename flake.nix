@@ -2,7 +2,7 @@
   description = "dooshii's NixOS flake.";
 
   inputs = {
-    # NixOS official package source, using the nixos-23.11 branch here
+    # NixOS official package source
     nixpkgs.url = "github:NixOS/nixpkgs";
     home-manager = {
       url = "github:nix-community/home-manager";
