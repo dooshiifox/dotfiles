@@ -54,7 +54,7 @@
 
     # Social
     telegram-desktop # Telegram client
-    vesktop # Discord + Vencord
+    (vesktop.override {withSystemVencord = false;}) # Discord + Vencord
     whatsapp-for-linux # Whatsapp client
 
     # Hardware
