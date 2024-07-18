@@ -182,8 +182,8 @@ class BiasedRandomRating:
                     f"Sticker for non-existent song: {result['file']}"
                 )
 
-            play_count = int(result["sticker"].split("=")[1])
-            self.songs[result["file"]].avg_play_count_at_add = play_count
+            avg_play_count_at_add = int(float(result["sticker"].split("=")[1]))
+            self.songs[result["file"]].avg_play_count_at_add = avg_play_count_at_add
 
         for result in self.client.sticker_find("song", "", "link"):
             if result["file"] not in self.songs:
@@ -238,7 +238,10 @@ class BiasedRandomRating:
 
         median_playcounts: dict[float | None, float] = {}
         for rating, playcounts_for_rating in playcounts.items():
-            median_playcounts[rating] = statistics.median(playcounts_for_rating)
+            try:
+                median_playcounts[rating] = statistics.median(playcounts_for_rating)
+            except statistics.StatisticsError:
+                median_playcounts[rating] = 0
 
         # Now calculate how likely a given song is to play based
         # on how far it is from its median playcount
@@ -251,19 +254,21 @@ class BiasedRandomRating:
                     "song",
                     song.file,
                     "avg_play_count_at_add",
-                    median_for_rating,
+                    int(median_for_rating),
                 )
                 song.avg_play_count_at_add = int(median_for_rating)
 
             # Calculate how often this song has played, with respect to
             # its base bias
-            playcount = (song.play_count / song.base_bias) + (
+            # `or 1` prevents division by 0, it gets multiplied by 0 anyways below
+            playcount = (song.play_count / (song.base_bias or 1)) + (
                 song.avg_play_count_at_add or median_for_rating
             )
             diff_from_median = median_for_rating - playcount
 
             song.bias = 1.3**diff_from_median * song.base_bias * PLAY_BIAS[song.rating]
             self.total_bias += song.bias
+        print("Updated biases")
 
     def get_random_song(self) -> str:
         """Get a random song based on the bias."""
