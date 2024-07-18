@@ -11,6 +11,7 @@ import threading
 import termios
 import fcntl
 import os
+import statistics
 
 # https://python-mpd2.readthedocs.io/en/latest/
 from mpd import MPDClient
@@ -78,6 +79,7 @@ class SongData:
     rating: Optional[float]
     base_bias: float
     play_count: int
+    avg_play_count_at_add: int | None
 
     link: Optional[SongLink]
 
@@ -132,7 +134,19 @@ class BiasedRandomRating:
             track = int(track) if track is not None else None
 
             self.songs[file] = SongData(
-                file, 1, None, 1, 0, None, artist, album, title, disc, track, duration
+                file,
+                1,
+                None,
+                1,
+                0,
+                None,
+                None,
+                artist,
+                album,
+                title,
+                disc,
+                track,
+                duration,
             )
 
         for result in self.client.sticker_find("song", "", "rating"):
@@ -161,6 +175,15 @@ class BiasedRandomRating:
 
             play_count = int(result["sticker"].split("=")[1])
             self.songs[result["file"]].play_count = play_count
+
+        for result in self.client.sticker_find("song", "", "avg_play_count_at_add"):
+            if result["file"] not in self.songs:
+                raise SongNotFoundError(
+                    f"Sticker for non-existent song: {result['file']}"
+                )
+
+            play_count = int(result["sticker"].split("=")[1])
+            self.songs[result["file"]].avg_play_count_at_add = play_count
 
         for result in self.client.sticker_find("song", "", "link"):
             if result["file"] not in self.songs:
@@ -203,8 +226,43 @@ class BiasedRandomRating:
         """Update the bias of each song and the total bias."""
         self.total_bias = 0
 
+        # Calculate the median playcount by basebias of each rating
+        playcounts: dict[float | None, list[float]] = {}
         for song in self.songs.values():
-            song.bias = song.base_bias * PLAY_BIAS[song.rating]
+            if not song.rating in playcounts:
+                playcounts[song.rating] = []
+            if song.avg_play_count_at_add is not None:
+                playcounts[song.rating].append(
+                    (song.avg_play_count_at_add + song.play_count) * song.base_bias
+                )
+
+        median_playcounts: dict[float | None, float] = {}
+        for rating, playcounts_for_rating in playcounts.items():
+            median_playcounts[rating] = statistics.median(playcounts_for_rating)
+
+        # Now calculate how likely a given song is to play based
+        # on how far it is from its median playcount
+        for song in self.songs.values():
+            # Set average play count at the time of song mount if not already set
+            # (i.e., the song was just mounted)
+            median_for_rating = median_playcounts[song.rating]
+            if song.avg_play_count_at_add is None and song.rating is not None:
+                self.client.sticker_set(
+                    "song",
+                    song.file,
+                    "avg_play_count_at_add",
+                    median_for_rating,
+                )
+                song.avg_play_count_at_add = int(median_for_rating)
+
+            # Calculate how often this song has played, with respect to
+            # its base bias
+            playcount = (song.play_count / song.base_bias) + (
+                song.avg_play_count_at_add or median_for_rating
+            )
+            diff_from_median = median_for_rating - playcount
+
+            song.bias = 1.3**diff_from_median * song.base_bias * PLAY_BIAS[song.rating]
             self.total_bias += song.bias
 
     def get_random_song(self) -> str:
