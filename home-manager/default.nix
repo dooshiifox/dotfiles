@@ -131,6 +131,9 @@
     # Nix
     alejandra # Format nix files, used by ni
 
+    # Java
+    jdk
+
     # Modding
     avalonia-ilspy # Decompile C#
 
