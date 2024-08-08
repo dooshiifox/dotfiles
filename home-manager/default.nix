@@ -132,7 +132,7 @@
     alejandra # Format nix files, used by ni
 
     # Java
-    jdk22
+    jdk
 
     # Modding
     avalonia-ilspy # Decompile C#
