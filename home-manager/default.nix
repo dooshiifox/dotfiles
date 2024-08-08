@@ -98,7 +98,7 @@
     sqlite # Compiling libsqlite3-sys crate
 
     # Javascript
-    nodejs_21 # Javascript runtime; also provides npm
+    nodejs_22 # Javascript runtime; also provides npm
     nodePackages.pnpm # Faster, less disk space npm
 
     # Python
@@ -132,7 +132,7 @@
     alejandra # Format nix files, used by ni
 
     # Java
-    jdk
+    jdk22
 
     # Modding
     avalonia-ilspy # Decompile C#

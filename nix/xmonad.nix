@@ -13,6 +13,10 @@
   ];
 
   services = {
+    displayManager = {
+      # defaultSession = "none+xmonad";
+    };
+
     xserver = {
       enable = true;
       # autorun = true;
@@ -20,7 +24,6 @@
       displayManager = {
         startx.enable = true;
         lightdm.enable = false;
-        # defaultSession = "none+xmonad";
       };
 
       windowManager.xmonad = {
