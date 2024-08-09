@@ -213,6 +213,9 @@
     joycond # Switch Pro controller and joycon support
   ];
 
+  # TODO: Not the right place for it, figure out where
+  # programs.steam.extraCompatPackages = [pkgs.proton-ge-bin];
+
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new home Manager release introduces backwards
