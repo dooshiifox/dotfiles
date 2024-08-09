@@ -41,8 +41,8 @@
     gnomeExtensions.pop-shell # Pop_OS! extension stuff (like grid view)
     gnomeExtensions.pano # Global clipboard manager
     # Not ported to GNOME 45 yet
-    # gnomeExtensions.rounded-window-corners # Rounded window corners
-    # gnomeExtensions.hide-top-bar # Remove stinky top bar eww
+    gnomeExtensions.rounded-window-corners-reborn # Rounded window corners
+    gnomeExtensions.hide-top-bar # Remove stinky top bar eww
     # Just doesn't work.
     # gnomeExtensions.gsconnect # KDE Connect for Gnome. Connect to your phone!
     gnomeExtensions.color-picker # Color picker
@@ -50,7 +50,7 @@
     gettext # Compiling hide-top-bar
     glib # ^^^
     glib.dev # ^^^
-    gnome.gnome-tweaks # Customize GNOME
+    gnome-tweaks # Customize GNOME
 
     # Social
     telegram-desktop # Telegram client
