@@ -32,7 +32,6 @@
     ################
     baobab # GNOME pie chart disk usage
     megasync # Backups
-    tor-browser-bundle-bin # i wanna buy my antiandrogens please
 
     # FIXME: Prevent manual installs of these things.
     # Ensure you enable these in GNOME Extensions
@@ -40,16 +39,11 @@
     # Can't customize keybinds with Pop Shell yet: https://github.com/NixOS/nixpkgs/issues/92265
     gnomeExtensions.pop-shell # Pop_OS! extension stuff (like grid view)
     gnomeExtensions.pano # Global clipboard manager
-    # Not ported to GNOME 45 yet
     gnomeExtensions.rounded-window-corners-reborn # Rounded window corners
     gnomeExtensions.hide-top-bar # Remove stinky top bar eww
-    # Just doesn't work.
-    # gnomeExtensions.gsconnect # KDE Connect for Gnome. Connect to your phone!
+    gnomeExtensions.gsconnect # KDE Connect for Gnome. Connect to your phone!
     gnomeExtensions.color-picker # Color picker
     gnomeExtensions.unite
-    gettext # Compiling hide-top-bar
-    glib # ^^^
-    glib.dev # ^^^
     gnome-tweaks # Customize GNOME
 
     # Social
