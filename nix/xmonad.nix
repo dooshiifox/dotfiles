@@ -12,11 +12,11 @@
     ghc
   ];
 
+  systemd.services.upower.enable = true;
+
   services = {
-    gnome = {
-      gnome-keyring.enable = true;
-      sushi.enable = true;
-    };
+    gnome.gnome-keyring.enable = true;
+    upower.enable = true;
 
     displayManager = {
       defaultSession = "none+xmonad";
@@ -27,8 +27,7 @@
       autorun = true;
 
       displayManager = {
-        defaultSession = "none+xmonad";
-        startx.enable = true;
+        # startx.enable = true;
         # lightdm.enable = false;
         # lightdm.enable = true;
         # lightdm = {
@@ -45,15 +44,12 @@
       windowManager.xmonad = {
         enable = true;
         enableContribAndExtras = true;
-        config = builtins.readFile ./xmonad.hs;
-        enableConfiguredRecompile = true;
       };
     };
 
-    # dbus = {
-    #   enable = true;
-    #   packages = [pkgs.dconf];
-    # };
-    autorandr.enable = true;
+    dbus = {
+      enable = true;
+      packages = [pkgs.dconf];
+    };
   };
 }
