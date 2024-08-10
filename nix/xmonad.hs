@@ -128,12 +128,15 @@ main = do
         -- (Left) Super key
         modMask = mod4Mask,
         terminal = "alacritty",
+        keys = myKeys,
+        mouseBindings = myMouseBindings,
         -- Whether window focus follows the mouse pointer.
         focusFollowsMouse = True,
         workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
         normalBorderColor = "#77767b",
         focusedBorderColor = "#ffffff",
         borderWidth = 2,
+        startupHook = myStartupHook,
         -- https://wiki.archlinux.org/title/Xmonad#Equally_sized_gaps_between_windows
         layoutHook = spacingRaw False (Border myMarginScreen myMarginWindow myMarginScreen myMarginWindow) True (Border myMarginWindow myMarginScreen myMarginWindow myMarginScreen) True $ Tall 1 (3/100) (1/2) ||| Full,
         manageHook = myManageHook,
