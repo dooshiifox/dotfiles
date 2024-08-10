@@ -39,6 +39,9 @@ mv ./.git-hide/.git .
 mv ./.git-hide/.gitignore .
 rmdir ./.git-hide
 
+cp ./nix/xmonad.hs ~/.config/xmonad/xmonad.hs
+xmonad --recompile
+
 # Get current generation metadata
 current=$(nixos-rebuild list-generations | grep current)
 
