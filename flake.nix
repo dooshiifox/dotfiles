@@ -32,7 +32,7 @@
     mode = "xmonad";
     PROJECT_ROOT = builtins.toString ./.;
   in {
-    nixosConfigurations.dooshii = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.dooshii = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
       # Enable accessing `inputs` in config files
       specialArgs = {
