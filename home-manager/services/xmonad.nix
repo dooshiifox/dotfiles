@@ -48,7 +48,7 @@
     picom = {
       enable = true;
       activeOpacity = 1.0;
-      inactiveOpacity = 0.8;
+      inactiveOpacity = 0.9;
       backend = "glx";
       fade = true;
       fadeDelta = 5;
@@ -62,10 +62,10 @@
         unredir-if-possible = false;
         blur = {
           method = "gaussian";
-          size = 10;
-          deviation = 5.0;
+          size = 20;
+          deviation = 10.0;
         };
-        corner-radius = 4;
+        corner-radius = 8;
       };
     };
 

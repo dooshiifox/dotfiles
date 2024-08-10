@@ -40,7 +40,7 @@ myKeys conf@XConfig { XMonad.modMask = mod } = Map.fromList
         -- toggle floating
         ((mod, xK_v), withFocused toggleFloat),
         -- open eww music
-        ((mod, xK_m), spawn "$NIX_SRC/scripts/system/open-eww-overlay music-overlay"),
+        -- ((mod, xK_m), spawn "$NIX_SRC/scripts/system/open-eww-overlay music-overlay"),
         -- launch rofi
         ((mod, xK_space), spawn "rofi -show drun"),
 
