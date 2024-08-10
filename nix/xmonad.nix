@@ -24,12 +24,22 @@
 
     xserver = {
       enable = true;
-      # autorun = true;
+      autorun = true;
 
       displayManager = {
-        startx.enable = true;
+        defaultSession = "none+xmonad";
+        # startx.enable = true;
         # lightdm.enable = false;
         # lightdm.enable = true;
+        lightdm = {
+          greeters.enso = {
+            enable = true;
+            blur = true;
+            extraConfig = ''
+              default-wallpaper=/home/dooshii/Pictures/wallpaper/xenia-dark.png
+            '';
+          };
+        };
       };
 
       windowManager.xmonad = {
@@ -40,36 +50,10 @@
       };
     };
 
-    # dunst = {
-    #   enable = true;
-    #   iconTheme = {
-    #     name = "Adwaita";
-    #     package = pkgs.gnome.adwaita-icon-theme;
-    #     size = "16x16";
-    #   };
-    #   settings = {
-    #     global = {
-    #       monitor = 0;
-    #       geometry = "600x50-50+65";
-    #       shrink = "yes";
-    #       transparency = 10;
-    #       padding = 16;
-    #       horizontal_padding = 16;
-    #       line_height = 4;
-    #       format = ''<b>%s</b>\b%b'';
-    #     };
-    #   };
-    # };
-
     # dbus = {
     #   enable = true;
     #   packages = [pkgs.dconf];
     # };
-    # autorandr.enable = true;
+    autorandr.enable = true;
   };
-
-  # programs.rofi = {
-  #   enable = true;
-  #   terminal = "${pkgs.alacritty}/bin/alacritty";
-  # };
 }

@@ -9,4 +9,5 @@
       ./mpd.nix
     ]
     ++ lib.optionals (mode == "hypr") [./mako.nix];
+  # ++ lib.optionals (mode == "xmonad") [./dunst.nix];
 }

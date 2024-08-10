@@ -20,6 +20,7 @@
       ./mpv.nix
       ./obs-studio.nix
       ./ripgrep.nix
+      ./rofi.nix
       ./thefuck.nix
       ./thunderbird.nix
       ./yt-dlp.nix
