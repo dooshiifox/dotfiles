@@ -28,18 +28,18 @@
 
       displayManager = {
         defaultSession = "none+xmonad";
-        # startx.enable = true;
+        startx.enable = true;
         # lightdm.enable = false;
         # lightdm.enable = true;
-        lightdm = {
-          greeters.enso = {
-            enable = true;
-            blur = true;
-            extraConfig = ''
-              default-wallpaper=/home/dooshii/Pictures/wallpaper/xenia-dark.png
-            '';
-          };
-        };
+        # lightdm = {
+        #   greeters.enso = {
+        #     enable = true;
+        #     blur = true;
+        #     extraConfig = ''
+        #       default-wallpaper=/home/dooshii/Pictures/wallpaper/xenia-dark.png
+        #     '';
+        #   };
+        # };
       };
 
       windowManager.xmonad = {

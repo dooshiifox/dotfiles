@@ -42,7 +42,7 @@ myKeys conf@XConfig { XMonad.modMask = mod } = Map.fromList
         -- open eww music
         ((mod, xK_m), spawn "$NIX_SRC/scripts/system/open-eww-overlay music-overlay"),
         -- launch rofi
-        ((mod, xK_m), spawn "rofi"),
+        ((mod, xK_l), spawn "rofi"),
 
         -- Audio keys
         ((0, xF86XK_AudioPlay), spawn "playerctl play-pause"),
