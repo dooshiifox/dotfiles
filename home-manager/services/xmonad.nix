@@ -40,7 +40,7 @@
           padding = 16;
           horizontal_padding = 16;
           line_height = 4;
-          format = ''<b>%s</b>\b%b'';
+          format = ''<b>%s</b>\n%b'';
         };
       };
     };
