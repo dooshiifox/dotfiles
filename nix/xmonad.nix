@@ -14,8 +14,19 @@
 
   systemd.services.upower.enable = true;
 
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+    ];
+    config = {
+      common.default = "*";
+    };
+  };
+
   services = {
     gnome.gnome-keyring.enable = true;
+    gnome.sushi.enable = true;
     upower.enable = true;
 
     displayManager = {

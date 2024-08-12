@@ -38,9 +38,9 @@ myKeys conf@XConfig { XMonad.modMask = mod } = Map.fromList
         -- open file browser
         ((mod, xK_e), spawn "nautilus"),
         -- toggle floating
-        ((mod, xK_v), withFocused toggleFloat),
+        ((mod, xK_g), withFocused toggleFloat),
         -- open eww music
-        -- ((mod, xK_m), spawn "$NIX_SRC/scripts/system/open-eww-overlay music-overlay"),
+        ((mod, xK_m), spawn "$NIX_SRC/scripts/system/open-eww-overlay music-overlay"),
         -- launch rofi
         ((mod, xK_space), spawn "rofi -show drun"),
 
@@ -83,7 +83,37 @@ myKeys conf@XConfig { XMonad.modMask = mod } = Map.fromList
         ((mod .|. shiftMask, xK_6), windows (W.shift "6")),
         ((mod .|. shiftMask, xK_7), windows (W.shift "7")),
         ((mod .|. shiftMask, xK_8), windows (W.shift "8")),
-        ((mod .|. shiftMask, xK_9), windows (W.shift "9"))
+        ((mod .|. shiftMask, xK_9), windows (W.shift "9")),
+
+        -- Focus the master window
+        ((mod, xK_Return), windows W.focusMaster),
+        -- Move focus to the previous window
+        ((mod, xK_Left), windows W.focusUp),
+        ((mod, xK_Up), windows W.focusUp),
+        -- Move focus to the next window
+        ((mod, xK_Right), windows W.focusDown),
+        ((mod, xK_Down), windows W.focusDown),
+
+        -- Shrink the master area
+        ((mod .|. controlMask, xK_Left), sendMessage Shrink),
+        ((mod .|. controlMask, xK_Up), sendMessage Shrink),
+        -- Expand the master area
+        ((mod .|. controlMask, xK_Right), sendMessage Expand),
+        ((mod .|. controlMask, xK_Down), sendMessage Expand),
+
+        -- Swap focused window with master window
+        ((mod .|. shiftMask, xK_Return), windows W.swapMaster),
+        -- Swap the focused window with the previous window
+        ((mod .|. shiftMask, xK_Left), windows W.swapUp),
+        ((mod .|. shiftMask, xK_Up), windows W.swapUp),
+        -- Swap the focused window with the next window
+        ((mod .|. shiftMask, xK_Right), windows W.swapDown),
+        ((mod .|. shiftMask, xK_Down), windows W.swapDown),
+
+        -- Change the layout
+        ((mod, xK_l), sendMessage NextLayout),
+        -- Reset the layout
+        ((mod .|. shiftMask, xK_l), setLayout $ XMonad.layoutHook conf)
     ]
 
 myMouseBindings XConfig {XMonad.modMask = modm} = Map.fromList
@@ -92,26 +122,39 @@ myMouseBindings XConfig {XMonad.modMask = modm} = Map.fromList
         ((modm, button1), \w -> focus w >> mouseMoveWindow w >> windows W.shiftMaster),
 
         -- mod-button2, Raise the window to the top of the stack
-        -- ((modm, button2), \w -> focus w >> windows W.shiftMaster),
+        ((modm, button2), \w -> focus w >> windows W.shiftMaster),
 
         -- mod-button3, Set the window to floating mode and resize by dragging
         ((modm, button3), \w -> focus w >> mouseResizeWindow w >> windows W.shiftMaster)
     ]
 
-myMarginScreen :: Integer
+-- Apply even spacing between all windows and the screen edges
+-- https://wiki.archlinux.org/title/Xmonad#Equally_sized_gaps_between_windows
 myMarginScreen = 8
-myMarginWindow :: Integer
 myMarginWindow = 2
+screenSpacing = spacingRaw False (Border myMarginScreen myMarginWindow myMarginScreen myMarginWindow) True (Border myMarginWindow myMarginScreen myMarginWindow myMarginScreen) True
+
+-- Tall:  Default tiling algorithm partitions the screen into two panes
+-- 1:     The default number of windows in the master pane
+-- 3/100: Percent of screen to increment by when resizing panes
+-- 2/3:   Default proportion of screen occupied by master pane
+nmaster = 1
+delta = 2/3
+ratio = 3/100
+tiled = Tall nmaster delta ratio
+
 
 myStartupHook :: X ()
 myStartupHook = do
-    -- spawnOnce "eww open bar"
-    spawnOnce "feh --bg-fill --nofehbg ~/Pictures/wallpaper/xenia-dark.png"
-    -- spawnOnce "xscreensaver -no-splash"
+    spawnOnce "eww open bar"
+    spawnOnce "xrandr --output eDP-1-1 --mode 1920x1080 --right-of HDMI-0 && feh --bg-fill --nofehbg ~/Pictures/wallpaper/xenia-dark.png"
+    spawnOnce "cd ~/Documents/CodingProjects/mpd-rating/ && pnpm dev --host"
+    spawnOnce "$NIX_SRC/scripts/music/rng"
 
 myManageHook :: ManageHook
 myManageHook = composeAll
-    [ isDialog --> doFloat ]
+    [ isDialog --> doFloat,
+      className =? "Eww" --> doFloat ]
 
 toggleFloat :: Window -> X ()
 toggleFloat w =
@@ -119,7 +162,7 @@ toggleFloat w =
         ( \s ->
             if Map.member w (W.floating s)
             then W.sink w s
-            else (W.float w (W.RationalRect (1 / 3) (1 / 4) (1 / 2) (1 / 2)) s)
+            else W.float w (W.RationalRect (1 / 3) (1 / 4) (1 / 2) (1 / 2)) s
         )
 
 main = do
@@ -133,12 +176,11 @@ main = do
         -- Whether window focus follows the mouse pointer.
         focusFollowsMouse = True,
         workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
-        normalBorderColor = "#77767b",
-        focusedBorderColor = "#ffffff",
+        normalBorderColor = "#6f7789",
+        focusedBorderColor = "#7498e8",
         borderWidth = 2,
         startupHook = myStartupHook,
-        -- https://wiki.archlinux.org/title/Xmonad#Equally_sized_gaps_between_windows
-        layoutHook = spacingRaw False (Border myMarginScreen myMarginWindow myMarginScreen myMarginWindow) True (Border myMarginWindow myMarginScreen myMarginWindow myMarginScreen) True $ Tall 1 (3/100) (1/2) ||| Full,
+        layoutHook = screenSpacing $ tiled ||| Mirror tiled ||| Full,
         manageHook = myManageHook,
         handleEventHook = {- Hacks.fixSteamFlicker <>  -}Hacks.windowedFullscreenFixEventHook
     }))))

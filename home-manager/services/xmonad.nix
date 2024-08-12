@@ -14,6 +14,14 @@
     };
   };
 
+  home.pointerCursor = {
+    gtk.enable = true;
+    x11.enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Classic";
+    size = 16;
+  };
+
   services = {
     screen-locker = {
       enable = true;
@@ -52,7 +60,7 @@
       backend = "glx";
       fade = true;
       fadeDelta = 5;
-      opacityRules = ["100:name *= '13lock'"];
+      opacityRules = ["100:name *= 'betterlockscreen'"];
       shadow = true;
       shadowOpacity = 0.75;
       # NVIDIA
@@ -65,14 +73,19 @@
           size = 20;
           deviation = 10.0;
         };
-        corner-radius = 8;
+        corner-radius = 12;
+
+        # Disable blur on the screenshotter
+        shadow-exclude = [
+          "class_g = 'firefox' && argb"
+          "name = 'maim'"
+        ];
+        blur-background-exclude = [
+          "name = 'maim'"
+        ];
       };
     };
 
-    # dbus = {
-    #   enable = true;
-    #   packages = [pkgs.dconf];
-    # };
     autorandr.enable = true;
   };
 }
