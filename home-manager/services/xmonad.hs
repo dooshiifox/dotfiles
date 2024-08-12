@@ -139,8 +139,8 @@ screenSpacing = spacingRaw False (Border myMarginScreen myMarginWindow myMarginS
 -- 3/100: Percent of screen to increment by when resizing panes
 -- 2/3:   Default proportion of screen occupied by master pane
 nmaster = 1
-delta = 2/3
-ratio = 3/100
+delta = 3/100
+ratio = 2/3
 tiled = Tall nmaster delta ratio
 
 
