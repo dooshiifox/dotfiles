@@ -23,14 +23,14 @@
   };
 
   services = {
-    screen-locker = {
-      enable = true;
-      inactiveInterval = 300;
-      lockCmd = "${pkgs.betterlockscreen}/bin/betterlockscreen -l dim";
-      xautolock.extraOptions = [
-        "Xautolock.killer: systemctl suspend"
-      ];
-    };
+    # screen-locker = {
+    #   enable = true;
+    #   inactiveInterval = 300;
+    #   lockCmd = "${pkgs.betterlockscreen}/bin/betterlockscreen -l dim";
+    #   xautolock.extraOptions = [
+    #     "Xautolock.killer: systemctl suspend"
+    #   ];
+    # };
 
     dunst = {
       enable = true;
@@ -64,7 +64,7 @@
       shadow = true;
       shadowOpacity = 0.75;
       # NVIDIA
-      vSync = true;
+      # vSync = true;
       settings = {
         blur-background = true;
         unredir-if-possible = false;
