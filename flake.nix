@@ -29,7 +29,7 @@
     ...
   }: let
     # "gnome", "gnome-wayland", "hypr", "xmonad"
-    mode = "gnome-wayland";
+    mode = "gnome";
     PROJECT_ROOT = builtins.toString ./.;
   in {
     nixosConfigurations.dooshii = nixpkgs.lib.nixosSystem rec {
