@@ -19,7 +19,7 @@
       url = "github:ow-mods/ow-mod-man";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprcursor.url = "github:hyprwm/hyprcursor";
+    # hyprcursor.url = "github:hyprwm/hyprcursor";
   };
 
   outputs = inputs @ {
