@@ -63,7 +63,7 @@ in {
       ms-python.python
       ms-python.vscode-pylance
       # ms-vscode.cmake-tools # Crashes build pipeline?
-      ms-vscode.cpptools
+      # ms-vscode.cpptools
       ms-vscode.remote-explorer
       ms-vscode-remote.remote-containers
       ms-vscode-remote.remote-ssh
