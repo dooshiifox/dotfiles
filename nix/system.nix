@@ -158,19 +158,19 @@
 
     #     patches = [rcu_patch];
     #   };
-    forceFullCompositionPipeline = true;
+    # forceFullCompositionPipeline = true;
   };
 
-  hardware.nvidia.prime = {
-    # https://nixos.wiki/wiki/Nvidia
-    sync.enable = true;
-    # offload = {
-    #   enable = true;
-    #   enableOffloadCmd = true;
-    # };
+  # hardware.nvidia.prime = {
+  # https://nixos.wiki/wiki/Nvidia
+  # sync.enable = true;
+  # offload = {
+  #   enable = true;
+  #   enableOffloadCmd = true;
+  # };
 
-    nvidiaBusId = "PCI:1:0:0";
-    intelBusId = "PCI:0:2:0";
-  };
+  # nvidiaBusId = "PCI:1:0:0";
+  # intelBusId = "PCI:0:2:0";
+  # };
   # boot.kernelParams = ["module_blacklist=i915"];
 }

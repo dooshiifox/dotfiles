@@ -29,7 +29,7 @@
     ...
   }: let
     # "gnome", "gnome-wayland", "hypr", "xmonad"
-    mode = "gnome";
+    mode = "gnome-wayland";
     PROJECT_ROOT = builtins.toString ./.;
   in {
     nixosConfigurations.dooshii = nixpkgs.lib.nixosSystem rec {
@@ -50,6 +50,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+          home-manager.backupFileExtension = "backup";
 
           home-manager.users.dooshii.imports = [
             ./home-manager

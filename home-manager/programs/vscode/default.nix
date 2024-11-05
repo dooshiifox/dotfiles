@@ -12,21 +12,13 @@
 in {
   programs.vscode = {
     enable = true;
-    package = (pkgs.vscode.override {isInsiders = true;}).overrideAttrs (oldAttrs: rec {
-      src = builtins.fetchTarball {
-        url = "https://code.visualstudio.com/sha/download?build=insider&os=linux-x64";
-        sha256 = "1mn98k479g2gk29pxk7llr3wj4v5n6k2dv4qy6mnfphh1ljp8kgv";
-      };
-      version = "latest";
-
-      buildInputs = oldAttrs.buildInputs ++ [pkgs.krb5];
-    });
 
     # If I run nix build often enough... Also they're annoying.
     enableUpdateCheck = false;
     enableExtensionUpdateCheck = false;
 
-    mutableExtensionsDir = true;
+    package = pkgs.vscodium;
+
     extensions = with pkgs.vscode-marketplace; [
       alexcvzz.vscode-sqlite
       alexisvt.flutter-snippets
