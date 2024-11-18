@@ -19,73 +19,74 @@ in {
 
     package = pkgs.vscodium;
 
-    extensions = with pkgs.vscode-marketplace; [
-      alexcvzz.vscode-sqlite
-      alexisvt.flutter-snippets
-      astro-build.astro-vscode
-      bbenoist.nix
-      bmalehorn.vscode-fish
-      bradlc.vscode-tailwindcss
-      burkeholland.simple-react-snippets
-      chrisbibby.hide-node-modules
-      christian-kohler.npm-intellisense
-      ctcuff.font-preview
-      dart-code.dart-code
-      dart-code.flutter
-      dbaeumer.vscode-eslint
-      donjayamanne.githistory
-      esbenp.prettier-vscode
-      eww-yuck.yuck
-      expo.vscode-expo-tools
-      firefox-devtools.vscode-firefox-debug
-      formulahendry.auto-rename-tag
-      geodesdk.geode
-      # github.copilot
-      # github.copilot-chat
-      haskell.haskell
-      ms-azuretools.vscode-docker
-      ms-dotnettools.csdevkit
-      ms-dotnettools.csharp
-      ms-dotnettools.vscode-dotnet-runtime
-      # ms-dotnettools.vscodeintellicode-csharp
-      msjsdiag.vscode-react-native
-      ms-python.black-formatter
-      ms-python.debugpy
-      ms-python.pylint
-      ms-python.python
-      ms-python.vscode-pylance
-      # ms-vscode.cmake-tools # Crashes build pipeline?
-      # ms-vscode.cpptools
-      ms-vscode.remote-explorer
-      ms-vscode-remote.remote-containers
-      ms-vscode-remote.remote-ssh
-      ms-vscode-remote.remote-ssh-edit
-      mtxr.sqltools
-      mtxr.sqltools-driver-mysql
-      mtxr.sqltools-driver-pg
-      mtxr.sqltools-driver-sqlite
-      oderwat.indent-rainbow
-      # orta.vscode-jest # Annoying
-      pixl.bevy-snippets
-      pkief.material-icon-theme
-      prisma.prisma
-      redhat.vscode-yaml
-      rust-lang.rust-analyzer
-      rvest.vs-code-prettier-eslint
-      serayuzgur.crates
-      simonsiefke.svg-preview
-      sukumo28.wav-preview
-      svelte.svelte-vscode
-      tamasfe.even-better-toml
-      twxs.cmake
-      # visualstudiotoolsforunity.vstuc # Also crashes build
-      wayou.vscode-todo-highlight
-      xdebug.php-debug
-      yechunan.json-color-token
-      yoavbls.pretty-ts-errors
-      zobo.php-intellisense
-      # TODO: Local theme
-    ];
+    extensions = with pkgs.vscode-marketplace;
+      [
+        alexcvzz.vscode-sqlite
+        alexisvt.flutter-snippets
+        astro-build.astro-vscode
+        bbenoist.nix
+        bmalehorn.vscode-fish
+        bradlc.vscode-tailwindcss
+        burkeholland.simple-react-snippets
+        chrisbibby.hide-node-modules
+        christian-kohler.npm-intellisense
+        ctcuff.font-preview
+        dart-code.dart-code
+        dart-code.flutter
+        dbaeumer.vscode-eslint
+        donjayamanne.githistory
+        esbenp.prettier-vscode
+        eww-yuck.yuck
+        expo.vscode-expo-tools
+        firefox-devtools.vscode-firefox-debug
+        formulahendry.auto-rename-tag
+        geodesdk.geode
+        haskell.haskell
+        ms-azuretools.vscode-docker
+        ms-dotnettools.csdevkit
+        ms-dotnettools.csharp
+        ms-dotnettools.vscode-dotnet-runtime
+        msjsdiag.vscode-react-native
+        ms-python.black-formatter
+        ms-python.debugpy
+        ms-python.pylint
+        ms-python.python
+        ms-python.vscode-pylance
+        ms-vscode.remote-explorer
+        ms-vscode-remote.remote-containers
+        ms-vscode-remote.remote-ssh
+        ms-vscode-remote.remote-ssh-edit
+        mtxr.sqltools
+        mtxr.sqltools-driver-mysql
+        mtxr.sqltools-driver-pg
+        mtxr.sqltools-driver-sqlite
+        oderwat.indent-rainbow
+        pixl.bevy-snippets
+        pkief.material-icon-theme
+        prisma.prisma
+        redhat.vscode-yaml
+        rust-lang.rust-analyzer
+        rvest.vs-code-prettier-eslint
+        serayuzgur.crates
+        simonsiefke.svg-preview
+        sukumo28.wav-preview
+        svelte.svelte-vscode
+        tamasfe.even-better-toml
+        twxs.cmake
+        wayou.vscode-todo-highlight
+        xdebug.php-debug
+        yechunan.json-color-token
+        yoavbls.pretty-ts-errors
+        zobo.php-intellisense
+      ]
+      ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+        {
+          name = "dooshtheme";
+          publisher = "dooshii";
+          version = "0.0.1";
+          sha256 = "sha256-KFiugQc5aToYrpuOpxW2+igFBMHwZ+ZvwFxIdzH8Clo=";
+        }
+      ];
 
     userSettings = {
       "workbench.startupEditor" = "none";
@@ -604,7 +605,7 @@ in {
 
   xdg.mimeApps.defaultApplications = builtins.listToAttrs (map (mimeType: {
       name = mimeType;
-      value = ["code-insiders.desktop"];
+      value = ["codium.desktop"];
     })
     mimeTypes);
 }

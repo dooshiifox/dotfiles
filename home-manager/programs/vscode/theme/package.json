@@ -2,6 +2,7 @@
     "name": "dooshtheme",
     "displayName": "dooshtheme",
     "description": "Theme built off of 'Theme' by Mhammed Talhaouy",
+    "publisher": "dooshii",
     "version": "0.0.1",
     "engines": {
         "vscode": "^1.63.0"
@@ -17,5 +18,8 @@
                 "path": "./themes/DooshTheme-color-theme.json"
             }
         ]
+    },
+    "repository": {
+        "url": "https://github.com/dooshiifox/dotfiles"
     }
 }
