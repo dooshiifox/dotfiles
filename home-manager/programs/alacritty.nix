@@ -9,26 +9,23 @@
   programs.alacritty = {
     enable = true;
     settings = {
-      shell = {
-        program = "fish";
-      };
-      window = {
-        dynamic_title = true;
-        title = "Alacritty";
-      };
-      font = {
-        normal.family = "DankMono Nerd Font";
-        size = 11.0;
-      };
-      keyboard.bindings = [
-        {
-          action = "Paste";
-          key = "V";
-          mode = "~Vi";
-          mods = "Control|Shift|Alt";
-        }
-      ];
       colors = {
+        bright = {
+          black = "#4e5154";
+          blue = "#beeae4";
+          cyan = "#bee5c8";
+          green = "#d5eab4";
+          magenta = "#efcbdd";
+          red = "#f4babb";
+          white = "#eff4f7";
+          yellow = "#ead6ad";
+        };
+
+        cursor = {
+          cursor = "#d5c4a1";
+          text = "#1d2021";
+        };
+
         indexed_colors = [
           {
             color = "#fe8019";
@@ -56,22 +53,6 @@
           }
         ];
 
-        bright = {
-          black = "#4e5154";
-          blue = "#beeae4";
-          cyan = "#bee5c8";
-          green = "#d5eab4";
-          magenta = "#efcbdd";
-          red = "#f4babb";
-          white = "#eff4f7";
-          yellow = "#ead6ad";
-        };
-
-        cursor = {
-          cursor = "#d5c4a1";
-          text = "#1d2021";
-        };
-
         normal = {
           black = "#1d1f21";
           blue = "#7fbbb3";
@@ -87,6 +68,27 @@
           background = "#2b3339";
           foreground = "#d3c6aa";
         };
+      };
+
+      font = {
+        normal.family = "DankMono Nerd Font";
+        size = 11.0;
+      };
+
+      keyboard.bindings = [
+        {
+          action = "Paste";
+          key = "V";
+          mode = "~Vi";
+          mods = "Control|Shift|Alt";
+        }
+      ];
+
+      terminal.shell.program = "fish";
+
+      window = {
+        dynamic_title = true;
+        title = "Alacritty";
       };
     };
   };
