@@ -85,8 +85,8 @@
     flutter # Mobile development
 
     # Rust
-    # rustup # Rust downloader and toolchain switcher
-    # cargo-audit # Audit for security vulnerabilities
+    (callPackage ./rustup {}) # Rust downloader and toolchain switcher
+    cargo-audit # Audit for security vulnerabilities
     # cargo-expand # Expand Rust macros
     pkg-config # Compiling openssl-sys crate
     sqlite # Compiling libsqlite3-sys crate
