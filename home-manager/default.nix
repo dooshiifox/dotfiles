@@ -21,7 +21,7 @@
 
   home.sessionVariables = {
     BROWSER = "firefox-developer-edition";
-    EDITOR = "code-insiders";
+    EDITOR = "codium";
     NIX_SRC = PROJECT_ROOT;
     PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
   };
@@ -85,7 +85,7 @@
     flutter # Mobile development
 
     # Rust
-    rustup # Rust downloader and toolchain switcher
+    # rustup # Rust downloader and toolchain switcher
     cargo-audit # Audit for security vulnerabilities
     pkg-config # Compiling openssl-sys crate
     sqlite # Compiling libsqlite3-sys crate
