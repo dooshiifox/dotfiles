@@ -85,7 +85,7 @@
     flutter # Mobile development
 
     # Rust
-    (callPackage ./rustup {}) # Rust downloader and toolchain switcher
+    rustup # Rust downloader and toolchain switcher
     cargo-audit # Audit for security vulnerabilities
     pkg-config # Compiling openssl-sys crate
     sqlite # Compiling libsqlite3-sys crate
@@ -197,7 +197,7 @@
     ################
     godot_4 # Game engine # TODO: Upgrade to mono version when thats added
     love # 2D game engine
-    (callPackage ./olympus {}) # Celeste mod loader
+    # olympus # Celeste mod loader
     cubiomes-viewer # Minecraft biome viewer
     prismlauncher # Minecraft launcher
     ferium # Minecraft mod manager
