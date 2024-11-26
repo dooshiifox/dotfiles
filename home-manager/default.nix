@@ -80,8 +80,6 @@
     php83 # PHP runtime
 
     # Android / iOS
-    android-studio # Android development
-    android-tools # Android development: Part 2
     flutter # Mobile development
 
     # Rust
