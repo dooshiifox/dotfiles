@@ -62,7 +62,10 @@
     openssl # SSL/TLS cryptography library
 
     # Fonts
-    nerdfonts
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.fira-code
+    nerd-fonts.droid-sans-mono
+    nerd-fonts.symbols-only
     nerd-font-patcher
     quicksand
     cantarell-fonts

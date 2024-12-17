@@ -33,6 +33,9 @@
   nixpkgs.config.permittedInsecurePackages = [
     "electron-25.9.0"
     "freeimage-unstable-2021-11-01"
+    "dotnet-sdk-6.0.428"
+    "dotnet-runtime-6.0.36"
+    "aspnetcore-runtime-6.0.36"
   ];
 
   nixpkgs.overlays = [

@@ -42,6 +42,7 @@ in {
         formulahendry.auto-rename-tag
         geodesdk.geode
         haskell.haskell
+        inlang.vs-code-extension
         ms-azuretools.vscode-docker
         ms-dotnettools.csdevkit
         ms-dotnettools.csharp
@@ -448,6 +449,7 @@ in {
       };
       # Stop trying to say my note writing is a ruby file or something
       "workbench.editor.languageDetection" = false;
+      "sherlock.userId" = "b5d3e435-6a8f-44c1-898a-23402e01c950";
     };
 
     keybindings = [
