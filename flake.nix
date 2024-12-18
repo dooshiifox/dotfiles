@@ -13,10 +13,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # VSCode extensions
-    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions/94a50a7dc9b4be928f36544d1538c6bae93f6f94";
     # Outer Wilds mod manager
     ow-mod-man = {
-      url = "github:ow-mods/ow-mod-man";
+      url = "github:ow-mods/ow-mod-man/b43a3e1efe43eb13451aff88e935d82a6a4b1d50";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # hyprcursor.url = "github:hyprwm/hyprcursor";

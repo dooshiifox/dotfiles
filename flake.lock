@@ -62,16 +62,17 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1731894894,
-        "narHash": "sha256-HB7VHbDE+05HqreoLp9QG4sntsqV0IHo2yB1bpD1tVw=",
+        "lastModified": 1734486856,
+        "narHash": "sha256-+DI4DiwcS3Zp1OUuEi38Tb5gpVt+c8eDpQHy6MAHPzo=",
         "owner": "nix-community",
         "repo": "nix-vscode-extensions",
-        "rev": "0982ffd1c37d8ef1a202d920e33b27b59ff30ca7",
+        "rev": "94a50a7dc9b4be928f36544d1538c6bae93f6f94",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
         "repo": "nix-vscode-extensions",
+        "rev": "94a50a7dc9b4be928f36544d1538c6bae93f6f94",
         "type": "github"
       }
     },
@@ -114,16 +115,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1731291284,
-        "narHash": "sha256-aA/g5IrsfMwF6K0OHrtxMv1g/bOh/tslh/ZUSXIUgJY=",
+        "lastModified": 1732912540,
+        "narHash": "sha256-05aJUsO1N2JQlSAKErPj0xc9slL42FsQ08guw1UUj/I=",
         "owner": "ow-mods",
         "repo": "ow-mod-man",
-        "rev": "173b03c259428ed066a6e0ea40c573763b2c89d0",
+        "rev": "b43a3e1efe43eb13451aff88e935d82a6a4b1d50",
         "type": "github"
       },
       "original": {
         "owner": "ow-mods",
         "repo": "ow-mod-man",
+        "rev": "b43a3e1efe43eb13451aff88e935d82a6a4b1d50",
         "type": "github"
       }
     },
