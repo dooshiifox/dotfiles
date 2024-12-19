@@ -212,7 +212,8 @@
     inputs.ow-mod-man.packages.x86_64-linux.owmods-cli
     ns-usbloader # Nintendo Switch homebrew manager
     joycond # Switch Pro controller and joycon support
-    cemu
+    cemu # Wii-U emulator
+    joycond-cemuhook # Motion control support
   ];
 
   # TODO: Not the right place for it, figure out where
