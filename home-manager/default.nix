@@ -24,6 +24,10 @@
     EDITOR = "codium";
     NIX_SRC = PROJECT_ROOT;
     PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
+    LD_LIBRARY_PATH = lib.makeLibraryPath [
+      pkgs.libglvnd
+      pkgs.pulseaudio
+    ];
   };
 
   home.packages = with pkgs; [

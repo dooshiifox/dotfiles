@@ -13,6 +13,7 @@
       ../hardware-configuration.nix
       ./android.nix
       ./docker.nix
+      ./nix-ld.nix
       ./media.nix
       ./system.nix
     ]
