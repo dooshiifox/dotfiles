@@ -41,11 +41,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1734344598,
-        "narHash": "sha256-wNX3hsScqDdqKWOO87wETUEi7a/QlPVgpC/Lh5rFOuA=",
+        "lastModified": 1736013363,
+        "narHash": "sha256-P4lsS2Y5GzBfC8OfXtD/xWEucX6oHGTjOzjEjEJbXfc=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "83ecd50915a09dca928971139d3a102377a8d242",
+        "rev": "0d7908bd09165db6699908b7e3970f137327cbf0",
         "type": "github"
       },
       "original": {
@@ -62,17 +62,17 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1734486856,
-        "narHash": "sha256-+DI4DiwcS3Zp1OUuEi38Tb5gpVt+c8eDpQHy6MAHPzo=",
+        "lastModified": 1736041952,
+        "narHash": "sha256-E5pbaRr5lU2yX+h3DTXcZZLxTVFo/cvj8teaIFjY9Ww=",
         "owner": "nix-community",
         "repo": "nix-vscode-extensions",
-        "rev": "94a50a7dc9b4be928f36544d1538c6bae93f6f94",
+        "rev": "dcfd2c7fb29ed73c284c5c1528ae1a08b2f8d2e2",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
         "repo": "nix-vscode-extensions",
-        "rev": "94a50a7dc9b4be928f36544d1538c6bae93f6f94",
+        "rev": "dcfd2c7fb29ed73c284c5c1528ae1a08b2f8d2e2",
         "type": "github"
       }
     },
@@ -94,11 +94,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1734119587,
-        "narHash": "sha256-AKU6qqskl0yf2+JdRdD0cfxX4b9x3KKV5RqA6wijmPM=",
+        "lastModified": 1735834308,
+        "narHash": "sha256-dklw3AXr3OGO4/XT1Tu3Xz9n/we8GctZZ75ZWVqAVhk=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "3566ab7246670a43abd2ffa913cc62dad9cdf7d5",
+        "rev": "6df24922a1400241dae323af55f30e4318a6ca65",
         "type": "github"
       },
       "original": {
@@ -115,17 +115,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1732912540,
-        "narHash": "sha256-05aJUsO1N2JQlSAKErPj0xc9slL42FsQ08guw1UUj/I=",
+        "lastModified": 1735594503,
+        "narHash": "sha256-zuHBKmmwhEpJ75Eco0SPJ9nSzSsVOt7N4DeebRffx9M=",
         "owner": "ow-mods",
         "repo": "ow-mod-man",
-        "rev": "b43a3e1efe43eb13451aff88e935d82a6a4b1d50",
+        "rev": "594c9de8c067fa9c70baa0835acb3f4fa23b2a56",
         "type": "github"
       },
       "original": {
         "owner": "ow-mods",
         "repo": "ow-mod-man",
-        "rev": "b43a3e1efe43eb13451aff88e935d82a6a4b1d50",
+        "rev": "594c9de8c067fa9c70baa0835acb3f4fa23b2a56",
         "type": "github"
       }
     },
