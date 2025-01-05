@@ -45,7 +45,7 @@ Please note that I'm new to Nix! If you have any improvements, please educate me
 
 ### Clean-up old packages
 
-Remove unneeded packages with `nix-store --gc`
+Run `./clean-old-gens.sh`
 
 ### Environment variables
 
