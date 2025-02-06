@@ -96,15 +96,6 @@
     # cargo-expand # Expand Rust macros
     pkg-config # Compiling openssl-sys crate
     sqlite # Compiling libsqlite3-sys crate
-    webkitgtk_4_1 # Compiling Tauri
-    libsoup_3 # Compiling Tauri
-    librsvg # Compiling Tauri
-    harfbuzz # Compiling Tauri
-    atkmm # Compiling Tauri
-    gobject-introspection # Compiling Tauri
-    openssl # Compiling Tauri
-    glib # Compiling Tauri
-    cairo # Compiling Tauri
 
     # Javascript
     nodejs_22 # Javascript runtime; also provides npm
