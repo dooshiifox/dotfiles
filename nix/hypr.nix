@@ -48,7 +48,7 @@ in {
       MOZ_ENABLE_WAYLAND = "1";
       WLR_BACKEND = "vulkan";
       WLR_RENDERER = "vulkan";
-      XCURSOR_SIZE = "24";
+      XCURSOR_SIZE = "16";
       NIXOS_OZONE_WL = "1";
     };
   };
