@@ -20,13 +20,19 @@ in {
       wayland
       glib
       grim
+      grimblast
       slurp
       satty
+      swappy
       wl-clipboard
+      cliphist
+      waybar
+      swaylock
+      swaylock-fancy
       wlr-randr
       hyprpicker
       hyprcursor
-      swww
+      hyprpaper
     ];
     etc."greetd/environments".text = ''
       Hyprland
@@ -50,6 +56,8 @@ in {
       WLR_RENDERER = "vulkan";
       XCURSOR_SIZE = "16";
       NIXOS_OZONE_WL = "1";
+      HYPRCURSOR_THEME = "Bibata-Modern-Classic";
+      HYPRCURSOR_SIZE = "16";
     };
   };
 

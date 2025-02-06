@@ -24,6 +24,7 @@
           "$mod, right, movefocus, r"
           "$mod, up, movefocus, u"
           "$mod, down, movefocus, d"
+          "$mod, space, exec, rofi -show drun"
           # ", Print, exec, grimblast copy area"
         ]
         ++ (
