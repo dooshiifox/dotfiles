@@ -52,7 +52,10 @@
         kb_layout = "us";
         follow_mouse = 1;
         force_no_accel = true;
-        natural_scroll = true;
+        natural_scroll = false;
+        touchpad = {
+          natural_scroll = true;
+        };
       };
       general = {
         gaps_in = 4;
