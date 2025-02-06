@@ -103,6 +103,7 @@
     atkmm # Compiling Tauri
     gobject-introspection # Compiling Tauri
     openssl # Compiling Tauri
+    glib # Compiling Tauri
 
     # Javascript
     nodejs_22 # Javascript runtime; also provides npm
