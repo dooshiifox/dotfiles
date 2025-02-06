@@ -76,7 +76,7 @@
         fullscreen_opacity = 1.0;
 
         shadow = {
-          enable = true;
+          enabled = true;
           range = 8;
           render_power = 4;
           offset = "0 5";
@@ -106,13 +106,12 @@
         preserve_split = true;
       };
       master = {
-        new_is_master = true;
       };
       gestures = {
         workspace_swipe = true;
       };
       misc = {
-        disable_hyprland_logo = false;
+        disable_hyprland_logo = true;
       };
 
       env = [
