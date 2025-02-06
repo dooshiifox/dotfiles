@@ -111,6 +111,7 @@
       pkgs.vaapiVdpau
       pkgs.libvdpau-va-gl
       pkgs.nvidia-vaapi-driver
+      pkgs.mesa.drivers
     ];
     # extraPackages32 = with pkgs.pkgsi686Linux; [libva];
   };
