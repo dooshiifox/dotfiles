@@ -98,6 +98,10 @@
     sqlite # Compiling libsqlite3-sys crate
     webkitgtk_4_1 # Compiling Tauri
     libsoup_3 # Compiling Tauri
+    librsvg # Compiling Tauri
+    harfbuzz # Compiling Tauri
+    atkmm # Compiling Tauri
+    gobject-introspection # Compiling Tauri
 
     # Javascript
     nodejs_22 # Javascript runtime; also provides npm
