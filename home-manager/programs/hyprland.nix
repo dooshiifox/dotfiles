@@ -52,6 +52,7 @@
         kb_layout = "us";
         follow_mouse = 1;
         force_no_accel = true;
+        natural_scroll = true;
       };
       general = {
         gaps_in = 4;
@@ -74,11 +75,13 @@
         active_opacity = 1.0;
         fullscreen_opacity = 1.0;
 
-        drop_shadow = true;
-        shadow_range = 60;
-        shadow_offset = "0 5";
-        shadow_render_power = 4;
-        "col.shadow" = "rgba(00000099)";
+        shadow = {
+          enable = true;
+          range = 8;
+          render_power = 4;
+          offset = "0 5";
+          color = "rgba(00000099)";
+        };
       };
       animations = {
         enabled = true;
