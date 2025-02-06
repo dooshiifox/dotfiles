@@ -1,5 +1,5 @@
 (defwindow wifi-overlay
-  :monitor 0
+  :monitor 1
   :geometry (geometry
     ;; :x "290px"
     :x "-290px"

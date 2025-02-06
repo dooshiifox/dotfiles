@@ -8,7 +8,7 @@
 
     settings = {
       monitor = [
-        "HDMI-A-3,1920x1080@60,0x0,1"
+        "HDMI-A-3,1920x1080@120,0x0,1"
         "eDP-1,3840x2160@144,1920x0,2"
       ];
 
@@ -20,12 +20,13 @@
           "$mod, E, exec, nautilus"
           "$mod, W, killactive,"
           "$mod, V, togglefloating,"
+          "$mod, M, exec, $NIX_SRC/scripts/system/open-eww-overlay music-overlay"
           "$mod, left, movefocus, l"
           "$mod, right, movefocus, r"
           "$mod, up, movefocus, u"
           "$mod, down, movefocus, d"
           "$mod, space, exec, rofi -show drun"
-          # ", Print, exec, grimblast copy area"
+          ", Print, exec, grimblast copy area"
         ]
         ++ (
           # workspaces
@@ -126,6 +127,10 @@
         "NVD_BACKEND,direct"
         "ELECTRON_OZONE_PLATFORM_HINT,auto"
       ];
+
+      exec-once = [
+        "hyprpaper"
+      ];
     };
 
     plugins = [
@@ -135,7 +140,7 @@
 
   home.pointerCursor = {
     gtk.enable = true;
-    # x11.enable = true;
+    x11.enable = true;
     package = pkgs.bibata-cursors;
     name = "Bibata-Modern-Classic";
     size = 16;

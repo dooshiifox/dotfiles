@@ -98,7 +98,7 @@
 (defvar bright-shows 0)
 
 (defwindow bar
-  :monitor 0
+  :monitor 1
   :geometry (
     geometry
     ;; :x "10px"

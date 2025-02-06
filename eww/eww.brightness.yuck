@@ -1,5 +1,5 @@
 (defwindow brightness-overlay
-  :monitor 0
+  :monitor 1
   :geometry (geometry
     ;; :x "240px"
     :x "-240px"

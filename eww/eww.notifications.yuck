@@ -1,5 +1,5 @@
 (defwindow notifications-overlay
-  :monitor 0
+  :monitor 1
   :geometry (geometry
     ;; :x "10px"
     :x "-10px"
