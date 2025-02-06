@@ -105,14 +105,13 @@
   # Enable OpenGL
   hardware.graphics = {
     enable = true;
-    # driSupport = true;
     enable32Bit = true;
-    # extraPackages = [
-    #   # Video acceleration & Video Decode And Presentation API for Unix
-    #   pkgs.vaapiVdpau
-    #   pkgs.libvdpau-va-gl
-    #   pkgs.nvidia-vaapi-driver
-    # ];
+    extraPackages = [
+      # Video acceleration & Video Decode And Presentation API for Unix
+      pkgs.vaapiVdpau
+      pkgs.libvdpau-va-gl
+      pkgs.nvidia-vaapi-driver
+    ];
     # extraPackages32 = with pkgs.pkgsi686Linux; [libva];
   };
 
