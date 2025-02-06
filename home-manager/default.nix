@@ -26,8 +26,10 @@
     PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
     XDG_CONFIG_HOME = "/home/dooshii/.config";
     LD_LIBRARY_PATH = lib.makeLibraryPath [
-      # pkgs.libglvnd
+      pkgs.libglvnd
       pkgs.pulseaudio
+      "/run/opengl-driver/lib"
+      "/run/opengl-driver-32/lib"
     ];
     LIBGL_DRIVERS_PATH = "${pkgs.mesa.drivers}/lib:${pkgs.mesa.drivers}/lib/dri";
     __EGL_VENDOR_LIBRARY_FILENAMES = "${pkgs.mesa.drivers}/share/glvnd/egl_vendor.d/50_mesa.json";
@@ -161,6 +163,9 @@
     psmisc # `fuser` command
     pciutils # `lspci` command
     patchelf # Modify ELF headers to make some stuff work on NixOS
+
+    xvfb-run # Fixing OpenGL issues
+    glxinfo # Fixing OpenGL issues
 
     filezilla # FTP GUI client
 

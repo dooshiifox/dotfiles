@@ -37,7 +37,7 @@
       pango
       mesa
       libdrm
-      # libglvnd
+      libglvnd
       libpulseaudio
       atk
       cairo
@@ -49,7 +49,6 @@
       gtk3
       libGL
       libappindicator-gtk3
-      # libglvnd
       vulkan-loader
       xorg.libX11
       xorg.libXScrnSaver
