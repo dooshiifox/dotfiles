@@ -104,6 +104,7 @@
     gobject-introspection # Compiling Tauri
     openssl # Compiling Tauri
     glib # Compiling Tauri
+    cairo # Compiling Tauri
 
     # Javascript
     nodejs_22 # Javascript runtime; also provides npm
