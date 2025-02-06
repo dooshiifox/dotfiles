@@ -42,6 +42,11 @@
     baobab # GNOME pie chart disk usage
     megasync # Backups
 
+    egl-wayland
+    xwayland
+    hyprcursor
+    hyprutils
+
     # FIXME: Prevent manual installs of these things.
     # Ensure you enable these in GNOME Extensions
     # With Pop Shell, disable mouse stacking

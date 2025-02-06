@@ -19,7 +19,11 @@
       url = "github:ow-mods/ow-mod-man/594c9de8c067fa9c70baa0835acb3f4fa23b2a56";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # hyprcursor.url = "github:hyprwm/hyprcursor";
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
   };
 
   outputs = inputs @ {
@@ -29,7 +33,7 @@
     ...
   }: let
     # "gnome", "gnome-wayland", "hypr", "xmonad"
-    mode = "gnome";
+    mode = "hypr";
     PROJECT_ROOT = builtins.toString ./.;
   in {
     nixosConfigurations.dooshii = nixpkgs.lib.nixosSystem rec {

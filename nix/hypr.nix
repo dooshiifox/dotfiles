@@ -53,10 +53,6 @@ in {
     };
   };
 
-  nixpkgs.overlays = [
-    inputs.hyprcursor.overlays.default
-  ];
-
   services.dbus.enable = true;
   xdg.portal = {
     enable = true;
@@ -86,4 +82,6 @@ in {
     gnome-keyring.enable = true;
     sushi.enable = true;
   };
+
+  programs.hyprland.enable = true;
 }
