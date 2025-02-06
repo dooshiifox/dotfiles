@@ -96,6 +96,7 @@
     # cargo-expand # Expand Rust macros
     pkg-config # Compiling openssl-sys crate
     sqlite # Compiling libsqlite3-sys crate
+    webkitgtk_4_1 # Compiling Tauri
 
     # Javascript
     nodejs_22 # Javascript runtime; also provides npm
