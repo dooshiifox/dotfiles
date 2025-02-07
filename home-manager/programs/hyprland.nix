@@ -25,7 +25,7 @@
         "$mod, E, exec, nautilus"
         "$mod, W, killactive,"
         "$mod, V, togglefloating,"
-        "$mod, M, exec, $NIX_SRC/scripts/system/open-eww-overlay music-overlay"
+        "$mod, M, exec, ${PROJECT_ROOT}/scripts/system/open-eww-overlay music-overlay"
         "$mod, left, movefocus, l"
         "$mod, right, movefocus, r"
         "$mod, up, movefocus, u"
