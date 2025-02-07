@@ -10,8 +10,22 @@
   #   BOOTLOADER
   ####################
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+    loader.timeout = 5;
+
+    kernelParams = [
+      "systemd.mask=systemd-vconsole-setup.service"
+      "systemd.mask=dev-tpmrm0.device" #this is to mask that stupid 1.5 mins systemd bug
+      "nowatchdog"
+      "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
+    ];
+    initrd = {
+      availableKernelModules = ["xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod"];
+      kernelModules = [];
+    };
+  };
 
   ####################
   #   NETWORKING
@@ -103,16 +117,18 @@
   ####################
 
   # Enable OpenGL
-  hardware.opengl.enable = true;
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
     extraPackages = [
       # Video acceleration & Video Decode And Presentation API for Unix
       pkgs.vaapiVdpau
+      pkgs.libvdpau
       pkgs.libvdpau-va-gl
       pkgs.nvidia-vaapi-driver
-      pkgs.mesa.drivers
+      pkgs.vdpauinfo
+      pkgs.libva
+      pkgs.libva-utils
     ];
     # extraPackages32 = with pkgs.pkgsi686Linux; [libva];
   };
@@ -133,6 +149,8 @@
     # Experimental and only works on modern Nvidia GPUs (Turing or newer).
     powerManagement.finegrained = false;
 
+    nvidiaPersistenced = false;
+
     # Use the NVidia open source kernel module (not to be confused with the
     # independent third-party "nouveau" open source driver).
     # Support is limited to the Turing and later architectures. Full list of
@@ -140,13 +158,13 @@
     # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus
     # Only available from driver 515.43.04+
     # Currently alpha-quality/buggy, so false is currently the recommended setting.
-    open = false;
+    open = true;
 
     # Enable the Nvidia settings menu,
     # accessible via `nvidia-settings`.
     nvidiaSettings = true;
 
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.latest;
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     # package = let
     #   rcu_patch = pkgs.fetchpatch {
@@ -174,16 +192,14 @@
     # forceFullCompositionPipeline = true;
   };
 
-  # hardware.nvidia.prime = {
-  # https://nixos.wiki/wiki/Nvidia
-  # sync.enable = true;
-  # offload = {
-  #   enable = true;
-  #   enableOffloadCmd = true;
-  # };
+  hardware.nvidia.prime = {
+    # https://nixos.wiki/wiki/Nvidia
+    offload = {
+      enable = true;
+      enableOffloadCmd = true;
+    };
 
-  # nvidiaBusId = "PCI:1:0:0";
-  # intelBusId = "PCI:0:2:0";
-  # };
-  boot.kernelParams = ["nvidia.NVreg_PreserveVideoMemoryAllocations=1"];
+    nvidiaBusId = "PCI:1:0:0";
+    intelBusId = "PCI:0:2:0";
+  };
 }

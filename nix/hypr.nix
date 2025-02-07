@@ -76,10 +76,10 @@ in {
 
   services.greetd = {
     enable = true;
-
+    vt = 3;
     settings = rec {
       initial_session = {
-        command = "Hyprland";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland"; # start Hyprland with a TUI login manager
         user = "dooshii";
       };
       default_session = initial_session;

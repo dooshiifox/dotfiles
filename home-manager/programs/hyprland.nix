@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  PROJECT_ROOT,
+  ...
+}: {
   home.packages = with pkgs; [bibata-cursors];
 
   wayland.windowManager.hyprland = {
@@ -8,43 +12,65 @@
 
     settings = {
       monitor = [
-        "HDMI-A-3,1920x1080@120,0x0,1"
-        "eDP-1,3840x2160@144,1920x0,2"
+        # Home External
+        "desc:KOGAN AUSTRALIA PTY LTD KALED24144F,1920x1080@120,0x0,1"
+        # Internal
+        "desc:BOE 0x0BB7,3840x2160@144,1920x0,2"
       ];
 
       "$mod" = "SUPER";
-      bind =
-        [
-          "$mod, F, exec, firefox-developer-edition"
-          "$mod, T, exec, alacritty"
-          "$mod, E, exec, nautilus"
-          "$mod, W, killactive,"
-          "$mod, V, togglefloating,"
-          "$mod, M, exec, $NIX_SRC/scripts/system/open-eww-overlay music-overlay"
-          "$mod, left, movefocus, l"
-          "$mod, right, movefocus, r"
-          "$mod, up, movefocus, u"
-          "$mod, down, movefocus, d"
-          "$mod, space, exec, rofi -show drun"
-          ", Print, exec, grimblast copy area"
-        ]
-        ++ (
-          # workspaces
-          # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
-          builtins.concatLists (builtins.genList (
-              x: let
-                ws = let
-                  c = (x + 1) / 10;
-                in
-                  builtins.toString (x + 1 - (c * 10));
-              in [
-                "$mod, ${ws}, workspace, ${toString (x + 1)}"
-                "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
-              ]
-            )
-            10)
-        );
+      bind = [
+        "$mod, F, exec, firefox-developer-edition"
+        "$mod, T, exec, alacritty"
+        "$mod, E, exec, nautilus"
+        "$mod, W, killactive,"
+        "$mod, V, togglefloating,"
+        "$mod, M, exec, $NIX_SRC/scripts/system/open-eww-overlay music-overlay"
+        "$mod, left, movefocus, l"
+        "$mod, right, movefocus, r"
+        "$mod, up, movefocus, u"
+        "$mod, down, movefocus, d"
+        ", Print, exec, grimblast copy area"
 
+        "$mod, 1, workspace, 1"
+        "$mod SHIFT, 1, movetoworkspace, 1"
+        "$mod, 2, workspace, 2"
+        "$mod SHIFT, 2, movetoworkspace, 2"
+        "$mod, 3, workspace, 3"
+        "$mod SHIFT, 3, movetoworkspace, 3"
+        "$mod, 4, workspace, 4"
+        "$mod SHIFT, 4, movetoworkspace, 4"
+        "$mod, 5, workspace, 5"
+        "$mod SHIFT, 5, movetoworkspace, 5"
+        "$mod, 6, workspace, 6"
+        "$mod SHIFT, 6, movetoworkspace, 6"
+        "$mod, 7, workspace, 7"
+        "$mod SHIFT, 7, movetoworkspace, 7"
+        "$mod, 8, workspace, 8"
+        "$mod SHIFT, 8, movetoworkspace, 8"
+        "$mod, 9, workspace, 9"
+        "$mod SHIFT, 9, movetoworkspace, 9"
+        "$mod, 0, workspace, 10"
+        "$mod SHIFT, 0, movetoworkspace, 10"
+      ];
+
+      bindr = [
+        # Toggle whether rofi is open
+        # Only activates when SUPER is released
+        "SUPER, SUPER_L, exec pkill rofi || rofi -show drun"
+      ];
+      # l - works on lockscreen
+      # e - repeat, re-runs when key is held
+      bindel = [
+        ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+      ];
+      bindl = [
+        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ", XF86AudioPlay, exec, playerctl play-pause"
+        ", XF86AudioPrev, exec, playerctl previous"
+        ", XF86AudioNext, exec, playerctl next"
+      ];
       bindm = [
         "$mod,mouse:272,movewindow"
         "$mod,mouse:273,resizewindow"
@@ -130,6 +156,12 @@
 
       exec-once = [
         "hyprpaper"
+        "eww daemon"
+        "eww open bar"
+      ];
+
+      windowrulev2 = [
+        "float, class:Minecraft.*"
       ];
     };
 
