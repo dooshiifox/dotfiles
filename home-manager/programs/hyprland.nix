@@ -57,7 +57,7 @@
       bindr = [
         # Toggle whether rofi is open
         # Only activates when SUPER is released
-        "SUPER, SUPER_L, exec pkill rofi || rofi -show drun"
+        "SUPER, SUPER_L, exec, pkill rofi || rofi -show drun"
       ];
       # l - works on lockscreen
       # e - repeat, re-runs when key is held
@@ -70,6 +70,8 @@
         ", XF86AudioPlay, exec, playerctl play-pause"
         ", XF86AudioPrev, exec, playerctl previous"
         ", XF86AudioNext, exec, playerctl next"
+        ", XF86MonBrightnessUp, exec, brightnessctl s 1+"
+        ", XF86MonBrightnessDown, exec, brightnessctl s 1-"
       ];
       bindm = [
         "$mod,mouse:272,movewindow"
