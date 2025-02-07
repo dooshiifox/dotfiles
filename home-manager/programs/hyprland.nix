@@ -154,8 +154,8 @@
         "__GLX_VENDOR_LIBRARY_NAME,nvidia"
         "NVD_BACKEND,direct"
         "ELECTRON_OZONE_PLATFORM_HINT,auto"
-        # Prefer NVIDIA. Swap the order if prefer iGPU
-        "AQ_DRM_DEVICES,/dev/dri/card1:/dev/dri/card2"
+        # Prefer igpu
+        "AQ_DRM_DEVICES,/dev/dri/card2:/dev/dri/card1"
       ];
 
       exec-once = [
