@@ -33,6 +33,7 @@ in {
       hyprpicker
       hyprcursor
       hyprpaper
+      gnome-system-monitor
     ];
     etc."greetd/environments".text = ''
       Hyprland

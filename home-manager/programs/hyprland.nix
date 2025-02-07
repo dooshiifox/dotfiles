@@ -13,9 +13,9 @@
     settings = {
       monitor = [
         # Home External
-        "desc:KOGAN AUSTRALIA PTY LTD KALED24144F,1920x1080@120,0x0,1"
+        "desc:KOGAN AUSTRALIA PTY LTD KALED24144F,1920x1080@60,0x0,1"
         # Internal
-        "desc:BOE 0x0BB7,3840x2160@144,1920x0,2"
+        "desc:BOE 0x0BB7,3840x2160@60,1920x0,2"
       ];
 
       "$mod" = "SUPER";
@@ -154,6 +154,8 @@
         "__GLX_VENDOR_LIBRARY_NAME,nvidia"
         "NVD_BACKEND,direct"
         "ELECTRON_OZONE_PLATFORM_HINT,auto"
+        # Prefer NVIDIA. Swap the order if prefer iGPU
+        "AQ_DRM_DEVICES,/dev/dri/card1:/dev/dri/card2"
       ];
 
       exec-once = [
