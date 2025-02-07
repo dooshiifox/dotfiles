@@ -147,7 +147,7 @@
     powerManagement.enable = true;
     # Fine-grained power management. Turns off GPU when not in use.
     # Experimental and only works on modern Nvidia GPUs (Turing or newer).
-    powerManagement.finegrained = true;
+    # powerManagement.finegrained = true;
 
     nvidiaPersistenced = true;
 
@@ -166,16 +166,17 @@
 
     package = config.boot.kernelPackages.nvidiaPackages.latest;
     # forceFullCompositionPipeline = true;
-  };
 
-  hardware.nvidia.prime = {
-    # https://nixos.wiki/wiki/Nvidia
-    offload = {
-      enable = true;
-      enableOffloadCmd = true;
+    prime = {
+      # https://nixos.wiki/wiki/Nvidia
+      sync.enable = true;
+      # offload = {
+      #   enable = true;
+      #   enableOffloadCmd = true;
+      # };
+
+      nvidiaBusId = "PCI:1:0:0";
+      intelBusId = "PCI:0:2:0";
     };
-
-    nvidiaBusId = "PCI:1:0:0";
-    intelBusId = "PCI:0:2:0";
   };
 }
