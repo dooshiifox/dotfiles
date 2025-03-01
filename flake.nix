@@ -4,6 +4,7 @@
   inputs = {
     # NixOS official package source
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    olympus_nixpkgs.url = "github:Petingoso/nixpkgs/olympus";
     home-manager = {
       url = "github:nix-community/home-manager/master";
       # The `follows` keyword in inputs is used for inheritance.
@@ -33,9 +34,19 @@
     ...
   }: let
     # "gnome", "gnome-wayland", "hypr", "xmonad"
-    mode = "hypr";
+    mode = "gnome-wayland";
     PROJECT_ROOT = builtins.toString ./.;
   in {
+    nixpkgs.overlays = [
+      (self: super: (let
+        olympus_nixpkgs = import inputs.olympus_nixpkgs {
+          inherit (self) system;
+        };
+      in {
+        olympus = olympus_nixpkgs.olympus;
+      }))
+    ];
+
     nixosConfigurations.dooshii = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
       # Enable accessing `inputs` in config files

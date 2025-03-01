@@ -484,6 +484,22 @@
         "type": "github"
       }
     },
+    "olympus_nixpkgs": {
+      "locked": {
+        "lastModified": 1738969182,
+        "narHash": "sha256-n5ySIsndrR5ES73Cpc+NRFk29MpoK2P7xV4FAU5Qyx4=",
+        "owner": "Petingoso",
+        "repo": "nixpkgs",
+        "rev": "880e2b512a76ef1d0865b736f468ff3c66a1ea19",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Petingoso",
+        "ref": "olympus",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "ow-mod-man": {
       "inputs": {
         "nixpkgs": [
@@ -535,6 +551,7 @@
         "hyprland-plugins": "hyprland-plugins",
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixpkgs": "nixpkgs_3",
+        "olympus_nixpkgs": "olympus_nixpkgs",
         "ow-mod-man": "ow-mod-man"
       }
     },
