@@ -17,6 +17,7 @@
       ./gh.nix
       ./git.nix
       ./gtk.nix
+      ./librewolf.nix
       ./mpv.nix
       ./obs-studio.nix
       ./ripgrep.nix
