@@ -214,7 +214,7 @@
     ################
     godot_4 # Game engine # TODO: Upgrade to mono version when thats added
     love # 2D game engine
-    # olympus # Celeste mod loader
+    (callPackage ./programs/olympus/package.nix {}) # Celeste mod loader
     cubiomes-viewer # Minecraft biome viewer
     prismlauncher # Minecraft launcher
     ferium # Minecraft mod manager
