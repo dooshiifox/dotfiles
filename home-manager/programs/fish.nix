@@ -43,6 +43,12 @@
       mrat = {
         body = "cd ~/Documents/CodingProjects/mpd-rating/ && pnpm dev --host";
       };
+      # Davinci Resolve Convert
+      # https://wiki.archlinux.org/title/DaVinci_Resolve#Workaround_for_DaVinci_Resolve_Free
+      drc = {
+        argumentNames = ["file"];
+        body = "ffmpeg -i $file -c:v dnxhd -profile:v dnxhr_hq -pix_fmt yuv422p -c:a alac $(echo \"$file\" | sed \"s/.mp4/.mov/g\")";
+      };
     };
   };
 }
