@@ -179,6 +179,7 @@
     ################
     audacity # Ugly audio editor
     kdenlive # Ugly video editor
+    davinci-resolve # Paid video editor
     krita # Ugly image editor
     blender # Not as ugly 3d modeling
 
