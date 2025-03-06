@@ -178,8 +178,6 @@
     # Media
     ################
     audacity # Ugly audio editor
-    kdenlive # Ugly video editor
-    olive-editor # Another video editor
     krita # Ugly image editor
     blender # Not as ugly 3d modeling
 
