@@ -235,7 +235,7 @@
     joycond-cemuhook # Motion control support
     archipelago # Randomiser
     dolphin-emu # Wii / Gamecube emulator
-    ryujinx # Switch emulator
+    ryubing # Switch emulator
   ];
 
   # TODO: Not the right place for it, figure out where
