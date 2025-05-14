@@ -104,13 +104,17 @@
   ####################
   #   CONTROLLER
   ####################
-  services.udev.extraRules = ''
-    # Nintendo Switch Pro Controller over USB hidraw
-    KERNEL=="hidraw*", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="2009", MODE="0660", TAG+="uaccess"
+  # services.udev.extraRules = ''
+  #   # Nintendo Switch Pro Controller over USB hidraw
+  #   KERNEL=="hidraw*", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="2009", MODE="0660", TAG+="uaccess"
 
-    # Nintendo Switch Pro Controller over bluetooth hidraw
-    KERNEL=="hidraw*", KERNELS=="*057E:2009*", MODE="0660", TAG+="uaccess"
-  '';
+  #   # Nintendo Switch Pro Controller over bluetooth hidraw
+  #   KERNEL=="hidraw*", KERNELS=="*057E:2009*", MODE="0660", TAG+="uaccess"
+  # '';
+  services.udev.packages = with pkgs; [
+    game-devices-udev-rules
+  ];
+  hardware.uinput.enable = true;
 
   ####################
   #   NVIDIA

@@ -31,8 +31,8 @@
       "/run/opengl-driver/lib"
       "/run/opengl-driver-32/lib"
     ];
-    LIBGL_DRIVERS_PATH = "${pkgs.mesa.drivers}/lib:${pkgs.mesa.drivers}/lib/dri";
-    __EGL_VENDOR_LIBRARY_FILENAMES = "${pkgs.mesa.drivers}/share/glvnd/egl_vendor.d/50_mesa.json";
+    LIBGL_DRIVERS_PATH = "${pkgs.mesa}/lib:${pkgs.mesa}/lib/dri";
+    __EGL_VENDOR_LIBRARY_FILENAMES = "${pkgs.mesa}/share/glvnd/egl_vendor.d/50_mesa.json";
   };
 
   home.packages = with pkgs; [
@@ -46,6 +46,8 @@
     xwayland
     hyprcursor
     hyprutils
+
+    direnv
 
     # FIXME: Prevent manual installs of these things.
     # Ensure you enable these in GNOME Extensions
@@ -100,11 +102,12 @@
     flutter # Mobile development
 
     # Rust
-    (callPackage ./rustup {}) # Rust downloader and toolchain switcher
+    rustup # Rust downloader and toolchain switcher
     cargo-audit # Audit for security vulnerabilities
-    # cargo-expand # Expand Rust macros
     pkg-config # Compiling openssl-sys crate
     sqlite # Compiling libsqlite3-sys crate
+    cargo-flamegraph # Performance graphs for rust projects
+    mold # Faster compiler
 
     # Javascript
     nodejs_22 # Javascript runtime; also provides npm
@@ -142,6 +145,7 @@
 
     # Java
     jdk
+    gradle # Java development
 
     # Modding
     avalonia-ilspy # Decompile C#
@@ -214,6 +218,7 @@
     godot_4 # Game engine # TODO: Upgrade to mono version when thats added
     love # 2D game engine
     (callPackage ./programs/olympus/package.nix {}) # Celeste mod loader
+    lumafly # Hollow Knight mod loader
     cubiomes-viewer # Minecraft biome viewer
     prismlauncher # Minecraft launcher
     ferium # Minecraft mod manager
@@ -222,12 +227,15 @@
     protontricks # Steam's Proton helpers
     wine # Window compatibility
     winetricks # Wine helpers
-    inputs.ow-mod-man.packages.x86_64-linux.owmods-gui
-    inputs.ow-mod-man.packages.x86_64-linux.owmods-cli
+    inputs.ow-mod-man.packages.x86_64-linux.owmods-gui # Outer Wilds mod loader
+    inputs.ow-mod-man.packages.x86_64-linux.owmods-cli # Outer Wilds mod loader
     ns-usbloader # Nintendo Switch homebrew manager
     joycond # Switch Pro controller and joycon support
     cemu # Wii-U emulator
     joycond-cemuhook # Motion control support
+    archipelago # Randomiser
+    dolphin-emu # Wii / Gamecube emulator
+    ryujinx # Switch emulator
   ];
 
   # TODO: Not the right place for it, figure out where

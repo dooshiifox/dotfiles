@@ -29,11 +29,14 @@
       util-linux
       zlib
       zstd
+      udev
+      pkg-config
     ]
     ++ lib.optionals (config.hardware.graphics.enable) [
       pipewire
       cups
       libxkbcommon
+      wayland
       pango
       mesa
       libdrm

@@ -16,4 +16,8 @@
     "files.exclude": {
         "**/.git": false,
     },
+    "chat.commandCenter.enabled": false,
+    "workbench.secondarySideBar.showLabels": true,
+    "workbench.activityBar.location": "default",
+    "workbench.sideBar.location": "left",
 }
