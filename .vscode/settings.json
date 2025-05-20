@@ -1,22 +1,7 @@
 {
-    "sqltools.connections": [
-        {
-            "previewLimit": 50,
-            "driver": "SQLite",
-            "name": "mpd-sticker",
-            "database": "/home/dooshii/.config/mpd/sticker.sql"
-        },
-        {
-            "previewLimit": 50,
-            "driver": "SQLite",
-            "name": "mpd-local",
-            "database": "${workspaceFolder:nixos}/services/mpd/sticker.sql"
-        }
-    ],
     "files.exclude": {
         "**/.git": false,
     },
-    "chat.commandCenter.enabled": false,
     "workbench.secondarySideBar.showLabels": true,
     "workbench.activityBar.location": "default",
     "workbench.sideBar.location": "left",
