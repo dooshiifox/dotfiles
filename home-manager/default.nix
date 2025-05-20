@@ -34,6 +34,9 @@
     LIBGL_DRIVERS_PATH = "${pkgs.mesa}/lib:${pkgs.mesa}/lib/dri";
     __EGL_VENDOR_LIBRARY_FILENAMES = "${pkgs.mesa}/share/glvnd/egl_vendor.d/50_mesa.json";
   };
+  home.sessionPath = [
+    "$HOME/.local/bin"
+  ];
 
   home.packages = with pkgs; [
     ################

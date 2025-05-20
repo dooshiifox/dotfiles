@@ -1,0 +1,14 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"command": "./ni",
+			"label": "run",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		}
+	]
+}
