@@ -175,6 +175,13 @@
     psmisc # `fuser` command
     pciutils # `lspci` command
     patchelf # Modify ELF headers to make some stuff work on NixOS
+    tldr # Simplified man pages
+    uutils-coreutils-noprefix # rust coreutils replacement
+    xh # Better `curl`
+    dust # Better `du`
+    dua # Interactive `du`
+    hyperfine # Benchmark tool
+    just # Command runner
 
     xvfb-run # Fixing OpenGL issues
     glxinfo # Fixing OpenGL issues

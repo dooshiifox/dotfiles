@@ -12,18 +12,22 @@
       ./dconf.nix
       ./eww.nix
       ./eza.nix
+      ./fd.nix
       ./firefox.nix
       ./fish.nix
       ./gh.nix
       ./git.nix
+      ./gitui.nix
       ./gtk.nix
       ./librewolf.nix
       ./mpv.nix
       ./obs-studio.nix
       ./ripgrep.nix
       ./rofi.nix
+      ./starship.nix
       ./thefuck.nix
       ./thunderbird.nix
+      ./yazi.nix
       ./yt-dlp.nix
       ./zoxide.nix
     ]
