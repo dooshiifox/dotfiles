@@ -19,6 +19,7 @@
       ./git.nix
       ./gitui.nix
       ./gtk.nix
+      ./kitty.nix
       ./librewolf.nix
       ./mpv.nix
       ./obs-studio.nix
