@@ -143,14 +143,14 @@ with lib.hm.gvariant; {
 
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
         binding = "<Super>t";
-        command = "alacritty";
+        command = "kitty";
         name = "Open terminal";
       };
-      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
-        binding = "<Super>m";
-        command = "${PROJECT_ROOT}/scripts/system/open-eww-overlay music-overlay";
-        name = "Toggle EWW music overlay";
-      };
+      # "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+      #   binding = "<Super>m";
+      #   command = "${PROJECT_ROOT}/scripts/system/open-eww-overlay music-overlay";
+      #   name = "Toggle EWW music overlay";
+      # };
     };
   };
 }

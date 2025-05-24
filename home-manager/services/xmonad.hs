@@ -170,7 +170,7 @@ main = do
     {
         -- (Left) Super key
         modMask = mod4Mask,
-        terminal = "alacritty",
+        terminal = "kitty",
         keys = myKeys,
         mouseBindings = myMouseBindings,
         -- Whether window focus follows the mouse pointer.

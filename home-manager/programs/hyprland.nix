@@ -21,7 +21,7 @@
       "$mod" = "SUPER";
       bind = [
         "$mod, F, exec, firefox-developer-edition"
-        "$mod, T, exec, alacritty"
+        "$mod, T, exec, kitty"
         "$mod, E, exec, nautilus"
         "$mod, W, killactive,"
         "$mod, V, togglefloating,"
