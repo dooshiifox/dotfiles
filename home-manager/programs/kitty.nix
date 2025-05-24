@@ -30,8 +30,10 @@
       wayland_enable_ime no
       wayland_titlebar_color background
 
-      # background_blur 16
-      # background_opacity 0.8
+      wheel_scroll_multiplier 2.0
+
+      background_blur 16
+      background_opacity 0.8
 
       background #2b3339
       foreground #d3c6aa
