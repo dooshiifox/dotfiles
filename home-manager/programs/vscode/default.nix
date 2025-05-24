@@ -471,6 +471,7 @@ in {
         ];
         "todo-tree.regex.regex" = "\\s+($TAGS)";
         "todo-tree.regex.regexCaseSensitive" = false;
+        "terminal.integrated.minimumContrastRatio" = 1;
       };
 
       keybindings = [

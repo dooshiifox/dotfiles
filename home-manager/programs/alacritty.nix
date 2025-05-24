@@ -10,6 +10,17 @@
     enable = true;
     settings = {
       colors = {
+        normal = {
+          black = "#1d1f21";
+          blue = "#7fbbb3";
+          cyan = "#83c092";
+          green = "#a7c080";
+          magenta = "#d699b6";
+          red = "#e67e80";
+          white = "#d7e2ea";
+          yellow = "#dbbc7f";
+        };
+
         bright = {
           black = "#4e5154";
           blue = "#beeae4";
@@ -24,6 +35,11 @@
         cursor = {
           cursor = "#d5c4a1";
           text = "#1d2021";
+        };
+
+        primary = {
+          background = "#2b3339";
+          foreground = "#d3c6aa";
         };
 
         indexed_colors = [
@@ -52,22 +68,6 @@
             index = 21;
           }
         ];
-
-        normal = {
-          black = "#1d1f21";
-          blue = "#7fbbb3";
-          cyan = "#83c092";
-          green = "#a7c080";
-          magenta = "#d699b6";
-          red = "#e67e80";
-          white = "#d7e2ea";
-          yellow = "#dbbc7f";
-        };
-
-        primary = {
-          background = "#2b3339";
-          foreground = "#d3c6aa";
-        };
       };
 
       font = {
