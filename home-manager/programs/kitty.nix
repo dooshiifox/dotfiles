@@ -32,8 +32,8 @@
 
       wheel_scroll_multiplier 2.0
 
-      background_blur 16
-      background_opacity 0.8
+      # background_blur 16
+      # background_opacity 0.95
 
       background #2b3339
       foreground #d3c6aa
