@@ -183,6 +183,8 @@
     hyperfine # Benchmark tool
     just # Command runner
 
+    kitty # Terminal
+
     xvfb-run # Fixing OpenGL issues
     glxinfo # Fixing OpenGL issues
 

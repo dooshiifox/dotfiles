@@ -7,7 +7,7 @@
   ...
 }: {
   programs.kitty = {
-    enable = true;
+    enable = false;
 
     shellIntegration = {
       enableFishIntegration = true;
