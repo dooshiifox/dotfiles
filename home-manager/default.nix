@@ -70,13 +70,6 @@
     (vesktop.override {withSystemVencord = false;}) # Discord + Vencord
     whatsapp-for-linux # Whatsapp client
 
-    # Hardware
-    libratbag # Gaming mouse configuration
-    g810-led # Logitech keyboard configuration
-    xorg.xbacklight # Backlight control
-    brightnessctl # Also backlight control
-    acpi # Battery info
-
     # Networking
     openssl # SSL/TLS cryptography library
 

@@ -62,6 +62,13 @@
     libnotify
     pkgs.dconf
     # inputs.agenix.packages."${system}".default
+
+    # Hardware
+    libratbag # Gaming mouse configuration
+    g810-led # Logitech keyboard configuration
+    xorg.xbacklight # Backlight control
+    brightnessctl # Also backlight control
+    acpi # Battery info
   ];
 
   # This value determines the NixOS release from which the default
