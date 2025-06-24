@@ -26,7 +26,6 @@
       ./ripgrep.nix
       ./rofi.nix
       ./starship.nix
-      ./thefuck.nix
       ./thunderbird.nix
       ./yazi.nix
       ./yt-dlp.nix
@@ -34,6 +33,8 @@
     ]
     ++ lib.optionals (mode == "hypr") [
       ./hyprland.nix
+      ./hyprlock.nix
       ./pywal.nix
+      ./waybar.nix
     ];
 }

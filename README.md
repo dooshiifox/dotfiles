@@ -62,6 +62,7 @@ The `NIX_SRC` env variable is set to where the config is built in `/nix/store/..
         -   vesktop
         -   firefox
         -   vscodium
+        -   Rofi
     -   Notifications
 -   Fix build times
 -   Fix boot time

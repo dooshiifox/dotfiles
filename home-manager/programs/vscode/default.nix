@@ -1,10 +1,5 @@
 # https://github.com/nix-community/home-manager/blob/master/modules/programs/vscode.nix
-{
-  config,
-  pkgs,
-  inputs,
-  ...
-}: let
+{pkgs, ...}: let
   mimeTypes = [
     "application/json"
     "text/plain"
@@ -45,7 +40,7 @@ in {
           gruntfuggly.todo-tree
           haskell.haskell
           inlang.vs-code-extension
-          jnoortheen.nix-ide
+          # jnoortheen.nix-ide
           mkhl.direnv
           ms-azuretools.vscode-docker
           ms-dotnettools.csdevkit
@@ -79,7 +74,6 @@ in {
           tamasfe.even-better-toml
           twxs.cmake
           usernamehw.errorlens
-          vadimcn.vscode-lldb
           # wayou.vscode-todo-highlight
           xdebug.php-debug
           yechunan.json-color-token
@@ -364,7 +358,7 @@ in {
           "editor.defaultFormatter" = "rvest.vs-code-prettier-eslint";
         };
         "[nix]" = {
-          "editor.tabSize" = 4;
+          "editor.tabSize" = 2;
           "editor.defaultFormatter" = "jnoortheen.nix-ide";
         };
         "rust-analyzer.check.command" = "clippy";

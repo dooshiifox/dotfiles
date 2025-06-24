@@ -1,8 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: let
+{pkgs, ...}: let
   dbus-hyprland-environment = pkgs.writeTextFile {
     name = "dbus-hyprland-environment";
     destination = "/bin/dbus-hyprland-environment";
@@ -27,17 +23,10 @@ in {
       wl-clipboard
       cliphist
       waybar
-      swaylock
-      swaylock-fancy
       wlr-randr
       hyprpicker
-      hyprcursor
-      hyprpaper
       gnome-system-monitor
       hyprland-qtutils
-      hyprsunset
-      hyprlock
-      hypridle
     ];
     etc."greetd/environments".text = ''
       Hyprland

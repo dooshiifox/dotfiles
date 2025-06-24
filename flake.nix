@@ -3,7 +3,7 @@
 
   inputs = {
     # NixOS official package source
-    nixpkgs.url = "github:NixOS/nixpkgs/f771eb40";
+    nixpkgs.url = "github:NixOS/nixpkgs/7611b2aec43814158708aec23bd4b20709dacaab";
     home-manager = {
       url = "github:nix-community/home-manager/master";
       # The `follows` keyword in inputs is used for inheritance.
@@ -13,10 +13,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # VSCode extensions
-    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions/dcfd2c7fb29ed73c284c5c1528ae1a08b2f8d2e2";
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions/1a1442e13dc1730de0443f80dcf02658365e999a";
     # Outer Wilds mod manager
     ow-mod-man = {
-      url = "github:ow-mods/ow-mod-man/594c9de8c067fa9c70baa0835acb3f4fa23b2a56";
+      url = "github:ow-mods/ow-mod-man/c15a09abb379f16c9d39652c8e3768fe2179d6eb";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "github:hyprwm/Hyprland";
@@ -40,7 +40,7 @@
     mode = "hypr";
     PROJECT_ROOT = builtins.toString ./.;
   in {
-    nixosConfigurations.dooshii = nixpkgs.lib.nixosSystem rec {
+    nixosConfigurations.dooshii = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       # Enable accessing `inputs` in config files
       specialArgs = {

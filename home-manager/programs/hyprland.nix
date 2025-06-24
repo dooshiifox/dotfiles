@@ -1,6 +1,5 @@
 {
   pkgs,
-  inputs,
   PROJECT_ROOT,
   ...
 }: {
@@ -163,32 +162,29 @@
         "AQ_DRM_DEVICES,/dev/dri/card2:/dev/dri/card1"
       ];
 
-      exec-once = [
-        "hyprpaper"
-        "hyprsunset"
-        "eww daemon"
-        "eww open bar"
-      ];
+      exec-once = [];
 
       windowrulev2 = [
         "float, class:Minecraft.*"
       ];
 
-      "plugin:dynamic-cursors" = {
-        mode = "none";
-      };
+      # "plugin:dynamic-cursors" = {
+      #   mode = "none";
+      # };
     };
 
-    plugins = with pkgs; [
-      # Doesnt work due to compilation errors.
-      # If re-enabling, remember to enable in inputs
-      # inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors # Did you read the above comment?
-    ];
+    # plugins = with pkgs; [
+    #   # Doesnt work due to compilation errors.
+    #   # If re-enabling, remember to enable in inputs
+    #   # inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors # Did you read the above comment?
+    # ];
   };
 
   home.pointerCursor = {
-    gtk.enable = true;
-    x11.enable = true;
+    # gtk.enable = true;
+    # x11.enable = true;
+    hyprcursor.enable = true;
+    hyprcursor.size = 20;
     package = pkgs.bibata-cursors;
     name = "Bibata-Modern-Classic";
     size = 20;
