@@ -50,3 +50,19 @@ Run `./clean-old-gens.sh`
 ### Environment variables
 
 The `NIX_SRC` env variable is set to where the config is built in `/nix/store/...`. You can use this to e.g. reference scripts in `./scripts` from other places.
+
+## Todo
+
+-   Wayland bars
+-   Fix occasional FPS drops
+-   Fix theming
+    -   Window titles
+    -   Make app themes consistent with each other
+        -   kitty
+        -   vesktop
+        -   firefox
+        -   vscodium
+    -   Notifications
+-   Fix build times
+-   Fix boot time
+-   Fix sleep mode

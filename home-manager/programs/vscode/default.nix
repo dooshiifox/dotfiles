@@ -45,6 +45,7 @@ in {
           gruntfuggly.todo-tree
           haskell.haskell
           inlang.vs-code-extension
+          jnoortheen.nix-ide
           mkhl.direnv
           ms-azuretools.vscode-docker
           ms-dotnettools.csdevkit
@@ -363,7 +364,8 @@ in {
           "editor.defaultFormatter" = "rvest.vs-code-prettier-eslint";
         };
         "[nix]" = {
-          "editor.tabSize" = 2;
+          "editor.tabSize" = 4;
+          "editor.defaultFormatter" = "jnoortheen.nix-ide";
         };
         "rust-analyzer.check.command" = "clippy";
         "vs-code-prettier-eslint.prettierLast" = true;
@@ -472,6 +474,14 @@ in {
         "todo-tree.regex.regex" = "\\s+($TAGS)";
         "todo-tree.regex.regexCaseSensitive" = false;
         "terminal.integrated.minimumContrastRatio" = 1;
+        "nix.enableLanguageServer" = true;
+        "nix.serverSettings" = {
+          "nil" = {
+            "formatting" = {
+              "command" = ["alejandra"];
+            };
+          };
+        };
       };
 
       keybindings = [

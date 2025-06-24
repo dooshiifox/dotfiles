@@ -5,4 +5,15 @@
     "workbench.secondarySideBar.showLabels": true,
     "workbench.activityBar.location": "default",
     "workbench.sideBar.location": "left",
+    "nix.enableLanguageServer": true,
+    "nix.serverSettings": {
+        "nil": {
+            "formatting": {
+                "command": ["alejandra"],
+            },
+        },
+    },
+    "[nix]": {
+        // "editor.defaultFormatter": "jnoortheen.nix-ide"
+    },
 }

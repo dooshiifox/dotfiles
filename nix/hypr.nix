@@ -34,6 +34,10 @@ in {
       hyprcursor
       hyprpaper
       gnome-system-monitor
+      hyprland-qtutils
+      hyprsunset
+      hyprlock
+      hypridle
     ];
     etc."greetd/environments".text = ''
       Hyprland

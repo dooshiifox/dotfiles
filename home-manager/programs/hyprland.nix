@@ -1,13 +1,18 @@
 {
   pkgs,
+  inputs,
   PROJECT_ROOT,
   ...
 }: {
   home.packages = with pkgs; [bibata-cursors];
 
+  # programs.hyprland.withUWSM = true;
+  # programs.uwsm.enable = true;
+
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
+    # systemd.enable = false;
     xwayland.enable = true;
 
     settings = {
@@ -160,6 +165,7 @@
 
       exec-once = [
         "hyprpaper"
+        "hyprsunset"
         "eww daemon"
         "eww open bar"
       ];
@@ -167,10 +173,16 @@
       windowrulev2 = [
         "float, class:Minecraft.*"
       ];
+
+      "plugin:dynamic-cursors" = {
+        mode = "none";
+      };
     };
 
-    plugins = [
-      # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.<plugin>
+    plugins = with pkgs; [
+      # Doesnt work due to compilation errors.
+      # If re-enabling, remember to enable in inputs
+      # inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors # Did you read the above comment?
     ];
   };
 

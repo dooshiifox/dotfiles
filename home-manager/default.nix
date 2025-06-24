@@ -4,6 +4,7 @@
   inputs,
   lib,
   PROJECT_ROOT,
+  mode,
   ...
 }: {
   imports = [
@@ -138,6 +139,7 @@
 
     # Nix
     alejandra # Format nix files, used by ni
+    nil # Nix language server
 
     # Java
     jdk
