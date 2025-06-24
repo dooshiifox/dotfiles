@@ -1,8 +1,10 @@
 # Dotfiles
 
-My system uses NixOS. This configuration assumes:
+My system uses NixOS. This configuration assumes you've symlinked `flake.lock` and `flake.nix` inside `/etc/nixos/`
 
-- You've symlinked `flake.lock` and `flake.nix` inside `/etc/nixos/`
+Secrets are set up using `git-crypt`, and can be stored in `secrets`. [This article](https://lgug2z.com/articles/handling-secrets-in-nixos-an-overview/) is a good resource for learning more.
+
+> Personal note: To decrypt from the secret key you stored in Dashlane, save it as `secret-key-base64`, `base64 --decode ./secret-key-base64 > ./secret-key-decoded`, then `git-crypt unlock ./secret-key-decoded`
 
 ## Post-install
 
