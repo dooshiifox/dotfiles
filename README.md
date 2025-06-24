@@ -2,20 +2,7 @@
 
 My system uses NixOS. This configuration assumes:
 
--   You've symlinked `flake.lock` and `flake.nix` inside `/etc/nixos/`
--   You've set up your secrets in `home-manager/secrets.nix`
--   You've downloaded some images to use in the eww weather & time box in `eww/assets`. Files are of the format `weather_{num}{d/n}.jpg`. I'm not sharing the ones I use for copyright reasons (and I don't remember where I got them).
-    -   `d/n` is for day and night.
-    -   `01` - Sunny
-    -   `02` - Few clouds
-    -   `03` - Scattered clouds
-    -   `04` - Broken clouds
-    -   `09` - Shower rain
-    -   `10` - Rain
-    -   `11` - Thunderstorm
-    -   `13` - Snow
-    -   `50` - Misty
-    -   [Source](https://openweathermap.org/weather-conditions)
+- You've symlinked `flake.lock` and `flake.nix` inside `/etc/nixos/`
 
 ## Post-install
 
@@ -53,17 +40,17 @@ The `NIX_SRC` env variable is set to where the config is built in `/nix/store/..
 
 ## Todo
 
--   Wayland bars
--   Fix occasional FPS drops
--   Fix theming
-    -   Window titles
-    -   Make app themes consistent with each other
-        -   kitty
-        -   vesktop
-        -   firefox
-        -   vscodium
-        -   Rofi
-    -   Notifications
--   Fix build times
--   Fix boot time
--   Fix sleep mode
+- Wayland bars
+- Fix occasional FPS drops
+- Fix theming
+    - Window titles
+    - Make app themes consistent with each other
+        - kitty
+        - vesktop
+        - firefox
+        - vscodium
+        - Rofi
+    - Notifications
+- Fix build times
+- Fix boot time
+- Fix sleep mode

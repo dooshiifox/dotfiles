@@ -146,11 +146,6 @@ with lib.hm.gvariant; {
         command = "kitty";
         name = "Open terminal";
       };
-      # "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
-      #   binding = "<Super>m";
-      #   command = "${PROJECT_ROOT}/scripts/system/open-eww-overlay music-overlay";
-      #   name = "Toggle EWW music overlay";
-      # };
     };
   };
 }

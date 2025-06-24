@@ -5,7 +5,6 @@
 }: {
   imports =
     [
-      ./eww.nix
       ./mpd.nix
     ]
     ++ lib.optionals (mode == "hypr") [

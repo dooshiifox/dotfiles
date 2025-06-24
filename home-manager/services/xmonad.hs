@@ -39,8 +39,6 @@ myKeys conf@XConfig { XMonad.modMask = mod } = Map.fromList
         ((mod, xK_e), spawn "nautilus"),
         -- toggle floating
         ((mod, xK_g), withFocused toggleFloat),
-        -- open eww music
-        ((mod, xK_m), spawn "$NIX_SRC/scripts/system/open-eww-overlay music-overlay"),
         -- launch rofi
         ((mod, xK_space), spawn "rofi -show drun"),
 
@@ -146,15 +144,13 @@ tiled = Tall nmaster delta ratio
 
 myStartupHook :: X ()
 myStartupHook = do
-    spawnOnce "eww open bar"
     spawnOnce "xrandr --output eDP-1-1 --mode 1920x1080 --right-of HDMI-0 && feh --bg-fill --nofehbg ~/Pictures/wallpaper/xenia-dark.png"
     spawnOnce "cd ~/Documents/CodingProjects/mpd-rating/ && pnpm dev --host"
     spawnOnce "$NIX_SRC/scripts/music/rng"
 
 myManageHook :: ManageHook
 myManageHook = composeAll
-    [ isDialog --> doFloat,
-      className =? "Eww" --> doFloat ]
+    [ isDialog --> doFloat ]
 
 toggleFloat :: Window -> X ()
 toggleFloat w =

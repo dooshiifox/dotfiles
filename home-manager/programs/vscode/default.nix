@@ -32,7 +32,6 @@ in {
           dbaeumer.vscode-eslint
           donjayamanne.githistory
           esbenp.prettier-vscode
-          eww-yuck.yuck
           expo.vscode-expo-tools
           firefox-devtools.vscode-firefox-debug
           formulahendry.auto-rename-tag
@@ -329,9 +328,6 @@ in {
         "typescript.inlayHints.propertyDeclarationTypes.enabled" = true;
         "typescript.inlayHints.variableTypes.enabled" = true;
         "editor.inlayHints.fontSize" = 11;
-        "[yuck]" = {
-          "editor.defaultFormatter" = "eww-yuck.yuck";
-        };
         "[python]" = {
           "editor.formatOnType" = true;
           "editor.defaultFormatter" = "ms-python.black-formatter";

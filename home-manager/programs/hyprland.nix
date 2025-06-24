@@ -24,12 +24,11 @@
 
       "$mod" = "SUPER";
       bind = [
-        "$mod, F, exec, firefox-developer-edition"
+        "$mod, F, exec, firefox"
         "$mod, T, exec, kitty"
         "$mod, E, exec, nautilus"
         "$mod, W, killactive,"
         "$mod, V, togglefloating,"
-        "$mod, M, exec, ${PROJECT_ROOT}/scripts/system/open-eww-overlay music-overlay"
         "$mod, left, movefocus, l"
         "$mod, right, movefocus, r"
         "$mod, up, movefocus, u"

@@ -1,18 +1,12 @@
 # A better terminal
 # https://github.com/nix-community/home-manager/blob/master/modules/programs/fish.nix
-{
-  PROJECT_ROOT,
-  pkgs,
-  lib,
-  ...
-}: {
+{PROJECT_ROOT, ...}: {
   programs.fish = {
     enable = true;
     shellAliases = {
       "," = "clear";
       "cat" = "bat";
       "celeste" = "ulimit -n 8192 && /home/dooshii/Documents/Games/Celeste/Celeste";
-      "ewwr" = "eww kill && eww daemon & disown $1 && eww open bar";
       "i" = "${PROJECT_ROOT}/scripts/system/init";
       "jk" = "cd ..";
       "jkk" = "cd ../..";
@@ -38,7 +32,11 @@
       };
       nixs = {
         # Opens firefox at https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query={query}
-        body = "firefox-developer-edition \"https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=$argv\"";
+        body = "firefox \"https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=$argv\"";
+      };
+      use = {
+        # Uses the provided nix packages in a new shell
+        body = "nix-shell --command fish -p $argv";
       };
       mrat = {
         body = "cd ~/Documents/CodingProjects/mpd-rating/ && pnpm dev --host";

@@ -150,6 +150,7 @@
 
     # Git
     gitg # Visual git viewer
+    git-crypt # Git encryption
 
     # Misc
     docker # Containerization

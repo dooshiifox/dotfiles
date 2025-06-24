@@ -10,7 +10,6 @@
       ./bat.nix
       ./chromium.nix
       ./dconf.nix
-      ./eww.nix
       ./eza.nix
       ./fd.nix
       ./firefox.nix

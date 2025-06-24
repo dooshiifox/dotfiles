@@ -5,6 +5,10 @@
     enable = true;
     package = pkgs.thunderbird-bin;
 
-    # Config in secrets.nix
+    profiles = {
+      default = {
+        isDefault = true;
+      };
+    };
   };
 }
