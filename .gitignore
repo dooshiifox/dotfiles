@@ -2,3 +2,4 @@ nixos-switch.log
 **/__pycache__
 .mypy_cache
 home-manager/secrets.nix
+.git
