@@ -1,6 +1,6 @@
 _: {
   services.mako = {
-    enable = true;
+    enable = false;
     settings = {
       icons = true;
       max-icon-size = 64;
