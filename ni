@@ -16,6 +16,9 @@ alejandra .
 
 echo "NixOS Rebuilding..."
 
+# Fix issues with Nix not finding files
+git add .
+
 # Rebuild, output simplified errors, log tracebacks
 sudo nixos-rebuild switch
 

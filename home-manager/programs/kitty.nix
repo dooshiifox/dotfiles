@@ -1,6 +1,6 @@
 # A fast terminal
 # https://github.com/nix-community/home-manager/blob/master/modules/programs/kitty.nix
-{
+{THEME, ...}: {
   programs.kitty = {
     enable = true;
 
@@ -22,40 +22,33 @@
       cursor_blink_interval 0.5
       cursor_stop_blinking_after 1
       enable_audio_bell no
-      window_padding_width 10
-      background_opacity 0.85
+      window_padding_width 4
+      background_opacity ${builtins.toString THEME.bg-opacity}
       dynamic_background_opacity yes
       wheel_scroll_multiplier 2.0
 
-      background #000008
-      foreground #d3c6aa
-      selection_foreground #1d2021
-      selection_background #d5c4a1
-      color0 #1d1f21
-      color8 #4e5154
-      color1 #e67e80
-      color9 #f4babb
-      color2 #a7c080
-      color10 #d5eab4
-      color3 #dbbc7f
-      color11 #ead6ad
-      color4 #7fbbb3
-      color12 #beeae4
-      color5 #d699b6
-      color13 #efcbdd
-      color6 #83c092
-      color14 #bee5c8
-      color7 #d7e2ea
-      color15 #eff4f7
+      background ${THEME.bg}
+      foreground ${THEME.fg}
+      selection_background ${THEME.fg}
+      selection_foreground ${THEME.bg}
+      color0 ${THEME.black}
+      color8 ${THEME.gray}
+      color1 ${THEME.dark-red}
+      color9 ${THEME.red}
+      color2 ${THEME.dark-green}
+      color10 ${THEME.green}
+      color3 ${THEME.dark-yellow}
+      color11 ${THEME.yellow}
+      color4 ${THEME.dark-blue}
+      color12 ${THEME.blue}
+      color5 ${THEME.dark-purple}
+      color13 ${THEME.purple}
+      color6 ${THEME.dark-cyan}
+      color14 ${THEME.cyan}
+      color7 ${THEME.light-gray}
+      color15 ${THEME.white}
 
-      color16 #fe8019
-      color17 #d65d0e
-      color18 #3c3836
-      color19 #504945
-      color20 #bdae93
-      color21 #ebdbb2
-
-      font_family      family="JetBrainsMonoNL Nerd Font Mono"
+      font_family      family="${THEME.monospace-font}"
       font_size 11
       bold_font        auto
       italic_font      auto

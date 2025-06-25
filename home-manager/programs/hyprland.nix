@@ -1,6 +1,7 @@
 {
   pkgs,
   PROJECT_ROOT,
+  THEME,
   ...
 }: {
   home.packages = with pkgs; [bibata-cursors];
@@ -94,8 +95,8 @@
         gaps_in = 4;
         gaps_out = 8;
         border_size = 2;
-        "col.active_border" = "rgba(797b8dd0)";
-        "col.inactive_border" = "rgba(363850d0)";
+        "col.active_border" = THEME.hexToRgbaString THEME.light-gray THEME.border-opacity;
+        "col.inactive_border" = THEME.hexToRgbaString THEME.gray THEME.border-opacity;
 
         layout = "dwindle";
       };
@@ -107,7 +108,7 @@
           passes = 3;
           new_optimizations = true;
         };
-        inactive_opacity = 0.9;
+        inactive_opacity = THEME.unfocused-opacity;
         active_opacity = 1.0;
         fullscreen_opacity = 1.0;
 

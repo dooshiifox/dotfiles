@@ -39,14 +39,18 @@
     # "gnome", "gnome-wayland", "hypr", "xmonad"
     mode = "hypr";
     PROJECT_ROOT = builtins.toString ./.;
+    THEME = import ./theme.nix {
+      inherit inputs;
+      inherit (nixpkgs) lib;
+    };
   in {
     nixosConfigurations.dooshii = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      # Enable accessing `inputs` in config files
       specialArgs = {
         inherit inputs;
         inherit mode;
         inherit PROJECT_ROOT;
+        inherit THEME;
       };
       modules = [
         ./nix
@@ -69,6 +73,7 @@
             inherit inputs;
             inherit mode;
             inherit PROJECT_ROOT;
+            inherit THEME;
           };
         }
       ];

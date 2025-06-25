@@ -1,5 +1,5 @@
 # https://github.com/nix-community/home-manager/blob/master/modules/programs/waybar.nix
-{
+{THEME, ...}: {
   programs.waybar = {
     enable = true;
     systemd.enable = true;
@@ -117,9 +117,9 @@
             ""
             ""
             ""
-            "<span color='#ffffa5'></span>"
-            "<span color='#ff9977'></span>"
-            "<span color='#dd532e'></span>"
+            "<span color='${THEME.yellow}'></span>"
+            "<span color='${THEME.dark-yellow}'></span>"
+            "<span color='${THEME.red}'></span>"
           ];
           tooltip = true;
         };
@@ -129,9 +129,9 @@
             ""
             ""
             ""
-            "<span color='#ffffa5'></span>"
-            "<span color='#ff9977'></span>"
-            "<span color='#dd532e'></span>"
+            "<span color='${THEME.yellow}'></span>"
+            "<span color='${THEME.dark-yellow}'></span>"
+            "<span color='${THEME.red}'></span>"
           ];
           tooltip-format = "{percentage}% - {used:0.1f}GiB / {total:0.1f}GiB";
           tooltip = true;
@@ -140,7 +140,7 @@
           interval = 10;
           critical-threshold = 105;
           format = "{icon}";
-          format-critical = "<span class='#ff0000'> {temperatureC}°C</span>";
+          format-critical = "<span class='${THEME.dark-red}'> {temperatureC}°C</span>";
           format-icons = [
             "" # 0
             "" # 5
@@ -160,9 +160,9 @@
             "" # 75
             "" # 80
             "" # 85
-            "<span color='#ffffa5'></span>" # 90
-            "<span color='#ff9977'></span>" # 95
-            "<span color='#dd532e'></span>" # 100
+            "<span color='${THEME.yellow}'></span>" # 90
+            "<span color='${THEME.dark-yellow}'></span>" # 95
+            "<span color='${THEME.red}'></span>" # 100
           ];
         };
         battery = {
@@ -188,19 +188,19 @@
 
     style = "
 * {
-    font-family: Quicksand, UbuntuSans Nerd Font, FontAwesome, Roboto, Helvetica, Arial,
+    font-family: ${THEME.regular-font}, ${THEME.nerd-font}, FontAwesome, Roboto, Helvetica, Arial,
         sans-serif;
     font-size: 15px;
     transition: background-color 0.2s ease-out;
 }
 
 window#waybar {
-    color: #c0caf5;
-    font-family: Quicksand, UbuntuSans Nerd Font, feather;
+    color: ${THEME.hexToRgbaString THEME.light-gray 1};
+    font-family: ${THEME.regular-font}, ${THEME.nerd-font}, feather;
     transition: background-color 0.5s;
-    background: rgba(0, 0, 8, 0.85);
+    background: ${THEME.hexToRgbaString THEME.bg THEME.bg-opacity};
     border-radius: 12px;
-    border: 1px solid rgba(54, 56, 80, 0.85);
+    border: 1px solid ${THEME.hexToRgbaString THEME.gray THEME.border-opacity};
 }
 
 #clock,
@@ -246,13 +246,13 @@ window#waybar {
 #power-profiles-daemon:hover,
 #language:hover,
 #mpd:hover {
-    background: rgb(54, 56, 80);
+    background: ${THEME.hexToRgbaString THEME.gray 0.5};
 }
 
 #workspaces button {
     background: transparent;
-    font-family: Quicksand, UbuntuSans Nerd Font, feather;
-    color: #c0caf5;
+    font-family: ${THEME.regular-font}, ${THEME.nerd-font}, feather;
+    color: ${THEME.light-gray};
     border: none;
     border-radius: 8px;
     margin: 0 0;
@@ -263,12 +263,12 @@ window#waybar {
 }
 
 #workspaces button.active {
-    background: rgb(54, 56, 80);
+    background: ${THEME.hexToRgbaString THEME.gray 0.5};
 }
 
 #workspaces button:hover {
-    background: rgb(121, 123, 141);
-    color: #cdd6f4;
+    background: ${THEME.gray};
+    color: ${THEME.fg};
     box-shadow: none;
 }
 
