@@ -209,6 +209,7 @@ in {
           "lua"
           "makefile"
           "markdown"
+          "nix"
           "objective-c"
           "objective-cpp"
           "php"
