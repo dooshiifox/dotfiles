@@ -53,14 +53,14 @@
             "(.*) — Mozilla Firefox" = "<span color='#ffb2a5'></span>   <b>$1</b>";
             "Mozilla Firefox" = "<span color='#ffb2a5'></span>   <b>Firefox</b>";
             "(.*) - VSCodium" = "<span color='#a5cfff'>󰨞</span>   <b>$1</b>";
-            ".*Discord.{3}(.*)" = "<span color='#a5b2ff'></span>   <b>$1</b>";
+            ".*?Discord.{3}(.*)" = "<span color='#a5b2ff'></span>   <b>$1</b>";
             "Kitty - (.*)" = "<span color='#ffa5e1'>󰄛</span>   <b>$1</b>";
             "(kitty|fish)" = "<span color='#ffa5e1'>󰄛</span>   <b>~</b>";
             "OBS.*? - (.*)" = "   <b>$1</b>";
             "(.*?)( - obsidian)? - Obsidian.*" = "<span color='#cca5ff'></span>   <b>$1</b>";
             "(.*) - Mozilla Thunderbird" = "<span color='#a5cfff'></span>   <b>$1</b>";
             ".*rofi.*" = "   <b>Rofi</b>";
-            "(.*)" = "<b>$1</b>";
+            "(.*)" = "<b><i>$1</i></b>";
           };
           separate-outputs = true;
         };
