@@ -11,7 +11,7 @@
   nerd-font = "Symbols Nerd Font";
 
   # The main background colour
-  bg = "#1d1f21";
+  bg = "#000008";
   # The primary text colour, for important text
   fg = "#c5c8c6";
   black = "#282a2e";
