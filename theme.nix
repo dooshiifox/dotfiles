@@ -113,5 +113,5 @@
     hexInRGBString = map toString hexInRGB;
   in
     lib.strings.concatStringsSep sep hexInRGBString;
-  hexToRgbaString = hex: opacity: "rgba(${hexToRGBString "," hex}, ${builtins.toString opacity})";
+  hexToRgbaString = hex: opacity: "rgba(${hexToRGBString "," hex},${builtins.toString opacity})";
 }
