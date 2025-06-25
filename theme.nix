@@ -34,8 +34,8 @@
   dark-cyan = "#5e8d87";
   cyan = "#8abeb7";
   # The secondary text colour, for less important text
-  light-gray = "#a7acb1";
-  white = "#c5c8c6";
+  light-gray = "#95a7be";
+  white = "#c2d2d6";
 
   pow = base: exponent:
     if exponent > 1
