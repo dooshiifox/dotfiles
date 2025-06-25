@@ -60,7 +60,6 @@
             "(.*?)( - obsidian)? - Obsidian.*" = "<span color='#cca5ff'></span>   <b>$1</b>";
             "(.*) - Mozilla Thunderbird" = "<span color='#a5cfff'></span>   <b>$1</b>";
             ".*rofi.*" = "   <b>Rofi</b>";
-            "(.*)" = "<b><i>$1</i></b>";
           };
           separate-outputs = true;
         };
