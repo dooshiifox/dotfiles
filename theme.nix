@@ -11,10 +11,10 @@
   nerd-font = "Symbols Nerd Font";
 
   # The main background colour
-  bg = "#000008";
+  bg = "#07070a";
   # The primary text colour, for important text
   fg = "#c5c8c6";
-  black = "#282a2e";
+  black = "#1f2024";
   # Used for borders and focused items
   gray = "#373b41";
   dark-red = "#a54242";
@@ -34,7 +34,7 @@
   dark-cyan = "#5e8d87";
   cyan = "#8abeb7";
   # The secondary text colour, for less important text
-  light-gray = "#707880";
+  light-gray = "#a7acb1";
   white = "#c5c8c6";
 
   pow = base: exponent:
