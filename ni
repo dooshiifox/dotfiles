@@ -20,7 +20,7 @@ echo "NixOS Rebuilding..."
 sudo nixos-rebuild switch
 
 # Get current generation metadata
-current=$(nixos-rebuild list-generations | grep current)
+current=$(nixos-rebuild list-generations | grep True | awk '{print $1;}')
 
 # Commit all changes witih the generation metadata
 # If an argument is provided, append it to the commit message

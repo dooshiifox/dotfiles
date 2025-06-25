@@ -42,7 +42,6 @@ The `NIX_SRC` env variable is set to where the config is built in `/nix/store/..
 
 ## Todo
 
-- Wayland bars
 - Fix occasional FPS drops
 - Fix theming
     - Window titles
@@ -52,6 +51,7 @@ The `NIX_SRC` env variable is set to where the config is built in `/nix/store/..
         - firefox
         - vscodium
         - Rofi
+        - nemo
     - Notifications
 - Fix build times
 - Fix boot time

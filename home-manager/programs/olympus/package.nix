@@ -137,8 +137,7 @@ in
       homepage = "https://github.com/EverestAPI/Olympus";
       downloadPage = "https://everestapi.github.io/#olympus";
       license = lib.licenses.mit;
-      maintainers = with lib.maintainers; [
-      ];
+      maintainers = [];
       mainProgram = "olympus";
       platforms = lib.platforms.unix;
       badPlatforms = lib.platforms.aarch; # Celeste doesn't support aarch in the first place

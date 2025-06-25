@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-SINKS=$(pactl -f json list sinks)
-DEFAULT_SINK=$(pactl get-default-sink)
-
-ACTIVE=$(echo $SINKS | jq -cr "[.[] | select(.name == \"$DEFAULT_SINK\") | { index: .index, state: .state, name: .name, desc: .description, mute: .mute, volume: .volume.\"front-left\".value_percent, perc: .volume.\"front-left\".value_percent | rtrimstr(\"%\") | tonumber, icon: .properties.\"device.icon_name\" }]")
-INACTIVE=$(echo $SINKS | jq -cr "[.[] | select(.name != \"$DEFAULT_SINK\") | { index: .index, state: .state, name: .name, desc: .description, mute: .mute, volume: .volume.\"front-left\".value_percent, perc: .volume.\"front-left\".value_percent | rtrimstr(\"%\") | tonumber, icon: .properties.\"device.icon_name\" }]")
-
-echo "{\"active\":$ACTIVE,\"inactive\":$INACTIVE}"

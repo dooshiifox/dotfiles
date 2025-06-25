@@ -26,7 +26,7 @@
       bind = [
         "$mod, F, exec, firefox"
         "$mod, T, exec, kitty"
-        "$mod, E, exec, nautilus"
+        "$mod, E, exec, nemo"
         "$mod, W, killactive,"
         "$mod, V, togglefloating,"
         "$mod, left, movefocus, l"
@@ -94,8 +94,8 @@
         gaps_in = 4;
         gaps_out = 8;
         border_size = 2;
-        "col.active_border" = "rgba(ffffff88)";
-        "col.inactive_border" = "rgba(888a8f88)";
+        "col.active_border" = "rgba(797b8dd0)";
+        "col.inactive_border" = "rgba(363850d0)";
 
         layout = "dwindle";
       };
@@ -103,19 +103,19 @@
         rounding = 12;
         blur = {
           enabled = true;
-          size = 6;
+          size = 20;
           passes = 3;
           new_optimizations = true;
         };
-        inactive_opacity = 1.0;
+        inactive_opacity = 0.9;
         active_opacity = 1.0;
         fullscreen_opacity = 1.0;
 
         shadow = {
           enabled = true;
-          range = 8;
+          range = 12;
           render_power = 4;
-          offset = "0 5";
+          offset = "0 2";
           color = "rgba(00000099)";
         };
       };
@@ -161,7 +161,10 @@
         "AQ_DRM_DEVICES,/dev/dri/card2:/dev/dri/card1"
       ];
 
-      exec-once = [];
+      exec-once = [
+        "cd ~/Documents/CodingProjects/mpd-rating/ && pnpm dev --host"
+        "${PROJECT_ROOT}/scripts/music/rng"
+      ];
 
       windowrulev2 = [
         "float, class:Minecraft.*"

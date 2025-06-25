@@ -1,21 +1,11 @@
 # A fast terminal
 # https://github.com/nix-community/home-manager/blob/master/modules/programs/kitty.nix
 {
-  config,
-  pkgs,
-  inputs,
-  ...
-}: {
   programs.kitty = {
-    enable = false;
+    enable = true;
 
     shellIntegration = {
       enableFishIntegration = true;
-    };
-
-    font = {
-      name = "DankMono Nerd Font";
-      size = 11.0;
     };
 
     keybindings = {
@@ -28,14 +18,16 @@
       shell fish
       linux_display_server wayland
       wayland_enable_ime no
-      wayland_titlebar_color background
-
+      hide_window_decorations yes
+      cursor_blink_interval 0.5
+      cursor_stop_blinking_after 1
+      enable_audio_bell no
+      window_padding_width 10
+      background_opacity 0.85
+      dynamic_background_opacity yes
       wheel_scroll_multiplier 2.0
 
-      # background_blur 16
-      # background_opacity 0.95
-
-      background #2b3339
+      background #000008
       foreground #d3c6aa
       selection_foreground #1d2021
       selection_background #d5c4a1
@@ -62,6 +54,12 @@
       color19 #504945
       color20 #bdae93
       color21 #ebdbb2
+
+      font_family      family="JetBrainsMonoNL Nerd Font Mono"
+      font_size 11
+      bold_font        auto
+      italic_font      auto
+      bold_italic_font auto
     '';
   };
 }

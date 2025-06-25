@@ -1,16 +1,13 @@
 {
-  config,
   pkgs,
   inputs,
   lib,
   PROJECT_ROOT,
-  mode,
   ...
 }: {
   imports = [
     ./programs
     ./services
-    ./secrets.nix
   ];
 
   home.username = "dooshii";
@@ -43,13 +40,10 @@
     ################
     # System
     ################
-    baobab # GNOME pie chart disk usage
-    megasync # Backups
-
     egl-wayland
     xwayland
-    hyprcursor
     hyprutils
+    nemo
 
     direnv
 
@@ -77,8 +71,10 @@
     # Fonts
     nerd-fonts.jetbrains-mono
     nerd-fonts.fira-code
+    nerd-fonts.ubuntu-sans
     nerd-fonts.droid-sans-mono
     nerd-fonts.symbols-only
+    nerd-fonts.space-mono
     nerd-font-patcher
     quicksand
     cantarell-fonts

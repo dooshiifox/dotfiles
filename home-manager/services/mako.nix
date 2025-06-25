@@ -1,17 +1,19 @@
 _: {
   services.mako = {
     enable = true;
-    icons = true;
-    maxIconSize = 64;
-    maxVisible = 3;
-    defaultTimeout = 5000;
-    ignoreTimeout = true;
-    anchor = "top-right";
-    padding = "6";
-    margin = "18,21,0";
-    backgroundColor = "#1a1b26";
-    textColor = "#a9b1d6";
-    borderColor = "#2ac3de";
-    progressColor = "over #313244";
+    settings = {
+      icons = true;
+      max-icon-size = 64;
+      max-visible = 3;
+      default-timeout = 5000;
+      ignore-timeout = true;
+      anchor = "top-right";
+      padding = "6";
+      margin = "18,21,0";
+      background-color = "#1a1b26";
+      text-color = "#a9b1d6";
+      border-color = "#2ac3de";
+      progress-color = "over #313244";
+    };
   };
 }

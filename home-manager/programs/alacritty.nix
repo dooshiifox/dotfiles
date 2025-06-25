@@ -1,11 +1,6 @@
 # A fast terminal
 # https://github.com/nix-community/home-manager/blob/master/modules/programs/alacritty.nix
-{
-  config,
-  pkgs,
-  inputs,
-  ...
-}: {
+_: {
   programs.alacritty = {
     enable = true;
     settings = {

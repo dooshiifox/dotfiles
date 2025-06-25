@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   users.users.dooshii.extraGroups = ["multimedia"];
 
   users.groups.multimedia = {};

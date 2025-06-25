@@ -1,9 +1,4 @@
-{
-  lib,
-  PROJECT_ROOT,
-  ...
-}:
-with lib.hm.gvariant; {
+{lib, ...}: {
   dconf = {
     enable = true;
     settings = {
