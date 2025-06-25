@@ -57,6 +57,24 @@
     else if exponent == 0
     then 1
     else throw "undefined";
+  decToHexMap = [
+    "0"
+    "1"
+    "2"
+    "3"
+    "4"
+    "5"
+    "6"
+    "7"
+    "8"
+    "9"
+    "a"
+    "b"
+    "c"
+    "d"
+    "e"
+    "f"
+  ];
   hexToDecMap = {
     "0" = 0;
     "1" = 1;
@@ -114,4 +132,6 @@
   in
     lib.strings.concatStringsSep sep hexInRGBString;
   hexToRgbaString = hex: opacity: "rgba(${hexToRGBString "," hex},${builtins.toString opacity})";
+  to2Hex = num255: "${builtins.elemAt decToHexMap (num255 / 16)}${builtins.elemAt decToHexMap (lib.trivial.mod 16 num255)}";
+  hexWithOpacity = hex: opacity: "${hex}${to2Hex (builtins.ceil (opacity * 255))}";
 }
