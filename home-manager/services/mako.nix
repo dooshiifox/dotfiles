@@ -1,6 +1,6 @@
-{THEMES, ...}: {
+{THEME, ...}: {
   services.mako = {
-    enable = false;
+    enable = true;
     settings = {
       max-visible = 3;
       default-timeout = 5000;
@@ -9,8 +9,8 @@
       anchor = "top-right";
       layer = "overlay";
 
-      background-color = THEMES.hexWithOpacity THEMES.bg THEMES.bg-opacity;
-      border-color = THEMES.hexWithOpacity THEMES.gray THEMES.border-opacity;
+      background-color = THEME.hexWithOpacity THEME.bg THEME.bg-opacity;
+      border-color = THEME.hexWithOpacity THEME.gray THEME.border-opacity;
       border-size = 1;
       margin = "4,0,0,0";
       padding = 8;
@@ -21,23 +21,23 @@
       max-icon-size = 64;
       icon-border-radius = 12;
 
-      text-color = THEMES.fg;
+      text-color = THEME.fg;
       border-radius = 12;
-      font = "${THEMES.regular-font} 14";
+      font = "${THEME.regular-font} 14";
       markup = true;
       actions = true;
       on-button-left = "invoke-default-action";
       on-button-right = "dismiss";
       on-touch = "invoke-default-action";
 
-      format = "<span font='10' color='${THEMES.light-gray}'>%a</span>\n<b>%s</b>\n<span font='2'> </span>\n<span font='12' color='${THEMES.light-gray}'>%b</span>";
+      format = "<span font='10' color='${THEME.light-gray}'>%a</span>\n<b>%s</b>\n<span font='2'> </span>\n<span font='12' color='${THEME.light-gray}'>%b</span>";
 
       "urgency=low" = {
-        border-color = THEMES.blue;
+        border-color = THEME.blue;
       };
 
       "urgency=high" = {
-        border-color = THEMES.red;
+        border-color = THEME.red;
         default-timeout = 0;
       };
     };

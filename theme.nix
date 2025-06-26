@@ -132,6 +132,13 @@
   in
     lib.strings.concatStringsSep sep hexInRGBString;
   hexToRgbaString = hex: opacity: "rgba(${hexToRGBString "," hex},${builtins.toString opacity})";
-  to2Hex = num255: "${builtins.elemAt decToHexMap (num255 / 16)}${builtins.elemAt decToHexMap (lib.trivial.mod 16 num255)}";
+  to2Hex = num255: let
+    num =
+      if num255 > 255
+      then 255
+      else if num255 < 0
+      then 0
+      else num255;
+  in "${builtins.elemAt decToHexMap (num / 16)}${builtins.elemAt decToHexMap (num - (num / 16) * 16)}";
   hexWithOpacity = hex: opacity: "${hex}${to2Hex (builtins.ceil (opacity * 255))}";
 }
