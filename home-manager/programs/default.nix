@@ -20,6 +20,7 @@
       ./gtk.nix
       ./kitty.nix
       ./mpv.nix
+      ./neovim.nix
       ./obs-studio.nix
       ./ripgrep.nix
       ./rofi.nix
