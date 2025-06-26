@@ -50,8 +50,8 @@
           tooltip = false;
           max-length = 50;
           rewrite = {
-            "(.*) — Mozilla Firefox" = "<span color='#ffb2a5'></span>   <b>$1</b>";
-            "Mozilla Firefox" = "<span color='#ffb2a5'></span>   <b>Firefox</b>";
+            "(.*) — (Mozilla Firefox|Firefox Developer Edition)" = "<span color='#ffb2a5'></span>   <b>$1</b>";
+            "(Mozilla Firefox|Firefox Developer Edition)" = "<span color='#ffb2a5'></span>   <b>Firefox</b>";
             "(.*) - VSCodium" = "<span color='#a5cfff'>󰨞</span>   <b>$1</b>";
             ".*?Discord.{3}(.*)" = "<span color='#a5b2ff'></span>   <b>$1</b>";
             "Kitty - (.*)" = "<span color='#ffa5e1'>󰄛</span>   <b>$1</b>";
