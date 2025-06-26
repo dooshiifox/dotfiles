@@ -21,12 +21,12 @@
 in {
   xdg.mimeApps.defaultApplications = builtins.listToAttrs (map (mimeType: {
       name = mimeType;
-      value = ["firefox.desktop"];
+      value = ["firefox-developer-edition.desktop"];
     })
     mimeTypes);
 
   programs.firefox = {
     enable = true;
-    package = pkgs.firefox-bin;
+    package = pkgs.firefox-devedition;
   };
 }
