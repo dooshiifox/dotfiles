@@ -2,11 +2,11 @@
 # A rebuild script that commits on a successful build
 set -e
 
-# # cd to your config dir
-# pushd ~/.config/nixos/
+# cd to your config dir
+pushd ~/nixos/
 
-# # Edit your config
-# code ~/.config/nixos/
+# Edit your config
+$EDITOR ~/nixos/
 
 # Autoformat your nix files
 alejandra .

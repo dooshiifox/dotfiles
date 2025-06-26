@@ -60,11 +60,11 @@
       };
       nixs = {
         # Opens firefox at https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query={query}
-        body = "firefox-developer-edition \"https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=$argv\"";
+        body = "firefox-devedition \"https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=$argv\"";
       };
       nixo = {
         # Opens firefox at https://mynixos.com/search?q={query}
-        body = "firefox-developer-edition \"https://mynixos.com/search?q=$argv\"";
+        body = "firefox-devedition \"https://mynixos.com/search?q=$argv\"";
       };
       use = {
         # Uses the provided nix packages in a new shell

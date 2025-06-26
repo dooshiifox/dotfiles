@@ -19,7 +19,6 @@
 
   home.sessionVariables = {
     BROWSER = "firefox";
-    EDITOR = "codium";
     NIX_SRC = PROJECT_ROOT;
     PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
     XDG_CONFIG_HOME = "/home/dooshii/.config";

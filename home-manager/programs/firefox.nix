@@ -21,7 +21,7 @@
 in {
   xdg.mimeApps.defaultApplications = builtins.listToAttrs (map (mimeType: {
       name = mimeType;
-      value = ["firefox-developer-edition.desktop"];
+      value = ["firefox-devedition.desktop"];
     })
     mimeTypes);
 
