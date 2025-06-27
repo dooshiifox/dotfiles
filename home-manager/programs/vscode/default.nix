@@ -89,42 +89,13 @@ in {
         ];
 
       userSettings = {
+        # Interactions
         "workbench.startupEditor" = "none";
         "redhat.telemetry.enabled" = false;
-        "workbench.iconTheme" = "material-icon-theme";
         "security.workspace.trust.untrustedFiles" = "open";
-        "git.ignoreMissingGitWarning" = true;
         "explorer.confirmDragAndDrop" = false;
         "explorer.confirmDelete" = false;
-        "prettier.tabWidth" = 4;
-        "editor.rulers" = [
-          80
-          120
-          200
-        ];
-        "javascript.format.semicolons" = "insert";
-        "material-icon-theme.opacity" = 0.8;
-        "indentRainbow.colors" = [
-          "rgba(242,167,92,0.05)"
-          "rgba(242,239,92,0.05)"
-          "rgba(159,242,92,0.05)"
-          "rgba(92,242,160,0.05)"
-          "rgba(92,242,242,0.05)"
-          "rgba(92,154,242,0.05)"
-          "rgba(129,92,242,0.05)"
-          "rgba(232,92,242,0.05)"
-        ];
-        "prettier.trailingComma" = "none";
-        "[html]" = {
-          "editor.defaultFormatter" = "esbenp.prettier-vscode";
-        };
-        "[javascript]" = {
-          "editor.defaultFormatter" = "esbenp.prettier-vscode";
-        };
-        "javascript.updateImportsOnFileMove.enabled" = "always";
-        "[json]" = {
-          "editor.defaultFormatter" = "esbenp.prettier-vscode";
-        };
+        "editor.suggestSelection" = "first";
         "search.exclude" = {
           "**/*.anim" = true;
           "**/bower_components" = true;
@@ -143,6 +114,49 @@ in {
           "local/" = true;
           "temp/" = true;
         };
+        "chat.commandCenter.enabled" = false; # copilot is the worst
+        "extensions.ignoreRecommendations" = true;
+        "extensions.autoUpdate" = false;
+        "editor.formatOnSave" = true;
+        "editor.inlineSuggest.enabled" = true;
+        "editor.minimap.enabled" = false;
+        "editor.linkedEditing" = true;
+        "terminal.integrated.defaultProfile.linux" = "fish";
+        "terminal.integrated.enableMultiLinePasteWarning" = false;
+        "update.showReleaseNotes" = false;
+        "editor.inlayHints.padding" = true;
+        "editor.inlayHints.enabled" = "offUnlessPressed";
+        "workbench.editor.empty.hint" = "hidden";
+        "terminal.integrated.scrollback" = 5000;
+        "terminal.integrated.mouseWheelScrollSensitivity" = 0.3;
+        "diffEditor.ignoreTrimWhitespace" = false;
+
+        # Custom file names
+        "workbench.editor.customLabels.enabled" = true;
+        "workbench.editor.customLabels.patterns" = {
+          # For some reason it needs this `/src/` in there
+          "**/src/routes/+page.svelte" = "[P] /";
+          "**/src/routes/+page.ts" = "[P] /";
+          "**/src/routes/+page.server.ts" = "[PS] /";
+          "**/src/routes/+layout.svelte" = "[L] /";
+          "**/src/routes/+layout.ts" = "[L] /";
+          "**/src/routes/+layout.server.ts" = "[LS] /";
+          "**/routes/*/+page.svelte" = "[P] /\${dirname}";
+          "**/routes/*/+page.ts" = "[P] /\${dirname}";
+          "**/routes/*/+page.server.ts" = "[PS] /\${dirname}";
+          "**/routes/*/+layout.svelte" = "[L] /\${dirname}";
+          "**/routes/*/+layout.ts" = "[L] /\${dirname}";
+          "**/routes/*/+layout.server.ts" = "[LS] /\${dirname}";
+          "**/routes/**/+page.svelte" = "[P] \${dirname(1)}/\${dirname}";
+          "**/routes/**/+page.ts" = "[P] \${dirname(1)}/\${dirname}";
+          "**/routes/**/+page.server.ts" = "[PS] \${dirname(1)}/\${dirname}";
+          "**/routes/**/+layout.svelte" = "[L] \${dirname(1)}/\${dirname}";
+          "**/routes/**/+layout.ts" = "[L] \${dirname(1)}/\${dirname}";
+          "**/routes/**/+layout.server.ts" = "[LS] \${dirname(1)}/\${dirname}";
+        };
+
+        # File associations
+        "workbench.editor.languageDetection" = false;
         "files.associations" = {
           "*.json" = "jsonc";
           "*.html" = "html";
@@ -151,32 +165,59 @@ in {
           "*.toml" = "toml";
           "*.denit" = "plaintext";
         };
-        "terminal.integrated.commandsToSkipShell" = ["language-julia.interrupt"];
-        "python.globalModuleInstallation" = true;
-        "editor.suggestSelection" = "first";
-        "python.languageServer" = "Pylance";
         "workbench.editorAssociations" = {
           "*.ipynb" = "jupyter-notebook";
           "*.ogg" = "default";
         };
-        "indentRainbow.errorColor" = "rgba(242,121,92,0.04)";
-        "auto-rename-tag.activationOnLanguage" = [
-          "html"
-          "xml"
-          "vue"
+
+        # Theme
+        "workbench.colorTheme" = "DooshTheme";
+        "window.customTitleBarVisibility" = "never";
+        "window.titleBarStyle" = "native";
+        "workbench.iconTheme" = "material-icon-theme";
+        "material-icon-theme.opacity" = 0.8;
+        "terminal.integrated.minimumContrastRatio" = 1;
+        "editor.fontFamily" = "'DankMono Nerd Font', Consolas, 'Courier New', monospace";
+        "editor.fontLigatures" = true;
+        "editor.rulers" = [
+          80
+          120
+          200
         ];
-        "indentRainbow.excludedLanguages" = [];
-        "extensions.ignoreRecommendations" = true;
-        "notebook.cellToolbarLocation" = {
-          "default" = "right";
-          "jupyter-notebook" = "left";
+        "editor.guides.indentation" = false;
+        "editor.bracketPairColorization.enabled" = false;
+        "editor.guides.bracketPairs" = "active";
+        "editor.guides.highlightActiveBracketPair" = true;
+        # Set the color of the bracket pairs to white
+        "workbench.colorCustomizations" = {
+          "editorBracketPairGuide.activeBackground1" = "#ffffff40";
+          "editorBracketPairGuide.activeBackground2" = "#ffffff40";
+          "editorBracketPairGuide.activeBackground3" = "#ffffff40";
+          "editorBracketPairGuide.activeBackground4" = "#ffffff40";
+          "editorBracketPairGuide.activeBackground5" = "#ffffff40";
+          "editorBracketPairGuide.activeBackground6" = "#ffffff40";
         };
-        "git.enableSmartCommit" = true;
-        "typescript.format.semicolons" = "insert";
-        "typescript.implementationsCodeLens.enabled" = true;
         "editor.cursorBlinking" = "smooth";
         "editor.cursorSmoothCaretAnimation" = "on";
         "editor.cursorSurroundingLines" = 3;
+        "editor.inlayHints.fontSize" = 11;
+        "editor.stickyScroll.enabled" = false;
+
+        # Indent
+        "indentRainbow.excludedLanguages" = [];
+        "indentRainbow.errorColor" = "rgba(242,121,92,0.04)";
+        "indentRainbow.colors" = [
+          "rgba(242,167,92,0.05)"
+          "rgba(242,239,92,0.05)"
+          "rgba(159,242,92,0.05)"
+          "rgba(92,242,160,0.05)"
+          "rgba(92,242,242,0.05)"
+          "rgba(92,154,242,0.05)"
+          "rgba(129,92,242,0.05)"
+          "rgba(232,92,242,0.05)"
+        ];
+
+        # VSCode color picking
         "jsonColorToken.cssLanguages" = [
           "css"
           "less"
@@ -184,6 +225,7 @@ in {
           "scss"
         ];
         "jsonColorToken.colorTokenCasing" = "Lowercase";
+        "jsonColorToken.maxNumberOfColorTokens" = 10000;
         "jsonColorToken.languages" = [
           "bat"
           "blade"
@@ -236,50 +278,28 @@ in {
           "xml"
           "yaml"
         ];
-        "sqltools.autoOpenSessionFiles" = false;
-        "docker.containers.description" = ["Status"];
-        "docker.containers.label" = "ContainerName";
-        "php.suggest.basic" = false;
-        "php.validate.enable" = false;
-        "git.autofetch" = true;
-        "tailwindCSS.includeLanguages" = {
-          "typescript" = "javascript";
-          "ts" = "js";
-          "blade" = "html";
-        };
-        "tailwindCSS.emmetCompletions" = true;
-        "tailwindCSS.classAttributes" = [
-          "class"
-          "className"
-          "ngClass"
-          "classes"
-          "enter"
-          "leave"
-          "enterTo"
-          "enterFrom"
-          "leaveTo"
-          "leaveFrom"
-          "style"
-          "wrapperStyle"
-          "innerStyle"
-          "$"
+
+        # Todo
+        "todo-tree.general.tags" = [
+          "todo!"
+          "BUG"
+          "HACK"
+          "FIXME"
+          "TODO"
+          "XXX"
+          "[ ]"
+          "[x]"
         ];
-        "typescript.updateImportsOnFileMove.enabled" = "always";
-        "editor.formatOnSave" = true;
-        "editor.defaultFormatter" = "esbenp.prettier-vscode";
-        "editor.inlineSuggest.enabled" = true;
-        "editor.minimap.enabled" = false;
-        "editor.fontFamily" = "'DankMono Nerd Font', Consolas, 'Courier New', monospace";
-        "editor.fontLigatures" = true;
-        "editor.linkedEditing" = true;
-        "terminal.integrated.defaultProfile.linux" = "fish";
-        "[dart]" = {
-          "editor.formatOnSave" = true;
-          "editor.defaultFormatter" = "Dart-Code.dart-code";
+        "todo-tree.regex.regex" = "\\s+($TAGS)";
+        "todo-tree.regex.regexCaseSensitive" = false;
+
+        # Language-specifics
+        "[javascript]" = {
+          "editor.defaultFormatter" = "esbenp.prettier-vscode";
         };
-        "terminal.integrated.enableMultiLinePasteWarning" = false;
-        "editor.guides.indentation" = false;
-        "editor.bracketPairColorization.enabled" = false;
+        "[typescript]" = {
+          "editor.defaultFormatter" = "esbenp.prettier-vscode";
+        };
         "[rust]" = {
           "editor.defaultFormatter" = "rust-lang.rust-analyzer";
         };
@@ -289,68 +309,18 @@ in {
         "[typescriptreact]" = {
           "editor.defaultFormatter" = "esbenp.prettier-vscode";
         };
-        "[prisma]" = {
-          "editor.defaultFormatter" = "Prisma.prisma";
+        "[html]" = {
+          "editor.defaultFormatter" = "esbenp.prettier-vscode";
         };
-        "css.lint.unknownAtRules" = "ignore";
-        "svelte.enable-ts-plugin" = true;
-        "jsonColorToken.maxNumberOfColorTokens" = 10000;
+        "[json]" = {
+          "editor.defaultFormatter" = "esbenp.prettier-vscode";
+        };
         "json.schemas" = [
           {
             "fileMatch" = ["/deno.json"];
             "url" = "https://deno.land/x/deno/cli/schemas/config-file.v1.json";
           }
         ];
-        "python.analysis.inlayHints.functionReturnTypes" = true;
-        "python.analysis.inlayHints.variableTypes" = true;
-        "python.analysis.typeCheckingMode" = "basic";
-        "rust-analyzer.inlayHints.typeHints.hideClosureInitialization" = true;
-        "rust-analyzer.inlayHints.typeHints.hideNamedConstructor" = true;
-        "rust-analyzer.inlayHints.lifetimeElisionHints.useParameterNames" = true;
-        "rust-analyzer.inlayHints.bindingModeHints.enable" = true;
-        "workbench.colorTheme" = "DooshTheme";
-        "github.copilot.enable" = {
-          "*" = true;
-          "plaintext" = true;
-          "markdown" = true;
-          "scminput" = false;
-          "yaml" = true;
-          "php" = true;
-          "typescriptreact" = true;
-          "rust" = false;
-          "typescript" = true;
-          "dart" = false;
-        };
-        "tailwindCSS.experimental.classRegex" = ["tailwind\\('([^']*)'\\)"];
-        "typescript.inlayHints.enumMemberValues.enabled" = true;
-        "typescript.inlayHints.functionLikeReturnTypes.enabled" = true;
-        "typescript.inlayHints.parameterNames.enabled" = "literals";
-        "typescript.inlayHints.parameterTypes.enabled" = true;
-        "typescript.inlayHints.propertyDeclarationTypes.enabled" = true;
-        "typescript.inlayHints.variableTypes.enabled" = true;
-        "editor.inlayHints.fontSize" = 11;
-        "[python]" = {
-          "editor.formatOnType" = true;
-          "editor.defaultFormatter" = "ms-python.black-formatter";
-        };
-        "git.openRepositoryInParentFolders" = "never";
-        "update.showReleaseNotes" = false;
-        "editor.inlayHints.padding" = true;
-        "editor.inlayHints.enabled" = "offUnlessPressed";
-        "editor.guides.bracketPairs" = "active";
-        "editor.guides.highlightActiveBracketPair" = true;
-        # Set the color of the bracket pairs to white
-        "workbench.colorCustomizations" = {
-          "editorBracketPairGuide.activeBackground1" = "#ffffff40";
-          "editorBracketPairGuide.activeBackground2" = "#ffffff40";
-          "editorBracketPairGuide.activeBackground3" = "#ffffff40";
-          "editorBracketPairGuide.activeBackground4" = "#ffffff40";
-          "editorBracketPairGuide.activeBackground5" = "#ffffff40";
-          "editorBracketPairGuide.activeBackground6" = "#ffffff40";
-        };
-        "[typescript]" = {
-          "editor.defaultFormatter" = "esbenp.prettier-vscode";
-        };
         "[jsonc]" = {
           "editor.defaultFormatter" = "rvest.vs-code-prettier-eslint";
         };
@@ -358,11 +328,45 @@ in {
           "editor.tabSize" = 2;
           "editor.defaultFormatter" = "jnoortheen.nix-ide";
         };
-        "rust-analyzer.check.command" = "clippy";
-        "vs-code-prettier-eslint.prettierLast" = true;
-        "sqltools.useNodeRuntime" = true;
+        "[dart]" = {
+          "editor.formatOnSave" = true;
+          "editor.defaultFormatter" = "Dart-Code.dart-code";
+        };
+        "[python]" = {
+          "editor.formatOnType" = true;
+          "editor.defaultFormatter" = "ms-python.black-formatter";
+        };
+        "[prisma]" = {
+          "editor.defaultFormatter" = "Prisma.prisma";
+        };
+        "[cpp]" = {
+          "editor.defaultFormatter" = "ms-vscode.cpptools";
+        };
+
+        # Javascript / Typescript
+        "javascript.format.semicolons" = "insert";
+        "typescript.format.semicolons" = "insert";
+        "javascript.updateImportsOnFileMove.enabled" = "always";
+        "typescript.updateImportsOnFileMove.enabled" = "always";
+        "javascript.inlayHints.enumMemberValues.enabled" = true;
+        "typescript.inlayHints.enumMemberValues.enabled" = true;
+        "javascript.inlayHints.functionLikeReturnTypes.enabled" = true;
+        "typescript.inlayHints.functionLikeReturnTypes.enabled" = true;
+        "javascript.inlayHints.parameterNames.enabled" = "all";
+        "typescript.inlayHints.parameterNames.enabled" = "literals";
+        "typescript.inlayHints.parameterTypes.enabled" = true;
+        "javascript.inlayHints.parameterTypes.enabled" = true;
+        "typescript.inlayHints.variableTypes.enabled" = true;
+        "javascript.inlayHints.propertyDeclarationTypes.enabled" = true;
+        "typescript.inlayHints.propertyDeclarationTypes.enabled" = true;
+        "typescript.implementationsCodeLens.enabled" = true;
+        "svelte.enable-ts-plugin" = true;
+        "sherlock.userId" = "b5d3e435-6a8f-44c1-898a-23402e01c950";
+
+        # Formatting
+        "prettier.tabWidth" = 4;
+        "prettier.trailingComma" = "none";
         "eslint.format.enable" = true;
-        "sqltools.disableNodeDetectNotifications" = true;
         "eslint.probe" = [
           "javascript"
           "javascriptreact"
@@ -380,91 +384,27 @@ in {
           "typescriptreact"
           "svelte"
         ];
-        "workbench.editor.empty.hint" = "hidden";
-        "javascript.inlayHints.enumMemberValues.enabled" = true;
-        "javascript.inlayHints.functionLikeReturnTypes.enabled" = true;
-        "javascript.inlayHints.parameterNames.enabled" = "all";
-        "javascript.inlayHints.parameterTypes.enabled" = true;
-        "javascript.inlayHints.propertyDeclarationTypes.enabled" = true;
-        "todohighlight.isCaseSensitive" = false;
-        "todohighlight.keywords" = [
-          {
-            "text" = "TODO:";
-            "color" = "#6b571b";
-            "backgroundColor" = "#f2c341";
-            "overviewRulerColor" = "grey";
-            "fontWeight" = "bold";
-          }
-          {
-            "text" = "FIXME:";
-            "color" = "#33090d";
-            "backgroundColor" = "#e85160";
-            "overviewRulerColor" = "grey";
-            "fontWeight" = "bold";
-          }
-          {
-            "text" = "NOTE:";
-            "color" = "#0b3244";
-            "backgroundColor" = "#90cfed";
-            "overviewRulerColor" = "grey";
-            "fontWeight" = "bold";
-          }
-        ];
-        "terminal.integrated.scrollback" = 5000;
-        "terminal.integrated.mouseWheelScrollSensitivity" = 0.3;
-        "html.autoCreateQuotes" = false;
-        "cmake.configureOnOpen" = true;
-        "cmake.showOptionsMovedNotification" = false;
-        "diffEditor.ignoreTrimWhitespace" = false;
-        "editor.stickyScroll.enabled" = false;
-        "[cpp]" = {
-          "editor.defaultFormatter" = "ms-vscode.cpptools";
+        "vs-code-prettier-eslint.prettierLast" = true;
+
+        # Rust
+        "rust-analyzer.inlayHints.typeHints.hideClosureInitialization" = true;
+        "rust-analyzer.inlayHints.typeHints.hideNamedConstructor" = true;
+        "rust-analyzer.inlayHints.lifetimeElisionHints.useParameterNames" = true;
+        "rust-analyzer.inlayHints.bindingModeHints.enable" = true;
+        "rust-analyzer.check.command" = "clippy";
+
+        # Python
+        "python.globalModuleInstallation" = true;
+        "python.languageServer" = "Pylance";
+        "python.analysis.inlayHints.functionReturnTypes" = true;
+        "python.analysis.inlayHints.variableTypes" = true;
+        "python.analysis.typeCheckingMode" = "basic";
+        "notebook.cellToolbarLocation" = {
+          "default" = "right";
+          "jupyter-notebook" = "left";
         };
-        "dart.debugExternalPackageLibraries" = false;
-        "dart.debugSdkLibraries" = false;
-        "extensions.autoUpdate" = false;
-        "workbench.editor.customLabels.enabled" = true;
-        "workbench.editor.customLabels.patterns" = {
-          # For some reason it needs this `/src/` in there
-          "**/src/routes/+page.svelte" = "[P] /";
-          "**/src/routes/+page.ts" = "[P] /";
-          "**/src/routes/+page.server.ts" = "[PS] /";
-          "**/src/routes/+layout.svelte" = "[L] /";
-          "**/src/routes/+layout.ts" = "[L] /";
-          "**/src/routes/+layout.server.ts" = "[LS] /";
-          "**/routes/*/+page.svelte" = "[P] /\${dirname}";
-          "**/routes/*/+page.ts" = "[P] /\${dirname}";
-          "**/routes/*/+page.server.ts" = "[PS] /\${dirname}";
-          "**/routes/*/+layout.svelte" = "[L] /\${dirname}";
-          "**/routes/*/+layout.ts" = "[L] /\${dirname}";
-          "**/routes/*/+layout.server.ts" = "[LS] /\${dirname}";
-          "**/routes/**/+page.svelte" = "[P] \${dirname(1)}/\${dirname}";
-          "**/routes/**/+page.ts" = "[P] \${dirname(1)}/\${dirname}";
-          "**/routes/**/+page.server.ts" = "[PS] \${dirname(1)}/\${dirname}";
-          "**/routes/**/+layout.svelte" = "[L] \${dirname(1)}/\${dirname}";
-          "**/routes/**/+layout.ts" = "[L] \${dirname(1)}/\${dirname}";
-          "**/routes/**/+layout.server.ts" = "[LS] \${dirname(1)}/\${dirname}";
-        };
-        # Stop trying to say my note writing is a ruby file or something
-        "workbench.editor.languageDetection" = false;
-        "sherlock.userId" = "b5d3e435-6a8f-44c1-898a-23402e01c950";
-        # copilot is the worst
-        "chat.commandCenter.enabled" = false;
-        "window.customTitleBarVisibility" = "never";
-        "window.titleBarStyle" = "native";
-        "todo-tree.general.tags" = [
-          "todo!"
-          "BUG"
-          "HACK"
-          "FIXME"
-          "TODO"
-          "XXX"
-          "[ ]"
-          "[x]"
-        ];
-        "todo-tree.regex.regex" = "\\s+($TAGS)";
-        "todo-tree.regex.regexCaseSensitive" = false;
-        "terminal.integrated.minimumContrastRatio" = 1;
+
+        # Nix
         "nix.enableLanguageServer" = true;
         "nix.serverSettings" = {
           "nil" = {
@@ -473,6 +413,65 @@ in {
             };
           };
         };
+
+        # Git
+        "git.ignoreMissingGitWarning" = true;
+        "git.enableSmartCommit" = true;
+        "git.autofetch" = true;
+        "git.openRepositoryInParentFolders" = "never";
+
+        # HTML-like & CSS
+        "tailwindCSS.includeLanguages" = {
+          "typescript" = "javascript";
+          "ts" = "js";
+          "blade" = "html";
+        };
+        "tailwindCSS.emmetCompletions" = true;
+        "tailwindCSS.experimental.classRegex" = ["tailwind\\('([^']*)'\\)"];
+        "tailwindCSS.classAttributes" = [
+          "class"
+          "className"
+          "ngClass"
+          "classes"
+          "enter"
+          "leave"
+          "enterTo"
+          "enterFrom"
+          "leaveTo"
+          "leaveFrom"
+          "style"
+          "wrapperStyle"
+          "innerStyle"
+          "$"
+        ];
+        "auto-rename-tag.activationOnLanguage" = [
+          "html"
+          "xml"
+          "vue"
+        ];
+        "html.autoCreateQuotes" = false;
+        "css.lint.unknownAtRules" = "ignore";
+
+        # SQL tools
+        "sqltools.autoOpenSessionFiles" = false;
+        "sqltools.useNodeRuntime" = true;
+        "sqltools.disableNodeDetectNotifications" = true;
+
+        # Docker
+        "docker.containers.description" = ["Status"];
+        "docker.containers.label" = "ContainerName";
+
+        # Php
+        "php.suggest.basic" = false;
+        "php.validate.enable" = false;
+
+        # Dart
+        "dart.debugExternalPackageLibraries" = false;
+        "dart.debugSdkLibraries" = false;
+
+        # C/C++
+        "cmake.configureOnOpen" = true;
+        "cmake.showOptionsMovedNotification" = false;
       };
 
       keybindings = [
