@@ -7,8 +7,20 @@
   programs.rofi = {
     enable = true;
     terminal = "${pkgs.kitty}/bin/kitty";
-    # theme = "${THEME.source-folder}/home-manager/programs/rofi.rasi";
+    font = "${THEME.regular-font} 12";
     modes = ["drun"];
+    location = "center";
+    xoffset = 0;
+    yoffset = 0;
+    extraConfig = {
+      show-icons = true;
+      display-drun = " ";
+      drun-display-format = "{name}";
+      hover-select = false;
+      scroll-method = 1;
+      me-select-entry = "";
+      me-accept-entry = "MousePrimary";
+    };
     theme = let
       inherit (config.lib.formats.rasi) mkLiteral;
       background = mkLiteral (THEME.hexWithOpacity THEME.bg THEME.bg-opacity);
