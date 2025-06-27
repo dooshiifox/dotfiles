@@ -1,6 +1,6 @@
 {THEME, ...}: {
   programs.wofi = {
-    enable = true;
+    enable = false;
     style = "@theme \"${THEME.source-folder}/home-manager/programs/wofi.rasi\"";
   };
 }
