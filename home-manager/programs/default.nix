@@ -23,9 +23,9 @@
       ./neovim.nix
       ./obs-studio.nix
       ./ripgrep.nix
-      ./rofi.nix
       ./starship.nix
       ./thunderbird.nix
+      ./wofi.nix
       ./yazi.nix
       ./yt-dlp.nix
       ./zoxide.nix

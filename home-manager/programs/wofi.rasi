@@ -11,6 +11,11 @@
 
 /* ---- Configuration ---- */
 configuration {
+    location: 0;
+    terminal: "/usr/bin/env kitty";
+    xoffset: 0;
+    yoffset: 0;
+
     modi:                       "drun,filebrowser,window,run";
     font:                       "Quicksand 12";
     show-icons:                 true;
@@ -114,7 +119,7 @@ listview {
     columns:                     2;
     lines:                       3;
     cycle:                       true;
-    dynamic:                     true;
+    dynamic:                     false;
     scrollbar:                   false;
     layout:                      vertical;
     reverse:                     false;
