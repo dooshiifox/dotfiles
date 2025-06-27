@@ -30,7 +30,7 @@
       on-button-right = "dismiss";
       on-touch = "invoke-default-action";
 
-      format = "<span font='10' color='${THEME.light-gray}'>%a</span>\n<b>%s</b>\n<span font='2'> </span>\n<span font='12' color='${THEME.light-gray}'>%b</span>";
+      format = "<span font='10' color='${THEME.light-gray}'>%a</span>\\n<b>%s</b>\\n<span font='2'> </span>\\n<span font='12' color='${THEME.light-gray}'>%b</span>";
 
       "urgency=low" = {
         border-color = THEME.blue;
