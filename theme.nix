@@ -4,6 +4,7 @@
   unfocused-opacity = 0.9;
   bg-opacity = 0.85;
   border-opacity = 0.85;
+  border-radius = 12;
 
   # These should be nerd fonts
   monospace-font = "JetBrainsMonoNL Nerd Font Mono";

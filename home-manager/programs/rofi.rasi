@@ -16,14 +16,10 @@ configuration {
     xoffset: 0;
     yoffset: 0;
 
-    modi:                       "drun,filebrowser,window,run";
+    modi:                       "drun";
     font:                       "Quicksand 12";
     show-icons:                 true;
-    icon-theme:                 "kora";
     display-drun:                " ";
-    display-run:                 "  ";
-    display-filebrowser:         " ";
-    display-window:              " ";
 	drun-display-format:        "{name}";
     hover-select:               false;
     scroll-method:              1;
@@ -47,8 +43,8 @@ configuration {
 
 // Main //
 window {
-    height:                      580px;
-    width:                       896px;
+    height:                      512px;
+    width:                       800px;
     transparency:                "real";
     fullscreen:                  false;
     enabled:                     true;
@@ -108,7 +104,7 @@ listbox {
     padding:                     0;
     spacing:                     0;
     orientation:                 horizontal;
-    children:                    [ "listview" , "mode-switcher" ];
+    children:                    [ "listview" ];
     background-color:            @background;
 }
 
@@ -120,8 +116,9 @@ listview {
     lines:                       3;
     cycle:                       true;
     dynamic:                     false;
-    scrollbar:                   false;
+    scrollbar:                   true;
     layout:                      vertical;
+    flow: horizontal;
     reverse:                     false;
     fixed-height:                true;
     fixed-columns:               true;
@@ -130,6 +127,11 @@ listview {
     text-color:                  @text;
 }
 
+scrollbar {
+    background-color: @background;
+    handle-rounded-corners: true;
+    handle-color: @active;
+}
 
 // Modes //
 mode-switcher {
@@ -152,6 +154,10 @@ button selected {
     background-color:            @active;
     text-color:                  @text;
 }
+button active {
+    background-color:            @active;
+    text-color:                  @text;
+}
 
 
 // Elements //
@@ -161,53 +167,14 @@ element {
     padding:                     8px;
     cursor:                      pointer;
     background-color:            transparent;
-    text-color:                  @text;
+    text-color:                  @secondary-text;
 }
 
-element selected.normal {
+element selected {
     background-color:            @active;
     text-color:                  @text;
     border-radius:               @border-radius;
-}
-
-element normal.normal {
-    background-color:            inherit;
-    text-color:                  @text;
-}
-
-element normal.urgent {
-    background-color:            inherit;
-    text-color:                  @text;
-}
-
-element normal.active {
-    background-color:            inherit;
-    text-color:                  @text;
-}
-
-element selected.urgent {
-    background-color:            inherit;
-    text-color:                  @text;
-}
-
-element selected.active {
-    background-color:            inherit;
-    text-color:                  @text;
-}
-
-element alternate.normal {
-    background-color:            inherit;
-    text-color:                  @text;
-}
-
-element alternate.urgent {
-    background-color:            inherit;
-    text-color:                  @text;
-}
-
-element alternate.active {
-    background-color:            inherit;
-    text-color:                  @text;
+    text-transform: bold;
 }
 
 element-icon {
@@ -220,8 +187,10 @@ element-icon {
 
 element-text {
     vertical-align:              0.5;
-    horizontal-align:            0.1;
+    highlight: underline;
+    text-transform: inherit;
     cursor:                      inherit;
+    padding: 0 0 0 32px;
     background-color:            transparent;
     text-color:                  inherit;
 }

@@ -50,7 +50,7 @@ The `NIX_SRC` env variable is set to where the config is built in `/nix/store/..
         - firefox
         - vscodium
         - nemo
-    - Notifications
+        - neovim?
 - Fix build times
 - Fix boot time
 - Fix sleep mode
