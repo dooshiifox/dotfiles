@@ -10,6 +10,7 @@
   regular-font = "Quicksand";
   nerd-font = "Symbols Nerd Font";
   source-folder = "/home/dooshii/nixos";
+  wallpaper = "/home/dooshii/Pictures/wallpaper/jacato_float.png";
 
   # The main background colour
   bg = "#07070a";

@@ -59,7 +59,7 @@
             "OBS.*? - (.*)" = "   <b>$1</b>";
             "(.*?)( - obsidian)? - Obsidian.*" = "<span color='#cca5ff'></span>   <b>$1</b>";
             "(.*) - Mozilla Thunderbird" = "<span color='#a5cfff'></span>   <b>$1</b>";
-            ".*rofi.*" = "   <b>Rofi</b>";
+            "rofi - .*" = "   <b>Rofi</b>";
           };
           separate-outputs = true;
         };
