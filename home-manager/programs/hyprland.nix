@@ -1,6 +1,5 @@
 {
   pkgs,
-  PROJECT_ROOT,
   THEME,
   ...
 }: {
@@ -164,7 +163,7 @@
 
       exec-once = [
         "cd ~/Documents/CodingProjects/mpd-rating/ && pnpm dev --host"
-        "${PROJECT_ROOT}/scripts/music/rng"
+        "${THEME.source-folder}/scripts/music/rng"
       ];
 
       windowrulev2 = [

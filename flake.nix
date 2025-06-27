@@ -38,7 +38,6 @@
   }: let
     # "gnome", "gnome-wayland", "hypr", "xmonad"
     mode = "hypr";
-    PROJECT_ROOT = builtins.toString ./.;
     THEME = import ./theme.nix {
       inherit inputs;
       inherit (nixpkgs) lib;
@@ -49,7 +48,6 @@
       specialArgs = {
         inherit inputs;
         inherit mode;
-        inherit PROJECT_ROOT;
         inherit THEME;
       };
       modules = [
@@ -72,7 +70,6 @@
           home-manager.extraSpecialArgs = {
             inherit inputs;
             inherit mode;
-            inherit PROJECT_ROOT;
             inherit THEME;
           };
         }

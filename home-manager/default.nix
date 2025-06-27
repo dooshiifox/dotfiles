@@ -2,7 +2,7 @@
   pkgs,
   inputs,
   lib,
-  PROJECT_ROOT,
+  THEME,
   ...
 }: {
   imports = [
@@ -19,7 +19,7 @@
 
   home.sessionVariables = {
     BROWSER = "firefox";
-    NIX_SRC = PROJECT_ROOT;
+    NIX_SRC = THEME.source-folder;
     PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
     XDG_CONFIG_HOME = "/home/dooshii/.config";
     LD_LIBRARY_PATH = lib.makeLibraryPath [

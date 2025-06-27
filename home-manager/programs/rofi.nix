@@ -1,11 +1,11 @@
 {
   pkgs,
-  PROJECT_ROOT,
+  THEME,
   ...
 }: {
   programs.rofi = {
     enable = true;
     terminal = "${pkgs.kitty}/bin/kitty";
-    theme = "${PROJECT_ROOT}/home-manager/programs/rofi.rasi";
+    theme = "${THEME.source-folder}/home-manager/programs/rofi.rasi";
   };
 }

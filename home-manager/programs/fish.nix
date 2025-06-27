@@ -1,6 +1,6 @@
 # A better terminal
 # https://github.com/nix-community/home-manager/blob/master/modules/programs/fish.nix
-{PROJECT_ROOT, ...}: {
+{THEME, ...}: {
   imports = [
     ../../secrets/fish.nix
   ];
@@ -11,7 +11,7 @@
       "," = "clear";
       "cat" = "bat";
       "celeste" = "ulimit -n 8192 && /home/dooshii/Documents/Games/Celeste/Celeste";
-      "i" = "${PROJECT_ROOT}/scripts/system/init";
+      "i" = "${THEME.source-folder}/scripts/system/init";
       "jk" = "cd ..";
       "jkk" = "cd ../..";
       "jkkk" = "cd ../../..";
@@ -20,7 +20,7 @@
       "l" = "exa -la";
       "ll" = "exa -l";
       "ls" = "exa";
-      "mrng" = "${PROJECT_ROOT}/scripts/music/rng";
+      "mrng" = "${THEME.source-folder}/scripts/music/rng";
       "w" = "code /home/dooshii/Documents/CodingProjects/pin/work";
       "x" = "exit";
       "ytdlmp3" = "yt-dlp --extract-audio --audio-format mp3 -o \"%(title)s.%(ext)s\" --embed-thumbnail";
