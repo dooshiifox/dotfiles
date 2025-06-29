@@ -6,7 +6,7 @@ set -e
 pushd ~/nixos/
 
 # Edit your config
-$EDITOR ~/nixos/
+# $EDITOR ~/nixos/
 
 # Autoformat your nix files
 alejandra .
@@ -27,7 +27,7 @@ current=$(nixos-rebuild list-generations | grep True | awk '{print $1;}')
 
 # Commit all changes witih the generation metadata
 # If an argument is provided, append it to the commit message
-git commit -am "$current"
+git commit -m "$current"
 
 # Back to where you were
 # popd

@@ -47,9 +47,12 @@ The `NIX_SRC` env variable is set to where the config is built in `/nix/store/..
     - Window titles
     - Make app themes consistent with each other
         - vesktop?
-        - firefox?
         - vscodium?
-        - nemo?
+        - gnome
+            - nemo
+            - firefox
+            - https://mynixos.com/home-manager/option/gtk.gtk4.extraCss
+            - https://hoverbear.org/blog/declarative-gnome-configuration-in-nixos/
 - Fix build times
 - Fix boot time
 - Fix sleep mode
@@ -81,4 +84,3 @@ The `NIX_SRC` env variable is set to where the config is built in `/nix/store/..
     - Code completion
     - Diagnostics
     - Git integration?
-    - 

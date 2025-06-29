@@ -22,7 +22,7 @@
       icon-border-radius = 12;
 
       text-color = THEME.fg;
-      border-radius = 12;
+      border-radius = THEME.border-radius;
       font = "${THEME.regular-font} 14";
       markup = true;
       actions = true;

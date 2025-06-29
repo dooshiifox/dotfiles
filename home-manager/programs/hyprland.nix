@@ -100,7 +100,7 @@
         layout = "dwindle";
       };
       decoration = {
-        rounding = 12;
+        rounding = THEME.border-radius;
         blur = {
           enabled = true;
           size = 12;

@@ -172,8 +172,8 @@ in {
 
         # Theme
         "workbench.colorTheme" = "DooshTheme";
-        "window.customTitleBarVisibility" = "never";
-        "window.titleBarStyle" = "native";
+        "window.customTitleBarVisibility" = "auto";
+        "window.titleBarStyle" = "custom";
         "workbench.iconTheme" = "material-icon-theme";
         "material-icon-theme.opacity" = 0.8;
         "terminal.integrated.minimumContrastRatio" = 1;
