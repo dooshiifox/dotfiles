@@ -42,7 +42,8 @@
     egl-wayland
     xwayland
     hyprutils
-    nemo
+    nemo-with-extensions
+    nautilus
 
     direnv
 
@@ -62,7 +63,6 @@
     # Social
     telegram-desktop # Telegram client
     (vesktop.override {withSystemVencord = false;}) # Discord + Vencord
-    discord # Vencord is sometimes laggy
     whatsapp-for-linux # Whatsapp client
 
     # Networking

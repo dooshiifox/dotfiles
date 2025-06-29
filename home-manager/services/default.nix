@@ -13,6 +13,7 @@
       ./hyprpaper.nix
       ./hyprpolkitagent.nix
       ./hyprsunset.nix
+      ./udiskie.nix
     ]
     ++ lib.optionals (mode == "xmonad") [./xmonad.nix];
 }
