@@ -4,28 +4,26 @@
   ...
 }: {
   gtk = let
-    prefer-dark-opts =
-      if THEME.scheme == "light"
-      then "gtk-application-prefer-dark-theme=0"
-      else "gtk-application-prefer-dark-theme=1";
-  in {
+    extra-config = {
+      gtk-application-prefer-dark-theme =
+        if THEME.scheme == "light"
+        then 0
+        else 1;
+    };
+  in rec {
     enable = true;
     gtk4.extraCss = ''
       .background {
         background-color: ${THEME.hexWithOpacity THEME.bg THEME.bg-opacity};
       }
+      .box {
+        background-color: #00000000;
+      }
     '';
-    gtk3.extraConfig = {
-      Settings = ''
-        ${prefer-dark-opts}
-      '';
-    };
+    gtk3.extraCss = gtk4.extraCss;
 
-    gtk4.extraConfig = {
-      Settings = ''
-        ${prefer-dark-opts}
-      '';
-    };
+    gtk3.extraConfig = extra-config;
+    gtk4.extraConfig = extra-config;
 
     iconTheme = {
       package = pkgs.candy-icons;
