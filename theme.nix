@@ -13,6 +13,8 @@
   source-folder = "/home/dooshii/nixos";
   wallpaper = "/home/dooshii/Pictures/wallpaper/jacato_float.png";
 
+  # The color scheme - can be `light` or `dark`
+  scheme = "dark";
   # The main background colour
   bg = "#07070a";
   # The primary text colour, for important text

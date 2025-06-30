@@ -1,9 +1,16 @@
-{lib, ...}: {
+{
+  lib,
+  THEME,
+  ...
+}: {
   dconf = {
     enable = true;
     settings = {
       "org/gnome/desktop/interface" = {
-        color-scheme = "prefer-dark";
+        color-scheme =
+          if THEME.scheme == "light"
+          then "default"
+          else "prefer-dark";
         gtk-enable-primary-paste = false;
       };
       "org/gnome/desktop/wm/preferences" = {
