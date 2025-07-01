@@ -29,18 +29,18 @@ in {
     enable = true;
     package = pkgs.firefox-devedition;
 
-    profiles.dooshii = {
-      userChrome = ''
-        @import "firefox-gnome-theme/userChrome.css";
-      '';
-      userContent = ''
-        @import "firefox-gnome-theme/userContent.css";
-      '';
-      settings = {
-        "toolkit.legacyUserProfileCustomizations.stylesheets" = true; # Enable customChrome.cs
-        "browser.uidensity" = 0;
-        "svg.context-properties.content.enabled" = true;
-      };
-    };
+    #profiles.dooshii = {
+    #  userChrome = ''
+    #    @import "firefox-gnome-theme/userChrome.css";
+    #  '';
+    #  userContent = ''
+    #    @import "firefox-gnome-theme/userContent.css";
+    #  '';
+    #  settings = {
+    #    "toolkit.legacyUserProfileCustomizations.stylesheets" = true; # Enable customChrome.cs
+    #    "browser.uidensity" = 0;
+    #    "svg.context-properties.content.enabled" = true;
+    #   };
+    #};
   };
 }
