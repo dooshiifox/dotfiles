@@ -34,7 +34,7 @@ in {
     profiles.dooshii = {
       id = 0;
       isDefault = true;
-      name = "dooshii";
+      name = "dev-edition-default";
       userChrome = ''
       '';
       userContent = ''

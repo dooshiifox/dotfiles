@@ -23,6 +23,8 @@
       "mrng" = "${THEME.source-folder}/scripts/music/rng";
       "w" = "code /home/dooshii/Documents/CodingProjects/pin/work";
       "x" = "exit";
+      "q" = "exit";
+      "e" = "nvim";
       "ytdlmp3" = "yt-dlp --extract-audio --audio-format mp3 -o \"%(title)s.%(ext)s\" --embed-thumbnail";
       "code" = "codium";
     };
