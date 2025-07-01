@@ -55,7 +55,7 @@
             "(.*) - VSCodium" = "<span color='#a5cfff'>󰨞</span>   <b>$1</b>";
             ".*?Discord.{3}(.*)" = "<span color='#a5b2ff'></span>   <b>$1</b>";
             "Kitty - nvim (.*)" = "<span color='#a5ffc0'></span>   <b>$1</b>";
-            "Kitty - (.*)" = "<span color='#ffa5e1'>󰄛</span>   <b>$1</b>";
+            "Kitty - (?!nvim)(.*)" = "<span color='#ffa5e1'>󰄛</span>   <b>$1</b>";
             "(kitty|fish)" = "<span color='#ffa5e1'>󰄛</span>   <b>~</b>";
             "OBS.*? - (.*)" = "   <b>$1</b>";
             "(.*?)( - obsidian)? - Obsidian.*" = "<span color='#cca5ff'></span>   <b>$1</b>";
