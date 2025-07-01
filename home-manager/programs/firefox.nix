@@ -29,7 +29,7 @@ in {
     enable = true;
     package = pkgs.firefox-devedition;
 
-    profiles.nix-user-profile = {
+    profiles.dooshii = {
       userChrome = ''
         @import "firefox-gnome-theme/userChrome.css";
       '';
