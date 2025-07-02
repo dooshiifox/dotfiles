@@ -21,7 +21,7 @@
       "ll" = "exa -l";
       "ls" = "exa";
       "mrng" = "${THEME.source-folder}/scripts/music/rng";
-      "w" = "code /home/dooshii/Documents/CodingProjects/pin/work";
+      "w" = "nvim /home/dooshii/Documents/CodingProjects/pin/work";
       "x" = "exit";
       "q" = "exit";
       "e" = "nvim";
