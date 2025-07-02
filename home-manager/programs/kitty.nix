@@ -55,7 +55,7 @@
       bold_italic_font auto
 
       tab_bar_edge top
-      tab_bar_style separator
+      tab_bar_style slant
     '';
   };
 }

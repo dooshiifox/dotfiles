@@ -10,7 +10,7 @@ pushd ~/nixos/
 
 # I don't know why this is needed but it is
 # TODO: Fix this
-rm /home/dooshii/.mozilla/firefox/dooshii/search.json.mozlz4.hmbackup
+rm -f -- /home/dooshii/.mozilla/firefox/dooshii/search.json.mozlz4.hmbackup
 
 # Autoformat your nix files
 alejandra .

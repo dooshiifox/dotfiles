@@ -46,21 +46,21 @@
         };
 
         "hyprland/window" = {
-          format = "{class} - {title}";
+          format = "{class} ///// {title}";
           tooltip = false;
           max-length = 50;
           rewrite = {
-            "(.*) — (Mozilla Firefox|Firefox Developer Edition)" = "<span color='#ffb2a5'></span>   <b>$1</b>";
-            "(Mozilla Firefox|Firefox Developer Edition)" = "<span color='#ffb2a5'></span>   <b>Firefox</b>";
-            "(.*) - VSCodium" = "<span color='#a5cfff'>󰨞</span>   <b>$1</b>";
-            ".*?Discord.{3}(.*)" = "<span color='#a5b2ff'></span>   <b>$1</b>";
-            "Kitty - (nvim|e) (.*)" = "<span color='#a5ffc0'></span>   <b>$2</b>";
-            "Kitty - (?!nvim |e )(.*)" = "<span color='#ffa5e1'>󰄛</span>   <b>$1</b>";
-            "(kitty|fish)" = "<span color='#ffa5e1'>󰄛</span>   <b>~</b>";
-            "OBS.*? - (.*)" = "   <b>$1</b>";
-            "(.*?)( - obsidian)? - Obsidian.*" = "<span color='#cca5ff'></span>   <b>$1</b>";
-            "(.*) - Mozilla Thunderbird" = "<span color='#a5cfff'></span>   <b>$1</b>";
-            "rofi - .*" = "   <b>Rofi</b>";
+            "firefox-devedition ///// (.*) — (Mozilla Firefox|Firefox Developer Edition)" = "<span color='#ffb2a5'></span>   <b>$1</b>";
+            "firefox-devedition ///// (Mozilla Firefox|Firefox Developer Edition)" = "<span color='#ffb2a5'></span>   <b>Firefox</b>";
+            "codium ///// (.*) - VSCodium" = "<span color='#a5cfff'>󰨞</span>   <b>$1</b>";
+            "vesktop ///// .*?Discord.{3}(.*)" = "<span color='#a5b2ff'></span>   <b>$1</b>";
+            "Kitty ///// (nvim|e) (.*)" = "<span color='#a5ffc0'></span>   <b>$2</b>";
+            "Kitty ///// (?!nvim |e )(.*)" = "<span color='#ffa5e1'>󰄛</span>   <b>$1</b>";
+            "Kitty ///// (kitty|fish)" = "<span color='#ffa5e1'>󰄛</span>   <b>~</b>";
+            "com.obsproject.Studio ///// OBS.*? - (.*)" = "   <b>$1</b>";
+            "obsidian ///// (.*?)( - obsidian)? - Obsidian.*" = "<span color='#cca5ff'></span>   <b>$1</b>";
+            "thunderbird ///// (.*) - Mozilla Thunderbird" = "<span color='#a5cfff'></span>   <b>$1</b>";
+            "Rofi ///// rofi - .*" = "   <b>Rofi</b>";
           };
           separate-outputs = true;
         };
