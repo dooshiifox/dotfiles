@@ -1,9 +1,9 @@
 {lib, ...}: rec {
   # The background in some apps will be multiplicative with
   # background-opacity
-  unfocused-opacity = 1;
-  bg-opacity = 1;
-  border-opacity = 1;
+  unfocused-opacity = 0.9;
+  bg-opacity = 0.85;
+  border-opacity = bg-opacity;
   border-radius = 12;
 
   # These should be nerd fonts
