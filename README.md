@@ -44,43 +44,15 @@ The `NIX_SRC` env variable is set to where the config is built in `/nix/store/..
 
 - Fix occasional FPS drops
 - Fix theming
-    - Window titles
-    - Make app themes consistent with each other
-        - vesktop?
-        - vscodium?
-        - gnome
-            - nemo
-            - firefox
-            - https://mynixos.com/home-manager/option/gtk.gtk4.extraCss
-            - https://hoverbear.org/blog/declarative-gnome-configuration-in-nixos/
+  - Window titles
+  - Make app themes consistent with each other
+    - vesktop?
+    - vscodium?
+    - gnome
+      - nemo
+      - firefox
+      - https://mynixos.com/home-manager/option/gtk.gtk4.extraCss
+      - https://hoverbear.org/blog/declarative-gnome-configuration-in-nixos/
 - Fix build times
 - Fix boot time
 - Fix sleep mode
-- Migrate to Neovim
-    - Theme
-    - Rust LSP
-    - Svelte LSP
-    - Typescript LSP
-    - Javascript LSP
-    - React LSP
-    - HTML LSP
-    - TOML LSP
-    - JSON LSP
-    - Nix LSP
-    - PHP LSP
-    - Python LSP
-    - Tailwind
-    - File browser
-    - Tabs
-    - Keyboard shortcuts
-    - Terminal
-    - Search
-    - ESLint
-    - Prettier
-    - Commenting & uncommenting
-    - Multi-cursor editing
-    - Split windows
-    - Indent guide
-    - Code completion
-    - Diagnostics
-    - Git integration?

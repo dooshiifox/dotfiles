@@ -27,6 +27,7 @@ in {
       hyprpicker
       gnome-system-monitor
       hyprland-qtutils
+      aquamarine
     ];
     etc."greetd/environments".text = ''
       Hyprland
