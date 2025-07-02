@@ -61,7 +61,7 @@
             "obsidian ///// (.*?)( - obsidian)? - Obsidian.*" = "<span color='#cca5ff'></span>   <b>$1</b>";
             "thunderbird ///// (.*) - Mozilla Thunderbird" = "<span color='#a5cfff'></span>   <b>$1</b>";
             "Rofi ///// rofi - .*" = "   <b>Rofi</b>";
-            "\\s*/////\\s*" = "<span color='#a5b2ff'></span> <span color='#a5cfff'></span>";
+            "\\s*/////\\s*" = "<span color='#a5b2ff'></span>   <span color='#a5cfff'></span>";
             # "(.*)/////(.*)" = "$2  <span size='10px'>$1</span>";
           };
           separate-outputs = true;
