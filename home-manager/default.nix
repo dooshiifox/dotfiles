@@ -174,6 +174,9 @@
     dua # Interactive `du`
     hyperfine # Benchmark tool
     just # Command runner
+    htop # Performance
+    inxi # System settings
+    bluetui # Bluetooth manager
 
     kitty # Terminal
 
