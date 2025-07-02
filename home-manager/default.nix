@@ -4,7 +4,8 @@
   lib,
   THEME,
   ...
-}: {
+}:
+{
   imports = [
     ./programs
     ./services
@@ -62,7 +63,7 @@
 
     # Social
     telegram-desktop # Telegram client
-    (vesktop.override {withSystemVencord = false;}) # Discord + Vencord
+    (vesktop.override { withSystemVencord = false; }) # Discord + Vencord
     whatsapp-for-linux # Whatsapp client
 
     # Networking
@@ -107,15 +108,15 @@
     nodePackages.pnpm # Faster, less disk space npm
 
     # Python
-    (python311.withPackages
-      (ps:
-        with ps; [
-          pygobject3
-          colorthief
-          mpd2
-          requests
-          eyed3
-        ]))
+    (python311.withPackages (
+      ps: with ps; [
+        pygobject3
+        colorthief
+        mpd2
+        requests
+        eyed3
+      ]
+    ))
 
     # Haskell (important for xmonad)
     ghc
@@ -176,6 +177,7 @@
     hyperfine # Benchmark tool
     just # Command runner
     htop # Performance
+    btop # Also performance
     inxi # System settings
     bluetui # Bluetooth manager
 
@@ -225,7 +227,7 @@
     ################
     godot_4 # Game engine # TODO: Upgrade to mono version when thats added
     love # 2D game engine
-    (callPackage ./programs/olympus/package.nix {}) # Celeste mod loader
+    (callPackage ./programs/olympus/package.nix { }) # Celeste mod loader
     lumafly # Hollow Knight mod loader
     cubiomes-viewer # Minecraft biome viewer
     prismlauncher # Minecraft launcher

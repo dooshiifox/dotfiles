@@ -2,8 +2,9 @@
   pkgs,
   THEME,
   ...
-}: {
-  home.packages = with pkgs; [bibata-cursors];
+}:
+{
+  home.packages = with pkgs; [ bibata-cursors ];
 
   # programs.hyprland.withUWSM = true;
   # programs.uwsm.enable = true;

@@ -12,9 +12,6 @@ pushd ~/nixos/
 # TODO: Fix this
 rm -f -- /home/dooshii/.mozilla/firefox/dooshii/search.json.mozlz4.hmbackup
 
-# Autoformat your nix files
-alejandra .
-
 # Shows your changes
 # git diff -U0 **/*.nix
 
