@@ -1,11 +1,15 @@
 # Neovim
 # https://github.com/nix-community/home-manager/blob/master/modules/programs/neovim.nix
-{pkgs, ...}: {
+{
   programs.neovim = {
     enable = true;
     defaultEditor = true;
-    # plugins = with pkgs.vimPlugins; [
-    #   nvchad
-    # ];
+    coc.enable = false;
+    withNodeJs = true;
+  };
+
+  home.file."./.config/nvim/" = {
+    source = ./nvim;
+    recursive = true;
   };
 }
