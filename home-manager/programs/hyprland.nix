@@ -102,17 +102,19 @@
       decoration = {
         rounding = THEME.border-radius;
         blur = {
-          enabled = true;
-          size = 12;
+          enabled = false;
+          /*
+             size = 12;
           passes = 3;
           new_optimizations = true;
+          */
         };
-        inactive_opacity = THEME.unfocused-opacity;
+        # inactive_opacity = THEME.unfocused-opacity;
         active_opacity = 1.0;
         fullscreen_opacity = 1.0;
 
         shadow = {
-          enabled = true;
+          enabled = false;
           range = 12;
           render_power = 4;
           offset = "0 2";
