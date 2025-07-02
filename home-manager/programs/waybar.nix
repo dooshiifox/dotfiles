@@ -46,7 +46,7 @@
         };
 
         "hyprland/window" = {
-          format = "{}";
+          format = "{class} - {title}";
           tooltip = false;
           max-length = 50;
           rewrite = {
