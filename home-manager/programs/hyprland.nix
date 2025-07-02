@@ -119,6 +119,9 @@
           color = "rgba(00000099)";
         };
       };
+      misc = {
+        vfr = false;
+      };
       animations = {
         enabled = true;
         bezier = [

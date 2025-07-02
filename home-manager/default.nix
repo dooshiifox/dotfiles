@@ -134,7 +134,7 @@
     libcxx.dev # ^
 
     # Nix
-    alejandra # Format nix files, used by ni
+    nixfmt-rfc-style # Official formatter, replacing alejandra
     nil # Nix language server
 
     # Java
