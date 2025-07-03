@@ -84,15 +84,9 @@
     # Developing
     ################
 
-    jetbrains.clion # C/C++ code editor
-    jetbrains.idea-community-bin # Java code editor
     postman # API testing
     php83 # PHP runtime
 
-    # Android / iOS
-    flutter # Mobile development
-
-    # Rust
     rustup # Rust downloader and toolchain switcher
     cargo-audit # Audit for security vulnerabilities
     pkg-config # Compiling openssl-sys crate
@@ -114,14 +108,6 @@
         eyed3
       ]
     ))
-
-    # Haskell (important for xmonad)
-    ghc
-    haskellPackages.cabal-install
-    haskellPackages.haskell-language-server
-    haskellPackages.hoogle
-    haskellPackages.fourmolu
-    haskellPackages.cabal-fmt
 
     # C/C++
     cmake # Makefile support

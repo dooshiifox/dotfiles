@@ -10,7 +10,7 @@ Secrets are set up using `git-crypt`, and can be stored in `secrets`. [This arti
 
 Download and patch the `Inter` font.
 
-```
+```sh
 wget https://github.com/rsms/inter/releases/download/v4.0/Inter-4.0.zip
 unzip -d Inter Inter-4.0.zip
 nerd-font-patcher --variable-width-glyphs -q -c -out "patched/" Inter/InterVariable.ttf
@@ -35,6 +35,24 @@ Please note that I'm new to Nix! If you have any improvements, please educate me
 ### Clean-up old packages
 
 Run `./clean-old-gens.sh`
+
+### Clean up other parts of the system
+
+`dua interactive /` will create an interactive disk-usage analyzer.
+
+#### `/var/log`
+
+```sh
+sudo journalctl --rotate
+sudo journalctl --vacuum-time=2d
+```
+
+#### `/var/lib/systemd/coredump/`
+
+```sh
+# This should be safe but I'm unsure
+sudo rm /var/lib/systemd/coredump/*
+```
 
 ### Environment variables
 
