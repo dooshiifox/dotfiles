@@ -21,7 +21,7 @@
       "systemd.mask=systemd-vconsole-setup.service"
       "systemd.mask=dev-tpmrm0.device" # this is to mask that stupid 1.5 mins systemd bug
       "nowatchdog"
-      "nvidia.NVreg_PreserveVideoMemoryAllocations=0"
+      "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
     ];
     initrd = {
       availableKernelModules = [
@@ -90,7 +90,7 @@
   ####################
   #   SLEEP / SUSPEND
   ####################
-  #
+
   powerManagement.enable = true;
   systemd.sleep.extraConfig = ''
     AllowSuspend=yes
