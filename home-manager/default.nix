@@ -46,9 +46,6 @@
     nemo-with-extensions
     nautilus
 
-    direnv
-
-    # FIXME: Prevent manual installs of these things.
     # Ensure you enable these in GNOME Extensions
     # With Pop Shell, disable mouse stacking
     # Can't customize keybinds with Pop Shell yet: https://github.com/NixOS/nixpkgs/issues/92265

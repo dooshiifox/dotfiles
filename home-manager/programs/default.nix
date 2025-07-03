@@ -2,7 +2,8 @@
   mode,
   lib,
   ...
-}: {
+}:
+{
   imports =
     [
       ./vscode
@@ -10,6 +11,7 @@
       ./bat.nix
       ./chromium.nix
       ./dconf.nix
+      ./direnv.nix
       ./eza.nix
       ./fd.nix
       ./firefox.nix
