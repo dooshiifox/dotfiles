@@ -21,7 +21,7 @@
       "systemd.mask=systemd-vconsole-setup.service"
       "systemd.mask=dev-tpmrm0.device" # this is to mask that stupid 1.5 mins systemd bug
       "nowatchdog"
-      "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
+      "nvidia.NVreg_PreserveVideoMemoryAllocations=0"
     ];
     initrd = {
       availableKernelModules = [
@@ -170,7 +170,7 @@
 
   hardware.nvidia = {
     # Modesetting is required.
-    modesetting.enable = true;
+    # modesetting.enable = true;
 
     # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
     # Enable this if you have graphical corruption issues or application crashes after waking
