@@ -87,6 +87,8 @@
     variant = "";
   };
 
+  powerManagement.enable = true;
+
   ####################
   #   PRINTING
   ####################
@@ -157,8 +159,6 @@
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = [ "nvidia" ]; # or "nvidiaLegacy470 etc.
 
-  powerManagement.enable = true;
-
   hardware.nvidia = {
     # Modesetting is required.
     modesetting.enable = true;
@@ -167,7 +167,7 @@
     # Enable this if you have graphical corruption issues or application crashes after waking
     # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead
     # of just the bare essentials.
-    powerManagement.enable = false;
+    powerManagement.enable = true;
     # Fine-grained power management. Turns off GPU when not in use.
     # Experimental and only works on modern Nvidia GPUs (Turing or newer).
     # powerManagement.finegrained = true;
