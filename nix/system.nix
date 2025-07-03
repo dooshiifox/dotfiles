@@ -2,7 +2,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   # https://support.system76.com/articles/system76-software/#nixos
   hardware.system76.enableAll = true;
   services.power-profiles-daemon.enable = false;
@@ -18,13 +19,20 @@
 
     kernelParams = [
       "systemd.mask=systemd-vconsole-setup.service"
-      "systemd.mask=dev-tpmrm0.device" #this is to mask that stupid 1.5 mins systemd bug
+      "systemd.mask=dev-tpmrm0.device" # this is to mask that stupid 1.5 mins systemd bug
       "nowatchdog"
       "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
     ];
     initrd = {
-      availableKernelModules = ["xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod"];
-      kernelModules = [];
+      availableKernelModules = [
+        "xhci_pci"
+        "ahci"
+        "nvme"
+        "usb_storage"
+        "usbhid"
+        "sd_mod"
+      ];
+      kernelModules = [ ];
     };
   };
 
@@ -41,7 +49,11 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-  networking.networkmanager.insertNameservers = ["1.1.1.1" "8.8.8.8" "9.9.9.9"];
+  networking.networkmanager.insertNameservers = [
+    "1.1.1.1"
+    "8.8.8.8"
+    "9.9.9.9"
+  ];
   networking.firewall.enable = false;
 
   ####################
@@ -143,7 +155,9 @@
   };
 
   # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["nvidia"]; # or "nvidiaLegacy470 etc.
+  services.xserver.videoDrivers = [ "nvidia" ]; # or "nvidiaLegacy470 etc.
+
+  powerManagement.enable = true;
 
   hardware.nvidia = {
     # Modesetting is required.
