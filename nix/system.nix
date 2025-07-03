@@ -87,7 +87,16 @@
     variant = "";
   };
 
+  ####################
+  #   SLEEP / SUSPEND
+  ####################
+  #
   powerManagement.enable = true;
+  systemd.sleep.extraConfig = ''
+    AllowSuspend=yes
+    SuspendMode=suspend
+    SuspendState=mem standby freeze disk
+  '';
 
   ####################
   #   PRINTING
