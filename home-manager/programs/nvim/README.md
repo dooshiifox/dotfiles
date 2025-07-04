@@ -65,7 +65,7 @@
   - [Illuminate](https://www.lazyvim.org/extras/editor/illuminate)
 - Selection moving
   - [mini.move (Default)](https://github.com/echasnovski/mini.move)
-- Cursor location
+- Statusline location
   - [nvim-navic (Default)](https://www.lazyvim.org/extras/editor/navic)
 - Cursor smoothing
   - [smear-cursor.nvim](https://www.lazyvim.org/extras/ui/smear-cursor)
@@ -120,7 +120,7 @@
 | `<Space>qq`                   | Quit all                      | n    |
 | `<Alt><Grave>`                | Focus/Toggle terminal         | n, t |
 | `<Super><Ctrl><Shift><Arrow>` | Resize in direction           | n    |
-| `<Super><Ctrl><Arrow>`        | Switch to window in direction | n    |
+| `<Super><Ctrl><Arrow>`        | Switch to window in direction | n, t |
 | `<Space>-`                    | Split down                    | n    |
 | `<Space><Pipe>`               | Split right                   | n    |
 | `<Space>wd`                   | Close window                  | n    |

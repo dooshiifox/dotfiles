@@ -1,5 +1,6 @@
 # https://github.com/nix-community/home-manager/blob/master/modules/programs/waybar.nix
-{THEME, ...}: {
+{ THEME, ... }:
+{
   programs.waybar = {
     enable = true;
     systemd.enable = true;
@@ -50,8 +51,10 @@
           tooltip = false;
           max-length = 50;
           rewrite = {
-            "firefox-devedition ///// (.*) — (Mozilla Firefox|Firefox Developer Edition)" = "<span color='#ffb2a5'></span>   <b>$1</b>";
-            "firefox-devedition ///// (Mozilla Firefox|Firefox Developer Edition)" = "<span color='#ffb2a5'></span>   <b>Firefox</b>";
+            "firefox-devedition ///// (.*) — (Mozilla Firefox|Firefox Developer Edition)" =
+              "<span color='#ffb2a5'></span>   <b>$1</b>";
+            "firefox-devedition ///// (Mozilla Firefox|Firefox Developer Edition)" =
+              "<span color='#ffb2a5'></span>   <b>Firefox</b>";
             "codium ///// (.*) - VSCodium" = "<span color='#a5cfff'>󰨞</span>   <b>$1</b>";
             "vesktop ///// (.*?Discord.{3})?(.*)" = "<span color='#a5b2ff'></span>   <b>$2</b>";
             "Kitty ///// (nvim|e) (.*)" = "<span color='#a5ffc0'></span>   <b>$2</b>";
@@ -61,7 +64,10 @@
             "obsidian ///// (.*?)( - obsidian)? - Obsidian.*" = "<span color='#cca5ff'></span>   <b>$1</b>";
             "thunderbird ///// (.*) - Mozilla Thunderbird" = "<span color='#a5cfff'></span>   <b>$1</b>";
             "Rofi ///// rofi - .*" = "   <b>Rofi</b>";
+            "nemo ///// (.*)" = "<span color='#ffbba6'></span>   <b>$1</b>";
             "\\s*/////\\s*" = "<span color='#a5b2ff'></span>   <span color='#a5cfff'></span>";
+            # TODO: home-manager generates the config in alphabetical order, meaning this
+            # comes first i think. Find a way to make this come last.
             # "(.*)/////(.*)" = "$2  <span size='10px'>$1</span>";
           };
           separate-outputs = true;
@@ -96,15 +102,29 @@
           format-source = "";
           format-source-muted = "";
           format-icons = {
-            headphone = ["<span size='xx-small'> </span>" "<span size='xx-small'> </span>" "<span size='xx-small'> </span>"];
-            default = ["" "" ""];
+            headphone = [
+              "<span size='xx-small'> </span>"
+              "<span size='xx-small'> </span>"
+              "<span size='xx-small'> </span>"
+            ];
+            default = [
+              ""
+              ""
+              ""
+            ];
           };
           on-click = "pactl set-sink-mute $(pactl get-default-sink) toggle";
         };
         network = {
           interval = 1;
           format-wifi = "{icon}";
-          format-icons = ["󰤯" "󰤟" "󰤢" "󰤥" "󰤨"];
+          format-icons = [
+            "󰤯"
+            "󰤟"
+            "󰤢"
+            "󰤥"
+            "󰤨"
+          ];
           format-disconnected = "󰤮";
           format-ethernet = "";
           format-linked = "";
@@ -178,7 +198,13 @@
           format-charging = "";
           format-plugged = "";
           format-alt = "{icon} <small>{capacity}% ({time})</small>";
-          format-icons = ["" "" "" "" ""];
+          format-icons = [
+            ""
+            ""
+            ""
+            ""
+            ""
+          ];
         };
         clock = {
           format = "<b>{:%H:%M</b>  <small>%a %e %B</small>} ";

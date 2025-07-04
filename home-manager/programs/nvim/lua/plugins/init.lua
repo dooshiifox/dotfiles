@@ -1,3 +1,4 @@
+-- TODO: Get this to read from theme.nix
 local colors = {
 	bg = "#07070a",
 	fg = "#c5c8c6",

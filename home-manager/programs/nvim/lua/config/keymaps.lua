@@ -18,6 +18,10 @@ map("n", "<C-D-Left>", "<C-w>h", { desc = "Go to Left Window", remap = true })
 map("n", "<C-D-Down>", "<C-w>j", { desc = "Go to Lower Window", remap = true })
 map("n", "<C-D-Up>", "<C-w>k", { desc = "Go to Upper Window", remap = true })
 map("n", "<C-D-Right>", "<C-w>l", { desc = "Go to Right Window", remap = true })
+map("t", "<C-D-Left>", "<C-w>h", { desc = "Go to Left Window" })
+map("t", "<C-D-Down>", "<C-w>j", { desc = "Go to Lower Window" })
+map("t", "<C-D-Up>", "<C-w>k", { desc = "Go to Upper Window" })
+map("t", "<C-D-Right>", "<C-w>l", { desc = "Go to Right Window" })
 
 -- Alt+Left/Right = Switch buffer
 map("n", "<A-Left>", "<S-h>", { remap = true, desc = "Switch to left buffer" })

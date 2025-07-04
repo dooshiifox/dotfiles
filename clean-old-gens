@@ -1,0 +1,24 @@
+#!/usr/bin/env sh
+
+# Collect old generation garbage
+printf "\033[36mCleaning root generations...\033[0;39m\n"
+sudo nix-collect-garbage -d
+# Collect home-manager garbage
+printf "\n\033[36mCleaning home-manager generations...\033[0;39m\n"
+nix-collect-garbage -d
+
+# paths=$(ls /nix/var/nix/profiles/)
+# pathsarr=($paths)
+# for i in "${pathsarr[@]}"; do
+# 	:
+# 	if [ "$i" != "${pathsarr[-1]}" ] && [ "$i" != "per-user" ] && [ "$i" != "system" ]; then
+# 		sudo rm -f "/nix/var/nix/profiles/$i"
+# 	fi
+# done
+# nix-store --gc
+
+# Optimise storage
+printf "\n\033[36mOptimising the store. This may take a while...\033[0;39m\n"
+nix-store --optimise
+
+printf "\n\033[36mDone!\033[0;39m\n"
