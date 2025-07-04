@@ -1,5 +1,6 @@
 # Neovim
 # https://github.com/nix-community/home-manager/blob/master/modules/programs/neovim.nix
+{ config, ... }:
 {
   programs.neovim = {
     enable = true;
@@ -8,8 +9,5 @@
     withNodeJs = true;
   };
 
-  home.file."./.config/nvim/" = {
-    source = ./nvim;
-    recursive = true;
-  };
+  home.file."./.config/nvim/".source = config.lib.file.mkOutOfStoreSymlink ./nvim;
 }
