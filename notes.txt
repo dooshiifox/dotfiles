@@ -1,1 +1,3 @@
-450 - External monitor fails to load.
+450 - External monitor fails to load (boot).
+451 - Sleep does nothing
+452 - External monitor *pretends* to load (boot).
