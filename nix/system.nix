@@ -32,6 +32,10 @@
       ];
       kernelModules = [ ];
     };
+
+    extraModprobeConfig = ''
+      options nvidia_modeset vblank_sem_control=0
+    '';
   };
 
   ####################
@@ -200,8 +204,8 @@
       #   enableOffloadCmd = true;
       # };
 
-      nvidiaBusId = "PCI:1:0:0";
-      intelBusId = "PCI:0:2:0";
+      # nvidiaBusId = "PCI:1:0:0";
+      # intelBusId = "PCI:0:2:0";
     };
   };
 }
