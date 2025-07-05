@@ -33,9 +33,9 @@
       kernelModules = [ ];
     };
 
-    extraModprobeConfig = ''
-      options nvidia_modeset vblank_sem_control=0
-    '';
+    # extraModprobeConfig = ''
+    #   options nvidia_modeset vblank_sem_control=0
+    # '';
   };
 
   ####################
