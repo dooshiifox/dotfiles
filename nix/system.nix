@@ -194,7 +194,7 @@
     # accessible via `nvidia-settings`.
     nvidiaSettings = true;
 
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
     # forceFullCompositionPipeline = true;
 
     prime = {
@@ -205,8 +205,8 @@
       #   enableOffloadCmd = true;
       # };
 
-      # nvidiaBusId = "PCI:1:0:0";
-      # intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
+      intelBusId = "PCI:0:2:0";
     };
   };
 }
