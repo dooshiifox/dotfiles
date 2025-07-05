@@ -1,5 +1,6 @@
 {
   pkgs,
+  config,
   ...
 }:
 {
@@ -33,6 +34,9 @@
       ];
       kernelModules = [ ];
     };
+    extraModprobeConfig = ''
+      options nvidia_modeset vblank_sem_control=0
+    '';
   };
 
   ####################
@@ -190,7 +194,7 @@
     # accessible via `nvidia-settings`.
     nvidiaSettings = true;
 
-    # package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
     # forceFullCompositionPipeline = true;
 
     prime = {
