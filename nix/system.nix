@@ -194,12 +194,12 @@
     # accessible via `nvidia-settings`.
     nvidiaSettings = true;
 
-    package = config.boot.kernelPackages.nvidiaPackages.beta;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
     # forceFullCompositionPipeline = true;
 
     prime = {
       # https://nixos.wiki/wiki/Nvidia
-      sync.enable = false;
+      sync.enable = true;
       # offload = {
       #   enable = true;
       #   enableOffloadCmd = true;
