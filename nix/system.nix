@@ -21,7 +21,6 @@
       "systemd.mask=systemd-vconsole-setup.service"
       "systemd.mask=dev-tpmrm0.device" # this is to mask that stupid 1.5 mins systemd bug
       "nowatchdog"
-      "mem_sleep_default=deep"
     ];
     initrd = {
       availableKernelModules = [
@@ -34,9 +33,6 @@
       ];
       kernelModules = [ ];
     };
-    # extraModprobeConfig = ''
-    #   options nvidia_modeset vblank_sem_control=0
-    # '';
   };
 
   ####################
@@ -199,7 +195,7 @@
 
     prime = {
       # https://nixos.wiki/wiki/Nvidia
-      sync.enable = false;
+      sync.enable = true;
       # offload = {
       #   enable = true;
       #   enableOffloadCmd = true;

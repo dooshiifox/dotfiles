@@ -7,4 +7,4 @@ vim.opt.shell = "fish"
 
 vim.cmd("aunmenu PopUp.How-to\\ disable\\ mouse")
 vim.cmd("aunmenu PopUp.-2-")
-vim.opt.spelllang = "en_nz,en,en_us,en_uk"
+vim.opt.spelllang = "en_nz,en,en_us,en_gb"
