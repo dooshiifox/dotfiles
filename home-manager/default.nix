@@ -19,7 +19,7 @@
   };
 
   home.sessionVariables = {
-    BROWSER = "firefox";
+    BROWSER = "firefox-devedition";
     NIX_SRC = THEME.source-folder;
     PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
     XDG_CONFIG_HOME = "/home/dooshii/.config";

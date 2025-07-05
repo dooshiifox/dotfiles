@@ -1,6 +1,7 @@
 # A better terminal
 # https://github.com/nix-community/home-manager/blob/master/modules/programs/fish.nix
-{THEME, ...}: {
+{ THEME, ... }:
+{
   imports = [
     ../../secrets/fish.nix
   ];
@@ -21,6 +22,8 @@
       "ll" = "exa -l";
       "ls" = "exa";
       "mrng" = "${THEME.source-folder}/scripts/music/rng";
+      "ni" = "${THEME.source-folder}/scripts/nix-rebuild";
+      "clean-old-gens" = "${THEME.source-folder}/scripts/clean-old-gens";
       "w" = "nvim /home/dooshii/Documents/CodingProjects/pin/work";
       "x" = "exit";
       "q" = "exit";

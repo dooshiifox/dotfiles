@@ -34,7 +34,7 @@ Please note that I'm new to Nix! If you have any improvements, please educate me
 
 ### Clean-up old packages
 
-Run `./clean-old-gens.sh`
+Run `./scripts/clean-old-gens`
 
 ### Clean up other parts of the system
 

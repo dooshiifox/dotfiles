@@ -6,32 +6,33 @@ set -e
 pushd ~/nixos/
 
 # Edit your config
-# $EDITOR ~/nixos/
+$EDITOR ~/nixos/
 
 # I don't know why this is needed but it is
 # TODO: Fix this
 rm -f -- /home/dooshii/.mozilla/firefox/dooshii/search.json.mozlz4.hmbackup
 
-# Shows your changes
-# git diff -U0 **/*.nix
-
 echo "NixOS Rebuilding..."
 
 # Fix issues with Nix not finding files
 git add .
+# Shows your changes
+git diff -U0 ./**/*.nix
+
+# Get current generation metadata
+generation=$(nixos-rebuild list-generations | grep True | awk '{print $1;}')
+# Get a commit name
+read -rp "Commit message:  ($generation) " commit_msg
 
 # Rebuild, output simplified errors, log tracebacks
 sudo nixos-rebuild switch
 
-# Get current generation metadata
-current=$(nixos-rebuild list-generations | grep True | awk '{print $1;}')
-
 # Commit all changes witih the generation metadata
 # If an argument is provided, append it to the commit message
-git commit -m "$current"
+git commit -m "($generation) $commit_msg"
 
 # Back to where you were
-# popd
+popd
 
 # Notify all OK!
 notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available
