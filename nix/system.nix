@@ -199,7 +199,7 @@
 
     prime = {
       # https://nixos.wiki/wiki/Nvidia
-      sync.enable = true;
+      sync.enable = false;
       # offload = {
       #   enable = true;
       #   enableOffloadCmd = true;
