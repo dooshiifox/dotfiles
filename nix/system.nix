@@ -21,7 +21,7 @@
       "systemd.mask=systemd-vconsole-setup.service"
       "systemd.mask=dev-tpmrm0.device" # this is to mask that stupid 1.5 mins systemd bug
       "nowatchdog"
-      # "mem_sleep_default=deep"
+      "mem_sleep_default=deep"
     ];
     initrd = {
       availableKernelModules = [
