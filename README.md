@@ -32,6 +32,10 @@ Please note that I'm new to Nix! If you have any improvements, please educate me
 
 ## Notes
 
+### Update flake inputs
+
+Run `nix flake update`
+
 ### Clean-up old packages
 
 Run `./scripts/clean-old-gens`

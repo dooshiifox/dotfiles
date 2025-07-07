@@ -150,6 +150,9 @@
 | `<Ctrl>k`                     | Signature help                | i    |
 | `<Ctrl>/`                     | Toggle comment                | n    |
 | `<Ctrl><Shift>/`              | Toggle block comment          | n    |
+| `>>`                          | Indent line                   | n    |
+| `>[n]`                        | Indent next `n` lines         | n    |
+| `>i}`                         | Indent all code until }       | n    |
 | `<Space>oo`                   | Run task                      | n    |
 | `s`                           | Quick jump                    | n    |
 | `<Space>snt`                  | Search Neovim notifications   | n    |

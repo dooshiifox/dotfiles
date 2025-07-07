@@ -34,50 +34,53 @@
     # };
   };
 
-  outputs = inputs @ {
-    self,
-    nixpkgs,
-    home-manager,
-    ...
-  }: let
-    # "gnome", "gnome-wayland", "hypr", "xmonad"
-    mode = "hypr";
-    THEME = import ./theme.nix {
-      inherit inputs;
-      inherit (nixpkgs) lib;
-    };
-  in {
-    nixosConfigurations.dooshii = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = {
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }:
+    let
+      # "gnome", "gnome-wayland", "hypr", "xmonad"
+      mode = "hypr";
+      THEME = import ./theme.nix {
         inherit inputs;
-        inherit mode;
-        inherit THEME;
+        inherit (nixpkgs) lib;
       };
-      modules = [
-        ./nix
+    in
+    {
+      nixosConfigurations.dooshii = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {
+          inherit inputs;
+          inherit mode;
+          inherit THEME;
+        };
+        modules = [
+          ./nix
 
-        # make home-manager as a module of nixos so that
-        # home-manager configuration will be deployed automatically
-        # when executing `nixos-rebuild switch`
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.backupFileExtension = "hmbackup";
+          # make home-manager as a module of nixos so that
+          # home-manager configuration will be deployed automatically
+          # when executing `nixos-rebuild switch`
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "hmbackup";
 
-          home-manager.users.dooshii.imports = [
-            ./home-manager
-          ];
+            home-manager.users.dooshii.imports = [
+              ./home-manager
+            ];
 
-          # Optionally, use home-manager.extraSpecialArgs to pass arguments
-          home-manager.extraSpecialArgs = {
-            inherit inputs;
-            inherit mode;
-            inherit THEME;
-          };
-        }
-      ];
+            # Optionally, use home-manager.extraSpecialArgs to pass arguments
+            home-manager.extraSpecialArgs = {
+              inherit inputs;
+              inherit mode;
+              inherit THEME;
+            };
+          }
+        ];
+      };
     };
-  };
 }

@@ -65,6 +65,8 @@
             "thunderbird ///// (.*) - Mozilla Thunderbird" = "<span color='#a5cfff'></span>   <b>$1</b>";
             "Rofi ///// rofi - .*" = "   <b>Rofi</b>";
             "nemo ///// (.*)" = "<span color='#ffbba6'></span>   <b>$1</b>";
+            "io.bassi.Amberol ///// (.*)" = "<span color='#a5cfff'></span>   <b>$1</b>";
+            "ymuse ///// ymuse" = "<span color='#a5b2ff'>󰎆</span>   <b>ymuse</b>";
             "\\s*/////\\s*" = "<span color='#a5b2ff'></span>   <span color='#a5cfff'></span>";
             # TODO: home-manager generates the config in alphabetical order, meaning this
             # comes first i think. Find a way to make this come last.
@@ -126,8 +128,7 @@
             "󰤨"
           ];
           format-disconnected = "󰤮";
-          format-ethernet = "";
-          format-linked = "";
+          format-ethernet = "";
           tooltip-format = "{essid} @ {frequency}GHz @ {signalStrength}%\n{ipaddr}\n{bandwidthUpBytes} Upload / {bandwidthDownBytes} Download";
         };
         cpu = {
