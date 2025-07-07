@@ -200,6 +200,7 @@
     mpd-mpris # Implement MPRIS protocal for MPD
     ymuse # MPD front-end
     mpc-cli # Interact with MPD from the command line
+    rmpc
 
     # Piracy
     qbittorrent # Torrent downloader
