@@ -227,9 +227,9 @@ window#waybar {
     color: ${config.lib.theme.colors.fg-secondary};
     font-family: ${config.lib.theme.fonts.regular.name}, ${config.lib.theme.fonts.symbols.name}, feather;
     transition: background-color 0.5s;
-    background: ${config.lib.theme.colors.bg-opacity};
+    background: ${config.lib.theme.hexaToRgbaString config.lib.theme.colors.bg-opacity};
     border-radius: 12px;
-    border: 1px solid ${config.lib.theme.colors.border-opacity};
+    border: 1px solid ${config.lib.theme.hexaToRgbaString config.lib.theme.colors.border-opacity};
 }
 
 #clock,

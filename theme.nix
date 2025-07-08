@@ -78,22 +78,18 @@ let
     in
     lib.lists.foldl builtins.add 0 decimalsPowered;
   withoutHash = hex: lib.strings.stringAsChars (x: if x == "#" then "" else x) hex;
-  hexToRGB =
-    hex:
+  hexToRgb =
+    hex: rgbStartIndexes:
     let
-      rgbStartIndex = [
-        0
-        2
-        4
-      ];
       hexWithoutHash = withoutHash hex;
-      hexList = builtins.map (x: builtins.substring x 2 hexWithoutHash) rgbStartIndex;
+      hexList = builtins.map (x: builtins.substring x 2 hexWithoutHash) rgbStartIndexes;
       hexLength = builtins.stringLength hexWithoutHash;
+      expectedLength = builtins.length rgbStartIndexes * 2;
     in
-    if hexLength != 6 then
+    if hexLength != expectedLength then
       throw ''
         Unsupported hex string length of ${builtins.toString hexLength}.
-        Length must be exactly 6.
+        Length must be exactly ${expectedLength}.
       ''
     else
       builtins.map hexToDec hexList;
@@ -101,11 +97,31 @@ let
     sep: hex:
     let
       inherit (builtins) map toString;
-      hexInRGB = hexToRGB hex;
+      hexInRGB = hexToRgb hex [
+        0
+        2
+        4
+      ];
       hexInRGBString = map toString hexInRGB;
     in
     lib.strings.concatStringsSep sep hexInRGBString;
   hexToRgbaString = hex: opacity: "rgba(${hexToRGBString "," hex},${builtins.toString opacity})";
+
+  hexaToRgbaString =
+    hex:
+    "rgba(${
+      lib.strings.concatStringsSep "," (
+        builtins.map builtins.toString (
+          hexToRgb hex [
+            0
+            2
+            4
+            6
+          ]
+        )
+      )
+    })";
+
   to2Hex =
     num255:
     let
@@ -236,6 +252,7 @@ rec {
 
     inherit hexWithOpacity;
     inherit hexToRgbaString;
+    inherit hexaToRgbaString;
     inherit withoutHash;
   };
 
