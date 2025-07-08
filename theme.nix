@@ -109,17 +109,17 @@ let
 
   hexaToRgbaString =
     hex:
-    "rgba(${
-      lib.strings.concatStringsSep "," (
-        builtins.map builtins.toString (
-          hexToRgb hex [
-            0
-            2
-            4
-            6
-          ]
-        )
-      )
+    let
+      inherit (builtins) toString elemAt;
+      rgba = hexToRgb hex [
+        0
+        2
+        4
+        6
+      ];
+    in
+    "rgba(${toString (elemAt rgba 0)},${toString (elemAt rgba 1)},${toString (elemAt rgba 2)},${
+      toString ((elemAt rgba 3) / 255)
     })";
 
   to2Hex =
