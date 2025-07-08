@@ -119,7 +119,7 @@ let
       ];
     in
     "rgba(${toString (elemAt rgba 0)},${toString (elemAt rgba 1)},${toString (elemAt rgba 2)},${
-      toString ((elemAt rgba 3) / 255)
+      toString ((elemAt rgba 3) / 255.0)
     })";
 
   to2Hex =
