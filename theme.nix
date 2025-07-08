@@ -77,6 +77,7 @@ let
       decimalsPowered = lib.lists.imap0 base16To10 decimalsAscending;
     in
     lib.lists.foldl builtins.add 0 decimalsPowered;
+  withoutHash = hex: lib.strings.stringAsChars (x: if x == "#" then "" else x) hex;
   hexToRGB =
     hex:
     let
@@ -85,7 +86,7 @@ let
         2
         4
       ];
-      hexWithoutHash = lib.strings.stringAsChars (x: if x == "#" then "" else x) hex;
+      hexWithoutHash = withoutHash hex;
       hexList = builtins.map (x: builtins.substring x 2 hexWithoutHash) rgbStartIndex;
       hexLength = builtins.stringLength hexWithoutHash;
     in
@@ -235,6 +236,7 @@ rec {
 
     inherit hexWithOpacity;
     inherit hexToRgbaString;
+    inherit withoutHash;
   };
 
   config.scheme = config.lib.theme.colors;

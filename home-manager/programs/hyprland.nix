@@ -95,8 +95,10 @@
         gaps_in = 4;
         gaps_out = 8;
         border_size = 2;
-        "col.active_border" = config.lib.theme.colors.border-active-opacity;
-        "col.inactive_border" = config.lib.theme.colors.border-opacity;
+        "col.active_border" =
+          "rgba(${config.lib.theme.withoutHash config.lib.theme.colors.border-active-opacity})";
+        "col.inactive_border" =
+          "rgba(${config.lib.theme.withoutHash config.lib.theme.colors.border-opacity})";
 
         layout = "dwindle";
       };

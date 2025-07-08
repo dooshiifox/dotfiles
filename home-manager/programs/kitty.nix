@@ -32,7 +32,7 @@
       dynamic_background_opacity yes
       wheel_scroll_multiplier 2.0
 
-      background ${config.lib.theme.colors.bg-opacity}
+      background ${config.lib.theme.colors.bg}
       foreground ${config.lib.theme.colors.fg}
       selection_background ${config.lib.theme.colors.fg}
       selection_foreground ${config.lib.theme.colors.bg}
