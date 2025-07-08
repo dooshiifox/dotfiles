@@ -6,30 +6,38 @@
   lib,
   mode,
   ...
-}: {
+}:
+{
   imports =
     [
       # Include the results of the hardware scan.
       ../hardware-configuration.nix
       ./android.nix
       ./docker.nix
+      ./games.nix
       ./nix-ld.nix
       ./media.nix
       ./system.nix
     ]
-    ++ lib.optionals (mode == "hypr") [./hypr.nix]
-    ++ lib.optionals (mode == "xmonad") [./xmonad.nix]
-    ++ lib.optionals (mode == "gnome-wayland") [./gnome-wayland.nix]
-    ++ lib.optionals (mode == "gnome") [./gnome.nix];
+    ++ lib.optionals (mode == "hypr") [ ./hypr.nix ]
+    ++ lib.optionals (mode == "xmonad") [ ./xmonad.nix ]
+    ++ lib.optionals (mode == "gnome-wayland") [ ./gnome-wayland.nix ]
+    ++ lib.optionals (mode == "gnome") [ ./gnome.nix ];
 
   users.users.dooshii = {
     isNormalUser = true;
     description = "kit fox";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     # User packages should be defined in home-manager
   };
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [
     "electron-25.9.0"

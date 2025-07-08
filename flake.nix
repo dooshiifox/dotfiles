@@ -28,6 +28,9 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    base16 = {
+      url = "github:SenchoPens/base16.nix";
+    };
     # hypr-dynamic-cursors = {
     #   url = "github:VirtCode/hypr-dynamic-cursors";
     #   inputs.hyprland.follows = "hyprland"; # to make sure that the plugin is built for the correct version of hyprland
@@ -44,10 +47,6 @@
     let
       # "gnome", "gnome-wayland", "hypr", "xmonad"
       mode = "hypr";
-      THEME = import ./theme.nix {
-        inherit inputs;
-        inherit (nixpkgs) lib;
-      };
     in
     {
       nixosConfigurations.dooshii = nixpkgs.lib.nixosSystem {
@@ -55,9 +54,9 @@
         specialArgs = {
           inherit inputs;
           inherit mode;
-          inherit THEME;
         };
         modules = [
+          ./theme.nix
           ./nix
 
           # make home-manager as a module of nixos so that
@@ -70,6 +69,7 @@
             home-manager.backupFileExtension = "hmbackup";
 
             home-manager.users.dooshii.imports = [
+              ./theme.nix
               ./home-manager
             ];
 
@@ -77,7 +77,6 @@
             home-manager.extraSpecialArgs = {
               inherit inputs;
               inherit mode;
-              inherit THEME;
             };
           }
         ];

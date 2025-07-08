@@ -1,4 +1,5 @@
-{THEME, ...}: {
+{ config, ... }:
+{
   services.mako = {
     enable = true;
     settings = {
@@ -9,8 +10,8 @@
       anchor = "top-right";
       layer = "overlay";
 
-      background-color = THEME.hexWithOpacity THEME.bg THEME.bg-opacity;
-      border-color = THEME.hexWithOpacity THEME.gray THEME.border-opacity;
+      background-color = config.lib.theme.colors.bg-opacity;
+      border-color = config.lib.theme.colors.border-active-opacity;
       border-size = 1;
       margin = "4,0,0,0";
       padding = 8;
@@ -19,25 +20,25 @@
 
       icons = true;
       max-icon-size = 64;
-      icon-border-radius = 12;
+      icon-border-radius = config.lib.theme.border-radius;
 
-      text-color = THEME.fg;
-      border-radius = THEME.border-radius;
-      font = "${THEME.regular-font} 14";
+      text-color = config.lib.theme.colors.fg;
+      border-radius = config.lib.theme.border-radius;
+      font = "${config.lib.theme.fonts.regular.name} 14";
       markup = true;
       actions = true;
       on-button-left = "invoke-default-action";
       on-button-right = "dismiss";
       on-touch = "invoke-default-action";
 
-      format = "<span font='10' color='${THEME.light-gray}'>%a</span>\\n<b>%s</b>\\n<span font='2'> </span>\\n<span font='12' color='${THEME.light-gray}'>%b</span>";
+      format = "<span font='10' color='${config.lib.theme.colors.fg-secondary}'>%a</span>\\n<b>%s</b>\\n<span font='2'> </span>\\n<span font='12' color='${config.lib.theme.colors.fg-secondary}'>%b</span>";
 
       "urgency=low" = {
-        border-color = THEME.blue;
+        border-color = config.lib.theme.colors.dark-blue;
       };
 
       "urgency=high" = {
-        border-color = THEME.red;
+        border-color = config.lib.theme.colors.dark-red;
         default-timeout = 0;
       };
     };

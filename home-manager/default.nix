@@ -2,7 +2,7 @@
   pkgs,
   inputs,
   lib,
-  THEME,
+  config,
   ...
 }:
 {
@@ -20,7 +20,7 @@
 
   home.sessionVariables = {
     BROWSER = "firefox-devedition";
-    NIX_SRC = THEME.source-folder;
+    NIX_SRC = config.lib.theme.source-folder;
     PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
     XDG_CONFIG_HOME = "/home/dooshii/.config";
     LD_LIBRARY_PATH = lib.makeLibraryPath [
@@ -216,9 +216,10 @@
     cubiomes-viewer # Minecraft biome viewer
     prismlauncher # Minecraft launcher
     ferium # Minecraft mod manager
-    steam # Hub for games
     steam-run # Use dynamically linked games
-    protontricks # Steam's Proton helpers
+    mangohud # Computer usage overlay. `mangohud %command%` in Steam
+    protonup # ProtonGE. Use `protonup -d "~/.steam/root/compatibilitytools.d/"` to install GE
+    lutris # Steam but for Humble Bundle too
     wine # Window compatibility
     winetricks # Wine helpers
     inputs.ow-mod-man.packages.x86_64-linux.owmods-gui # Outer Wilds mod loader

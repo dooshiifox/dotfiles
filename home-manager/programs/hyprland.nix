@@ -1,6 +1,6 @@
 {
   pkgs,
-  THEME,
+  config,
   ...
 }:
 {
@@ -95,20 +95,20 @@
         gaps_in = 4;
         gaps_out = 8;
         border_size = 2;
-        "col.active_border" = THEME.hexToRgbaString THEME.light-gray THEME.border-opacity;
-        "col.inactive_border" = THEME.hexToRgbaString THEME.gray THEME.border-opacity;
+        "col.active_border" = config.lib.theme.colors.border-active-opacity;
+        "col.inactive_border" = config.lib.theme.colors.border-opacity;
 
         layout = "dwindle";
       };
       decoration = {
-        rounding = THEME.border-radius;
+        rounding = config.lib.theme.border-radius;
         blur = {
           enabled = true;
           size = 12;
           passes = 3;
           new_optimizations = true;
         };
-        inactive_opacity = THEME.unfocused-opacity;
+        inactive_opacity = config.lib.theme.opacity.unfocused;
         active_opacity = 1.0;
         fullscreen_opacity = 1.0;
 
@@ -167,7 +167,7 @@
 
       exec-once = [
         "cd ~/Documents/CodingProjects/mpd-rating/ && pnpm dev --host"
-        "${THEME.source-folder}/scripts/music/rng"
+        "${config.lib.theme.source-folder}/scripts/music/rng"
       ];
 
       windowrulev2 = [

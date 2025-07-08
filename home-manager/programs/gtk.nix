@@ -1,32 +1,33 @@
 {
   pkgs,
-  THEME,
+  config,
   ...
 }:
 {
   gtk =
     let
       extra-config = {
-        gtk-application-prefer-dark-theme = if THEME.scheme == "light" then 0 else 1;
+        gtk-application-prefer-dark-theme = if config.lib.theme.colors.variant == "light" then 0 else 1;
       };
     in
     rec {
       enable = true;
+
       gtk4.extraCss = ''
         * {
-          color: ${THEME.fg};
+          color: ${config.lib.theme.colors.fg};
         }
 
         .background,
         contents {
-          background-color: ${THEME.hexWithOpacity THEME.bg THEME.bg-opacity};
+          background-color: ${config.lib.theme.colors.bg-opacity};
         }
         .box,
         popover {
           background-color: transparent;
         }
         highlight {
-          background-color: ${THEME.fg};
+          background-color: ${config.lib.theme.colors.fg};
         }
       '';
       gtk3.extraCss = gtk4.extraCss;
@@ -40,7 +41,7 @@
       };
 
       font = {
-        name = THEME.regular-font;
+        inherit (config.lib.theme.fonts.regular) package name;
         size = 11;
       };
     };

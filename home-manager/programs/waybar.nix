@@ -1,5 +1,5 @@
 # https://github.com/nix-community/home-manager/blob/master/modules/programs/waybar.nix
-{ THEME, ... }:
+{ config, ... }:
 {
   programs.waybar = {
     enable = true;
@@ -140,9 +140,9 @@
             ""
             ""
             ""
-            "<span color='${THEME.yellow}'></span>"
-            "<span color='${THEME.dark-yellow}'></span>"
-            "<span color='${THEME.red}'></span>"
+            "<span color='${config.lib.theme.colors.yellow}'></span>"
+            "<span color='${config.lib.theme.colors.orange}'></span>"
+            "<span color='${config.lib.theme.colors.red}'></span>"
           ];
           tooltip = true;
         };
@@ -152,9 +152,9 @@
             ""
             ""
             ""
-            "<span color='${THEME.yellow}'></span>"
-            "<span color='${THEME.dark-yellow}'></span>"
-            "<span color='${THEME.red}'></span>"
+            "<span color='${config.lib.theme.colors.yellow}'></span>"
+            "<span color='${config.lib.theme.colors.orange}'></span>"
+            "<span color='${config.lib.theme.colors.red}'></span>"
           ];
           tooltip-format = "{percentage}% - {used:0.1f}GiB / {total:0.1f}GiB";
           tooltip = true;
@@ -163,7 +163,7 @@
           interval = 10;
           critical-threshold = 105;
           format = "{icon}";
-          format-critical = "<span class='${THEME.dark-red}'> {temperatureC}°C</span>";
+          format-critical = "<span class='${config.lib.theme.colors.dark-red}'> {temperatureC}°C</span>";
           format-icons = [
             "" # 0
             "" # 5
@@ -183,9 +183,9 @@
             "" # 75
             "" # 80
             "" # 85
-            "<span color='${THEME.yellow}'></span>" # 90
-            "<span color='${THEME.dark-yellow}'></span>" # 95
-            "<span color='${THEME.red}'></span>" # 100
+            "<span color='${config.lib.theme.colors.yellow}'></span>" # 90
+            "<span color='${config.lib.theme.colors.orange}'></span>" # 95
+            "<span color='${config.lib.theme.colors.red}'></span>" # 100
           ];
         };
         battery = {
@@ -217,19 +217,19 @@
 
     style = "
 * {
-    font-family: ${THEME.regular-font}, ${THEME.nerd-font}, FontAwesome, Roboto, Helvetica, Arial,
+    font-family: ${config.lib.theme.fonts.regular.name}, ${config.lib.theme.fonts.symbols.name}, FontAwesome, Roboto, Helvetica, Arial,
         sans-serif;
     font-size: 15px;
     transition: background-color 0.2s ease-out;
 }
 
 window#waybar {
-    color: ${THEME.hexToRgbaString THEME.light-gray 1};
-    font-family: ${THEME.regular-font}, ${THEME.nerd-font}, feather;
+    color: ${config.lib.theme.colors.fg-secondary};
+    font-family: ${config.lib.theme.fonts.regular.name}, ${config.lib.theme.fonts.symbols.name}, feather;
     transition: background-color 0.5s;
-    background: ${THEME.hexToRgbaString THEME.bg THEME.bg-opacity};
+    background: ${config.lib.theme.colors.bg-opacity};
     border-radius: 12px;
-    border: 1px solid ${THEME.hexToRgbaString THEME.gray THEME.border-opacity};
+    border: 1px solid ${config.lib.theme.colors.border-opacity};
 }
 
 #clock,
@@ -275,13 +275,13 @@ window#waybar {
 #power-profiles-daemon:hover,
 #language:hover,
 #mpd:hover {
-    background: ${THEME.hexToRgbaString THEME.gray 0.5};
+    background: ${config.lib.theme.hexToRgbaString config.lib.theme.colors.dark-grey 0.5};
 }
 
 #workspaces button {
     background: transparent;
-    font-family: ${THEME.regular-font}, ${THEME.nerd-font}, feather;
-    color: ${THEME.light-gray};
+    font-family: ${config.lib.theme.fonts.regular.name}, ${config.lib.theme.fonts.symbols.name}, feather;
+    color: ${config.lib.theme.colors.fg-secondary};
     border: none;
     border-radius: 8px;
     margin: 0 0;
@@ -292,12 +292,12 @@ window#waybar {
 }
 
 #workspaces button.active {
-    background: ${THEME.hexToRgbaString THEME.gray 0.5};
+    background: ${config.lib.theme.hexToRgbaString config.lib.theme.colors.dark-grey 0.5};
 }
 
 #workspaces button:hover {
-    background: ${THEME.gray};
-    color: ${THEME.fg};
+    background: ${config.lib.theme.colors.dark-grey};
+    color: ${config.lib.theme.colors.fg};
     box-shadow: none;
 }
 

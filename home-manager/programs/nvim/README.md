@@ -105,57 +105,60 @@
 
 [Full list here](https://www.lazyvim.org/keymaps#snacksnvim)
 
-| Keybind                       | Description                   | Mode |
-| ----------------------------- | ----------------------------- | ---- |
-| `<Space><Space>`              | File picker                   | n    |
-| `<Space>,`                    | Buffer picker                 | n    |
-| `<Space>/`                    | Grep picker for directory     | n    |
-| `<Ctrl><Alt><Down>`           | Duplicate line down           | n    |
-| `<Space>fn`                   | New file                      | n    |
-| `gco`                         | New comment below             | n    |
-| `gcO`                         | New comment above             | n    |
-| `<Space>uh`                   | Inlay hints                   | n    |
-| `<Space>us`                   | Toggle spellcheck             | n    |
-| `<Space>uw`                   | Toggle wordwrapping           | n    |
-| `<Space>qq`                   | Quit all                      | n    |
-| `<Alt><Grave>`                | Focus/Toggle terminal         | n, t |
-| `<Super><Ctrl><Shift><Arrow>` | Resize in direction           | n    |
-| `<Super><Ctrl><Arrow>`        | Switch to window in direction | n, t |
-| `<Space>-`                    | Split down                    | n    |
-| `<Space><Pipe>`               | Split right                   | n    |
-| `<Space>wd`                   | Close window                  | n    |
-| `<Alt><Left/Right>`           | Switch buffer left / right    | n    |
-| `<Alt><Up/Down>`              | Move line up / down           | n    |
-| `<Space>bp`                   | Pin buffer                    | n    |
-| `<Space>bP`                   | Close non-pinned buffers      | n    |
-| `<Space>[B`                   | Move buffer left              | n    |
-| `<Space>]B`                   | Move buffer right             | n    |
-| `<Space>bd`                   | Close buffer                  | n    |
-| `<Space>bD`                   | Close buffer and window       | n    |
-| `<Space>cf`                   | Format file                   | n    |
-| `<Space>cd`                   | Diagnostics                   | n    |
-| `<Space>ud`                   | Toggle diagnostics            | n    |
-| `<Space>ca`                   | Code action                   | n, v |
-| `<Space>cr`                   | Rename                        | n    |
-| `<Space>cR`                   | Rename file                   | n    |
-| `gd`                          | Goto definition               | n    |
-| `gr`                          | List references               | n    |
-| `[[`                          | Previous Reference            | n    |
-| `]]`                          | Next Reference                | n    |
-| `gI`                          | Goto implementation           | n    |
-| `gy`                          | Goto type defintion           | n    |
-| `gD`                          | Goto delcaration              | n    |
-| `K`                           | Hover                         | n    |
-| `gK`                          | Signature help                | n    |
-| `<Ctrl>k`                     | Signature help                | i    |
-| `<Ctrl>/`                     | Toggle comment                | n    |
-| `<Ctrl><Shift>/`              | Toggle block comment          | n    |
-| `>>`                          | Indent line                   | n    |
-| `>[n]`                        | Indent next `n` lines         | n    |
-| `>i}`                         | Indent all code until }       | n    |
-| `<Space>oo`                   | Run task                      | n    |
-| `s`                           | Quick jump                    | n    |
-| `<Space>snt`                  | Search Neovim notifications   | n    |
-| `<Ctrl><Space>`               | Increment selection region    | n    |
-| `<bs>`                        | Decrement selection region    | x    |
-| `cir`                         | Change word under cursor      | n    |
+| Keybind                       | Description                      | Mode |
+| ----------------------------- | -------------------------------- | ---- |
+| `<Space><Space>`              | File picker                      | n    |
+| `<Space>,`                    | Buffer picker                    | n    |
+| `<Space>/`                    | Grep picker for directory        | n    |
+| `<Ctrl><Alt><Down>`           | Duplicate line down              | n    |
+| `<Space>fn`                   | New file                         | n    |
+| `gco`                         | New comment below                | n    |
+| `gcO`                         | New comment above                | n    |
+| `<Space>uh`                   | Inlay hints                      | n    |
+| `<Space>us`                   | Toggle spellcheck                | n    |
+| `<Space>uw`                   | Toggle wordwrapping              | n    |
+| `<Space>qq`                   | Quit all                         | n    |
+| `<Alt><Grave>`                | Focus/Toggle terminal            | n, t |
+| `<Super><Ctrl><Shift><Arrow>` | Resize in direction              | n    |
+| `<Super><Ctrl><Arrow>`        | Switch to window in direction    | n, t |
+| `<Space>-`                    | Split down                       | n    |
+| `<Space><Pipe>`               | Split right                      | n    |
+| `<Space>wd`                   | Close window                     | n    |
+| `<Alt><Left/Right>`           | Switch buffer left / right       | n    |
+| `<Alt><Up/Down>`              | Move line up / down              | n    |
+| `<Space>bp`                   | Pin buffer                       | n    |
+| `<Space>bP`                   | Close non-pinned buffers         | n    |
+| `<Space>[B`                   | Move buffer left                 | n    |
+| `<Space>]B`                   | Move buffer right                | n    |
+| `<Space>bd`                   | Close buffer                     | n    |
+| `<Space>bD`                   | Close buffer and window          | n    |
+| `<Space>cf`                   | Format file                      | n    |
+| `<Space>cd`                   | Diagnostics                      | n    |
+| `<Space>ud`                   | Toggle diagnostics               | n    |
+| `<Space>ca`                   | Code action                      | n, v |
+| `<Space>cr`                   | Rename                           | n    |
+| `<Space>cR`                   | Rename file                      | n    |
+| `gd`                          | Goto definition                  | n    |
+| `gr`                          | List references                  | n    |
+| `[[`                          | Previous Reference               | n    |
+| `]]`                          | Next Reference                   | n    |
+| `gI`                          | Goto implementation              | n    |
+| `gy`                          | Goto type defintion              | n    |
+| `gD`                          | Goto delcaration                 | n    |
+| `K`                           | Hover                            | n    |
+| `gK`                          | Signature help                   | n    |
+| `<Ctrl>k`                     | Signature help                   | i    |
+| `<Ctrl>/`                     | Toggle comment                   | n    |
+| `<Ctrl><Shift>/`              | Toggle block comment             | n    |
+| `>>`                          | Indent line                      | n    |
+| `>[n]`                        | Indent next `n` lines            | n    |
+| `>i}`                         | Indent all code until }          | n    |
+| `<Space>oo`                   | Run task                         | n    |
+| `s`                           | Quick jump                       | n    |
+| `<Space>snt`                  | Search Neovim notifications      | n    |
+| `<Ctrl><Space>`               | Increment selection region       | n    |
+| `<bs>`                        | Decrement selection region       | x    |
+| `cir`                         | Change word under cursor         | n    |
+| `gsa`                         | Surround with content            | n, v |
+| `gsaat?`                      | Surround tag with custom content | n    |
+| `gsdt`                        | Delete tag on cursor             | n    |

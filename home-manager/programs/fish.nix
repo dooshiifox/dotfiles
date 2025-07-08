@@ -1,6 +1,6 @@
 # A better terminal
 # https://github.com/nix-community/home-manager/blob/master/modules/programs/fish.nix
-{ THEME, ... }:
+{ config, ... }:
 {
   imports = [
     ../../secrets/fish.nix
@@ -12,7 +12,7 @@
       "," = "clear";
       "cat" = "bat";
       "celeste" = "ulimit -n 8192 && /home/dooshii/Documents/Games/Celeste/Celeste";
-      "i" = "${THEME.source-folder}/scripts/system/init";
+      "i" = "${config.lib.theme.source-folder}/scripts/system/init";
       "jk" = "cd ..";
       "jkk" = "cd ../..";
       "jkkk" = "cd ../../..";
@@ -21,9 +21,9 @@
       "l" = "exa -la";
       "ll" = "exa -l";
       "ls" = "exa";
-      "mrng" = "${THEME.source-folder}/scripts/music/rng";
-      "ni" = "${THEME.source-folder}/scripts/nix-rebuild";
-      "clean-old-gens" = "${THEME.source-folder}/scripts/clean-old-gens";
+      "mrng" = "${config.lib.theme.source-folder}/scripts/music/rng";
+      "ni" = "${config.lib.theme.source-folder}/scripts/nix-rebuild";
+      "clean-old-gens" = "${config.lib.theme.source-folder}/scripts/clean-old-gens";
       "w" = "nvim /home/dooshii/Documents/CodingProjects/pin/work";
       "x" = "exit";
       "q" = "exit";

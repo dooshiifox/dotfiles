@@ -1,16 +1,14 @@
 {
   lib,
-  THEME,
+  config,
   ...
-}: {
+}:
+{
   dconf = {
     enable = true;
     settings = {
       "org/gnome/desktop/interface" = {
-        color-scheme =
-          if THEME.scheme == "light"
-          then "default"
-          else "prefer-dark";
+        color-scheme = if config.lib.theme.colors.variant == "light" then "default" else "prefer-dark";
         gtk-enable-primary-paste = false;
       };
       "org/gnome/desktop/wm/preferences" = {
@@ -36,8 +34,8 @@
 
       "org/gnome/desktop/wm/keybindings" = {
         # Window commands
-        close = ["<Super>w"];
-        activate-window-menu = ["<Super>space"];
+        close = [ "<Super>w" ];
+        activate-window-menu = [ "<Super>space" ];
 
         # Z-order
         toggle-above = lib.gvariant.mkEmptyArray lib.gvariant.type.string;
@@ -79,31 +77,31 @@
         show-desktop = lib.gvariant.mkEmptyArray lib.gvariant.type.string;
 
         # Workspace commands
-        switch-to-workspace-1 = ["<Super>1"];
-        switch-to-workspace-2 = ["<Super>2"];
-        switch-to-workspace-3 = ["<Super>3"];
-        switch-to-workspace-4 = ["<Super>4"];
-        switch-to-workspace-5 = ["<Super>5"];
-        switch-to-workspace-6 = ["<Super>6"];
-        switch-to-workspace-7 = ["<Super>7"];
-        switch-to-workspace-8 = ["<Super>8"];
-        switch-to-workspace-9 = ["<Super>9"];
-        switch-to-workspace-10 = ["<Super>0"];
+        switch-to-workspace-1 = [ "<Super>1" ];
+        switch-to-workspace-2 = [ "<Super>2" ];
+        switch-to-workspace-3 = [ "<Super>3" ];
+        switch-to-workspace-4 = [ "<Super>4" ];
+        switch-to-workspace-5 = [ "<Super>5" ];
+        switch-to-workspace-6 = [ "<Super>6" ];
+        switch-to-workspace-7 = [ "<Super>7" ];
+        switch-to-workspace-8 = [ "<Super>8" ];
+        switch-to-workspace-9 = [ "<Super>9" ];
+        switch-to-workspace-10 = [ "<Super>0" ];
         switch-to-workspace-down = lib.gvariant.mkEmptyArray lib.gvariant.type.string;
         switch-to-workspace-last = lib.gvariant.mkEmptyArray lib.gvariant.type.string;
         switch-to-workspace-left = lib.gvariant.mkEmptyArray lib.gvariant.type.string;
         switch-to-workspace-right = lib.gvariant.mkEmptyArray lib.gvariant.type.string;
         switch-to-workspace-up = lib.gvariant.mkEmptyArray lib.gvariant.type.string;
-        move-to-workspace-1 = ["<Shift><Super>1"];
-        move-to-workspace-2 = ["<Shift><Super>2"];
-        move-to-workspace-3 = ["<Shift><Super>3"];
-        move-to-workspace-4 = ["<Shift><Super>4"];
-        move-to-workspace-5 = ["<Shift><Super>5"];
-        move-to-workspace-6 = ["<Shift><Super>6"];
-        move-to-workspace-7 = ["<Shift><Super>7"];
-        move-to-workspace-8 = ["<Shift><Super>8"];
-        move-to-workspace-9 = ["<Shift><Super>9"];
-        move-to-workspace-10 = ["<Shift><Super>0"];
+        move-to-workspace-1 = [ "<Shift><Super>1" ];
+        move-to-workspace-2 = [ "<Shift><Super>2" ];
+        move-to-workspace-3 = [ "<Shift><Super>3" ];
+        move-to-workspace-4 = [ "<Shift><Super>4" ];
+        move-to-workspace-5 = [ "<Shift><Super>5" ];
+        move-to-workspace-6 = [ "<Shift><Super>6" ];
+        move-to-workspace-7 = [ "<Shift><Super>7" ];
+        move-to-workspace-8 = [ "<Shift><Super>8" ];
+        move-to-workspace-9 = [ "<Shift><Super>9" ];
+        move-to-workspace-10 = [ "<Shift><Super>0" ];
         move-to-workspace-down = lib.gvariant.mkEmptyArray lib.gvariant.type.string;
         move-to-workspace-last = lib.gvariant.mkEmptyArray lib.gvariant.type.string;
         move-to-workspace-left = lib.gvariant.mkEmptyArray lib.gvariant.type.string;
@@ -112,10 +110,10 @@
         toggle-on-all-workspaces = lib.gvariant.mkEmptyArray lib.gvariant.type.string;
 
         # Window switching
-        switch-applications = ["<Super>Tab"];
-        switch-applications-backward = ["<Shift><Super>Tab"];
-        switch-group = ["<Super>Above_Tab"];
-        switch-group-backward = ["<Shift><Super>Above_Tab"];
+        switch-applications = [ "<Super>Tab" ];
+        switch-applications-backward = [ "<Shift><Super>Tab" ];
+        switch-group = [ "<Super>Above_Tab" ];
+        switch-group-backward = [ "<Shift><Super>Above_Tab" ];
         switch-windows = lib.gvariant.mkEmptyArray lib.gvariant.type.string;
         switch-windows-backward = lib.gvariant.mkEmptyArray lib.gvariant.type.string;
         switch-panels = lib.gvariant.mkEmptyArray lib.gvariant.type.string;
@@ -133,7 +131,7 @@
       };
 
       "org/gnome/settings-daemon/plugins/media-keys" = {
-        home = ["<Super>e"];
+        home = [ "<Super>e" ];
         # These keyboard commands should be sensibly defaulted.
         # Regardless, you can override them here.
 
