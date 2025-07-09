@@ -211,7 +211,7 @@ rec {
 
       border = dark-grey;
       border-active = light-grey;
-      accent = light-blue;
+      accent = "#408adf";
       # Text on an accent background
       accent-fg = black;
 

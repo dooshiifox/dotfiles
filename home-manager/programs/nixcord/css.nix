@@ -153,6 +153,12 @@
   [class^="folderIcon"]>svg {
     scale: 1.25;
   }
+  [class^="folderGroupBackground"] {
+    border: none !important;
+  }
+  [class^="sidebarResizeHandle"] {
+    border: 1px solid var(--border-subtle);
+  }
 
   /* .visual-refresh div[aria-label="Direct Messages"]>div {
     background-color: var(--neutral-63);
@@ -268,35 +274,36 @@
   .theme-darker,
   .theme-midnight,
   .visual-refresh {
-    --activity-card-background: ${theme.colors.black} !important;
-    --background-accent: ${theme.colors.grey} !important;
+    --activity-card-background: ${theme.colors.bg-secondary} !important;
+    --background-accent: ${theme.colors.bg-secondary} !important;
     --background-floating: ${theme.colors.bg-secondary} !important;
-    --background-mentioned-hover: ${theme.colors.bg-secondary} !important;
-    --background-mentioned: ${theme.colors.bg-secondary} !important;
+    --background-mentioned-hover: ${theme.colors.orange}10 !important;
+    --background-mentioned: ${theme.colors.orange}0b !important;
     --background-message-highlight: ${theme.colors.bg-secondary} !important;
-    --background-message-hover: ${theme.colors.bg-secondary} !important;
-    --background-modifier-accent: ${theme.colors.bg-secondary} !important;
-    --background-modifier-active: ${theme.colors.bg-secondary} !important;
-    --background-modifier-hover: ${theme.colors.bg-secondary} !important;
-    --background-modifier-selected: ${theme.colors.bg-secondary} !important;
+    --background-message-hover: ${theme.colors.bg-secondary}80 !important;
+    --background-modifier-accent: ${theme.colors.bg-secondary-opacity} !important;
+    --background-modifier-active: ${theme.colors.bg-secondary-opacity} !important;
+    --background-modifier-hover: ${theme.colors.bg-secondary-opacity} !important;
+    --background-modifier-selected: ${theme.colors.bg-secondary-opacity} !important;
     --background-primary: ${theme.colors.bg} !important;
     --background-secondary-alt: ${theme.colors.bg-secondary} !important;
     --background-secondary: ${theme.colors.bg-secondary} !important;
     --background-surface-highest: ${theme.colors.bg-tertiary} !important;
-    --background-surface-higher: ${theme.colors.bg-tertiary} !important;
-    --background-surface-high: ${theme.colors.bg-tertiary} !important;
+    --background-surface-higher: ${theme.colors.bg-secondary} !important;
+    --background-surface-high: ${theme.colors.bg-secondary} !important;
     --background-tertiary: ${theme.colors.bg-tertiary} !important;
-    --background-base-low: ${theme.colors.bg} !important;
-    --background-base-lower: ${theme.colors.bg-secondary} !important;
-    --background-base-lowest: ${theme.colors.bg-tertiary} !important;
+    --background-base-low: ${theme.colors.bg-opacity} !important;
+    --background-base-lower: ${theme.colors.bg-secondary-opacity} !important;
+    --background-base-lowest: transparent !important;
     --background-base-tertiary: ${theme.colors.bg-tertiary} !important;
     --background-code: ${theme.colors.bg-tertiary} !important;
-    --background-mod-subtle: ${theme.colors.bg-tertiary} !important;
+    --background-mod-subtle: ${theme.colors.bg-tertiary}80 !important;
+    --background-mod-strong: ${theme.colors.bg-tertiary}40 !important;
     --bg-base-secondary: ${theme.colors.bg-secondary} !important;
     --bg-base-tertiary: ${theme.colors.bg-tertiary} !important;
-    --bg-brand: ${theme.colors.bg-tertiary} !important;
+    --bg-brand: ${theme.colors.accent}80 !important;
     --bg-mod-faint: ${theme.colors.bg-secondary} !important;
-    --bg-overlay-2: ${theme.colors.bg-secondary} !important;
+    --bg-overlay-2: transparent !important;
     --bg-overlay-3: ${theme.colors.bg-secondary} !important;
     --bg-overlay-color-inverse: ${theme.colors.bg-secondary} !important;
     --bg-surface-raised: ${theme.colors.bg-secondary} !important;
@@ -322,7 +329,7 @@
     --button-positive-background: ${theme.colors.green} !important;
     --button-positive-background-hover: ${theme.colors.lime} !important;
     --button-secondary-background: ${theme.colors.bg-secondary} !important;
-    --button-secondary-background-hover: ${theme.colors.bg-tertiary} !important;
+    --button-secondary-background-hover: ${theme.colors.bg-secondary-opacity} !important;
     --card-primary-bg: ${theme.colors.bg-secondary} !important;
     --channel-icon: ${theme.colors.fg-secondary} !important;
     --channels-default: ${theme.colors.fg-secondary} !important;
@@ -336,21 +343,22 @@
     --control-brand-foreground-new: ${theme.colors.accent} !important;
     --control-brand-foreground: ${theme.colors.accent} !important;
     --custom-notice-text: ${theme.colors.bg-secondary} !important;
+    --custom-channel-members-bg: transparent !important;
     --font-display: var(--font, "gg sans") !important;
     --font-headline: var(--font, "gg sans") !important;
     --font-primary: var(--font, "gg sans") !important;
     --green-330: ${theme.colors.lime} !important;
     --green-360: ${theme.colors.lime} !important;
-    --header-primary: ${theme.colors.fg-secondary} !important;
+    --header-primary: ${theme.colors.fg} !important;
     --header-secondary: ${theme.colors.fg-secondary} !important;
     --home-background: ${theme.colors.bg} !important;
     --info-warning-foreground: ${theme.colors.orange} !important;
-    --input-background: ${theme.colors.bg-tertiary} !important;
+    --input-background: ${theme.colors.bg-secondary-opacity} !important;
     --interactive-active: ${theme.colors.fg} !important;
     --interactive-hover: ${theme.colors.fg} !important;
     --interactive-muted: ${theme.colors.fg-secondary} !important;
     --interactive-normal: ${theme.colors.fg} !important;
-    --mention-background: ${theme.colors.gray} !important;
+    --mention-background: ${theme.colors.accent}40 !important;
     --mention-foreground: ${theme.colors.fg} !important;
     --menu-item-danger-active-bg: ${theme.colors.dark-red} !important;
     --menu-item-danger-hover-bg: ${theme.colors.red} !important;
@@ -374,10 +382,10 @@
     --red-500: ${theme.colors.red} !important;
     --red-630: ${theme.colors.red} !important;
     --red: ${theme.colors.red} !important;
-    --scrollbar-auto-thumb: ${theme.colors.bg} !important;
-    --scrollbar-auto-track: ${theme.colors.bg-secondary};
-    --scrollbar-thin-thumb: ${theme.colors.bg} !important;
-    --scrollbar-thin-tra ${theme.colors.bg-secondary}ent;
+    --scrollbar-auto-thumb: ${theme.colors.bg-secondary-opacity} !important;
+    --scrollbar-auto-track: transparent;
+    --scrollbar-thin-thumb: ${theme.colors.bg-secondary-opacity} !important;
+    --scrollbar-thin-track: transparent;
     --search-popout-option-fade: none;
     --search-popout-option-non-text-color: ${theme.colors.fg} !important;
     --status-danger-background: ${theme.colors.dark-red} !important;
@@ -385,7 +393,7 @@
     --status-negative: ${theme.colors.dark-red} !important;
     --status-positive-background: ${theme.colors.green} !important;
     --status-positive-text: ${theme.colors.fg} !important;
-    --status-positive: ${theme.colors.green} !important;
+    --status-positive: ${theme.colors.lime} !important;
     --status-success: ${theme.colors.green} !important;
     --status-warning-background: ${theme.colors.bg} !important;
     --status-warning: ${theme.colors.orange} !important;
@@ -473,17 +481,6 @@
     color: ${theme.colors.bg-tertiary};
   }
 
-  /*--- Folder Icon Recolor ---*/
-  div.folderIconWrapper__48112 {
-    background-color: ${theme.colors.bg-secondary} !important;
-  }
-
-  /*--- Voice Chat Action Icon Recolor ---*/
-  path[fill^="rgb(88,101,242)"],
-  path[stroke^="rgb(88,101,242)"] {
-    fill: ${theme.colors.fg-secondary} !important;
-    stroke: ${theme.colors.fg-secondary} !important;
-  }
   .lottieIcon__5eb9b.lottieIconColors__5eb9b.buttonIcon_e131a9 {
     --__lottieIconColor: ${theme.colors.fg-secondary} !important;
   }
@@ -538,7 +535,7 @@
     fill: ${theme.colors.fg} !important;
   }
   path[d^="M12 22a10 10 0 1"] {
-    fill: ${theme.colors.bg-tertiary} !important;
+    fill: ${theme.colors.fg-secondary} !important;
   }
 
   /*--- Voice Chat Icon Badge Recolor ---*/
@@ -633,36 +630,43 @@
       fill: ${theme.colors.green} !important;
     }
     div[class^="topicsPillContainer"] {
-      --bg-overlay-2: ${theme.colors.bg-tertiary} !important;
+      --bg-overlay-2: ${theme.colors.bg-tertiary-opacity} !important;
     }
     .bg__960e4 {
-      background: ${theme.colors.bg} !important;
+      background: transparent !important;
     }
     .wrapper_ef3116 {
-      background-color: ${theme.colors.bg} !important;
+      background-color: transparent !important;
     }
     .sidebar_c48ade {
-      background-color: ${theme.colors.bg} !important;
+      background-color: transparent !important;
+    }
+    [class*="sidebarListRounded"] {
+      backdrop-filter: unset !important;
     }
     .searchBar__97492 {
-      background-color: ${theme.colors.bg-tertiary} !important;
+      background-color: ${theme.colors.bg-secondary-opacity} !important;
     }
     .channelTextArea_f75fb0 {
-      background: ${theme.colors.bg-tertiary} !important;
+      background: ${theme.colors.bg-tertiary-opacity} !important;
     }
     .chatContent_f75fb0 {
-      background-color: ${theme.colors.bg-secondary} !important;
+      background-color: transparent !important;
     }
     .members_c8ffbb,
     .member_c8ffbb {
-      background: ${theme.colors.bg} !important;
+      background: transparent !important;
     }
     .voiceBar__7aaec {
-      background-color: ${theme.colors.bg-tertiary} !important;
+      background-color: ${theme.colors.bg-tertiary-opacity} !important;
     }
     button.button__67645.redGlow__67645,
     span.button__67645.redGlow__67645 {
-      background-color: ${theme.colors.bg-tertiary} !important;
+      background-color: ${theme.colors.bg-tertiary-opacity} !important;
+    }
+
+    .chat_f75fb0 {
+      background-color: transparent;
     }
 
     /*--- Status Icon Recolor (DO NOT DISTURB) ---*/
@@ -686,5 +690,14 @@
     rect[fill^="#83838b"] {
       fill: ${theme.colors.grey} !important;
     }
+  }
+  body, #app-mount, .app_a3002d, .app__160d8 {
+    background-color: transparent !important;
+  }
+  html {
+    background-color: ${theme.colors.bg-opacity};
+  }
+  [class*="fieldList"] {
+    background-color: unset;
   }
 ''
