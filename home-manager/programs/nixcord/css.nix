@@ -157,7 +157,7 @@
     border: none !important;
   }
   [class^="sidebarResizeHandle"] {
-    border: 1px solid var(--border-subtle);
+    border-right: 1px solid var(--border-subtle);
   }
 
   /* .visual-refresh div[aria-label="Direct Messages"]>div {
@@ -335,7 +335,7 @@
     --channels-default: ${theme.colors.fg-secondary} !important;
     --channel-text-area-placeholder: ${theme.colors.fg-secondary} !important;
     --channeltextarea-background: ${theme.colors.bg-secondary} !important;
-    --chat-background-default: ${theme.colors.bg-secondary} !important;
+    --chat-background-default: ${theme.colors.bg-secondary-opacity} !important;
     --checkbox-background-checked: ${theme.colors.accent} !important;
     --checkbox-border-checked: ${theme.colors.accent} !important;
     --checkbox-background-default: ${theme.colors.bg-secondary} !important;
