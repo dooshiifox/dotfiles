@@ -60,7 +60,6 @@
 
     # Social
     telegram-desktop # Telegram client
-    (vesktop.override { withSystemVencord = false; }) # Discord + Vencord
     whatsapp-for-linux # Whatsapp client
 
     # Networking

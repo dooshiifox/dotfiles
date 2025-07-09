@@ -44,9 +44,9 @@
 
       active_tab_background ${config.lib.theme.colors.bg}
       active_tab_foreground ${config.lib.theme.colors.fg}
-      inactive_tab_background ${config.lib.theme.colors.bg-dark}
+      inactive_tab_background ${config.lib.theme.colors.bg-secondary}
       inactive_tab_foreground ${config.lib.theme.colors.fg-secondary}
-      tab_bar_background ${config.lib.theme.colors.bg-darkest}
+      tab_bar_background ${config.lib.theme.colors.bg-tertiary}
 
       color0 ${config.lib.theme.colors.base00}
       color1 ${config.lib.theme.colors.base08}

@@ -184,9 +184,9 @@ rec {
       author = "dooshii";
       variant = "dark";
 
-      bg-darkest = "#000003";
-      bg-dark = "#040407";
       bg = "#07070a";
+      bg-secondary = black;
+      bg-tertiary = dark-grey;
       black = "#1f2024";
       dark-grey = "#373b41";
       grey = "#545b65";
@@ -208,13 +208,16 @@ rec {
       light-blue = "#81a2be";
       magenta = "#85678f";
       light-magenta = "#b294bb";
+
       border = dark-grey;
       border-active = light-grey;
+      accent = light-blue;
+      # Text on an accent background
+      accent-fg = black;
 
       bg-opacity = hexWithOpacity bg opacity.bg;
-      bg-dark-opacity = hexWithOpacity bg-dark opacity.bg;
-      bg-darkest-opacity = hexWithOpacity bg-darkest opacity.bg;
-      bg-dark-grey-opacity = hexWithOpacity dark-grey opacity.bg;
+      bg-secondary-opacity = hexWithOpacity bg-secondary opacity.bg;
+      bg-tertiary-opacity = hexWithOpacity bg-tertiary opacity.bg;
       border-opacity = hexWithOpacity border opacity.border;
       border-active-opacity = hexWithOpacity border-active opacity.border;
 
@@ -222,7 +225,6 @@ rec {
       dark-gray = dark-grey;
       gray = grey;
       light-gray = light-grey;
-      bg-dark-gray-opacity = bg-dark-grey-opacity;
 
       base00 = bg;
       base01 = black;
@@ -240,8 +242,8 @@ rec {
       base0D = dark-blue;
       base0E = magenta;
       base0F = brown;
-      base10 = bg-dark;
-      base11 = bg-darkest;
+      base10 = bg-secondary;
+      base11 = bg-tertiary;
       base12 = red;
       base13 = cream;
       base14 = lime;

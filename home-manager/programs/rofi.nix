@@ -25,7 +25,7 @@
       let
         inherit (config.lib.formats.rasi) mkLiteral;
         background = mkLiteral config.lib.theme.colors.bg-opacity;
-        active = mkLiteral config.lib.theme.colors.bg-dark-grey-opacity;
+        active = mkLiteral config.lib.theme.colors.bg-secondary-opacity;
         text = mkLiteral config.lib.theme.colors.fg;
         secondary-text = mkLiteral config.lib.theme.colors.fg-secondary;
       in

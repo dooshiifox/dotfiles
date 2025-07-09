@@ -89,7 +89,8 @@
 - Testing
   - [neotest (Default)](https://www.lazyvim.org/extras/test/core)
 - UI Greeter
-  - [alpha-nvim (Default)](https://www.lazyvim.org/extras/ui/alpha)
+  - [snacks.nvim (Default)](https://github.com/folke/snacks.nvim)
+  - [alpha-nvim](https://www.lazyvim.org/extras/ui/alpha)
   - [dashboard-nvim](https://www.lazyvim.org/extras/ui/dashboard-nvim)
   - [mini.starter](https://github.com/echasnovski/mini.starter)
 - UI Layout

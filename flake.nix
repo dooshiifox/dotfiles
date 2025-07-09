@@ -31,6 +31,9 @@
     base16 = {
       url = "github:SenchoPens/base16.nix";
     };
+    nixcord = {
+      url = "github:kaylorben/nixcord/ba124c7bfd13da257f621f7b2b74e750f527a5c1";
+    };
     # hypr-dynamic-cursors = {
     #   url = "github:VirtCode/hypr-dynamic-cursors";
     #   inputs.hyprland.follows = "hyprland"; # to make sure that the plugin is built for the correct version of hyprland
@@ -69,6 +72,7 @@
             home-manager.backupFileExtension = "hmbackup";
 
             home-manager.users.dooshii.imports = [
+              inputs.nixcord.homeModules.nixcord
               ./theme.nix
               ./home-manager
             ];

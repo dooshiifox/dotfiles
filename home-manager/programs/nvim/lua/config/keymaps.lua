@@ -46,3 +46,9 @@ map("v", "<C-/>", "gc", { remap = true, desc = "Toggle comment" })
 --Ctrl+Shift+/ = Toggle block comment
 map("n", "<C-S-/>", "gbc", { remap = true, desc = "Toggle block comment" })
 map("v", "<C-S-/>", "gb", { remap = true, desc = "Toggle block comment" })
+
+map("n", "<C-D>", "viw", { desc = "Select word" })
+map("v", "<C-D>", function()
+	local mc = require("multicursor-nvim")
+	mc.matchAddCursor(1)
+end, { desc = "Add cursor for repeated selection" })

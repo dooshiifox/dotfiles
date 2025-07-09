@@ -7,6 +7,7 @@
   imports =
     [
       ./vscode
+      ./nixcord
       ./alacritty.nix
       ./bat.nix
       ./chromium.nix
