@@ -50,9 +50,9 @@ in
       active_tab_foreground ${colors.fg}
       inactive_tab_background ${colors.bg-secondary}
       inactive_tab_foreground ${colors.fg-secondary}
-      tab_bar_background ${colors.bg-tertiary}
+      tab_bar_background #00000000
 
-      transparent_background_colors ${colors.bg} ${colors.bg-secondary} ${colors.bg-tertiary}
+      transparent_background_colors ${colors.bg-secondary} ${colors.bg-tertiary}
 
       color0 ${colors.base00}
       color1 ${colors.base08}

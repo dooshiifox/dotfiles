@@ -1,6 +1,6 @@
 # Firefox web browser
 # https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox.nix
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 let
   mimeTypes = [
     "application/json"
@@ -19,6 +19,8 @@ let
     "x-scheme-handler/unknown"
     "x-scheme-handler/https"
   ];
+  theme = config.lib.theme;
+  colors = theme.colors;
 in
 {
   xdg.mimeApps.defaultApplications = builtins.listToAttrs (
@@ -38,11 +40,82 @@ in
       id = 0;
       isDefault = true;
       name = "dev-edition-default";
-      # userChrome = '''';
-      # userContent = '''';
+      userChrome = ''
+        :root {
+          --bg: ${colors.bg-opacity} !important;
+          --toolbarseparator-color: ${colors.border-opacity} !important;
+          --chrome-content-separator-color: transparent !important;
+          --tab-selected-bgcolor: ${colors.bg-secondary-opacity} !important;
+          --tab-selected-outline-color: ${colors.border-active-opacity} !important;
+          /* Floating menus */
+          --arrowpanel-background: ${colors.bg-secondary} !important;
+          --arrowpanel-color: ${colors.fg} !important;
+          --panel-background: ${colors.bg-secondary} !important;
+          --panel-color: ${colors.fg} !important;
+          /* Background tab text */
+          --lwt-text-color: ${colors.fg-secondary} !important;
+        }
+
+        :root,
+        toolbar,
+        #browser,
+        #tabbrowser-tabpanels,
+        #nav-bar,
+        #navigator-toolbox,
+        hbox#urlbar-background {
+          background: transparent !important;
+        }
+
+        #nav-bar {
+          border-top: none !important;
+        }
+
+        /* window transparencies */
+        #main-window {
+          background: var(--bg) !important;
+        }
+
+        #urlbar[open] #urlbar-background {
+          inset: unset !important;
+          left: 2px !important;
+          right: 2px !important;
+          top: 2px !important;
+          height: 36px;
+        }
+        #urlbar[open] #urlbar-results {
+          background: ${colors.bg-secondary} !important;
+          backdrop-filter: blur(12px);
+          border: 0.01px solid var(--arrowpanel-border-color);
+          box-shadow: 0 2px 14px rgba(0, 0, 0, 0.13);
+          border-radius: var(--toolbarbutton-border-radius);
+          padding-top: 0 !important;
+        }
+        .urlbarView {
+          overflow: unset !important;
+          margin-top: 4px !important;
+          border: unset !important;
+        }
+        .urlbarView-body-inner {
+          border: unset !important;
+        }
+        menupopup {
+          backdrop-filter: blur(12px);
+        }
+      '';
+      userContent = ''
+        @-moz-document url("about:home"), url("about:newtab") {
+          html {
+            --newtab-background-color: transparent !important;
+            --newtab-background-color-secondary: ${colors.bg-secondary}80 !important;
+            --newtab-text-primary-color: ${colors.fg} !important;
+            --newtab-text-secondary-color: ${colors.bg-secondary} !important;
+          }
+        }
+      '';
       settings = {
-        "toolkit.legacyUserProfileCustomizations.stylesheets" = true; # Enable customChrome.cs
+        "toolkit.legacyUserProfileCustomizations.stylesheets" = true; # Enable customChrome.css
         "svg.context-properties.content.enabled" = true; # Allows for theming specific icons
+        "browser.tabs.allow_transparent_browser" = true;
         "browser.uidensity" = 0;
         "extensions.autoDisableScopes" = 0;
         "accessibility.typeaheadfind.flashBar" = 0;
@@ -86,6 +159,9 @@ in
         "devtools.webconsole.timestampMessages" = true;
         "devtools.webextensions.@react-devtools.enabled" = true;
         "extensions.recommendations.hideNotice" = true;
+        "font.name.monospace.x-western" = theme.fonts.monospace.name;
+        "font.name.sans-serif.x-western" = theme.fonts.sansSerif.name;
+        "font.name.serif.x-western" = theme.fonts.serif.name;
         "privacy.donottrackheader.enabled" = true;
         "privacy.fingerprintingProtection" = true;
         "sidebar.new-sidebar.has-used" = true;
