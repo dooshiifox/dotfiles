@@ -46,12 +46,12 @@ in
 
       url_color ${colors.accent}
 
-      active_tab_background ${colors.bg-tertiary}
+      active_tab_background ${colors.bg-tertiary-opacity}
       active_tab_foreground ${colors.fg}
-      inactive_tab_background ${colors.bg-secondary}
+      inactive_tab_background ${colors.bg-secondary-opacity}
       inactive_tab_foreground ${colors.fg-secondary}
-      tab_bar_background ${colors.bg}
-      tab_bar_margin_color ${colors.bg}
+      tab_bar_background ${colors.bg-opacity}
+      tab_bar_margin_color ${colors.bg-opacity}
 
       transparent_background_colors ${colors.bg-secondary} ${colors.bg-tertiary}
 
