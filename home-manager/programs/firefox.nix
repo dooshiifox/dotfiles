@@ -1,6 +1,7 @@
 # Firefox web browser
 # https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox.nix
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   mimeTypes = [
     "application/json"
     "application/pdf"
@@ -18,31 +19,31 @@
     "x-scheme-handler/unknown"
     "x-scheme-handler/https"
   ];
-in {
-  xdg.mimeApps.defaultApplications = builtins.listToAttrs (map (mimeType: {
+in
+{
+  xdg.mimeApps.defaultApplications = builtins.listToAttrs (
+    map (mimeType: {
       name = mimeType;
-      value = ["firefox-devedition.desktop"];
-    })
-    mimeTypes);
+      value = [ "firefox-devedition.desktop" ];
+    }) mimeTypes
+  );
 
   programs.firefox = {
     enable = true;
     package = pkgs.firefox-devedition;
 
-    policies = {};
+    policies = { };
 
     profiles.dooshii = {
       id = 0;
       isDefault = true;
       name = "dev-edition-default";
-      userChrome = ''
-      '';
-      userContent = ''
-      '';
+      # userChrome = '''';
+      # userContent = '''';
       settings = {
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true; # Enable customChrome.cs
+        "svg.context-properties.content.enabled" = true; # Allows for theming specific icons
         "browser.uidensity" = 0;
-        "svg.context-properties.content.enabled" = true;
         "extensions.autoDisableScopes" = 0;
         "accessibility.typeaheadfind.flashBar" = 0;
         "app.normandy.first_run" = false;
@@ -55,7 +56,8 @@ in {
         "browser.engagement.downloads-button.has-used" = true;
         "browser.engagement.fxa-toolbar-menu-button.has-used" = true;
         "browser.engagement.sidebar-button.has-used" = true;
-        "browser.firefox-view.feature-tour" = "{\"message\":\"FIREFOX_VIEW_FEATURE_TOUR\",\"screen\":\"\",\"complete\":true}";
+        "browser.firefox-view.feature-tour" =
+          "{\"message\":\"FIREFOX_VIEW_FEATURE_TOUR\",\"screen\":\"\",\"complete\":true}";
         "browser.firefox-view.view-count" = 1;
         "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
         "browser.startup.page" = 3;
