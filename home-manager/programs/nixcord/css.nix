@@ -332,7 +332,7 @@
     --button-secondary-background-hover: ${theme.colors.bg-secondary-opacity} !important;
     --card-primary-bg: ${theme.colors.bg-secondary} !important;
     --channel-icon: ${theme.colors.fg-secondary} !important;
-    --channels-default: ${theme.colors.fg-secondary} !important;
+    --channels-default: ${theme.colors.light-grey} !important;
     --channel-text-area-placeholder: ${theme.colors.fg-secondary} !important;
     --channeltextarea-background: ${theme.colors.bg-secondary} !important;
     --chat-background-default: ${theme.colors.bg-secondary-opacity} !important;
@@ -644,6 +644,9 @@
     [class*="sidebarListRounded"] {
       backdrop-filter: unset !important;
     }
+    [class*="tabBody"] {
+      background-color: transparent !important;
+    }
     .searchBar__97492 {
       background-color: ${theme.colors.bg-secondary-opacity} !important;
     }
@@ -667,6 +670,11 @@
 
     .chat_f75fb0 {
       background-color: transparent;
+    }
+
+    div[class*="folderButton"] > div > div[class*="lowerBadge"] {
+      bottom: -3px !important;
+      right: -3px !important;
     }
 
     /*--- Status Icon Recolor (DO NOT DISTURB) ---*/

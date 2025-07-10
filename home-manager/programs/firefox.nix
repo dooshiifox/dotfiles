@@ -84,7 +84,7 @@ in
         }
         #urlbar[open] #urlbar-results {
           background: ${colors.bg-secondary} !important;
-          backdrop-filter: blur(12px);
+          /* backdrop-filter: blur(12px); */
           border: 0.01px solid var(--arrowpanel-border-color);
           box-shadow: 0 2px 14px rgba(0, 0, 0, 0.13);
           border-radius: var(--toolbarbutton-border-radius);
@@ -99,7 +99,7 @@ in
           border: unset !important;
         }
         menupopup {
-          backdrop-filter: blur(12px);
+          /* backdrop-filter: blur(12px); */
         }
       '';
       userContent = ''
