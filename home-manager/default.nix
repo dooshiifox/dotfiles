@@ -49,14 +49,14 @@
     # Ensure you enable these in GNOME Extensions
     # With Pop Shell, disable mouse stacking
     # Can't customize keybinds with Pop Shell yet: https://github.com/NixOS/nixpkgs/issues/92265
-    gnomeExtensions.pop-shell # Pop_OS! extension stuff (like grid view)
-    gnomeExtensions.pano # Global clipboard manager
-    gnomeExtensions.rounded-window-corners-reborn # Rounded window corners
-    gnomeExtensions.hide-top-bar # Remove stinky top bar eww
-    gnomeExtensions.gsconnect # KDE Connect for Gnome. Connect to your phone!
-    gnomeExtensions.color-picker # Color picker
-    gnomeExtensions.unite
-    gnome-tweaks # Customize GNOME
+    # gnomeExtensions.pop-shell # Pop_OS! extension stuff (like grid view)
+    # gnomeExtensions.pano # Global clipboard manager
+    # gnomeExtensions.rounded-window-corners-reborn # Rounded window corners
+    # gnomeExtensions.hide-top-bar # Remove stinky top bar eww
+    # gnomeExtensions.gsconnect # KDE Connect for Gnome. Connect to your phone!
+    # gnomeExtensions.color-picker # Color picker
+    # gnomeExtensions.unite
+    # gnome-tweaks # Customize GNOME
 
     # Social
     telegram-desktop # Telegram client
@@ -75,9 +75,14 @@
     nerd-font-patcher
     quicksand
     cantarell-fonts
+    gnome-characters
+
     # TODO: Port this over
     # https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=nerd-fonts-inter
     # For now, manually install.
+
+    # Keyboard
+    keymapp
 
     ################
     # Developing
