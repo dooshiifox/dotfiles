@@ -130,6 +130,11 @@ in
             box-shadow: none !important;
           }
         }
+        @-moz-document domain("monkeytype.com") {
+          body {
+            background: transparent !important;
+          }
+        }
       '';
       settings = {
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true; # Enable customChrome.css
