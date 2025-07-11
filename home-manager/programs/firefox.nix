@@ -111,12 +111,12 @@ in
             --newtab-text-secondary-color: ${colors.bg-secondary} !important;
           }
         }
-        @-moz-document url("youtube.com") {
+        @-moz-document domain("youtube.com") {
           html, html[dark], ytd-app, #full-bleed-container, #movie_player {
             background: transparent !important;
           }
         }
-        @-moz-document-url("duckduckgo.com") {
+        @-moz-document domain("duckduckgo.com") {
           html, body, .site-wrapper, #header_wrapper, nav::before, nav::after, ul::before {
             background: transparent !important;
             border: none !important;
