@@ -331,7 +331,7 @@
     --button-secondary-background: ${theme.colors.bg-secondary} !important;
     --button-secondary-background-hover: ${theme.colors.bg-secondary-opacity} !important;
     --card-primary-bg: ${theme.colors.bg-secondary} !important;
-    --channel-icon: ${theme.colors.light-grey} !important;
+    --channel-icon: ${theme.colors.grey} !important;
     --channels-default: ${theme.colors.light-grey} !important;
     --channel-text-area-placeholder: ${theme.colors.fg-secondary} !important;
     --channeltextarea-background: ${theme.colors.bg-secondary} !important;
@@ -356,7 +356,7 @@
     --input-background: ${theme.colors.bg-secondary-opacity} !important;
     --interactive-active: ${theme.colors.white} !important;
     --interactive-hover: ${theme.colors.fg} !important;
-    --interactive-muted: ${theme.colors.fg-secondary} !important;
+    --interactive-muted: ${theme.colors.grey} !important;
     --interactive-normal: ${theme.colors.fg} !important;
     --mention-background: ${theme.colors.accent}40 !important;
     --mention-foreground: ${theme.colors.fg} !important;
