@@ -178,12 +178,7 @@ rec {
     wallpaper = /home/dooshii/Pictures/wallpaper/jacato_float.png;
 
     colors = rec {
-      system = "base24";
-      name = "Custom Theme";
-      slug = "custom-theme";
-      author = "dooshii";
       variant = "dark";
-
       bg = "#07070a";
       bg-secondary = black;
       bg-tertiary = dark-grey;
@@ -220,6 +215,12 @@ rec {
       bg-tertiary-opacity = hexWithOpacity bg-tertiary opacity.bg;
       border-opacity = hexWithOpacity border opacity.border;
       border-active-opacity = hexWithOpacity border-active opacity.border;
+
+      # Required
+      system = "base24";
+      name = "Custom Theme";
+      slug = "custom-theme";
+      author = "dooshii";
 
       # Aliases
       dark-gray = dark-grey;

@@ -111,6 +111,25 @@ in
             --newtab-text-secondary-color: ${colors.bg-secondary} !important;
           }
         }
+        @-moz-document url("youtube.com") {
+          html, html[dark], ytd-app, #full-bleed-container, #movie_player {
+            background: transparent !important;
+          }
+        }
+        @-moz-document-url("duckduckgo.com") {
+          html, body, .site-wrapper, #header_wrapper, nav::before, nav::after, ul::before {
+            background: transparent !important;
+            border: none !important;
+          }
+          #header_wrapper {
+            box-shadow: none !important;
+          }
+          #search_form {
+            background-color: #1f2024d9 !important;
+            border-color: #373b41d9 !important;
+            box-shadow: none !important;
+          }
+        }
       '';
       settings = {
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true; # Enable customChrome.css
