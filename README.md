@@ -6,10 +6,6 @@ Secrets are set up using `git-crypt`, and can be stored in `secrets`. [This arti
 
 > Personal note: To decrypt from the secret key you stored in Dashlane, save it as `secret-key-base64`, `base64 --decode ./secret-key-base64 > ./secret-key-decoded`, then `git-crypt unlock ./secret-key-decoded`
 
-## Other Programs
-
-- [Premiere Pro](https://forum.mattkc.com/viewtopic.php?t=337)
-
 ## Notes
 
 ### Update flake inputs
