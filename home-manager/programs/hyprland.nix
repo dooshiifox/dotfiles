@@ -30,6 +30,7 @@
         "$mod ALT SHIFT, E, exec, nemo"
         "$mod ALT SHIFT, V, exec, vesktop"
         "$mod ALT SHIFT, M, exec, thunderbird"
+        "$mod ALT SHIFT, R, exec, pkill rofi || rofi -show drun"
         "$mod, W, killactive,"
         "$mod, B, togglefloating,"
         "$mod, N, movefocus, l"
@@ -60,11 +61,6 @@
         "$mod SHIFT, 0, movetoworkspace, 10"
       ];
 
-      bindr = [
-        # Toggle whether rofi is open
-        # Only activates when SUPER is released
-        "SUPER, SUPER_L, exec, pkill rofi || rofi -show drun"
-      ];
       # l - works on lockscreen
       # e - repeat, re-runs when key is held
       bindel = [
