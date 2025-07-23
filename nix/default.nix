@@ -30,6 +30,7 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "dialout"
     ];
     # User packages should be defined in home-manager
   };
