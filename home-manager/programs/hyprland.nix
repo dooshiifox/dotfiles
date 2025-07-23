@@ -37,7 +37,7 @@
         "$mod, R, movefocus, r"
         "$mod, T, movefocus, u"
         "$mod, S, movefocus, d"
-        "$mod, Esc, swapactiveworkspaces, 0 1"
+        "$mod, Escape, swapactiveworkspaces, 0 1"
         ", Print, exec, grimblast copy area"
 
         "$mod, 1, workspace, 1"
