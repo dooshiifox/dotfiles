@@ -4,6 +4,16 @@
 
 local map = vim.keymap.set
 
+map({ "n", "v", "o" }, "n", "h", { desc = "Left" })
+map({ "n", "v", "o" }, "r", "j", { desc = "Down" })
+map({ "n", "v", "o" }, "t", "k", { desc = "Up" })
+map({ "n", "v", "o" }, "s", "l", { desc = "Right" })
+
+map({ "n", "v", "o" }, "l", "n")
+map({ "n", "v", "o" }, "k", "r")
+map({ "n", "v", "o" }, "h", "t")
+map({ "n", "v", "o" }, "j", "s")
+
 -- Super+Ctrl+Shift+Arrow = Resize window (plugins/init)
 vim.keymap.del("n", "<C-Left>")
 vim.keymap.del("n", "<C-Right>")

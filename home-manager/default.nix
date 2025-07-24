@@ -83,7 +83,6 @@
 
     # Keyboard
     keymapp
-    plover.dev
 
     ################
     # Developing

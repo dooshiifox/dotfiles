@@ -134,8 +134,12 @@
     SUBSYSTEMS=="usb", ATTRS{idVendor}=="3297", MODE:="0666", SYMLINK+="ignition_dfu"
     KERNEL=="hidraw*", ATTRS{idVendor}=="16c0", MODE="0664", GROUP="plugdev"
     KERNEL=="hidraw*", ATTRS{idVendor}=="3297", MODE="0664", GROUP="plugdev"
+    KERNEL=="uinput", GROUP="input", MODE="0660", OPTIONS+="static_node=uinput"
   '';
-  users.users.dooshii.extraGroups = [ "plugdev" ];
+  users.users.dooshii.extraGroups = [
+    "plugdev"
+    "input"
+  ];
 
   ####################
   #   CONTROLLER
