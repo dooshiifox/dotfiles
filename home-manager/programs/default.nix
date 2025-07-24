@@ -25,6 +25,7 @@
       ./mpv.nix
       ./neovim.nix
       ./obs-studio.nix
+      ./plover.nix
       ./ripgrep.nix
       ./rofi.nix
       ./starship.nix
