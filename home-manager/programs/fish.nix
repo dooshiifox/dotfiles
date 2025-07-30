@@ -36,27 +36,46 @@
     generateCompletions = false;
 
     functions = {
-      mkcd = {
-        body = "mkdir -p $argv; cd $argv;";
-      };
-      fish_greeting = {
-        # Echo whatever you want here
-        body = "";
-      };
-      nixs = {
-        # Opens firefox at https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query={query}
-        body = "firefox-devedition \"https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=$argv\"";
-      };
-      nixo = {
-        # Opens firefox at https://mynixos.com/search?q={query}
-        body = "firefox-devedition \"https://mynixos.com/search?q=$argv\"";
-      };
-      use = {
-        # Uses the provided nix packages in a new shell
-        body = "nix-shell --command fish -p $argv";
-      };
-      mrat = {
-        body = "cd ~/Documents/CodingProjects/mpd-rating/ && pnpm dev --host";
+      mkcd = "mkdir -p $argv; cd $argv;";
+      # Echo whatever you want here
+      fish_greeting = "";
+      # Opens firefox at https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query={query}
+      nixs = "firefox-devedition \"https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=$argv\"";
+      # Opens firefox at https://mynixos.com/search?q={query}
+      nixo = "firefox-devedition \"https://mynixos.com/search?q=$argv\"";
+      # Uses the provided nix packages in a new shell
+      use = "nix-shell --command fish -p $argv";
+      mrat = "cd ~/Documents/CodingProjects/mpd-rating/ && pnpm dev --host";
+      auto_activate_venv = {
+        # https://alexwlchan.net/2023/fish-venv/
+        onVariable = "PWD";
+        body = ''
+          # Get the top-level directory of the current Git repo (if any)
+          set REPO_ROOT (git rev-parse --show-toplevel 2>/dev/null)
+
+          # Case #1: cd'd from a Git repo to a non-Git folder
+          #
+          # There's no virtualenv to activate, and we want to deactivate any
+          # virtualenv which is already active.
+          if test -z \"$REPO_ROOT\"; and test -n \"$VIRTUAL_ENV\"
+              deactivate
+          end
+
+          # Case #2: cd'd folders within the same Git repo
+          #
+          # The virtualenv for this Git repo is already activated, so there's
+          # nothing more to do.
+          if [ \"$VIRTUAL_ENV\" = \"$REPO_ROOT/.venv\" ]
+              return
+          end
+
+          # Case #3: cd'd from a non-Git folder into a Git repo
+          #
+          # If there's a virtualenv in the root of this repo, we should
+          # activate it now.
+          if [ -d \"$REPO_ROOT/.venv\" ]
+              source \"$REPO_ROOT/.venv/bin/activate.fish\" &>/dev/null
+          end'';
       };
     };
   };
