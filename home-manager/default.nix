@@ -128,6 +128,7 @@
     # Java
     jdk
     gradle # Java development
+    jetbrains.idea-community-bin
 
     # Modding
     avalonia-ilspy # Decompile C#
