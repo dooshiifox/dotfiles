@@ -32,7 +32,7 @@
         "$mod ALT SHIFT, M, exec, thunderbird"
         "$mod ALT SHIFT, R, exec, pkill rofi || rofi -show drun"
         "$mod, W, killactive,"
-        "$mod, B, togglefloating,"
+        "$mod, F, togglefloating,"
         "$mod, N, movefocus, l"
         "$mod, R, movefocus, r"
         "$mod, T, movefocus, u"

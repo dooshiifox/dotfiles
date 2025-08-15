@@ -25,7 +25,7 @@ generation=$(nixos-rebuild list-generations | grep True | awk '{print $1;}')
 read -rp "Commit message:  ($generation) " commit_msg
 
 # Rebuild, output simplified errors, log tracebacks
-sudo nixos-rebuild switch
+sudo nixos-rebuild switch --show-trace
 
 # Commit all changes witih the generation metadata
 # If an argument is provided, append it to the commit message

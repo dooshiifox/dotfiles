@@ -1,4 +1,5 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   dbus-hyprland-environment = pkgs.writeTextFile {
     name = "dbus-hyprland-environment";
     destination = "/bin/dbus-hyprland-environment";
@@ -9,7 +10,8 @@
       systemctl --user start pipewire wireplumber pipewire-media-session xdg-desktop-portal xdg-desktop-portal-hyprland
     '';
   };
-in {
+in
+{
   environment = {
     systemPackages = with pkgs; [
       dbus-hyprland-environment
@@ -65,10 +67,9 @@ in {
 
   services.greetd = {
     enable = true;
-    vt = 3;
     settings = rec {
       initial_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland"; # start Hyprland with a TUI login manager
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd Hyprland"; # start Hyprland with a TUI login manager
         user = "dooshii";
       };
       default_session = initial_session;

@@ -4,20 +4,6 @@
 
 local map = vim.keymap.set
 
-map({ "n", "o" }, "a", "j", { desc = "Down" })
-map({ "n", "o" }, "e", "k", { desc = "Up" })
-map({ "n", "o" }, "i", "l", { desc = "Right" })
-map({ "n", "o" }, "A", "J", { desc = "Down" })
-map({ "n", "o" }, "E", "K", { desc = "Up" })
-map({ "n", "o" }, "I", "L", { desc = "Right" })
-
-map({ "n", "o" }, "l", "e", { desc = "Last char of word" })
-map({ "n", "o" }, "L", "E", { desc = "Last char of WORD" })
-map({ "n", "v", "o" }, "<Tab>", "i", { desc = "Insert" })
-map({ "n", "v", "o" }, "<S-Tab>", "I", { desc = "Insert" })
-map({ "n", "v", "o" }, "<CR>", "a", { desc = "Append" })
-map({ "n", "v", "o" }, "<S-CR>", "A", { desc = "Append" })
-
 -- Super+Ctrl+Shift+Arrow = Resize window (plugins/init)
 vim.keymap.del("n", "<C-Left>")
 vim.keymap.del("n", "<C-Right>")

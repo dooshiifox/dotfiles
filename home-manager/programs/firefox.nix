@@ -211,7 +211,7 @@ in
           web-archives
           dearrow
           greasemonkey
-          enhancer-for-youtube
+          tweaks-for-youtube
           betterttv
           firefox-color
           tampermonkey

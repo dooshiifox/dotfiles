@@ -3,7 +3,7 @@
 
   inputs = {
     # NixOS official package source
-    nixpkgs.url = "github:NixOS/nixpkgs/7611b2aec43814158708aec23bd4b20709dacaab";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/master";
       # The `follows` keyword in inputs is used for inheritance.
@@ -13,10 +13,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # VSCode extensions
-    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions/1a1442e13dc1730de0443f80dcf02658365e999a";
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     # Outer Wilds mod manager
     ow-mod-man = {
-      url = "github:ow-mods/ow-mod-man/c15a09abb379f16c9d39652c8e3768fe2179d6eb";
+      url = "github:ow-mods/ow-mod-man";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "github:hyprwm/Hyprland";
@@ -32,7 +32,7 @@
       url = "github:SenchoPens/base16.nix";
     };
     nixcord = {
-      url = "github:kaylorben/nixcord/ba124c7bfd13da257f621f7b2b74e750f527a5c1";
+      url = "github:kaylorben/nixcord";
     };
     plover-flake.url = "github:openstenoproject/plover-flake";
     # hypr-dynamic-cursors = {

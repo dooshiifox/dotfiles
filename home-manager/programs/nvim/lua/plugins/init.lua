@@ -52,16 +52,16 @@ return {
 		"folke/edgy.nvim",
 		opts = {
 			keys = {
-				["<C-S-D-Right>"] = function(win)
+				["<C-S-D-M-Right>"] = function(win)
 					win:resize("width", 2)
 				end,
-				["<C-S-D-Left>"] = function(win)
+				["<C-S-D-M-Left>"] = function(win)
 					win:resize("width", -2)
 				end,
-				["<C-S-D-Up>"] = function(win)
+				["<C-S-D-M-Up>"] = function(win)
 					win:resize("height", 2)
 				end,
-				["<C-S-D-Down>"] = function(win)
+				["<C-S-D-M-Down>"] = function(win)
 					win:resize("height", -2)
 				end,
 			},
@@ -330,23 +330,23 @@ return {
 			local set = vim.keymap.set
 
 			-- Add or skip cursor above/below the main cursor.
-			set({ "n", "x" }, "m<up>", function()
+			set({ "n", "x" }, "me", function()
 				mc.lineAddCursor(-1)
 			end)
-			set({ "n", "x" }, "m<down>", function()
+			set({ "n", "x" }, "ma", function()
 				mc.lineAddCursor(1)
 			end)
-			set({ "n", "x" }, "m<S><up>", function()
+			set({ "n", "x" }, "mE", function()
 				mc.lineSkipCursor(-1)
 			end)
-			set({ "n", "x" }, "m<S><down>", function()
+			set({ "n", "x" }, "mA", function()
 				mc.lineSkipCursor(1)
 			end)
 
-			set({ "n", "x" }, "ma", function()
+			set({ "n", "x" }, "mm", function()
 				mc.matchAddCursor(1)
 			end)
-			set({ "n", "x" }, "mA", function()
+			set({ "n", "x" }, "mM", function()
 				mc.matchAddCursor(-1)
 			end)
 			set({ "n", "x" }, "ms", function()
