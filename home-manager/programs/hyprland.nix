@@ -172,6 +172,7 @@
 
       windowrulev2 = [
         "float, class:Minecraft.*"
+        "noinitialfocus,class:(jetbrains-)(.*),title:^win(.*), initialTitle:win.*, floating:1"
       ];
 
       # "plugin:dynamic-cursors" = {
