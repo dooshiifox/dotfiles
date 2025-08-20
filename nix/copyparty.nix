@@ -17,7 +17,7 @@
         path = "/data";
         access = {
           r = "*";
-          rw = [ "dooshii" ];
+          A = [ "dooshii" ];
         };
         flags = {
           scan = 60;
