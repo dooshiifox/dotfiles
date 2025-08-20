@@ -8,21 +8,21 @@
   ...
 }:
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ../hardware-configuration.nix
-      ./android.nix
-      ./docker.nix
-      ./games.nix
-      ./nix-ld.nix
-      ./media.nix
-      ./system.nix
-    ]
-    ++ lib.optionals (mode == "hypr") [ ./hypr.nix ]
-    ++ lib.optionals (mode == "xmonad") [ ./xmonad.nix ]
-    ++ lib.optionals (mode == "gnome-wayland") [ ./gnome-wayland.nix ]
-    ++ lib.optionals (mode == "gnome") [ ./gnome.nix ];
+  imports = [
+    # Include the results of the hardware scan.
+    ../hardware-configuration.nix
+    ./copyparty.nix
+    ./android.nix
+    ./docker.nix
+    ./games.nix
+    ./nix-ld.nix
+    ./media.nix
+    ./system.nix
+  ]
+  ++ lib.optionals (mode == "hypr") [ ./hypr.nix ]
+  ++ lib.optionals (mode == "xmonad") [ ./xmonad.nix ]
+  ++ lib.optionals (mode == "gnome-wayland") [ ./gnome-wayland.nix ]
+  ++ lib.optionals (mode == "gnome") [ ./gnome.nix ];
 
   users.users.dooshii = {
     isNormalUser = true;
@@ -51,6 +51,7 @@
   nixpkgs.overlays = [
     inputs.nix-vscode-extensions.overlays.default
     inputs.firefox-addons.overlays.default
+    inputs.copyparty.overlays.default
     # (final: prev: {
     #   gnome = prev.gnome.overrideScope' (gnomeFinal: gnomePrev: {
     #     mutter = gnomePrev.mutter.overrideAttrs (old: {
