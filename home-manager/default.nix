@@ -236,6 +236,7 @@
     archipelago # Randomiser
     dolphin-emu # Wii / Gamecube emulator
     ryubing # Switch emulator
+    wl-clicker # autoclicker
   ];
 
   # TODO: Not the right place for it, figure out where
