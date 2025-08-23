@@ -67,6 +67,10 @@
             "nemo ///// (.*)" = "<span color='#ffbba6'></span>   <b>$1</b>";
             "io.bassi.Amberol ///// (.*)" = "<span color='#a5cfff'></span>   <b>$1</b>";
             "ymuse ///// ymuse" = "<span color='#a5b2ff'>󰎆</span>   <b>ymuse</b>";
+            "org.prismlauncher.PrismLauncher ///// (.*)" = "<span color='#a5ffc0'></span>   <b>$1</b>";
+            "Minecraft(.*)///// (.*)" = "<span color='#a5ffc0'>󰍳</span>   <b>$2</b>";
+            "keymapp ///// (.*)" = "<span color='#a5ffc0'>󰌌</span>   <b>$1</b>";
+            "jetbrains-idea-ce ///// (.*)" = "<span color='#ffbba6'>󰬷</span>   <b>$1</b>";
             "\\s*/////\\s*" = "<span color='#a5b2ff'></span>   <span color='#a5cfff'></span>";
             # TODO: home-manager generates the config in alphabetical order, meaning this
             # comes first i think. Find a way to make this come last.

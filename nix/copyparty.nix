@@ -36,6 +36,18 @@
           z = true;
         };
       };
+
+      "/obsidian" = {
+        path = "/home/dooshii/Documents/obsidian/";
+        access = {
+          A = [ "dooshii" ];
+        };
+        flags = {
+          scan = 60;
+          e2dsa = true;
+          e2ts = true;
+        };
+      };
     };
   };
 }

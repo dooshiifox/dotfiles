@@ -18,12 +18,6 @@ in
       enableFishIntegration = true;
     };
 
-    keybindings = {
-      "ctrl+c" = "copy_or_interrupt";
-      "ctrl+shift+c" = "copy_to_clipboard";
-      "ctrl+shift+v" = "paste_from_clipboard";
-    };
-
     extraConfig = ''
       shell fish
       linux_display_server wayland
@@ -52,6 +46,19 @@ in
       inactive_tab_foreground ${colors.fg-secondary}
       tab_bar_background ${colors.bg}
       tab_bar_margin_color ${colors.bg}
+
+      clear_all_shortcuts yes
+      kitty_mod ctrl+shift+alt+super
+
+      map ctrl+c copy_or_interrupt
+      map ctrl+shift+c copy_to_clipboard
+      map F86Copy copy_to_clipboard
+      map ctrl+shift+v paste_from_clipboard
+      map F86Paste paste_from_clipboard
+      map kitty_mod+t new_tab_with_cwd
+      map kitty_mod+w close_tab
+      map kitty_mod+h previous_tab
+      map kitty_mod+i next_tab
 
       transparent_background_colors ${colors.bg-secondary} ${colors.bg-tertiary}
 
