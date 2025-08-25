@@ -50,6 +50,7 @@ return {
 	},
 	{
 		"folke/edgy.nvim",
+		enabled = false,
 		opts = {
 			keys = {
 				["<C-S-D-M-Right>"] = function(win)

@@ -52,6 +52,7 @@
     inputs.nix-vscode-extensions.overlays.default
     inputs.firefox-addons.overlays.default
     inputs.copyparty.overlays.default
+    inputs.neovim-nightly-overlay.overlays.default
     # (final: prev: {
     #   gnome = prev.gnome.overrideScope' (gnomeFinal: gnomePrev: {
     #     mutter = gnomePrev.mutter.overrideAttrs (old: {

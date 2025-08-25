@@ -36,6 +36,7 @@
     };
     plover-flake.url = "github:openstenoproject/plover-flake";
     copyparty.url = "github:9001/copyparty";
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     # hypr-dynamic-cursors = {
     #   url = "github:VirtCode/hypr-dynamic-cursors";
     #   inputs.hyprland.follows = "hyprland"; # to make sure that the plugin is built for the correct version of hyprland
