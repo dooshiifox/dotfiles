@@ -1,44 +1,11 @@
--- TODO: Get this to read from theme.nix
-local function get_colors()
-	local cols = {}
-	cols.bg = "#07070a"
-	cols.black = "#1f2024"
-	cols.dark_grey = "#373b41"
-	cols.bg_secondary = cols.black
-	cols.bg_tertiary = cols.dark_grey
-	cols.grey = "#545b65"
-	cols.light_grey = "#95a7be"
-	cols.fg_secondary = "#b0c6ce"
-	cols.fg = "#ced9dd"
-	cols.white = "#edf4f7"
-	cols.brown = "#894429"
-	cols.dark_red = "#a54242"
-	cols.red = "#cc6666"
-	cols.orange = "#de935f"
-	cols.yellow = "#f0c674"
-	cols.cream = "#f1eba8"
-	cols.green = "#8c9440"
-	cols.lime = "#b5bd68"
-	cols.dark_cyan = "#5e8d87"
-	cols.cyan = "#8abeb7"
-	cols.dark_blue = "#5f819d"
-	cols.light_blue = "#81a2be"
-	cols.magenta = "#85678f"
-	cols.light_magenta = "#b294bb"
-
-	cols.border = cols.dark_grey
-	cols.border_active = cols.light_grey
-	cols.accent = "#408adf"
-	cols.accent_fg = cols.black
-
-	return cols
-end
-local colors = get_colors()
+local colors = require("colors")
 
 return {
 	{
 		"LazyVim/LazyVim",
 		opts = {
+			colorscheme = "termtheme",
+			-- colorscheme = "tokyonight",
 			news = {
 				neovim = true,
 			},
@@ -52,20 +19,6 @@ return {
 		"folke/edgy.nvim",
 		enabled = false,
 		opts = {
-			keys = {
-				["<C-S-D-M-Right>"] = function(win)
-					win:resize("width", 2)
-				end,
-				["<C-S-D-M-Left>"] = function(win)
-					win:resize("width", -2)
-				end,
-				["<C-S-D-M-Up>"] = function(win)
-					win:resize("height", 2)
-				end,
-				["<C-S-D-M-Down>"] = function(win)
-					win:resize("height", -2)
-				end,
-			},
 			animate = { enabled = false },
 		},
 	},
@@ -258,33 +211,33 @@ return {
 				theme = {
 					normal = {
 						a = { bg = colors.light_blue, fg = colors.black, gui = "bold" },
-						b = { bg = colors.dark_gray, fg = colors.lime },
-						c = { bg = colors.bg, fg = colors.light_gray },
+						b = { bg = colors.dark_grey, fg = colors.light_blue },
+						c = { bg = colors.bg, fg = colors.light_grey },
 					},
 					insert = {
 						a = { bg = colors.lime, fg = colors.black, gui = "bold" },
-						b = { bg = colors.dark_gray, fg = colors.lime },
-						c = { bg = colors.bg, fg = colors.light_gray },
+						b = { bg = colors.dark_grey, fg = colors.lime },
+						c = { bg = colors.bg, fg = colors.light_grey },
 					},
 					visual = {
 						a = { bg = colors.light_magenta, fg = colors.black, gui = "bold" },
-						b = { bg = colors.dark_gray, fg = colors.light_magenta },
-						c = { bg = colors.bg, fg = colors.light_gray },
+						b = { bg = colors.dark_grey, fg = colors.light_magenta },
+						c = { bg = colors.bg, fg = colors.light_grey },
 					},
 					replace = {
 						a = { bg = colors.red, fg = colors.black, gui = "bold" },
-						b = { bg = colors.dark_gray, fg = colors.red },
-						c = { bg = colors.bg, fg = colors.light_gray },
+						b = { bg = colors.dark_grey, fg = colors.red },
+						c = { bg = colors.bg, fg = colors.light_grey },
 					},
 					command = {
 						a = { bg = colors.yellow, fg = colors.black, gui = "bold" },
-						b = { bg = colors.dark_gray, fg = colors.yellow },
-						c = { bg = colors.bg, fg = colors.light_gray },
+						b = { bg = colors.dark_grey, fg = colors.yellow },
+						c = { bg = colors.bg, fg = colors.light_grey },
 					},
 					inactive = {
 						a = { bg = colors.bg, fg = colors.black, gui = "bold" },
 						b = { bg = colors.bg, fg = colors.fg },
-						c = { bg = colors.bg, fg = colors.light_gray },
+						c = { bg = colors.bg, fg = colors.light_grey },
 					},
 				},
 			},
@@ -315,6 +268,15 @@ return {
 			completion = {
 				list = {
 					selection = { preselect = false },
+				},
+				menu = {
+					border = "rounded",
+					winhighlight = "Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,CursorLine:BlinkCmpDocCursorLine,Search:None",
+				},
+				documentation = {
+					window = {
+						border = "rounded",
+					},
 				},
 			},
 		},
@@ -414,6 +376,15 @@ return {
 		opts = {
 			inlay_hints = {
 				enabled = false,
+			},
+		},
+	},
+	{
+		"folke/noice.nvim",
+		opts = {
+			presets = {
+				lsp_doc_border = true,
+				inc_rename = true,
 			},
 		},
 	},
