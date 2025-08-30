@@ -32,6 +32,7 @@
         "$mod ALT SHIFT, M, exec, thunderbird"
         "$mod ALT SHIFT, R, exec, pkill rofi || rofi -show drun"
         "$mod ALT SHIFT, P, exec, hyprpicker -a"
+        "$mod ALT SHIFT, O, exec, obsidian"
         "$mod, W, killactive,"
         "$mod, F, togglefloating,"
         "$mod, H, movefocus, l"
