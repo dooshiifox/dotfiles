@@ -168,8 +168,8 @@
       ];
 
       exec-once = [
-        "cd ~/Documents/CodingProjects/mpd-rating/ && pnpm dev --host"
-        "${config.lib.theme.source-folder}/scripts/music/rng"
+        # "cd ~/Documents/CodingProjects/mpd-rating/ && pnpm dev --host"
+        # "${config.lib.theme.source-folder}/scripts/music/rng"
       ];
 
       windowrulev2 = [
