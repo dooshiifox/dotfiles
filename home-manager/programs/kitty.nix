@@ -59,6 +59,8 @@ in
       map kitty_mod+w close_tab
       map kitty_mod+h previous_tab
       map kitty_mod+i next_tab
+      map kitty_mod+c copy_to_clipboard
+      map kitty_mod+v paste_from_clipboard
 
       transparent_background_colors ${colors.bg-secondary} ${colors.bg-tertiary}
 
