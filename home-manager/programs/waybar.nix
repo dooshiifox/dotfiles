@@ -50,28 +50,29 @@
           format = "{class} ///// {title}";
           tooltip = false;
           max-length = 50;
-          rewrite = {
+          rewrite = with config.lib.theme.colors; {
             "firefox-devedition ///// (.*) — (Mozilla Firefox|Firefox Developer Edition)" =
-              "<span color='#ffb2a5'></span>   <b>$1</b>";
+              "<span color='${pink}'></span>   <b>$1</b>";
             "firefox-devedition ///// (Mozilla Firefox|Firefox Developer Edition)" =
-              "<span color='#ffb2a5'></span>   <b>Firefox</b>";
-            "codium ///// (.*) - VSCodium" = "<span color='#a5cfff'>󰨞</span>   <b>$1</b>";
-            "vesktop ///// (.*?Discord.{3})?(.*)" = "<span color='#a5b2ff'></span>   <b>$2</b>";
-            "Kitty ///// (nvim|e) (.*)" = "<span color='#a5ffc0'></span>   <b>$2</b>";
-            "Kitty ///// (?!nvim |e )(.*)" = "<span color='#ffa5e1'>󰄛</span>   <b>$1</b>";
-            "Kitty ///// (kitty|fish)" = "<span color='#ffa5e1'>󰄛</span>   <b>~</b>";
+              "<span color='${pink}'></span>   <b>Firefox</b>";
+            "codium ///// (.*) - VSCodium" = "<span color='${light-blue}'>󰨞</span>   <b>$1</b>";
+            "vesktop ///// (.*?Discord.{3})?(.*)" = "<span color='${dark-blue}>'></span>   <b>$2</b>";
+            "Kitty ///// (nvim|e) (.*)" = "<span color='${lime}'></span>   <b>$2</b>";
+            "Kitty ///// (?!nvim |e )(.*)" = "<span color='${light-magenta}'>󰄛</span>   <b>$1</b>";
+            "Kitty ///// (kitty|fish)" = "<span color='${light-magenta}'>󰄛</span>   <b>~</b>";
             "com.obsproject.Studio ///// OBS.*? - (.*)" = "   <b>$1</b>";
-            "obsidian ///// (.*?)( - obsidian)? - Obsidian.*" = "<span color='#cca5ff'></span>   <b>$1</b>";
-            "thunderbird ///// (.*) - Mozilla Thunderbird" = "<span color='#a5cfff'></span>   <b>$1</b>";
+            "obsidian ///// (.*?)( - obsidian)? - Obsidian.*" = "<span color='${magenta}'></span>   <b>$1</b>";
+            "thunderbird ///// (.*) - Mozilla Thunderbird" = "<span color='${dark-blue}'></span>   <b>$1</b>";
             "Rofi ///// rofi - .*" = "   <b>Rofi</b>";
-            "nemo ///// (.*)" = "<span color='#ffbba6'></span>   <b>$1</b>";
-            "io.bassi.Amberol ///// (.*)" = "<span color='#a5cfff'></span>   <b>$1</b>";
-            "ymuse ///// ymuse" = "<span color='#a5b2ff'>󰎆</span>   <b>ymuse</b>";
-            "org.prismlauncher.PrismLauncher ///// (.*)" = "<span color='#a5ffc0'></span>   <b>$1</b>";
-            "Minecraft(.*)///// (.*)" = "<span color='#a5ffc0'>󰍳</span>   <b>$2</b>";
-            "keymapp ///// (.*)" = "<span color='#a5ffc0'>󰌌</span>   <b>$1</b>";
-            "jetbrains-idea-ce ///// (.*)" = "<span color='#ffbba6'>󰬷</span>   <b>$1</b>";
-            "\\s*/////\\s*" = "<span color='#a5b2ff'></span>   <span color='#a5cfff'></span>";
+            "nemo ///// (.*)" = "<span color='${orange}'></span>   <b>$1</b>";
+            "io.bassi.Amberol ///// (.*)" = "<span color='${light-blue}'></span>   <b>$1</b>";
+            "ymuse ///// ymuse" = "<span color='${dark-blue}'>󰎆</span>   <b>ymuse</b>";
+            "org.prismlauncher.PrismLauncher ///// (.*)" = "<span color='${lime}'></span>   <b>$1</b>";
+            "Minecraft(.*)///// (.*)" = "<span color='${lime}'>󰍳</span>   <b>$2</b>";
+            "keymapp ///// (.*)" = "<span color='${lime}'>󰌌</span>   <b>$1</b>";
+            "jetbrains-idea-ce ///// (.*)" = "<span color='${orange}'>󰬷</span>   <b>$1</b>";
+            "steam ///// (.*)" = "   <b>$1</b>";
+            "\\s*/////\\s*" = "<span color='${dark-blue}'></span>   <span color='${light-blue}'></span>";
             # TODO: home-manager generates the config in alphabetical order, meaning this
             # comes first i think. Find a way to make this come last.
             # "(.*)/////(.*)" = "$2  <span size='10px'>$1</span>";
@@ -146,7 +147,7 @@
             ""
             "<span color='${config.lib.theme.colors.yellow}'></span>"
             "<span color='${config.lib.theme.colors.orange}'></span>"
-            "<span color='${config.lib.theme.colors.red}'></span>"
+            "<span color='${config.lib.theme.colors.pink}'></span>"
           ];
           tooltip = true;
         };
@@ -158,7 +159,7 @@
             ""
             "<span color='${config.lib.theme.colors.yellow}'></span>"
             "<span color='${config.lib.theme.colors.orange}'></span>"
-            "<span color='${config.lib.theme.colors.red}'></span>"
+            "<span color='${config.lib.theme.colors.pink}'></span>"
           ];
           tooltip-format = "{percentage}% - {used:0.1f}GiB / {total:0.1f}GiB";
           tooltip = true;
@@ -167,7 +168,7 @@
           interval = 10;
           critical-threshold = 105;
           format = "{icon}";
-          format-critical = "<span class='${config.lib.theme.colors.dark-red}'> {temperatureC}°C</span>";
+          format-critical = "<span class='${config.lib.theme.colors.red}'> {temperatureC}°C</span>";
           format-icons = [
             "" # 0
             "" # 5
@@ -189,7 +190,7 @@
             "" # 85
             "<span color='${config.lib.theme.colors.yellow}'></span>" # 90
             "<span color='${config.lib.theme.colors.orange}'></span>" # 95
-            "<span color='${config.lib.theme.colors.red}'></span>" # 100
+            "<span color='${config.lib.theme.colors.pink}'></span>" # 100
           ];
         };
         battery = {

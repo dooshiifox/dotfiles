@@ -189,24 +189,24 @@ rec {
       fg-secondary = "#b0c6ce";
       fg = "#ced9dd";
       white = "#edf4f7";
-      brown = "#894429";
-      dark-red = "#a54242";
-      red = "#cc6666";
-      orange = "#de935f";
-      yellow = "#f0c674";
-      cream = "#f1eba8";
-      green = "#8c9440";
-      lime = "#b5bd68";
-      dark-cyan = "#5e8d87";
-      cyan = "#8abeb7";
-      dark-blue = "#5f819d";
+      brown = "#ab4b25";
+      red = "#f36b88";
+      pink = "#EBA0AC";
+      orange = "#FAB387";
+      yellow = "#f5dd8b";
+      cream = "#fce9ce";
+      green = "#7fb86d";
+      lime = "#A6E3A1";
+      dark-cyan = "#66c4b7";
+      cyan = "#91d7e3";
+      dark-blue = "#8c9de7";
       light-blue = "#81a2be";
-      magenta = "#85678f";
-      light-magenta = "#b294bb";
+      magenta = "#C6A0F6";
+      light-magenta = "#F5BDE6";
 
       border = dark-grey;
       border-active = light-grey;
-      accent = "#408adf";
+      accent = light-blue;
       # Text on an accent background
       accent-fg = black;
 
@@ -235,7 +235,7 @@ rec {
       base05 = fg-secondary;
       base06 = fg;
       base07 = white;
-      base08 = dark-red;
+      base08 = red;
       base09 = orange;
       base0A = yellow;
       base0B = green;
@@ -245,7 +245,7 @@ rec {
       base0F = brown;
       base10 = bg-secondary;
       base11 = bg-tertiary;
-      base12 = red;
+      base12 = pink;
       base13 = cream;
       base14 = lime;
       base15 = cyan;

@@ -12,8 +12,8 @@ let
     @define-color accent_color ${colors.accent};
     @define-color accent_bg_color ${colors.accent};
     @define-color accent_fg_color ${colors.accent-fg};
-    @define-color destructive_color ${colors.dark-red};
-    @define-color destructive_bg_color ${colors.dark-red};
+    @define-color destructive_color ${colors.red};
+    @define-color destructive_bg_color ${colors.red};
     @define-color destructive_fg_color ${colors.fg};
     @define-color success_color ${colors.lime};
     @define-color success_bg_color ${colors.lime};
@@ -21,8 +21,8 @@ let
     @define-color warning_color ${colors.orange};
     @define-color warning_bg_color ${colors.orange};
     @define-color warning_fg_color ${colors.black};
-    @define-color error_color ${colors.dark-red};
-    @define-color error_bg_color ${colors.dark-red};
+    @define-color error_color ${colors.red};
+    @define-color error_bg_color ${colors.red};
     @define-color error_fg_color ${colors.fg};
     @define-color window_bg_color ${colors.bg-opacity};
     @define-color window_fg_color ${colors.fg};
@@ -72,11 +72,11 @@ let
     @define-color orange_3 ${colors.orange};
     @define-color orange_4 ${colors.orange};
     @define-color orange_5 ${colors.orange};
-    @define-color red_1 ${colors.dark-red};
-    @define-color red_2 ${colors.dark-red};
-    @define-color red_3 ${colors.dark-red};
-    @define-color red_4 ${colors.dark-red};
-    @define-color red_5 ${colors.dark-red};
+    @define-color red_1 ${colors.red};
+    @define-color red_2 ${colors.red};
+    @define-color red_3 ${colors.red};
+    @define-color red_4 ${colors.red};
+    @define-color red_5 ${colors.red};
     @define-color purple_1 ${colors.magenta};
     @define-color purple_2 ${colors.magenta};
     @define-color purple_3 ${colors.magenta};

@@ -225,8 +225,8 @@ return {
 						c = { bg = colors.bg, fg = colors.light_grey },
 					},
 					replace = {
-						a = { bg = colors.red, fg = colors.black, gui = "bold" },
-						b = { bg = colors.dark_grey, fg = colors.red },
+						a = { bg = colors.pink, fg = colors.black, gui = "bold" },
+						b = { bg = colors.dark_grey, fg = colors.pink },
 						c = { bg = colors.bg, fg = colors.light_grey },
 					},
 					command = {

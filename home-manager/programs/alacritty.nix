@@ -2,9 +2,10 @@
 # https://github.com/nix-community/home-manager/blob/master/modules/programs/alacritty.nix
 _: {
   programs.alacritty = {
-    enable = true;
+    enable = false;
     settings = {
       colors = {
+        # TODO: use theme colors
         normal = {
           black = "#1d1f21";
           blue = "#7fbbb3";

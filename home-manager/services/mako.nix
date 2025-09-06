@@ -38,7 +38,7 @@
       };
 
       "urgency=high" = {
-        border-color = config.lib.theme.colors.dark-red;
+        border-color = config.lib.theme.colors.red;
         default-timeout = 0;
       };
     };
