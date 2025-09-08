@@ -51,7 +51,7 @@ in
       selection_background ${colors.fg}
       selection_foreground ${colors.bg}
       background_opacity ${toString theme.opacity.bg}
-      transparent_background_colors ${colors.bg-secondary}@0.95 ${colors.bg-tertiary}@0.95
+      transparent_background_colors ${colors.bg-secondary} ${colors.bg-tertiary}
 
       cursor ${colors.fg}
       cursor_text_color ${colors.bg}
