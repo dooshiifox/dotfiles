@@ -1,0 +1,1 @@
+/nix/store/kgzsrybym663q0952wl3bmqs6xkxhgrs-home-manager-files/nixos/home-manager/programs/nvim/lua/colors.lua

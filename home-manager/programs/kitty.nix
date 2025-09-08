@@ -8,7 +8,6 @@ in
 {
   programs.kitty = {
     enable = true;
-    settings.background_opacity = theme.opacity.bg;
     font = {
       inherit (theme.fonts.monospace) package name;
       size = 11;
@@ -30,23 +29,6 @@ in
       dynamic_background_opacity yes
       wheel_scroll_multiplier 2.0
 
-      background ${colors.bg}
-      foreground ${colors.fg}
-      selection_background ${colors.fg}
-      selection_foreground ${colors.bg}
-
-      cursor ${colors.fg}
-      cursor_text_color ${colors.bg}
-
-      url_color ${colors.accent}
-
-      active_tab_background ${colors.bg-tertiary}
-      active_tab_foreground ${colors.fg}
-      inactive_tab_background ${colors.bg-secondary}
-      inactive_tab_foreground ${colors.fg-secondary}
-      tab_bar_background ${colors.bg}
-      tab_bar_margin_color ${colors.bg}
-
       clear_all_shortcuts yes
       kitty_mod ctrl+shift+alt+super
 
@@ -62,7 +44,26 @@ in
       map kitty_mod+c copy_to_clipboard
       map kitty_mod+v paste_from_clipboard
 
+      symbol_map U+e000-U+e00a,U+ea60-U+ebeb,U+e0a0-U+e0c8,U+e0ca,U+e0cc-U+e0d7,U+e200-U+e2a9,U+e300-U+e3e3,U+e5fa-U+e6b7,U+e700-U+e8ef,U+ed00-U+efc1,U+f000-U+f2ff,U+f000-U+f2e0,U+f300-U+f381,U+f400-U+f533,U+f0001-U+f1af0 Symbols Nerd Font Mono
+
+      background ${colors.bg}
+      foreground ${colors.fg}
+      selection_background ${colors.fg}
+      selection_foreground ${colors.bg}
+      background_opacity ${toString theme.opacity.bg}
       transparent_background_colors ${colors.bg-secondary} ${colors.bg-tertiary}
+
+      cursor ${colors.fg}
+      cursor_text_color ${colors.bg}
+
+      url_color ${colors.accent}
+
+      active_tab_background ${colors.bg-tertiary}
+      active_tab_foreground ${colors.fg}
+      inactive_tab_background ${colors.bg-secondary}
+      inactive_tab_foreground ${colors.fg-secondary}
+      tab_bar_background ${colors.bg}
+      tab_bar_margin_color ${colors.bg}
 
       color0 ${colors.base00}
       color1 ${colors.base08}

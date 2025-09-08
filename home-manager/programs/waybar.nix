@@ -52,9 +52,9 @@
           max-length = 50;
           rewrite = with config.lib.theme.colors; {
             "firefox-devedition ///// (.*) — (Mozilla Firefox|Firefox Developer Edition)" =
-              "<span color='${pink}'></span>   <b>$1</b>";
+              "<span color='${red}'></span>   <b>$1</b>";
             "firefox-devedition ///// (Mozilla Firefox|Firefox Developer Edition)" =
-              "<span color='${pink}'></span>   <b>Firefox</b>";
+              "<span color='${red}'></span>   <b>Firefox</b>";
             "codium ///// (.*) - VSCodium" = "<span color='${light-blue}'>󰨞</span>   <b>$1</b>";
             "vesktop ///// (.*?Discord.{3})?(.*)" = "<span color='${dark-blue}>'></span>   <b>$2</b>";
             "Kitty ///// (nvim|e) (.*)" = "<span color='${lime}'></span>   <b>$2</b>";
@@ -72,6 +72,8 @@
             "keymapp ///// (.*)" = "<span color='${lime}'>󰌌</span>   <b>$1</b>";
             "jetbrains-idea-ce ///// (.*)" = "<span color='${orange}'>󰬷</span>   <b>$1</b>";
             "steam ///// (.*)" = "   <b>$1</b>";
+            "org.telegram.desktop ///// (.*)" = "<span color='${light-blue}'></span>  <b>$1</b>";
+            "Postman ///// (.*)" = "<span color='${orange}'></span>  <b>$1</b>";
             "\\s*/////\\s*" = "<span color='${dark-blue}'></span>   <span color='${light-blue}'></span>";
             # TODO: home-manager generates the config in alphabetical order, meaning this
             # comes first i think. Find a way to make this come last.
