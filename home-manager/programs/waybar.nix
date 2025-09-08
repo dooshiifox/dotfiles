@@ -52,9 +52,9 @@
           max-length = 50;
           rewrite = with config.lib.theme.colors; {
             "firefox-devedition ///// (.*) — (Mozilla Firefox|Firefox Developer Edition)" =
-              "<span color='${red}'></span>   <b>$1</b>";
+              "<span color='${pink}'></span>   <b>$1</b>";
             "firefox-devedition ///// (Mozilla Firefox|Firefox Developer Edition)" =
-              "<span color='${red}'></span>   <b>Firefox</b>";
+              "<span color='${pink}'></span>   <b>Firefox</b>";
             "codium ///// (.*) - VSCodium" = "<span color='${light-blue}'>󰨞</span>   <b>$1</b>";
             "vesktop ///// (.*?Discord.{3})?(.*)" = "<span color='${dark-blue}>'></span>   <b>$2</b>";
             "Kitty ///// (nvim|e) (.*)" = "<span color='${lime}'></span>   <b>$2</b>";
@@ -203,8 +203,8 @@
           interval = 5;
           format = "{icon} <small>{capacity}%</small>";
           format-full = "{icon}";
-          format-charging = "";
-          format-plugged = "";
+          format-charging = "";
+          format-plugged = "";
           format-alt = "{icon} <small>{capacity}% ({time})</small>";
           format-icons = [
             ""
