@@ -30,19 +30,12 @@ in
       wheel_scroll_multiplier 2.0
 
       clear_all_shortcuts yes
-      kitty_mod ctrl+shift+alt+super
-
       map ctrl+c copy_or_interrupt
-      map ctrl+shift+c copy_to_clipboard
-      map F86Copy copy_to_clipboard
-      map ctrl+shift+v paste_from_clipboard
-      map F86Paste paste_from_clipboard
-      map kitty_mod+t new_tab_with_cwd
-      map kitty_mod+w close_tab
-      map kitty_mod+h previous_tab
-      map kitty_mod+i next_tab
-      map kitty_mod+c copy_to_clipboard
-      map kitty_mod+v paste_from_clipboard
+      map ctrl+v paste_from_clipboard
+      map ctrl+t new_tab_with_cwd
+      map ctrl+w close_tab
+      map ctrl+shift+tab previous_tab
+      map ctrl+tab next_tab
 
       symbol_map U+e000-U+e00a,U+ea60-U+ebeb,U+e0a0-U+e0c8,U+e0ca,U+e0cc-U+e0d7,U+e200-U+e2a9,U+e300-U+e3e3,U+e5fa-U+e6b7,U+e700-U+e8ef,U+ed00-U+efc1,U+f000-U+f2ff,U+f000-U+f2e0,U+f300-U+f381,U+f400-U+f533,U+f0001-U+f1af0 Symbols Nerd Font Mono
 

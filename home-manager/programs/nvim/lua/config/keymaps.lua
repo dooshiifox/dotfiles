@@ -4,41 +4,28 @@
 
 local map = vim.keymap.set
 
--- Super+Ctrl+Shift+Arrow = Resize window (plugins/init)
 vim.keymap.del("n", "<C-Left>")
 vim.keymap.del("n", "<C-Right>")
 vim.keymap.del("n", "<C-Up>")
 vim.keymap.del("n", "<C-Down>")
--- Ctrl+Super+Arrow = Move to window
 vim.keymap.del("n", "<C-h>")
 vim.keymap.del("n", "<C-j>")
 vim.keymap.del("n", "<C-k>")
 vim.keymap.del("n", "<C-l>")
-map("n", "<C-S-A-h>", "<C-w>h", { desc = "Go to Left Window", remap = true })
-map("n", "<C-S-A-a>", "<C-w>j", { desc = "Go to Lower Window", remap = true })
-map("n", "<C-S-A-e>", "<C-w>k", { desc = "Go to Upper Window", remap = true })
-map("n", "<C-S-A-i>", "<C-w>l", { desc = "Go to Right Window", remap = true })
-map("t", "<C-S-A-h>", "<Cmd>wincmd h<Cr>", { desc = "Go to Left Window" })
-map("t", "<C-S-A-a>", "<Cmd>wincmd j<Cr>", { desc = "Go to Lower Window" })
-map("t", "<C-S-A-e>", "<Cmd>wincmd k<Cr>", { desc = "Go to Upper Window" })
-map("t", "<C-S-A-i>", "<Cmd>wincmd l<Cr>", { desc = "Go to Right Window" })
+map({ "n", "x", "v", "t" }, "<A-h>", "<Cmd>wincmd h<Cr>", { desc = "Go to Left Window" })
+map({ "n", "x", "v", "t" }, "<A-a>", "<Cmd>wincmd j<Cr>", { desc = "Go to Lower Window" })
+map({ "n", "x", "v", "t" }, "<A-e>", "<Cmd>wincmd k<Cr>", { desc = "Go to Upper Window" })
+map({ "n", "x", "v", "t" }, "<A-i>", "<Cmd>wincmd l<Cr>", { desc = "Go to Right Window" })
+map({ "n", "x", "v", "t" }, "<A-C-h>", "<Cmd>vert resize -1<Cr>", { desc = "Shrink horizontally" })
+map({ "n", "x", "v", "t" }, "<A-C-a>", "<Cmd>resize -1<Cr>", { desc = "Shrink vertically" })
+map({ "n", "x", "v", "t" }, "<A-C-e>", "<Cmd>resize +1<Cr>", { desc = "Grow vertically" })
+map({ "n", "x", "v", "t" }, "<A-C-i>", "<Cmd>vert resize +1<Cr>", { desc = "Grow horizontally" })
 
--- Alt+Left/Right = Switch buffer
-map("n", "<A-h>", "<S-h>", { remap = true, desc = "Switch to left buffer" })
-map("n", "<A-i>", "<S-l>", { remap = true, desc = "Switch to right buffer" })
--- Alt+Up/Down = Move line
-map("n", "<A-e>", "ddkP", { desc = "Move line up" })
-map("n", "<A-a>", "ddp", { desc = "Move line down" })
-
--- Alt+Shift+Up/Down = Duplicate line
-map("n", "<A-C-e>", "<Cmd>copy. -1<Cr>")
-map("n", "<A-C-a>", "<Cmd>copy.<Cr>")
-
--- Alt+` = Terminal
-map("n", "<A-S-C-t>", function()
+-- Alt+t = Terminal
+map("n", "<A-t>", function()
 	Snacks.terminal(nil, { cwd = LazyVim.root() })
 end, { desc = "Toggle terminal" })
-map("t", "<A-S-C-t>", "<Cmd>close<Cr>", { desc = "Hide Terminal" })
+map("t", "<A-t>", "<Cmd>close<Cr>", { desc = "Hide Terminal" })
 
 map("v", "<C-d>", function()
 	local mc = require("multicursor-nvim")
@@ -49,3 +36,17 @@ map({ "v", "n", "x" }, "\\", '<Cmd>lua require("precognition").peek()<Cr>', { de
 
 map({ "n", "v", "x" }, "", '"+y')
 map({ "n", "v", "x" }, "", '"+p')
+
+map({ "n", "v", "x" }, "<Tab>", "<leader>bb", { desc = "Switch to previous buffer", remap = true })
+map({ "n", "v", "x" }, "<leader><Tab>", function()
+	Snacks.picker.buffers({
+		hidden = true,
+	})
+end, { desc = "Buffers" })
+map({ "n", "v", "x" }, "<Enter>", "/", { desc = "Grep" })
+map({ "n", "v", "x" }, "<leader><Enter>", function()
+	Snacks.picker.grep({
+		hidden = true,
+		ignored = false,
+	})
+end, { desc = "Grep all files" })
