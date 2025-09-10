@@ -44,7 +44,6 @@
     xwayland
     hyprutils
     nemo-with-extensions
-    nautilus
 
     # Ensure you enable these in GNOME Extensions
     # With Pop Shell, disable mouse stacking
@@ -62,6 +61,11 @@
     telegram-desktop # Telegram client
     whatsapp-for-linux # Whatsapp client
 
+    # Basic services
+    protonvpn-gui
+    protonmail-desktop
+    proton-pass
+
     # Networking
     openssl # SSL/TLS cryptography library
 
@@ -76,6 +80,7 @@
     quicksand
     cantarell-fonts
     gnome-characters
+    gnome-calculator
 
     # TODO: Port this over
     # https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=nerd-fonts-inter
