@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 let
   dbus-hyprland-environment = pkgs.writeTextFile {
     name = "dbus-hyprland-environment";
@@ -59,16 +59,12 @@ in
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
       xdg-desktop-portal-hyprland
-      kdePackages.xdg-desktop-portal-kde
     ];
-    # configPackages = [ config.wayland.windowManager.hyprland.package ];
     config.hyprland = {
       default = [
         "hyprland"
         "gtk"
       ];
-      "org.freedesktop.impl.portal.FileChooser" = "kde";
-      "org.freedesktop.impl.portal.Print" = "kde";
     };
   };
 
