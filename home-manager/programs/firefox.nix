@@ -215,7 +215,8 @@ in
           betterttv
           firefox-color
           tampermonkey
-          dashlane
+          # dashlane
+          proton-pass
           decentraleyes
           privacy-badger
           hoppscotch
