@@ -191,6 +191,8 @@ in
         "sidebar.new-sidebar.has-used" = true;
         "sidebar.visibility" = "hide-sidebar";
         "ui.prefersReducedMotion" = true;
+        "signon.autofillForms" = false;
+        "services.sync.prefs.sync.signon.autofillForms" = false;
       };
       search = {
         default = "ddg";
@@ -200,6 +202,7 @@ in
         };
       };
       extensions = {
+        # https://gitlab.com/rycee/nur-expressions/-/blob/master/pkgs/firefox-addons/addons.json
         packages = with pkgs.firefox-addons; [
           augmented-steam
           pronoundb
