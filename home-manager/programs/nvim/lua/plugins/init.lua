@@ -280,6 +280,79 @@ return {
 		},
 	},
 	{
+		"stevearc/conform.nvim",
+		optional = true,
+		opts = {
+			formatters_by_ft = {
+				php = { { "pint", "php_cs_fixer" } },
+			},
+		},
+	},
+	{
+		-- Add a Treesitter parser for Laravel Blade to provide Blade syntax highlighting.
+		"nvim-treesitter/nvim-treesitter",
+		opts = function(_, opts)
+			vim.list_extend(opts.ensure_installed, {
+				"blade",
+				"php_only",
+			})
+		end,
+		config = function(_, opts)
+			vim.filetype.add({
+				pattern = {
+					[".*%.blade%.php"] = "blade",
+				},
+			})
+
+			require("nvim-treesitter.configs").setup(opts)
+			local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+			parser_config.blade = {
+				install_info = {
+					url = "https://github.com/EmranMR/tree-sitter-blade",
+					files = { "src/parser.c" },
+					branch = "main",
+				},
+				filetype = "blade",
+			}
+			local bladeGrp
+			vim.api.nvim_create_augroup("BladeFiltypeRelated", { clear = true })
+			vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+				pattern = "*.blade.php",
+				group = bladeGrp,
+				callback = function()
+					vim.opt.filetype = "blade"
+				end,
+			})
+		end,
+	},
+	{
+		"neovim/nvim-lspconfig",
+		config = function()
+			local lspconfig = require("lspconfig")
+			-- see: https://phpactor.readthedocs.io/en/master/usage/standalone.html#phar-installation
+			-- lspconfig.phpactor.setup {}
+			-- see: https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#intelephense
+			-- $ npm install -g intelephense
+			require("lspconfig").intelephense.setup({})
+			-- see: https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#html
+			-- $ npm install -g vscode-langservers-extracted
+			local capabilities = vim.lsp.protocol.make_client_capabilities()
+			capabilities.textDocument.completion.completionItem.snippetSupport = true
+			lspconfig.html.setup({
+				capabilities = capabilities,
+				filetypes = { "html", "blade" },
+				init_options = {
+					configurationSection = { "html", "css", "javascript" },
+					embeddedLanguages = {
+						css = true,
+						javascript = true,
+					},
+					provideFormatter = true,
+				},
+			})
+		end,
+	},
+	{
 		"folke/noice.nvim",
 		opts = {
 			presets = {

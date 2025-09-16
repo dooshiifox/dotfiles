@@ -147,6 +147,10 @@
     docker-compose # Multiple containerization (docker-compose.yml support)
     mysql84 # Database client
 
+    # Neovim LSPs
+    vscode-langservers-extracted # HTML, CSS, some others too
+    intelephense # PHP, freemium
+
     ################
     # Terminal
     ################
