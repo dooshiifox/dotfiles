@@ -170,6 +170,7 @@
       exec-once = [
         # "cd ~/Documents/CodingProjects/mpd-rating/ && pnpm dev --host"
         # "${config.lib.theme.source-folder}/scripts/music/rng"
+        "sudo systemctl start docker.service"
       ];
 
       windowrulev2 = [
