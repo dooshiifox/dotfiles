@@ -277,6 +277,27 @@ return {
 			inlay_hints = {
 				enabled = false,
 			},
+			servers = {
+				-- see: https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#intelephense
+				intelephense = {
+					filetypes = { "php", "blade" },
+					init_options = {
+						licenceKey = "/home/dooshii/nixos/secrets/intelephense.txt",
+						clearCache = true,
+					},
+				},
+				html = {
+					filetypes = { "html", "blade" },
+					init_options = {
+						configurationSection = { "html", "css", "javascript" },
+						embeddedLanguages = {
+							css = true,
+							javascript = true,
+						},
+						provideFormatter = true,
+					},
+				},
+			},
 		},
 	},
 	{
@@ -284,7 +305,16 @@ return {
 		optional = true,
 		opts = {
 			formatters_by_ft = {
-				php = { { "pint", "php_cs_fixer" } },
+				php = { "pint", "php_cs_fixer" },
+				blade = { "pint" },
+			},
+		},
+	},
+	{
+		"mason-org/mason.nvim",
+		opts = {
+			ensure_installed = {
+				"pint",
 			},
 		},
 	},
@@ -322,33 +352,6 @@ return {
 				callback = function()
 					vim.opt.filetype = "blade"
 				end,
-			})
-		end,
-	},
-	{
-		"neovim/nvim-lspconfig",
-		config = function()
-			local lspconfig = require("lspconfig")
-			-- see: https://phpactor.readthedocs.io/en/master/usage/standalone.html#phar-installation
-			-- lspconfig.phpactor.setup {}
-			-- see: https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#intelephense
-			-- $ npm install -g intelephense
-			require("lspconfig").intelephense.setup({})
-			-- see: https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#html
-			-- $ npm install -g vscode-langservers-extracted
-			local capabilities = vim.lsp.protocol.make_client_capabilities()
-			capabilities.textDocument.completion.completionItem.snippetSupport = true
-			lspconfig.html.setup({
-				capabilities = capabilities,
-				filetypes = { "html", "blade" },
-				init_options = {
-					configurationSection = { "html", "css", "javascript" },
-					embeddedLanguages = {
-						css = true,
-						javascript = true,
-					},
-					provideFormatter = true,
-				},
 			})
 		end,
 	},

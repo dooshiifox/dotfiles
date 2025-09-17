@@ -143,7 +143,6 @@
     git-crypt # Git encryption
 
     # Misc
-    docker # Containerization
     docker-compose # Multiple containerization (docker-compose.yml support)
     mysql84 # Database client
 

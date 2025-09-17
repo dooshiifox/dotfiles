@@ -38,11 +38,28 @@ map({ "n", "v", "x" }, "", '"+y')
 map({ "n", "v", "x" }, "", '"+p')
 
 map({ "n", "v", "x" }, "<Tab>", "<leader>bb", { desc = "Switch to previous buffer", remap = true })
+
+vim.keymap.del("n", "<leader>l")
+vim.keymap.del("n", "<leader><Tab>l")
+vim.keymap.del("n", "<leader><Tab>o")
+vim.keymap.del("n", "<leader><Tab>f")
+vim.keymap.del("n", "<leader><Tab><Tab>")
+vim.keymap.del("n", "<leader><Tab>]")
+vim.keymap.del("n", "<leader><Tab>d")
+vim.keymap.del("n", "<leader><Tab>[")
+map("n", "<leader>ll", "<cmd>tablast<cr>", { desc = "Last Tab" })
+map("n", "<leader>lo", "<cmd>tabonly<cr>", { desc = "Close Other Tabs" })
+map("n", "<leader>lf", "<cmd>tabfirst<cr>", { desc = "First Tab" })
+map("n", "<leader>lt", "<cmd>tabnew<cr>", { desc = "New Tab" })
+map("n", "<leader>l]", "<cmd>tabnext<cr>", { desc = "Next Tab" })
+map("n", "<leader>ld", "<cmd>tabclose<cr>", { desc = "Close Tab" })
+map("n", "<leader>l[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 map({ "n", "v", "x" }, "<leader><Tab>", function()
 	Snacks.picker.buffers({
 		hidden = true,
 	})
 end, { desc = "Buffers" })
+
 map({ "n", "v", "x" }, "<Enter>", "/", { desc = "Grep" })
 map({ "n", "v", "x" }, "<leader><Enter>", function()
 	Snacks.picker.grep({

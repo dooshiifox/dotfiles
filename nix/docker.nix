@@ -1,4 +1,8 @@
-{...}: {
-  virtualisation.docker.enable = true;
-  users.users.dooshii.extraGroups = ["docker"];
+{ ... }:
+{
+  virtualisation.docker = {
+    enable = true;
+    enableOnBoot = false;
+  };
+  users.users.dooshii.extraGroups = [ "docker" ];
 }
