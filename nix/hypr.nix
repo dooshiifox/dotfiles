@@ -74,7 +74,7 @@ in
     settings = rec {
       initial_session = {
         command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd Hyprland"; # start Hyprland with a TUI login manager
-        # user = "dooshii";
+        user = "dooshii";
       };
       default_session = initial_session;
     };
