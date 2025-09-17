@@ -15,7 +15,7 @@
   boot = {
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
-    loader.timeout = 5;
+    loader.timeout = 0;
 
     kernelParams = [
       "systemd.mask=systemd-vconsole-setup.service"
