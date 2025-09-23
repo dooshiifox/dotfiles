@@ -149,9 +149,9 @@
       };
       master = {
       };
-      gestures = {
-        workspace_swipe = true;
-      };
+      gestures = [
+        "3, horizontal, workspace"
+      ];
       misc = {
         disable_hyprland_logo = true;
       };
