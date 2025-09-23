@@ -149,7 +149,7 @@
       };
       master = {
       };
-      gestures = [
+      gestures.gesture = [
         "3, horizontal, workspace"
       ];
       misc = {
