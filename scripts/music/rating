@@ -1,25 +1,25 @@
 #!/usr/bin/env bash
 
 print_rating() {
-    rating=$(mpc sticker "$(mpc current -f "%file%")" get "rating" 2>/dev/null)
-    if [ $? -eq 0 ]; then
-        rating=$(echo "$rating" | awk -F'=' '{print $2}')
-    else
-        rating="0"
-    fi
+	rating=$(mpc sticker "$(mpc current -f "%file%")" get "rating" 2>/dev/null)
+	if [ $? -eq 0 ]; then
+		rating=$(echo "$rating" | awk -F'=' '{print $2}')
+	else
+		rating="0"
+	fi
 
-    base_bias=$(mpc sticker "$(mpc current -f "%file%")" get "base_bias" 2>/dev/null)
-    if [ $? -eq 0 ]; then
-        base_bias=$(echo "$base_bias" | awk -F'=' '{print $2}')
-    else
-        base_bias="1"
-    fi
+	base_bias=$(mpc sticker "$(mpc current -f "%file%")" get "base_bias" 2>/dev/null)
+	if [ $? -eq 0 ]; then
+		base_bias=$(echo "$base_bias" | awk -F'=' '{print $2}')
+	else
+		base_bias="1"
+	fi
 
-    echo "{\"rating\":$rating,\"base_bias\":$base_bias}"
+	echo "{\"rating\":$rating,\"base_bias\":$base_bias}"
 }
 
 print_rating
 
-mpc idleloop sticker | while read; do
-    print_rating
+mpc idleloop sticker | while read -r; do
+	print_rating
 done

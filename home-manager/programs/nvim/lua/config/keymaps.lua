@@ -39,6 +39,8 @@ map({ "n", "v", "x" }, "", '"+p')
 
 map({ "n", "v", "x" }, "<Tab>", "<leader>bb", { desc = "Switch to previous buffer", remap = true })
 
+map({ "i" }, "<C-Enter>", "<C-x><C-o>", { desc = "Open intellisense", remap = true })
+
 vim.keymap.del("n", "<leader>l")
 vim.keymap.del("n", "<leader><Tab>l")
 vim.keymap.del("n", "<leader><Tab>o")

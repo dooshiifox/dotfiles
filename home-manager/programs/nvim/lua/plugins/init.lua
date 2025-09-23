@@ -303,10 +303,19 @@ return {
 	{
 		"stevearc/conform.nvim",
 		optional = true,
+		---@module "conform"
+		---@type conform.setupOpts
 		opts = {
 			formatters_by_ft = {
 				php = { "pint", "php_cs_fixer" },
-				blade = { "pint" },
+				blade = { "blade_formatter" },
+			},
+			formatters = {
+				blade_formatter = {
+					command = "blade-formatter",
+					args = { "-w", "$FILENAME" },
+					stdin = false,
+				},
 			},
 		},
 	},

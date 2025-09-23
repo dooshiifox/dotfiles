@@ -113,6 +113,10 @@
 
     # Python
     python312 # Latest stable Python
+    # required for scripts/music
+    python312Packages.mpd2
+    python312Packages.colorthief
+    python312Packages.requests
 
     # C/C++
     cmake # Makefile support

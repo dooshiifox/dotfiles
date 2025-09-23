@@ -6,7 +6,7 @@ set -e
 pushd ~/nixos/
 
 # Edit your config
-$EDITOR ~/nixos/
+$EDITOR
 
 # I don't know why this is needed but it is
 # TODO: Fix this
@@ -14,10 +14,10 @@ rm -f -- /home/dooshii/.mozilla/firefox/dooshii/search.json.mozlz4.hmbackup
 
 echo "NixOS Rebuilding..."
 
-# Fix issues with Nix not finding files
-git add .
 # Shows your changes
 git diff -U0 ./**/*.nix
+# Fix issues with Nix not finding files
+git add .
 
 # Get current generation metadata
 generation=$(nixos-rebuild list-generations | grep True | awk '{print $1;}')
