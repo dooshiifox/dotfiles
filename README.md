@@ -10,7 +10,7 @@ Secrets are set up using `git-crypt`, and can be stored in `secrets`. [This arti
 
 ### Update flake inputs
 
-Run `nix flake update`
+Run `sudo nix flake update`
 
 ### Clean-up old packages
 
@@ -42,15 +42,11 @@ The `NIX_SRC` env variable is set to where the config is built in `/nix/store/..
 
 - Fix occasional FPS drops
 - Fix theming
-  - Window titles
-  - Make app themes consistent with each other
-    - vesktop?
-    - vscodium?
-    - gnome
-      - nemo
-      - firefox
-      - https://mynixos.com/home-manager/option/gtk.gtk4.extraCss
-      - https://hoverbear.org/blog/declarative-gnome-configuration-in-nixos/
+  - gnome
+    - nemo
+    - firefox
+    - https://mynixos.com/home-manager/option/gtk.gtk4.extraCss
+    - https://hoverbear.org/blog/declarative-gnome-configuration-in-nixos/
 - Fix build times
 - Fix boot time
 - Fix sleep mode

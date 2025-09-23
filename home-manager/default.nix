@@ -94,8 +94,8 @@
     ################
 
     postman # API testing
-    php83 # PHP runtime
 
+    # Rust
     rustup # Rust downloader and toolchain switcher
     cargo-audit # Audit for security vulnerabilities
     pkg-config # Compiling openssl-sys crate
@@ -107,16 +107,12 @@
     nodejs_22 # Javascript runtime; also provides npm
     nodePackages.pnpm # Faster, less disk space npm
 
+    # PHP
+    php83 # PHP runtime
+    php83Packages.composer # PHP package installer
+
     # Python
-    (python311.withPackages (
-      ps: with ps; [
-        pygobject3
-        colorthief
-        mpd2
-        requests
-        eyed3
-      ]
-    ))
+    python312 # Latest stable Python
 
     # C/C++
     cmake # Makefile support
@@ -125,10 +121,6 @@
     clang # Provides `clang` and `clang++`
     libcxx # Provides important things for clang I think
     libcxx.dev # ^
-
-    # Nix
-    nixfmt-rfc-style # Official formatter, replacing alejandra
-    nil # Nix language server
 
     # Java
     jdk
@@ -146,9 +138,20 @@
     docker-compose # Multiple containerization (docker-compose.yml support)
     mysql84 # Database client
 
-    # Neovim LSPs
-    vscode-langservers-extracted # HTML, CSS, some others too
+    # Neovim LSPs and formatters and linters and such
+    astro-language-server
+    bash-language-server
+    black # Python formatter
+    blade-formatter
+    python312Packages.debugpy # Debug protocol for python
+    dockerfile-language-server
+    docker-compose-language-service
+    eslint
+    hadolint # Dockerfile linter
     intelephense # PHP, freemium
+    nixfmt-rfc-style # Official formatter, replacing alejandra
+    nil # Nix language server
+    vscode-langservers-extracted # HTML, CSS, some others too
 
     ################
     # Terminal
