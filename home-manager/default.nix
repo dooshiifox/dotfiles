@@ -65,6 +65,8 @@
     protonvpn-gui
     protonmail-desktop
     proton-pass
+    gnome-calculator
+    keymapp # Keyboard
 
     # Networking
     openssl # SSL/TLS cryptography library
@@ -80,14 +82,9 @@
     quicksand
     cantarell-fonts
     gnome-characters
-    gnome-calculator
-
     # TODO: Port this over
     # https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=nerd-fonts-inter
     # For now, manually install.
-
-    # Keyboard
-    keymapp
 
     ################
     # Developing
@@ -204,6 +201,7 @@
     vlc # Video & audio player
     pulseaudio # Audio server
     pamixer # Pulseaudio cli mixer
+    pavucontrol # Audio controller
 
     libreoffice # Office suite
 
