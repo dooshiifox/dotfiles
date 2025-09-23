@@ -77,6 +77,16 @@
               source \"$REPO_ROOT/.venv/bin/activate.fish\" &>/dev/null
           end'';
       };
+      auto_git_fetch = {
+        # https://github.com/avimehenwal/git-refresh/blob/7e5f88b9cb27d5fba22bcca34689067a989f1a3a/init.fish
+        onVariable = "PWD";
+        body = ''
+          set --local hasGit (find ./ -maxdepth 1 -type d -name .git -print)
+          if test "$hasGit" = "./.git"
+          		echo -e "\e[1m(git-refresh) - GIT repo detected\e[0m"
+          		git pull --all --verbose
+          end'';
+      };
     };
   };
 }
