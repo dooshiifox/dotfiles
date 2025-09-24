@@ -134,6 +134,7 @@
     # Misc
     docker-compose # Multiple containerization (docker-compose.yml support)
     mysql84 # Database client
+    antares # Database viewer
 
     # Neovim LSPs and formatters and linters and such
     astro-language-server
