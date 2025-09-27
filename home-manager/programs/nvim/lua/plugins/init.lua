@@ -325,6 +325,9 @@ return {
 			ensure_installed = {
 				"pint",
 			},
+			ui = {
+				border = "rounded",
+			},
 		},
 	},
 	{
@@ -334,33 +337,6 @@ return {
 			vim.list_extend(opts.ensure_installed, {
 				"blade",
 				"php_only",
-			})
-		end,
-		config = function(_, opts)
-			vim.filetype.add({
-				pattern = {
-					[".*%.blade%.php"] = "blade",
-				},
-			})
-
-			require("nvim-treesitter.configs").setup(opts)
-			local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-			parser_config.blade = {
-				install_info = {
-					url = "https://github.com/EmranMR/tree-sitter-blade",
-					files = { "src/parser.c" },
-					branch = "main",
-				},
-				filetype = "blade",
-			}
-			local bladeGrp
-			vim.api.nvim_create_augroup("BladeFiltypeRelated", { clear = true })
-			vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-				pattern = "*.blade.php",
-				group = bladeGrp,
-				callback = function()
-					vim.opt.filetype = "blade"
-				end,
 			})
 		end,
 	},
@@ -429,4 +405,13 @@ return {
 	-- 		time_interval = 1000 / 120, -- 1s / 120fps
 	-- 	},
 	-- },
+	{
+		"lukas-reineke/virt-column.nvim",
+		opts = {
+			highlight = "VirtColumn",
+		},
+		-- config = function(_, opts)
+		-- 	require("virt-column").setup(opts)
+		-- end,
+	},
 }

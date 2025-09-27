@@ -10,7 +10,7 @@ in
     enable = true;
     font = {
       inherit (theme.fonts.monospace) package name;
-      size = 11;
+      size = 10;
     };
 
     shellIntegration = {
@@ -44,7 +44,6 @@ in
       selection_background ${colors.fg}
       selection_foreground ${colors.bg}
       background_opacity ${toString theme.opacity.bg}
-      transparent_background_colors ${colors.bg-secondary} ${colors.bg-tertiary}
 
       cursor ${colors.fg}
       cursor_text_color ${colors.bg}

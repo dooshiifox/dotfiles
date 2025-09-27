@@ -141,8 +141,8 @@ rec {
 
   config.lib.theme = rec {
     opacity = rec {
-      unfocused = 0.9;
-      bg = 0.85;
+      unfocused = 0.95;
+      bg = 0.9;
       border = bg;
     };
     border-radius = 12;

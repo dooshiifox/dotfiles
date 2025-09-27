@@ -27,3 +27,8 @@ vim.o.showtabline = 0
 -- vim.o.winborder = "rounded"
 
 vim.g.lazyvim_php_lsp = "intelephense"
+vim.filetype.add({
+	pattern = {
+		[".*%.blade%.php"] = "blade",
+	},
+})
