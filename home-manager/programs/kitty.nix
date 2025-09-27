@@ -9,8 +9,7 @@ in
   programs.kitty = {
     enable = true;
     font = {
-      inherit (theme.fonts.monospace) package;
-      name = "JetBrainsMonoNL Nerd Font Mono Thin";
+      inherit (theme.fonts.monospace) package name;
       size = 11;
     };
 
