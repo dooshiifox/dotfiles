@@ -25,6 +25,8 @@
       "ni" = "${config.lib.theme.source-folder}/scripts/nix-rebuild";
       "clean-old-gens" = "${config.lib.theme.source-folder}/scripts/clean-old-gens";
       "w" = "nvim /home/dooshii/Documents/CodingProjects/pin/work";
+      "todo" = "nvim /home/dooshii/Documents/obsidian/Todo.md";
+      "o" = "nvim /home/dooshii/Documents/obsidian/";
       "x" = "exit";
       "q" = "exit";
       "e" = "nvim";
