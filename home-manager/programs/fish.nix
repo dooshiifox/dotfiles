@@ -32,6 +32,7 @@
       "e" = "nvim";
       "ytdlmp3" = "yt-dlp --extract-audio --audio-format mp3 -o \"%(title)s.%(ext)s\" --embed-thumbnail";
       "code" = "codium";
+      "audio" = "GSK_RENDERER=gl pavucontrol";
     };
 
     # Causes slow Nix builds when set to true
