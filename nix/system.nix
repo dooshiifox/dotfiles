@@ -51,6 +51,7 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
+  # To configure wifi, use `nmtui`
   networking.networkmanager.enable = true;
   networking.networkmanager.insertNameservers = [
     "1.1.1.1"
@@ -63,7 +64,9 @@
   #   LOCALIZATION / TIME
   ####################
 
-  time.timeZone = "Pacific/Auckland";
+  # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time.timeZone = "Australia/Melbourne";
+  # time.timeZone = "Pacific/Auckland";
   i18n.defaultLocale = "en_NZ.UTF-8";
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_NZ.UTF-8";
