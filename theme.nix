@@ -178,19 +178,19 @@ rec {
     wallpaper = /home/dooshii/Pictures/wallpaper/jacato_float.png;
 
     colors = rec {
-      # variant = "dark";
-      # bg = "#07070a";
-      # bg-secondary = black;
-      # bg-tertiary = dark-grey;
-      # fg-secondary = "#b0c6ce";
-      # fg = "#ced9dd";
-      #
-      variant = "light";
-      bg = "#edf4f7";
-      bg-secondary = "#ced9dd";
-      bg-tertiary = "#b0c6ce";
-      fg-secondary = "#373b41";
-      fg = "#07070a";
+      variant = "dark";
+      bg = "#07070a";
+      bg-secondary = black;
+      bg-tertiary = dark-grey;
+      fg-secondary = "#b0c6ce";
+      fg = "#ced9dd";
+
+      # variant = "light";
+      # bg = "#edf4f7";
+      # bg-secondary = "#ced9dd";
+      # bg-tertiary = "#b0c6ce";
+      # fg-secondary = "#373b41";
+      # fg = "#07070a";
 
       black = "#1f2024";
       dark-grey = "#373b41";
