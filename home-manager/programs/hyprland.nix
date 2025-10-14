@@ -25,14 +25,14 @@
 
       "$mod" = "SUPER";
       bind = [
-        "$mod, F1, exec, kitty"
-        "$mod, F2, exec, firefox-devedition"
-        "$mod, F3, nemo"
-        "$mod, F4, exec, thunderbird"
+        "$mod, T, exec, kitty"
+        "$mod, B, exec, firefox-devedition"
+        "$mod, F, exec, nemo"
+        "$mod, M, exec, thunderbird"
         "$mod, Space, exec, pkill rofi || rofi -show drun"
-        "$mod, F12, exec, hyprpicker -a"
+        "$mod, C, exec, hyprpicker -a"
         "$mod, W, killactive,"
-        "$mod, F, togglefloating,"
+        "$mod, V, togglefloating,"
         "$mod, H, movefocus, l"
         "$mod, I, movefocus, r"
         "$mod, E, movefocus, u"
