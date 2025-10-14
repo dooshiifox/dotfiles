@@ -25,14 +25,12 @@
 
       "$mod" = "SUPER";
       bind = [
-        "$mod ALT SHIFT, F, exec, firefox-devedition"
-        "$mod ALT SHIFT, T, exec, kitty"
-        "$mod ALT SHIFT, E, exec, nemo"
-        "$mod ALT SHIFT, V, exec, vesktop"
-        "$mod ALT SHIFT, M, exec, thunderbird"
-        "$mod ALT SHIFT, R, exec, pkill rofi || rofi -show drun"
-        "$mod ALT SHIFT, P, exec, hyprpicker -a"
-        "$mod ALT SHIFT, O, exec, obsidian"
+        "$mod, F1, exec, kitty"
+        "$mod, F2, exec, firefox-devedition"
+        "$mod, F3, nemo"
+        "$mod, F4, exec, thunderbird"
+        "$mod, Space, exec, pkill rofi || rofi -show drun"
+        "$mod, F12, exec, hyprpicker -a"
         "$mod, W, killactive,"
         "$mod, F, togglefloating,"
         "$mod, H, movefocus, l"
