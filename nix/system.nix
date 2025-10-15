@@ -65,8 +65,8 @@
   ####################
 
   # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-  time.timeZone = "Australia/Melbourne";
-  # time.timeZone = "Pacific/Auckland";
+  # time.timeZone = "Australia/Melbourne";
+  time.timeZone = "Pacific/Auckland";
   i18n.defaultLocale = "en_NZ.UTF-8";
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_NZ.UTF-8";
