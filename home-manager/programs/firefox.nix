@@ -186,6 +186,7 @@ in
         "font.name.monospace.x-western" = theme.fonts.monospace.name;
         "font.name.sans-serif.x-western" = theme.fonts.sansSerif.name;
         "font.name.serif.x-western" = theme.fonts.serif.name;
+        "middlemouse.paste" = false;
         "privacy.donottrackheader.enabled" = true;
         "privacy.fingerprintingProtection" = true;
         "sidebar.new-sidebar.has-used" = true;

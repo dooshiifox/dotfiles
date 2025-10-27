@@ -69,3 +69,20 @@ map({ "n", "v", "x" }, "<leader><Enter>", function()
 		ignored = false,
 	})
 end, { desc = "Grep all files" })
+
+map({ "n" }, "<leader>or", function()
+	-- https://github.com/stevearc/overseer.nvim/blob/master/doc/recipes.md#restart-last-task
+	local overseer = require("overseer")
+	local tasks = overseer.list_tasks({ recent_first = true })
+	if vim.tbl_isempty(tasks) then
+		vim.notify("No tasks found", vim.log.levels.WARN)
+	else
+		overseer.run_action(tasks[1], "restart")
+	end
+end)
+
+map("n", "<leader>cd", function()
+	vim.diagnostic.open_float({
+		border = "rounded",
+	})
+end, { desc = "Line Diagnostics" })
