@@ -10,7 +10,7 @@ $EDITOR
 
 # I don't know why this is needed but it is
 # TODO: Fix this
-rm -f -- /home/dooshii/.mozilla/firefox/dooshii/search.json.mozlz4.hmbackup
+rm -f -- /home/dooshii/.mozilla/firefox/dooshii/search.json.mozlz4.hmbackup /home/dooshii/.config/plover/plover.cfg.hmbackup
 
 echo "NixOS Rebuilding..."
 

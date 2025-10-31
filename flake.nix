@@ -15,10 +15,10 @@
     # VSCode extensions
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     # Outer Wilds mod manager
-    ow-mod-man = {
-      url = "github:ow-mods/ow-mod-man";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # ow-mod-man = {
+    #   url = "github:ow-mods/ow-mod-man";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";

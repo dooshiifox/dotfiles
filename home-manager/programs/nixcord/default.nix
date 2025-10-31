@@ -7,7 +7,7 @@
   programs.nixcord = {
     # https://kaylorben.github.io/nixcord/
     enable = true;
-    vesktop.enable = true;
+    # vesktop.enable = true;
     dorion = {
       enable = true;
       useNativeTitlebar = false;

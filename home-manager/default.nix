@@ -59,7 +59,7 @@
 
     # Social
     telegram-desktop # Telegram client
-    whatsapp-for-linux # Whatsapp client
+    wasistlos # Whatsapp client
 
     # Basic services
     protonvpn-gui
@@ -110,6 +110,7 @@
 
     # Python
     python312 # Latest stable Python
+    python312Packages.dbus-python
 
     # C/C++
     cmake # Makefile support
@@ -181,7 +182,7 @@
     kitty # Terminal
 
     xvfb-run # Fixing OpenGL issues
-    glxinfo # Fixing OpenGL issues
+    mesa-demos # Fixing OpenGL issues
 
     filezilla # FTP GUI client
 
@@ -214,7 +215,7 @@
     mpd # Music Player Daemon
     mpd-mpris # Implement MPRIS protocal for MPD
     ymuse # MPD front-end
-    mpc-cli # Interact with MPD from the command line
+    mpc # Interact with MPD from the command line
     rmpc
 
     # Piracy
@@ -233,12 +234,12 @@
     ferium # Minecraft mod manager
     steam-run # Use dynamically linked games
     mangohud # Computer usage overlay. `mangohud %command%` in Steam
-    protonup # ProtonGE. Use `protonup -d "~/.steam/root/compatibilitytools.d/"` to install GE
+    protonup-ng # ProtonGE. Use `protonup -d "~/.steam/root/compatibilitytools.d/"` to install GE
     lutris # Steam but for Humble Bundle too
     wine # Window compatibility
     winetricks # Wine helpers
-    inputs.ow-mod-man.packages.x86_64-linux.owmods-gui # Outer Wilds mod loader
-    inputs.ow-mod-man.packages.x86_64-linux.owmods-cli # Outer Wilds mod loader
+    # inputs.ow-mod-man.packages.x86_64-linux.owmods-gui # Outer Wilds mod loader
+    # inputs.ow-mod-man.packages.x86_64-linux.owmods-cli # Outer Wilds mod loader
     ns-usbloader # Nintendo Switch homebrew manager
     joycond # Switch Pro controller and joycon support
     cemu # Wii-U emulator

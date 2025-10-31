@@ -169,7 +169,7 @@
     enable32Bit = true;
     extraPackages = [
       # Video acceleration & Video Decode And Presentation API for Unix
-      pkgs.vaapiVdpau
+      pkgs.libva-vdpau-driver
       pkgs.libvdpau
       pkgs.libvdpau-va-gl
       pkgs.nvidia-vaapi-driver
