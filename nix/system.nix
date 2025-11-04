@@ -131,29 +131,24 @@
   };
 
   ####################
-  #   KEYBOARD
+  #   KEYBOARD AND CONTROLLERS
   ####################
   services.udev.extraRules = ''
     SUBSYSTEMS=="usb", ATTRS{idVendor}=="3297", MODE:="0666", SYMLINK+="ignition_dfu"
     KERNEL=="hidraw*", ATTRS{idVendor}=="16c0", MODE="0664", GROUP="plugdev"
     KERNEL=="hidraw*", ATTRS{idVendor}=="3297", MODE="0664", GROUP="plugdev"
     KERNEL=="uinput", GROUP="input", MODE="0660", OPTIONS+="static_node=uinput"
+
+    # Nintendo Switch 2 Pro Controller 2; Bluetooth; USB
+    KERNEL=="hidraw*", KERNELS=="*057E:2069*", MODE="0666", TAG+="uaccess"
+    KERNEL=="hidraw*", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="2069", MODE="0666", TAG+="uaccess"
+    # Grand access for some userspace tools, if connected via USB
+    SUBSYSTEM=="usb", ATTR{idProduct}=="2069", ATTR{idVendor}=="057e", ENV{ID_INPUT_JOYSTICK}="1", TAG+="uaccess"
   '';
   users.users.dooshii.extraGroups = [
     "plugdev"
     "input"
   ];
-
-  ####################
-  #   CONTROLLER
-  ####################
-  # services.udev.extraRules = ''
-  #   # Nintendo Switch Pro Controller over USB hidraw
-  #   KERNEL=="hidraw*", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="2009", MODE="0660", TAG+="uaccess"
-
-  #   # Nintendo Switch Pro Controller over bluetooth hidraw
-  #   KERNEL=="hidraw*", KERNELS=="*057E:2009*", MODE="0660", TAG+="uaccess"
-  # '';
   services.udev.packages = with pkgs; [
     game-devices-udev-rules
   ];
