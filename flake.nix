@@ -51,44 +51,77 @@
       ...
     }:
     let
-      # "gnome", "gnome-wayland", "hypr", "xmonad"
-      mode = "hypr";
+      optionals = condition: list: if condition then list else [ ];
+      for_profile =
+        current_profile: profiles: list:
+        if builtins.isString profiles then
+          optionals (profiles == current_profile) list
+        else
+          optionals (builtins.any (p: p == current_profile) list);
+      build =
+        {
+          profile,
+          has_secrets,
+          wallpaper,
+        }:
+        nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit
+              inputs
+              profile
+              has_secrets
+              wallpaper
+              ;
+            for_profile = for_profile profile;
+            if_secrets = optionals has_secrets;
+          };
+          modules = [
+            ./theme.nix
+            ./nix
+            inputs.copyparty.nixosModules.default
+
+            # make home-manager as a module of nixos so that
+            # home-manager configuration will be deployed automatically
+            # when executing `nixos-rebuild switch`
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = "hmbackup";
+
+              home-manager.users.dooshii.imports = [
+                inputs.plover-flake.homeManagerModules.plover
+                inputs.nixcord.homeModules.nixcord
+                ./theme.nix
+                ./home-manager
+              ];
+
+              # Optionally, use home-manager.extraSpecialArgs to pass arguments
+              home-manager.extraSpecialArgs = {
+                inherit
+                  inputs
+                  profile
+                  has_secrets
+                  wallpaper
+                  ;
+                for_profile = for_profile profile;
+                if_secrets = optionals has_secrets;
+              };
+            }
+          ];
+        };
     in
     {
-      nixosConfigurations.dooshii = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {
-          inherit inputs;
-          inherit mode;
-        };
-        modules = [
-          ./theme.nix
-          ./nix
-          inputs.copyparty.nixosModules.default
-
-          # make home-manager as a module of nixos so that
-          # home-manager configuration will be deployed automatically
-          # when executing `nixos-rebuild switch`
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "hmbackup";
-
-            home-manager.users.dooshii.imports = [
-              inputs.plover-flake.homeManagerModules.plover
-              inputs.nixcord.homeModules.nixcord
-              ./theme.nix
-              ./home-manager
-            ];
-
-            # Optionally, use home-manager.extraSpecialArgs to pass arguments
-            home-manager.extraSpecialArgs = {
-              inherit inputs;
-              inherit mode;
-            };
-          }
-        ];
+      nixosConfigurations.old = build {
+        profile = "old";
+        has_secrets = true;
+        wallpaper = /home/dooshii/Pictures/wallpaper/jacato_float.png;
+      };
+      nixosConfigurations.work = build {
+        profile = "work";
+        has_secrets = true;
+        wallpaper = /home/dooshii/Pictures/2022-apraug-ko.png;
       };
     };
 }

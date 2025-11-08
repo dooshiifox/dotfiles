@@ -4,7 +4,46 @@ My system uses NixOS. This configuration assumes you've symlinked `flake.lock` a
 
 Secrets are set up using `git-crypt`, and can be stored in `secrets`. [This article](https://lgug2z.com/articles/handling-secrets-in-nixos-an-overview/) is a good resource for learning more.
 
-> Personal note: To decrypt from the secret key you stored in Dashlane, save it as `secret-key-base64`, `base64 --decode ./secret-key-base64 > ./secret-key-decoded`, then `git-crypt unlock ./secret-key-decoded`
+## Install script-ish
+
+This is untested in its entirety. Take it one line at a time
+
+```sh
+profile="mynewprofile"
+nmtui # Connect to an internet connection
+nix-shell -p neovim git
+git clone https://github.com/dooshiifox/dotfiles.git nixos
+cd dotfiles
+sudo mv /etc/nixos/hardware-configuration.nix hardware/"$profile".nix
+sudo rm /etc/nixos/configuration.nix
+sudo ln -s /home/$(whoami)/nixos/flake.nix /etc/nixos/flake.nix
+sudo ln -s /home/$(whoami)/nixos/flake.lock /etc/nixos/flake.lock
+
+nvim flake.nix # Configure flake.nix to have the new profile.
+# Disable secrets! Pointing to an invalid wallpaper is fine
+
+git add .
+sudo nixos-rebuild switch --flake ".#$profile" --show-trace
+
+# Once logged in...
+
+# The Nix language server will fail to install without these
+rustup toolchain install nightly
+rustup default nightly
+
+# Copy the decryption key from ProtonPass
+cd nixos
+wl-paste > secret-key-base64
+base64 --decode ./secret-key-base64 ./secret-key-decoded
+git-crypt unlock ./secret-key-decoded
+rm ./secret-key-base64 ./secret-key-decoded
+nvim flake.nix # Enable secrets for this profile
+
+# Download a new wallpaper and provide it for the profile
+nvim flake.nix
+
+ni # Reload the new config
+```
 
 ## Notes
 

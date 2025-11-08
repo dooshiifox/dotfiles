@@ -1,43 +1,39 @@
 {
-  mode,
   lib,
   ...
 }:
 {
-  imports =
-    [
-      ./vscode
-      ./nixcord
-      ./alacritty.nix
-      ./bat.nix
-      ./chromium.nix
-      ./dconf.nix
-      ./direnv.nix
-      ./eza.nix
-      ./fd.nix
-      ./firefox.nix
-      ./fish.nix
-      ./gh.nix
-      ./git.nix
-      ./gitui.nix
-      ./gtk.nix
-      ./kitty.nix
-      ./mpv.nix
-      ./neovim.nix
-      ./obs-studio.nix
-      ./plover.nix
-      ./ripgrep.nix
-      ./rofi.nix
-      ./starship.nix
-      ./thunderbird.nix
-      ./yazi.nix
-      ./yt-dlp.nix
-      ./zoxide.nix
-    ]
-    ++ lib.optionals (mode == "hypr") [
-      ./hyprland.nix
-      ./hyprlock.nix
-      ./pywal.nix
-      ./waybar.nix
-    ];
+  imports = [
+    ./vscode
+    ./nixcord
+    ./alacritty.nix
+    ./bat.nix
+    ./chromium.nix
+    ./dconf.nix
+    ./direnv.nix
+    ./eza.nix
+    ./fd.nix
+    ./firefox.nix
+    ./fish.nix
+    ./gh.nix
+    ./git.nix
+    ./gitui.nix
+    ./gtk.nix
+    ./kitty.nix
+    ./mpv.nix
+    ./neovim.nix
+    ./obs-studio.nix
+    ./plover.nix
+    ./ripgrep.nix
+    ./rofi.nix
+    ./starship.nix
+    ./thunderbird.nix
+    ./yazi.nix
+    ./yt-dlp.nix
+    ./zoxide.nix
+    ./hyprland.nix
+    ./hyprlock.nix
+    ./pywal.nix
+    ./waybar.nix
+  ];
 }

@@ -1,4 +1,4 @@
-{
+root@{
   inputs,
   lib,
   pkgs,
@@ -175,7 +175,7 @@ rec {
     };
 
     source-folder = "/home/dooshii/nixos";
-    wallpaper = /home/dooshii/Pictures/wallpaper/jacato_float.png;
+    wallpaper = root.wallpaper;
 
     colors = rec {
       variant = "dark";

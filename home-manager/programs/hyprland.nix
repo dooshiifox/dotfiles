@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  for_profile,
   ...
 }:
 {
@@ -19,8 +20,14 @@
       monitor = [
         # Home External
         "desc:KOGAN AUSTRALIA PTY LTD KALED24144F,1920x1080@120,0x0,1"
+      ]
+      ++ for_profile "old" [
         # Internal
         "desc:BOE 0x0BB7,3840x2160@144,1920x0,2"
+      ]
+      ++ for_profile "work" [
+        # Internal
+        "eDP-1,2880x1800@120,1920x0,2"
       ];
 
       "$mod" = "SUPER";
@@ -157,10 +164,12 @@
       env = [
         "HYPRCURSOR_THEME,Bibata-Modern-Classic"
         "HYPRCURSOR_SIZE,20"
-        "LIBVA_DRIVER_NAME,nvidia"
-        "__GLX_VENDOR_LIBRARY_NAME,nvidia"
         "NVD_BACKEND,direct"
         "ELECTRON_OZONE_PLATFORM_HINT,auto"
+      ]
+      ++ for_profile "old" [
+        "LIBVA_DRIVER_NAME,nvidia"
+        "__GLX_VENDOR_LIBRARY_NAME,nvidia"
         # Prefer igpu
         "AQ_DRM_DEVICES,/dev/dri/card2:/dev/dri/card1"
       ];
@@ -174,6 +183,17 @@
       windowrulev2 = [
         "float, class:Minecraft.*"
         "noinitialfocus,class:(jetbrains-)(.*),title:^win(.*), initialTitle:win.*, floating:1"
+      ];
+
+      device = [
+        {
+          # TODO: Script to switch between the two monitors
+          # hyprctl -r -- keyword device[wdht1f01:00-2575:092e-stylus]:output HDMI-A-1
+          # hyprctl -r -- keyword device[wdht1f01:00-2575:092e-stylus]:output eDP-1
+          # Unfortunately, https://github.com/hyprwm/Hyprland/issues/5724
+          name = "wdht1f01:00-2575:092e-stylus";
+          output = "eDP-1";
+        }
       ];
 
       # "plugin:dynamic-cursors" = {

@@ -3,14 +3,11 @@
 {
   inputs,
   pkgs,
-  lib,
-  mode,
+  profile,
   ...
 }:
 {
   imports = [
-    # Include the results of the hardware scan.
-    ../hardware-configuration.nix
     ./copyparty.nix
     ./android.nix
     ./docker.nix
@@ -18,11 +15,12 @@
     ./nix-ld.nix
     ./media.nix
     ./system.nix
-  ]
-  ++ lib.optionals (mode == "hypr") [ ./hypr.nix ]
-  ++ lib.optionals (mode == "xmonad") [ ./xmonad.nix ]
-  ++ lib.optionals (mode == "gnome-wayland") [ ./gnome-wayland.nix ]
-  ++ lib.optionals (mode == "gnome") [ ./gnome.nix ];
+    ./hypr.nix
+    # Include the results of the hardware scan.
+    # https://nixos.wiki/wiki/Nix_Language:_Tips_%26_Tricks#Coercing_a_relative_path_with_interpolated_variables_to_an_absolute_path_.28for_imports.29
+    (../. + "/hardware/${profile}.nix")
+    (./. + "/system/${profile}.nix")
+  ];
 
   users.users.dooshii = {
     isNormalUser = true;

@@ -1,8 +1,13 @@
 # A better terminal
 # https://github.com/nix-community/home-manager/blob/master/modules/programs/fish.nix
-{ config, ... }:
 {
-  imports = [
+  config,
+  profile,
+  if_secrets,
+  ...
+}:
+{
+  imports = if_secrets [
     ../../secrets/fish.nix
   ];
 
@@ -22,7 +27,7 @@
       "ll" = "exa -l";
       "ls" = "exa";
       "mrng" = "${config.lib.theme.source-folder}/scripts/music/rng";
-      "ni" = "${config.lib.theme.source-folder}/scripts/nix-rebuild";
+      "ni" = "${config.lib.theme.source-folder}/scripts/nix-rebuild ${profile}";
       "clean-old-gens" = "${config.lib.theme.source-folder}/scripts/clean-old-gens";
       "w" = "nvim /home/dooshii/Documents/CodingProjects/pin/work";
       "todo" = "nvim /home/dooshii/Documents/obsidian/Todo.md";
@@ -34,9 +39,12 @@
       "code" = "codium";
       "audio" = "GSK_RENDERER=gl pavucontrol";
     };
+    interactiveShellInit = ''
+      set fish_command_color blue
+    '';
 
     # Causes slow Nix builds when set to true
-    generateCompletions = false;
+    generateCompletions = true;
 
     functions = {
       mkcd = "mkdir -p $argv; cd $argv;";

@@ -2,15 +2,17 @@
 # A rebuild script that commits on a successful build
 set -e
 
+profile=$1
+if [ -z "$profile" ]; then
+	echo "Please pass a profile to this script"
+	exit 1
+fi
+
 # cd to your config dir
 pushd ~/nixos/
 
 # Edit your config
 $EDITOR
-
-# I don't know why this is needed but it is
-# TODO: Fix this
-rm -f -- /home/dooshii/.mozilla/firefox/dooshii/search.json.mozlz4.hmbackup /home/dooshii/.config/plover/plover.cfg.hmbackup
 
 echo "NixOS Rebuilding..."
 
@@ -24,8 +26,12 @@ generation=$(nixos-rebuild list-generations | grep True | awk '{print $1;}')
 # Get a commit name
 read -rp "Commit message:  ($generation) " commit_msg
 
+# I don't know why this is needed but it is
+# TODO: Fix this
+rm -f -- /home/dooshii/.mozilla/firefox/dooshii/search.json.mozlz4.hmbackup /home/dooshii/.config/plover/plover.cfg.hmbackup
+
 # Rebuild, output simplified errors, log tracebacks
-sudo nixos-rebuild switch --show-trace
+sudo nixos-rebuild switch --show-trace --flake .#"$profile"
 
 # Commit all changes witih the generation metadata
 # If an argument is provided, append it to the commit message

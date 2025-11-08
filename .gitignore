@@ -3,3 +3,4 @@ nixos-switch.log
 .mypy_cache
 home-manager/secrets.nix
 .git
+secret-key*

@@ -1,4 +1,9 @@
-{ pkgs, ... }:
+{
+  lib,
+  profile,
+  pkgs,
+  ...
+}:
 let
   dbus-hyprland-environment = pkgs.writeTextFile {
     name = "dbus-hyprland-environment";
@@ -35,7 +40,7 @@ in
       Hyprland
     '';
     variables = {
-      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+      __GLX_VENDOR_LIBRARY_NAME = lib.mkIf (profile == "old") "nvidia";
       __GL_GSYNC_ALLOWED = "0";
       __GL_VRR_ALLOWED = "0";
       XDG_CURRENT_DESKTOP = "Hyprland";

@@ -1,7 +1,7 @@
-{ config, ... }:
+{ config, has_secrets, ... }:
 {
   services.copyparty = {
-    enable = true;
+    enable = has_secrets;
 
     settings = {
       # IP
