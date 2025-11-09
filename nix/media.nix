@@ -34,10 +34,15 @@
     };
   };
   systemd.services = {
-    jellyfin.wantedBy = lib.mkForce [ ];
-    prowlarr.wantedBy = lib.mkForce [ ];
-    radarr.wantedBy = lib.mkForce [ ];
-    sonarr.wantedBy = lib.mkForce [ ];
-    readarr.wantedBy = lib.mkForce [ ];
+    jellyfin.wantedBy = lib.mkForce [ "default.target" ];
+    jellyfin.after = lib.mkForce [ "default.target" ];
+    prowlarr.wantedBy = lib.mkForce [ "default.target" ];
+    prowlarr.after = lib.mkForce [ "default.target" ];
+    radarr.wantedBy = lib.mkForce [ "default.target" ];
+    radarr.after = lib.mkForce [ "default.target" ];
+    sonarr.wantedBy = lib.mkForce [ "default.target" ];
+    sonarr.after = lib.mkForce [ "default.target" ];
+    readarr.wantedBy = lib.mkForce [ "default.target" ];
+    readarr.after = lib.mkForce [ "default.target" ];
   };
 }

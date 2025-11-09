@@ -148,5 +148,4 @@
     game-devices-udev-rules
   ];
   hardware.uinput.enable = true;
-
 }
