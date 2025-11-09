@@ -35,14 +35,12 @@ in
     driversi686Linux.intel-media-driver
   ];
 
-  # fileSystems."/home/dooshii/Shared" = {
-    # device = "/dev/disk/by-uuid/37A8B79370430E62";
-    # fsType = "vfat";
-  # };
-  # fileSystems."/home/dooshii/Windows" = {
-    # device = "/dev/disk/by-uuid/36BE6A92BE6A4B07";
-    # fsType = "vfat";
-  # };
+  fileSystems."/home/dooshii/Shared" = {
+    device = "/dev/disk/by-uuid/37A8B79370430E62";
+  };
+  fileSystems."/home/dooshii/Windows" = {
+    device = "/dev/disk/by-uuid/36BE6A92BE6A4B07";
+  };
 
   swapDevices = [
     { device = "/dev/disk/by-uuid/b525e6a6-4455-4765-971c-ec7ac0048acd"; }
