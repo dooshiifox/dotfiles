@@ -79,6 +79,9 @@
     xorg.xbacklight # Backlight control
     brightnessctl # Also backlight control
     acpi # Battery info
+
+    # Encrypted drive
+    cryptsetup
   ];
 
   # This value determines the NixOS release from which the default

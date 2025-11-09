@@ -44,6 +44,7 @@
     xwayland
     hyprutils
     nemo-with-extensions
+    cryptsetup
 
     # Ensure you enable these in GNOME Extensions
     # With Pop Shell, disable mouse stacking

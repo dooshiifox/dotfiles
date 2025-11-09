@@ -1,4 +1,9 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  lib,
+  has_secrets,
+  ...
+}:
 # https://github.com/NixOS/nixos-hardware/blob/master/asus/battery.nix
 let
   p = pkgs.writeScriptBin "charge-upto" ''
@@ -9,6 +14,8 @@ let
   chargeUpto = 90;
 in
 {
+  imports = lib.optional has_secrets ../../secrets/work.nix;
+
   # https://github.com/NixOS/nixos-hardware/blob/master/asus/zenbook/ux371/default.nix
   services.thermald.enable = true;
   powerManagement.cpuFreqGovernor = "powersave";
@@ -26,6 +33,19 @@ in
   hardware.graphics.extraPackages32 = with pkgs; [
     driversi686Linux.intel-vaapi-driver
     driversi686Linux.intel-media-driver
+  ];
+
+  # fileSystems."/home/dooshii/Shared" = {
+    # device = "/dev/disk/by-uuid/37A8B79370430E62";
+    # fsType = "vfat";
+  # };
+  # fileSystems."/home/dooshii/Windows" = {
+    # device = "/dev/disk/by-uuid/36BE6A92BE6A4B07";
+    # fsType = "vfat";
+  # };
+
+  swapDevices = [
+    { device = "/dev/disk/by-uuid/b525e6a6-4455-4765-971c-ec7ac0048acd"; }
   ];
 
   environment.systemPackages = [ p ];
