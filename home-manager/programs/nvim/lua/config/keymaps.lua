@@ -86,3 +86,8 @@ map("n", "<leader>cd", function()
 		border = "rounded",
 	})
 end, { desc = "Line Diagnostics" })
+
+-- vim.keymap.del("i", "<C-i>")
+-- vim.keymap.del("i", "<C-d>")
+map("i", "<C-i><C-d>", "<C-R>=strftime('%Y-%m-%d')<CR>", { desc = "Insert the current date" })
+map("n", "<leader>id", "\"=strftime('%Y-%m-%d')<CR>p", { desc = "Insert the current date" })

@@ -1,6 +1,9 @@
 # Git
 # https://github.com/nix-community/home-manager/blob/master/modules/programs/git.nix
+{ has_secrets, lib, ... }:
 {
+  imports = lib.optional has_secrets ../../secrets/git.nix;
+
   programs.git = {
     enable = true;
     settings = {

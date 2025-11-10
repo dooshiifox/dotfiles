@@ -14,6 +14,7 @@
     ./games.nix
     ./nix-ld.nix
     ./media.nix
+    # ./mpd.nix
     ./system.nix
     ./hypr.nix
     # Include the results of the hardware scan.
