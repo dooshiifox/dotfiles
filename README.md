@@ -43,6 +43,9 @@ nvim flake.nix # Enable secrets for this profile
 nvim flake.nix
 
 ni # Reload the new config
+
+# Once you add the SSH keys
+e /home/dooshii/nixos/.git/config # set `url = git@github.com:dooshiifox/dotfiles.git`
 ```
 
 ## Notes
