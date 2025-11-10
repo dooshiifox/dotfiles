@@ -1,6 +1,5 @@
 {
   pkgs,
-  inputs,
   lib,
   config,
   ...
@@ -14,6 +13,7 @@
   home.username = "dooshii";
   home.homeDirectory = "/home/dooshii";
   xdg = {
+    enable = true;
     userDirs.enable = true;
     # Portals defined in `nix/wayland.nix`
   };
@@ -106,8 +106,8 @@
     nodePackages.pnpm # Faster, less disk space npm
 
     # PHP
-    php83 # PHP runtime
-    php83Packages.composer # PHP package installer
+    php84 # PHP runtime
+    php84Packages.composer # PHP package installer
 
     # Python
     python312 # Latest stable Python
@@ -134,7 +134,6 @@
     git-crypt # Git encryption
 
     # Misc
-    docker-compose # Multiple containerization (docker-compose.yml support)
     mysql84 # Database client
     antares # Database viewer
 

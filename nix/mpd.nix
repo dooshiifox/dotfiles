@@ -1,4 +1,4 @@
-{ config, ... }:
+{ ... }:
 {
   services.mpd = {
     enable = true;
@@ -9,6 +9,7 @@
       	name "My PipeWire Output"
       }
     '';
+    dataDir = "/home/dooshii/.local/share/mpd/";
     # user = "userRunningPipeWire";
   };
   # systemd.services.mpd.environment = {
