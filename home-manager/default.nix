@@ -212,8 +212,8 @@
     # their state.
     # However, I did create home-manager systemd services for them in
     # `./services/mpd.nix`
-    mpd # Music Player Daemon
-    mpd-mpris # Implement MPRIS protocal for MPD
+    # mpd # Music Player Daemon
+    # mpd-mpris # Implement MPRIS protocal for MPD
     ymuse # MPD front-end
     mpc # Interact with MPD from the command line
     rmpc

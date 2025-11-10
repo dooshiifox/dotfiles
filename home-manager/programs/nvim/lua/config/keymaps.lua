@@ -34,8 +34,8 @@ end, { desc = "Add cursor for repeated selection" })
 
 map({ "v", "n", "x" }, "\\", '<Cmd>lua require("precognition").peek()<Cr>', { desc = "Toggle precognition" })
 
-map({ "n", "v", "x" }, "", '"+y')
-map({ "n", "v", "x" }, "", '"+p')
+map({ "i" }, "", '"+y')
+map({ "i" }, "", '"+p')
 
 map({ "n", "v", "x" }, "<Tab>", "<leader>bb", { desc = "Switch to previous buffer", remap = true })
 
