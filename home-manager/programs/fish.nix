@@ -37,6 +37,7 @@
       "ytdlmp3" = "yt-dlp --extract-audio --audio-format mp3 -o \"%(title)s.%(ext)s\" --embed-thumbnail";
       "code" = "codium";
       "audio" = "GSK_RENDERER=gl pavucontrol";
+      "payroll-time" = "/home/dooshii/Documents/CodingProjects/payroll-time/target/release/payroll-time";
     };
     interactiveShellInit = ''
       set fish_command_color blue
