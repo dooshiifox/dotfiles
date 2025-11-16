@@ -99,7 +99,7 @@
           end'';
       };
       flip.body = ''
-        if test $(hyprctl monitors -j | jq '.[] | select(.name=="eDP-1") | .transform')
+        if test $(hyprctl monitors -j | jq '.[] | select(.name=="eDP-1") | .transform') = 0
         	hyprctl keyword monitor eDP-1,2880x1800@120,0x0,2,transform,2
         	hyprctl -r -- keyword input:touchdevice:transform 2
           hyprctl -r -- keyword device[wdht1f01:00-2575:092e-stylus]:transform 2
