@@ -240,7 +240,7 @@
     winetricks # Wine helpers
     # inputs.ow-mod-man.packages.x86_64-linux.owmods-gui # Outer Wilds mod loader
     # inputs.ow-mod-man.packages.x86_64-linux.owmods-cli # Outer Wilds mod loader
-    ns-usbloader # Nintendo Switch homebrew manager
+    # ns-usbloader # Nintendo Switch homebrew manager
     joycond # Switch Pro controller and joycon support
     cemu # Wii-U emulator
     joycond-cemuhook # Motion control support
