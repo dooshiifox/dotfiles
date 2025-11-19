@@ -51,19 +51,19 @@
     inputs.firefox-addons.overlays.default
     inputs.copyparty.overlays.default
     inputs.neovim-nightly-overlay.overlays.default
-    # (final: prev: {
-    #   gnome = prev.gnome.overrideScope' (gnomeFinal: gnomePrev: {
-    #     mutter = gnomePrev.mutter.overrideAttrs (old: {
-    #       src = pkgs.fetchgit {
-    #         url = "https://gitlab.gnome.org/vanvugt/mutter.git";
-    #         # GNOME 45: triple-buffering-v4-45
-    #         rev = "0b896518b2028d9c4d6ea44806d093fd33793689";
-    #         sha256 = "sha256-mzNy5GPlB2qkI2KEAErJQzO//uo8yO0kPQUwvGDwR4w=";
-    #       };
-    #     });
-    #   });
-    # })
+
+    # https://lix.systems/add-to-config/
+    (final: prev: {
+      inherit (prev.lixPackageSets.stable)
+        nixpkgs-review
+        nix-eval-jobs
+        nix-fast-build
+        colmena
+        ;
+    })
   ];
+  # https://lix.systems/add-to-config/
+  nix.package = pkgs.lixPackageSets.stable.lix;
 
   environment.systemPackages = with pkgs; [
     vim
