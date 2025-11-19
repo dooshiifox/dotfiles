@@ -57,47 +57,6 @@
       # Uses the provided nix packages in a new shell
       use = "nix-shell --command fish -p $argv";
       mrat = "cd ~/Documents/CodingProjects/mpd-rating/ && pnpm dev --host";
-      auto_activate_venv = {
-        # https://alexwlchan.net/2023/fish-venv/
-        onVariable = "PWD";
-        body = ''
-          # Get the top-level directory of the current Git repo (if any)
-          set REPO_ROOT (git rev-parse --show-toplevel 2>/dev/null)
-
-          # Case #1: cd'd from a Git repo to a non-Git folder
-          #
-          # There's no virtualenv to activate, and we want to deactivate any
-          # virtualenv which is already active.
-          if test -z \"$REPO_ROOT\"; and test -n \"$VIRTUAL_ENV\"
-              deactivate
-          end
-
-          # Case #2: cd'd folders within the same Git repo
-          #
-          # The virtualenv for this Git repo is already activated, so there's
-          # nothing more to do.
-          if [ \"$VIRTUAL_ENV\" = \"$REPO_ROOT/.venv\" ]
-              return
-          end
-
-          # Case #3: cd'd from a non-Git folder into a Git repo
-          #
-          # If there's a virtualenv in the root of this repo, we should
-          # activate it now.
-          if [ -d \"$REPO_ROOT/.venv\" ]
-              source \"$REPO_ROOT/.venv/bin/activate.fish\" &>/dev/null
-          end'';
-      };
-      auto_git_fetch = {
-        # https://github.com/avimehenwal/git-refresh/blob/7e5f88b9cb27d5fba22bcca34689067a989f1a3a/init.fish
-        onVariable = "PWD";
-        body = ''
-          set --local hasGit (find ./ -maxdepth 1 -type d -name .git -print)
-          if test "$hasGit" = "./.git"
-          		echo -e "\e[1m(git-refresh) - GIT repo detected\e[0m"
-          		git pull --all --verbose
-          end'';
-      };
       flip.body = ''
         if test $(hyprctl monitors -j | jq '.[] | select(.name=="eDP-1") | .transform') = 0
         	hyprctl keyword monitor eDP-1,2880x1800@120,0x0,2,transform,2
