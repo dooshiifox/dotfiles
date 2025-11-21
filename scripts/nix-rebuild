@@ -23,8 +23,8 @@ git diff --staged -U2
 
 # Get current generation metadata
 generation=$(nixos-rebuild list-generations | grep True | awk '{print $1;}')
-# Get a commit name
-prev_commit_msg=$(cat .git/nix_commit_msg)
+# Get a commit name from what was previously used (if the build failed)
+[ -r .git/nix_commit_msg ] && prev_commit_msg=$(cat .git/nix_commit_msg)
 read -rp "Commit message:  ($generation) " -i "$prev_commit_msg" -e commit_msg
 if [ -z "$commit_msg" ]; then
 	echo "Missing a commit message. Exiting..."
