@@ -140,6 +140,7 @@
     # Grand access for some userspace tools, if connected via USB
     SUBSYSTEM=="usb", ATTR{idProduct}=="2069", ATTR{idVendor}=="057e", ENV{ID_INPUT_JOYSTICK}="1", TAG+="uaccess"
   '';
+  users.groups.plugdev = { };
   users.users.dooshii.extraGroups = [
     "plugdev"
     "input"

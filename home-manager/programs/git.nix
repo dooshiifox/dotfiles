@@ -30,6 +30,18 @@
       # Change how `git branch` works
       column.ui = "auto";
       branch.sort = "-committerdate";
+
+      core.pager = "delta";
+      interactive.diffFilter = "delta --color-only";
+      diff.colorMoved = "default";
+      delta = {
+        navigate = true; # use n and N to move between diff sections
+        dark = true; # or light = true, or omit for auto-detection
+        side-by-side = true;
+        line-numbers = true;
+      };
+
+      merge.conflictStyle = "zdiff3";
     };
   };
 }

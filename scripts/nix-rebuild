@@ -19,12 +19,18 @@ echo "NixOS Rebuilding..."
 # Fix issues with Nix not finding files
 git add .
 # Shows your changes
-git diff --staged -U0 ./**/*.nix
+git diff --staged -U2
 
 # Get current generation metadata
 generation=$(nixos-rebuild list-generations | grep True | awk '{print $1;}')
 # Get a commit name
-read -rp "Commit message:  ($generation) " commit_msg
+prev_commit_msg=$(cat .git/nix_commit_msg)
+read -rp "Commit message:  ($generation) " -i "$prev_commit_msg" -e commit_msg
+if [ -z "$commit_msg" ]; then
+	echo "Missing a commit message. Exiting..."
+	exit 1
+fi
+echo "$commit_msg" >.git/nix_commit_msg
 
 # I don't know why this is needed but it is
 # TODO: Fix this
@@ -36,6 +42,7 @@ sudo nixos-rebuild switch --show-trace --flake .#"$profile"
 # Commit all changes witih the generation metadata
 # If an argument is provided, append it to the commit message
 git commit -m "($generation) $commit_msg"
+rm .git/nix_commit_msg
 
 # Back to where you were
 popd

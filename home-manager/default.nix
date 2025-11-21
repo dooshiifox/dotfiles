@@ -178,6 +178,7 @@
     btop # Also performance
     inxi # System settings
     bluetui # Bluetooth manager
+    delta # Better git differ
 
     kitty # Terminal
 

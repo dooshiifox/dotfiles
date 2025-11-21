@@ -30,6 +30,8 @@
       "wheel"
       "dialout"
     ];
+    shell = pkgs.fish;
+    ignoreShellProgramCheck = true;
     # User packages should be defined in home-manager
   };
 

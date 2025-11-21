@@ -92,3 +92,7 @@ The `NIX_SRC` env variable is set to where the config is built in `/nix/store/..
 - Fix build times
 - Fix boot time
 - Fix sleep mode
+
+## Windows Dual Booting Failing?
+
+https://www.reddit.com/r/archlinux/comments/yes44f/psa_disable_vmd_on_an_intel_laptop_if_you_have/
