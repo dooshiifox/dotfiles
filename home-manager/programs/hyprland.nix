@@ -196,21 +196,15 @@
         }
       ];
 
-      # "plugin:dynamic-cursors" = {
-      #   mode = "none";
-      # };
+      debug = {
+        disable_logs = false;
+        disable_time = false;
+        enable_stdout_logs = true;
+      };
     };
-
-    # plugins = with pkgs; [
-    #   # Doesnt work due to compilation errors.
-    #   # If re-enabling, remember to enable in inputs
-    #   # inputs.hypr-dynamic-cursors.packages.${pkgs.system}.hypr-dynamic-cursors # Did you read the above comment?
-    # ];
   };
 
   home.pointerCursor = {
-    # gtk.enable = true;
-    # x11.enable = true;
     hyprcursor.enable = true;
     hyprcursor.size = 20;
     package = pkgs.bibata-cursors;

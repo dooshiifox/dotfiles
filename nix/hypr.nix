@@ -78,8 +78,25 @@ in
     useTextGreeter = true;
     settings = rec {
       initial_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd Hyprland"; # start Hyprland with a TUI login manager
-        user = "dooshii";
+        # start Hyprland with a TUI login manager
+        command =
+          let
+            # https://github.com/ratatui/ratatui/blob/c7c34980254e4ffe6416cb8e20ba2c49300948a3/ratatui-core/src/style/color.rs#L8
+            colors = {
+              time = "lightred";
+              container = "black";
+              border = "grey";
+              text = "white";
+              greet = "lightblue";
+              prompt = "lightgreen";
+              input = "lightred";
+              action = "lightblue";
+              button = "yellow";
+            };
+            themestr = lib.concatMapAttrsStringSep ";" (name: val: "${name}=${val}") colors;
+          in
+          "${pkgs.tuigreet}/bin/tuigreet --time --remember --prompt-padding 3 --asterisks --asterisks-char · --theme '${themestr}' --cmd Hyprland";
+        user = "greeter";
       };
       default_session = initial_session;
     };
