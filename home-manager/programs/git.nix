@@ -13,6 +13,13 @@
 
       init.defaultBranch = "main";
 
+      fetch = {
+        prune = true;
+        all = true;
+        parallel = 0;
+      };
+      tag.forceSignAnnotated = true;
+
       # Most of these are taken from this talk
       # https://www.youtube.com/watch?v=aolI_Rz0ZqY
 

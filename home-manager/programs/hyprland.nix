@@ -164,12 +164,12 @@
       env = [
         "HYPRCURSOR_THEME,Bibata-Modern-Classic"
         "HYPRCURSOR_SIZE,20"
-        "NVD_BACKEND,direct"
         "ELECTRON_OZONE_PLATFORM_HINT,auto"
       ]
       ++ for_profile "old" [
         "LIBVA_DRIVER_NAME,nvidia"
         "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+        "NVD_BACKEND,direct"
         # Prefer igpu
         "AQ_DRM_DEVICES,/dev/dri/card2:/dev/dri/card1"
       ];

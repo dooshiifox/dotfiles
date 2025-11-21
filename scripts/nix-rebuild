@@ -16,10 +16,10 @@ $EDITOR
 
 echo "NixOS Rebuilding..."
 
-# Shows your changes
-git diff -U0 ./**/*.nix
 # Fix issues with Nix not finding files
 git add .
+# Shows your changes
+git diff --staged -U0 ./**/*.nix
 
 # Get current generation metadata
 generation=$(nixos-rebuild list-generations | grep True | awk '{print $1;}')

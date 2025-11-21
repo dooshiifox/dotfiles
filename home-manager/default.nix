@@ -225,7 +225,7 @@
     ################
     # Games
     ################
-    godot_4 # Game engine # TODO: Upgrade to mono version when thats added
+    godot-mono # Game engine
     love # 2D game engine
     (callPackage ./programs/olympus/package.nix { }) # Celeste mod loader
     lumafly # Hollow Knight mod loader

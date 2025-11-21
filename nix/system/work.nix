@@ -37,9 +37,15 @@ in
 
   fileSystems."/home/dooshii/Shared" = {
     device = "/dev/disk/by-uuid/37A8B79370430E62";
+    # not particularly important if check fails since theyre rarely used
+    noCheck = true;
+    enable = false;
   };
   fileSystems."/home/dooshii/Windows" = {
     device = "/dev/disk/by-uuid/36BE6A92BE6A4B07";
+    # not particularly important if check fails since theyre rarely used
+    noCheck = true;
+    enable = false;
   };
 
   swapDevices = [

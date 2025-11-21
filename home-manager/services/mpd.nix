@@ -9,7 +9,7 @@
       	name "My PipeWire Output"
       }
     '';
-    dataDir = "/home/dooshii/.local/share/mpd/";
+    dataDir = "/home/dooshii/.local/share/mpd";
     # user = "userRunningPipeWire";
   };
   services.mpd-mpris.enable = true;

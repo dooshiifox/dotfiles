@@ -1,11 +1,54 @@
+local colors = require("colors")
+
+local function color_to_term(color)
+	local cterm = {
+		-- https://neovim.io/doc/user/syntax.html#cterm-colors
+		[colors.fg] = "White",
+		[colors.white] = "White",
+		[colors.fg_secondary] = "LightGray",
+		[colors.light_grey] = "LightGray",
+		[colors.grey] = "DarkGray",
+		[colors.dark_grey] = "DarkGray",
+		[colors.bg_tertiary] = "DarkGray",
+		[colors.bg_secondary] = "Black",
+		[colors.bg] = "Black",
+		[colors.black] = "Black",
+		[colors.brown] = "DarkYellow",
+		[colors.red] = "DarkRed",
+		[colors.pink] = "LightRed",
+		[colors.orange] = "DarkYellow",
+		[colors.yellow] = "LightYellow",
+		[colors.cream] = "LightYellow",
+		[colors.green] = "DarkGreen",
+		[colors.lime] = "LightGreen",
+		[colors.dark_cyan] = "DarkCyan",
+		[colors.cyan] = "LightCyan",
+		[colors.dark_blue] = "DarkBlue",
+		[colors.light_blue] = "LightBlue",
+		[colors.magenta] = "DarkMagenta",
+		[colors.light_magenta] = "LightMagenta",
+		[colors.border] = "DarkGray",
+		[colors.border_active] = "LightBlue",
+		[colors.accent] = "LightBlue",
+		[colors.accent_fg] = "Black",
+	}
+	return cterm[color]
+end
+
 local function set(name, args)
+	if args.fg and not args.ctermfg then
+		args.ctermfg = color_to_term(args.fg)
+	end
+	if args.bg and not args.ctermbg then
+		args.ctermbg = color_to_term(args.bg)
+	end
+
 	vim.api.nvim_set_hl(0, name, args)
 end
 
 vim.cmd("highlight clear")
 vim.cmd("syntax reset")
 
-local colors = require("colors")
 set("Normal", { bg = "none", fg = colors.fg })
 set("NonText", { bg = "none", fg = colors.fg })
 set("Whitespace", { bg = "none", fg = colors.bg_tertiary })
