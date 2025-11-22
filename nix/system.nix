@@ -1,5 +1,6 @@
 {
   pkgs,
+  config,
   ...
 }:
 {
@@ -149,4 +150,27 @@
     game-devices-udev-rules
   ];
   hardware.uinput.enable = true;
+
+  console.colors = builtins.map config.lib.theme.withoutHash (
+    with config.lib.theme.colors;
+    [
+      base00 # black and background
+      base08 # red
+      base0B # green
+      base09 # orange
+      base0D # blue
+      base0E # purple
+      base0C # cyan
+      base04 # light grey
+      # Bright
+      base02 # dark grey
+      base12 # pink
+      base14 # lime
+      base0A # yellow
+      base16 # bright blue
+      base17 # bright magenta
+      base15 # bright cyan
+      base06 # white
+    ]
+  );
 }
