@@ -111,12 +111,12 @@ in
             --newtab-text-secondary-color: ${colors.bg-secondary} !important;
           }
         }
-        @-moz-document domain("youtube.com") {
+        @-moz-document regexp(".*youtube\\.com.*") {
           html, html[dark], ytd-app, #full-bleed-container, #movie_player {
             background: transparent !important;
           }
         }
-        @-moz-document domain("duckduckgo.com") {
+        @-moz-document regexp(".*duckduckgo\\.com.*") {
           html, body, .site-wrapper, #header_wrapper, nav::before, nav::after, ul::before {
             background: transparent !important;
             border: none !important;
@@ -124,15 +124,16 @@ in
           #header_wrapper {
             box-shadow: none !important;
           }
-          #search_form {
-            background-color: #1f2024d9 !important;
-            border-color: #373b41d9 !important;
-            box-shadow: none !important;
+        }
+        @-moz-document regexp(".*monkeytype\\.com.*") {
+          body, html {
+            background: transparent !important;
           }
         }
-        @-moz-document domain("monkeytype.com") {
-          body {
-            background: transparent !important;
+
+        @-moz-document regexp(".*") {
+          :where(html) {
+            background: white;
           }
         }
       '';

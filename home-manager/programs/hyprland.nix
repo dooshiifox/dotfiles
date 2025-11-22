@@ -164,7 +164,6 @@
       env = [
         "HYPRCURSOR_THEME,Bibata-Modern-Classic"
         "HYPRCURSOR_SIZE,20"
-        "ELECTRON_OZONE_PLATFORM_HINT,auto"
       ]
       ++ for_profile "old" [
         "LIBVA_DRIVER_NAME,nvidia"

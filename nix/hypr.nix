@@ -41,8 +41,6 @@ in
     '';
     variables = {
       __GLX_VENDOR_LIBRARY_NAME = lib.mkIf (profile == "old") "nvidia";
-      __GL_GSYNC_ALLOWED = "0";
-      __GL_VRR_ALLOWED = "0";
       XDG_CURRENT_DESKTOP = "Hyprland";
       XDG_SESSION_DESKTOP = "Hyprland";
       _JAVA_AWT_WM_NONREPARENTING = "1";
