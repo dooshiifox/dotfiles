@@ -131,7 +131,7 @@ in
           }
         }
 
-        @-moz-document regexp(".*") {
+        @-moz-document regexp("(?!.*(about:home|about:newtab).*).*") {
           :where(html) {
             background: white;
           }
