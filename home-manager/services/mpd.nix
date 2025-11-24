@@ -25,6 +25,7 @@
     enable = true;
     mpd = {
       host = "/tmp/mpd_socket";
+      network = "unix";
     };
   };
   home.sessionVariables = {

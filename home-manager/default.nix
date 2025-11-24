@@ -208,13 +208,6 @@
 
     libreoffice # Office suite
 
-    # FIXME: `mpd` and `mpd-mpris` are also provided as home-manager services,
-    # however I couldn't get them to read my stickers or persistently keep
-    # their state.
-    # However, I did create home-manager systemd services for them in
-    # `./services/mpd.nix`
-    # mpd # Music Player Daemon
-    # mpd-mpris # Implement MPRIS protocal for MPD
     ymuse # MPD front-end
     mpc # Interact with MPD from the command line
     cava # music visualizer

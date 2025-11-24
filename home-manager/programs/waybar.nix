@@ -92,7 +92,7 @@
             paused = "<small></small>";
             stopped = "<small></small>";
           };
-          on-click = "mpc toggle";
+          on-click = "mpc --host /tmp/mpd_socket toggle";
           server = "/tmp/mpd_socket";
         };
 
