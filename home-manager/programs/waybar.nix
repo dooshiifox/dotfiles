@@ -93,6 +93,7 @@
             stopped = "<small></small>";
           };
           on-click = "mpc toggle";
+          server = "/tmp/mpd_socket";
         };
 
         # "idle_inhibitor" = {

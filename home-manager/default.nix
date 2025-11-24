@@ -217,7 +217,7 @@
     # mpd-mpris # Implement MPRIS protocal for MPD
     ymuse # MPD front-end
     mpc # Interact with MPD from the command line
-    rmpc
+    cava # music visualizer
 
     # Piracy
     qbittorrent # Torrent downloader

@@ -86,14 +86,14 @@ in
               border = "grey";
               text = "white";
               greet = "lightblue";
-              prompt = "lightgreen";
-              input = "lightred";
+              prompt = "green";
+              input = "lightgreen";
               action = "lightblue";
               button = "yellow";
             };
             themestr = lib.concatMapAttrsStringSep ";" (name: val: "${name}=${val}") colors;
           in
-          "${pkgs.tuigreet}/bin/tuigreet --time --remember --prompt-padding 3 --asterisks --asterisks-char · --theme '${themestr}' --cmd Hyprland";
+          "${pkgs.tuigreet}/bin/tuigreet --time --remember --asterisks --asterisks-char ● --theme '${themestr}' --cmd Hyprland";
         user = "greeter";
       };
       default_session = initial_session;
