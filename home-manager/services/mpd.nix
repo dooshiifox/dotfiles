@@ -24,6 +24,7 @@
   services.mpd-mpris = {
     enable = true;
     mpd = {
+      useLocal = false; # defaults to true, causes it to not work cause we use sockets
       host = "/tmp/mpd_socket";
       network = "unix";
     };
