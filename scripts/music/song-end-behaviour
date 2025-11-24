@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+state=$(mpc)
+# 0 = Dont repeat queue, dont stop after song
+# 1 = Dont repeat queue, stop after song once
+# 2 = Dont repeat queue, stop after song
+# 3 = Repeat song
+# 4 = Repeat queue
+if [[ "$state" == *"repeat: off"* ]]; then
+	if [[ "$state" == *"single: off"* ]]; then
+		current=0
+	elif [[ "$state" == *"single: once"* ]]; then
+		current=1
+	else
+		current=2
+	fi
+else
+	if [[ "$state" == *"single: off"* ]]; then
+		current=4
+	else
+		current=3
+	fi
+fi
+
+if [ "$1" = "b" ]; then
+	current=$(((current + 4) % 5))
+else
+	current=$(((current + 1) % 5))
+fi
+
+if [ "$current" -eq "0" ]; then
+	mpc single off
+	mpc repeat off
+elif [ "$current" -eq "1" ]; then
+	mpc single once
+	mpc repeat off
+elif [ "$current" -eq "2" ]; then
+	mpc single on
+	mpc repeat off
+elif [ "$current" -eq "3" ]; then
+	mpc single on
+	mpc repeat on
+else
+	mpc single off
+	mpc repeat on
+fi

@@ -34,6 +34,6 @@
     ./hyprlock.nix
     ./pywal.nix
     ./waybar.nix
-    # ./rmpc.nix
+    ./rmpc
   ];
 }

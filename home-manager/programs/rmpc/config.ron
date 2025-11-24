@@ -1,0 +1,277 @@
+#![enable(implicit_some)]
+#![enable(unwrap_newtypes)]
+#![enable(unwrap_variant_newtypes)]
+(
+	address: "/tmp/mpd_socket",
+	cache_dir: "/tmp/rmpc/cache",
+	on_song_change: ["/home/dooshii/nixos/scripts/music/on_song_change"],
+	lyrics_dir: "/home/dooshii/Music/",
+	theme: "dooshii",
+	keybinds: (
+		global: {
+            ":":       CommandMode,
+            "q":       Quit,
+
+            "<Tab>":   NextTab,
+            "<S-Tab>": PreviousTab,
+            "1":       SwitchToTab("Song"),
+            "2":       SwitchToTab("Queue"),
+            "3":       SwitchToTab("Directories"),
+            "4":       SwitchToTab("Playlists"),
+            "5":       SwitchToTab("Artists"),
+            "6":       SwitchToTab("Albums"),
+            "7":       SwitchToTab("Album Artists"),
+            "8":       SwitchToTab("Genre"),
+            "9":       SwitchToTab("Search"),
+
+            ">":       NextTrack,
+            "<":       PreviousTrack,
+            "f":       SeekForward,
+            "b":       SeekBack,
+
+            ",":       VolumeDown,
+            ".":       VolumeUp,
+
+            "p":       TogglePause,
+            "s":       Stop,
+
+            "z":       ExternalCommand(command: ["/home/dooshii/nixos/scripts/music/song-end-behaviour"], description: "Adjust the song-end behaviour"),
+            "<S-Z>":   ExternalCommand(command: ["/home/dooshii/nixos/scripts/music/song-end-behaviour", "b"], description: "Adjust the song-end behaviour"),
+            "x":       ToggleRandom,
+            "c":       ToggleConsume,
+
+            "h":       ShowHelp,
+            "?":       ShowHelp,
+
+            "u":       Update,
+            "U":       Rescan,
+            "I":       ShowCurrentSongInfo,
+            // "O":       ShowOutputs,
+            // "P":       ShowDecoders,
+            // "R":       AddRandom,
+        },
+        navigation: {
+            "<Up>":      Up,
+            "<Down>":    Down,
+            "<Left>":    Left,
+            "<Right>":   Right,
+            "<A-e>":     PaneUp,
+            "<A-a>":     PaneDown,
+            "<A-h>":     PaneLeft,
+            "<A-i>":     PaneRight,
+            "<C-u>":     UpHalf,
+            "<C-d>":     DownHalf,
+            "g":         Top,
+            "G":         Bottom,
+
+            "E":         MoveUp,
+            "A":         MoveDown,
+
+            "N":         PreviousResult,
+            "n":         NextResult,
+            "a":         Add,
+            // "A":         AddAll,
+            "y":         Select,
+            "<C-y>":     InvertSelection,
+            "<CR>":      Confirm,
+            // "i":         FocusInput,
+            "/":         EnterSearch,
+            "<C-c>":     Close,
+            "<Esc>":     Close,
+            "q":         Close,
+            // "D":         Delete,
+            "i":         ShowInfo,
+            "<C-z>":     ContextMenu(),
+            // "<C-s>":     Save(kind: Modal(all: false, duplicates_strategy: Ask)),
+			"r":         Rate(kind: Modal(), current: true),
+        },
+        queue: {
+            // "D":       DeleteAll,
+            "<CR>":    Play,
+            // "a":       AddToPlaylist,
+            "d":       Delete,
+            "C":       JumpToCurrent,
+            // "X":       Shuffle,
+        }
+	),
+	tabs: [
+		(
+			name: "Song",
+			pane: Split(
+				direction: Vertical,
+				panes: [
+					(
+						size: "3",
+						pane: Pane(Tabs),
+					),
+					(
+						size: "100%",
+						pane: Component("songview"),
+						alignment: Center,
+					)
+				],
+			),
+		),
+		(
+			name: "Queue",
+			pane: Split(
+				direction: Vertical,
+				panes: [
+					(
+						size: "10",
+						pane: Component("header")
+					),
+					(size: "2", pane: Component("custom_song_table_header")),
+					(
+						size: "100%",
+						pane: Pane(Queue),
+					),
+					(size: "7", pane: Split(
+						direction: Horizontal,
+						panes: [
+							(size: "40%", borders: "ALL", pane: Pane(Lyrics)),
+							(size: "60%", borders: "ALL", pane: Pane(Cava)),
+						]
+					))
+				],
+			),
+		),
+		(
+			name: "Directories",
+			pane: Split(
+				direction: Vertical,
+				panes: [
+					(
+						size: "9",
+						pane: Component("header")
+					),
+					(
+						size: "100%",
+						borders: "ALL",
+						pane: Pane(Directories)
+					),
+				]
+			)
+        ),
+        (
+			name: "Playlists",
+			pane: Split(
+				direction: Vertical,
+				panes: [
+					(
+						size: "9",
+						pane: Component("header")
+					),
+					(
+						size: "100%",
+						borders: "ALL",
+						pane: Pane(Playlists)
+					),
+				]
+			)
+        ),
+        (
+			name: "Artists",
+			pane: Split(
+				direction: Vertical,
+				panes: [
+					(
+						size: "9",
+						pane: Component("header")
+					),
+					(
+						size: "100%",
+						borders: "ALL",
+						pane: Pane(Artists)
+					),
+				]
+			)
+        ),
+        (
+			name: "Albums",
+			pane: Split(
+				direction: Vertical,
+				panes: [
+					(
+						size: "9",
+						pane: Component("header")
+					),
+					(
+						size: "100%",
+						borders: "ALL",
+						pane: Pane(Albums)
+					),
+				]
+			)
+        ),
+        (
+			name: "Album Artists",
+			pane: Split(
+				direction: Vertical,
+				panes: [
+					(
+						size: "9",
+						pane: Component("header")
+					),
+					(
+						size: "100%",
+						borders: "ALL",
+						pane: Pane(AlbumArtists)
+					),
+				]
+			)
+        ),
+        (
+			name: "Genre",
+			pane: Split(
+				direction: Vertical,
+				panes: [
+					(
+						size: "9",
+						pane: Component("header")
+					),
+					(
+						size: "100%",
+						borders: "ALL",
+						pane: Pane(Browser(root_tag: "genre", separator: ";"))
+					),
+				]
+			)
+        ),
+        (
+			name: "Search",
+			pane: Split(
+				direction: Vertical,
+				panes: [
+					(
+						size: "9",
+						pane: Component("header")
+					),
+					(
+						size: "100%",
+						borders: "ALL",
+						pane: Pane(Search)
+					),
+				]
+			)
+        ),
+	],
+	cava: (
+		input: (
+			method: Fifo,
+			source: "/tmp/mpd.fifo",
+			sample_rate: 44100,
+			channels: 2,
+			sample_bits: 16,
+		),
+		framerate: 60,
+		// autosens: true,
+		sensitivity: 100,
+		lower_cutoff_freq: 20,
+		higher_cutoff_freq: 15000,
+		smoothing: (
+			noise_reduction: 10
+		),
+		eq: []
+	),
+)

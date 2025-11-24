@@ -687,7 +687,7 @@ def main():
     """Creates an MPD client that stars the BiasedRandomRating system."""
 
     client = MPDClient()
-    client.connect("localhost", 6600)
+    client.connect("/tmp/mpd_socket")
     brr = BiasedRandomRating(client)
     brr.add_songs_to_queue()
 
