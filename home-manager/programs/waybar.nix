@@ -204,8 +204,8 @@
           interval = 5;
           format = "{icon} <small>{capacity}%</small>";
           format-full = "{icon}";
-          format-charging = "";
-          format-plugged = "";
+          format-charging = " <small>{capacity}%</small>";
+          format-plugged = " <small>{capacity}%</small>";
           format-alt = "{icon} <small>{capacity}% ({time})</small>";
           format-icons = [
             ""
