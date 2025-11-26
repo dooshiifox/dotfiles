@@ -179,6 +179,15 @@ return {
 					},
 				},
 			},
+			sources = {
+				default = { "laravel", "lsp", "path", "snippets", "buffer" },
+				providers = {
+					laravel = {
+						name = "laravel",
+						module = "laravel.blink_source",
+					},
+				},
+			},
 		},
 	},
 
@@ -289,11 +298,11 @@ return {
 				html = {
 					filetypes = { "html", "blade" },
 					init_options = {
-						configurationSection = { "html", "css", "javascript" },
-						embeddedLanguages = {
-							css = true,
-							javascript = true,
-						},
+						-- configurationSection = { "html", "css", "javascript" },
+						-- embeddedLanguages = {
+						-- 	css = true,
+						-- 	javascript = true,
+						-- },
 						provideFormatter = true,
 					},
 				},
@@ -337,6 +346,7 @@ return {
 			vim.list_extend(opts.ensure_installed, {
 				"blade",
 				"php_only",
+				"php",
 			})
 		end,
 	},
@@ -459,5 +469,21 @@ return {
 			region_check_events = "InsertEnter,InsertLeave",
 			delete_check_events = "TextChanged,InsertLeave",
 		},
+	},
+	{
+		"adibhanna/laravel.nvim",
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			"nvim-lua/plenary.nvim",
+		},
+		keys = {
+			{ "<leader>la", ":Artisan<cr>", desc = "Laravel Artisan" },
+			{ "<leader>lc", ":Composer<cr>", desc = "Composer" },
+			{ "<leader>lr", ":LaravelRoute<cr>", desc = "Laravel Routes" },
+			{ "<leader>lm", ":LaravelMake<cr>", desc = "Laravel Make" },
+		},
+		config = function()
+			require("laravel").setup()
+		end,
 	},
 }
