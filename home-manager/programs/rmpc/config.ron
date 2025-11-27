@@ -7,6 +7,7 @@
 	on_song_change: ["/home/dooshii/nixos/scripts/music/on_song_change"],
 	lyrics_dir: "/home/dooshii/Music/",
 	theme: "dooshii",
+    enable_mouse: true,
 	keybinds: (
 		global: {
             ":":       CommandMode,

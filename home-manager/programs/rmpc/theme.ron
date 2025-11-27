@@ -367,14 +367,13 @@
 					pane: Split(
 						direction: Horizontal,
 						panes: [
-							// (size: "18", pane: Pane(Property(content: [(kind: Text(""))]))),
 							(
-								size: "64",
+								size: "30%",
 								pane: Split(
 									direction: Vertical,
 									panes: [
 										(
-											size: "28",
+											size: "100%",
 											pane: Pane(AlbumArt),
 										),
 									]
@@ -382,7 +381,7 @@
 							),
 							(size: "2", pane: Pane(Property(content: [(kind: Text(""))]))),
 							(
-								size: "80",
+								size: "70%",
 								pane: Split(
 									direction: Vertical,
 									panes: [
