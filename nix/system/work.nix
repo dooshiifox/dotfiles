@@ -30,6 +30,8 @@ in
     intel-media-driver
     intel-compute-runtime
     vpl-gpu-rt
+    rocmPackages.clr.icd
+    ocl-icd
   ];
   hardware.graphics.extraPackages32 = with pkgs; [
     driversi686Linux.intel-vaapi-driver
