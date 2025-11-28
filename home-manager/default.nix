@@ -122,7 +122,7 @@
     libcxx.dev # ^
 
     # Java
-    jdk
+    javaPackages.compiler.openjdk25
     gradle # Java development
     jetbrains.idea-community-bin
 
