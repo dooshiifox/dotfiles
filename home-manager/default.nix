@@ -26,8 +26,9 @@
     LD_LIBRARY_PATH = lib.makeLibraryPath [
       pkgs.libglvnd
       pkgs.pulseaudio
-      "/run/opengl-driver/lib"
-      "/run/opengl-driver-32/lib"
+      "/run/opengl-driver"
+      "/run/opengl-driver-32"
+      "${pkgs.ocl-icd}/lib"
     ];
     LIBGL_DRIVERS_PATH = "${pkgs.mesa}/lib:${pkgs.mesa}/lib/dri";
     __EGL_VENDOR_LIBRARY_FILENAMES = "${pkgs.mesa}/share/glvnd/egl_vendor.d/50_mesa.json";
