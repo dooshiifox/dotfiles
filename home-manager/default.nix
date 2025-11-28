@@ -224,7 +224,11 @@
     (callPackage ./programs/olympus/package.nix { }) # Celeste mod loader
     lumafly # Hollow Knight mod loader
     cubiomes-viewer # Minecraft biome viewer
-    prismlauncher # Minecraft launcher
+    (prismlauncher.override {
+      jdks = [
+        javaPackages.compiler.openjdk25
+      ];
+    })
     ferium # Minecraft mod manager
     steam-run # Use dynamically linked games
     mangohud # Computer usage overlay. `mangohud %command%` in Steam
