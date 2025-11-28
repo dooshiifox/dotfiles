@@ -19,10 +19,11 @@ in
   # https://github.com/NixOS/nixos-hardware/blob/master/asus/zenbook/ux371/default.nix
   services.thermald.enable = true;
   powerManagement.cpuFreqGovernor = "powersave";
-  # boot.kernelParams = [ "i915.enable_guc=3" ];
+  boot.kernelParams = [ "i915" ];
   services.fstrim.enable = true;
 
   boot.initrd.kernelModules = [ "xe" ];
+  hardware.graphics.enable = true;
   hardware.graphics.extraPackages = with pkgs; [
     intel-vaapi-driver
     intel-ocl

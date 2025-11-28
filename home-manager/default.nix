@@ -230,6 +230,7 @@
         javaPackages.compiler.openjdk25
       ];
     })
+    ocl-icd
     ferium # Minecraft mod manager
     steam-run # Use dynamically linked games
     mangohud # Computer usage overlay. `mangohud %command%` in Steam
