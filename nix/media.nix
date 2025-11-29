@@ -32,6 +32,10 @@
       openFirewall = true;
       group = "multimedia";
     };
+    flaresolverr = {
+      enable = true;
+      openFirewall = true;
+    };
   };
   systemd.services = {
     jellyfin.wantedBy = lib.mkForce [ "default.target" ];
@@ -44,5 +48,7 @@
     sonarr.after = lib.mkForce [ "default.target" ];
     readarr.wantedBy = lib.mkForce [ "default.target" ];
     readarr.after = lib.mkForce [ "default.target" ];
+    flaresolverr.wantedBy = lib.mkForce [ "default.target" ];
+    flaresolverr.after = lib.mkForce [ "default.target" ];
   };
 }
