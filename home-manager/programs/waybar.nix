@@ -6,10 +6,22 @@ let
     "<span color='${color}'>${icon}</span>   <b>${title}</b>";
   window_icons_map = lib.mapAttrs' (
     name: val:
-    lib.nameValuePair (if lib.strings.hasInfix "/////" name then name else name + " ///// (.*)") (
-      if builtins.isFunction val then val "$1" else val
-    )
+    let
+      name_with_asterisk = if lib.strings.hasInfix "/////" name then name else name + " ///// (.*)";
+      name_prioritised =
+        if lib.strings.hasPrefix "(?!" name_with_asterisk then
+          name_with_asterisk
+        else
+          (priority 9) + name_with_asterisk;
+      value_string = if builtins.isFunction val then val "$1" else val;
+    in
+    lib.nameValuePair name_prioritised value_string
   );
+  /**
+    Lower number = more priority
+    Technically this is lower ascii-codepoint but whatever
+  */
+  priority = index: "(?!${builtins.toString index})";
   window_icons =
     with config.lib.theme.colors;
     # https://www.nerdfonts.com/cheat-sheet
@@ -22,10 +34,10 @@ let
           "Firefox";
       "codium ///// (.*) - VSCodium" = window_icon light-blue "󰨞";
       "vesktop ///// (?:.*?Discord.{3})?(.*)" = window_icon dark-blue "";
-      "Kitty ///// (?:nvim|e|ni) (.*)" = window_icon lime "";
-      "Kitty ///// rmpc.*" = window_icon red "󰎆" "rmpc";
-      "Kitty ///// Yazi: (.*)" = window_icon yellow "󰇥";
-      "Kitty ///// (kitty|fish)" = window_icon light-magenta "󰄛" "~";
+      "${priority 1}Kitty ///// (?:nvim|e|ni) (.*)" = window_icon lime "";
+      "${priority 1}Kitty ///// rmpc.*" = window_icon red "󰎆" "rmpc";
+      "${priority 1}Kitty ///// Yazi: (.*)" = window_icon yellow "󰇥";
+      "${priority 1}Kitty ///// (kitty|fish)" = window_icon light-magenta "󰄛" "~";
       "Kitty ///// (.*)" = window_icon light-magenta "󰄛";
       "com.obsproject.Studio ///// OBS.*? - (.*)" = window_icon fg-secondary "";
       "obsidian ///// (.*?)( - obsidian)? - Obsidian.*" = window_icon magenta "";
@@ -49,6 +61,7 @@ let
       "gcr-prompter ///// Unlock Login Keyring" = window_icon fg-secondary "" "Unlock Login Keyring";
       "chromium-browser ///// (.*) - Chromium" = window_icon dark-blue "";
       "\\s*/////\\s*" = "<span color='${dark-blue}'></span>   <span color='${light-blue}'></span>";
+      "${priority "~"}(.*) ///// (.*)" = "$2  <span size='10px'>$1</span>";
     };
 in
 {
@@ -241,8 +254,8 @@ in
         idle_inhibitor = {
           format = "{icon}";
           format-icons = {
-            activated = "󰛨 ";
-            deactivated = "󰒲 ";
+            activated = "󰛨";
+            deactivated = "󰒲";
           };
         };
         clock = {
