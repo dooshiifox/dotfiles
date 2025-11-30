@@ -25,7 +25,7 @@
       let
         inherit (config.lib.formats.rasi) mkLiteral;
         background = mkLiteral config.lib.theme.colors.bg-opacity;
-        active = mkLiteral config.lib.theme.colors.bg-secondary-opacity;
+        active = mkLiteral config.lib.theme.colors.bg-secondary;
         text = mkLiteral config.lib.theme.colors.fg;
         secondary-text = mkLiteral config.lib.theme.colors.fg-secondary;
         radius = builtins.toString config.lib.theme.border-radius;
@@ -33,7 +33,7 @@
       {
         # Main
         window = {
-          height = 512;
+          height = 480;
           width = 800;
           transparency = "real";
           fullscreen = false;
@@ -41,7 +41,7 @@
           cursor = "default";
           spacing = 0;
           padding = 0;
-          border = 1;
+          # border = 1;
           # border-color = mkLiteral config.lib.theme.colors.border-opacity;
           # border-radius = config.lib.theme.border-radius;
           background-color = mkLiteral "transparent";
@@ -49,7 +49,7 @@
 
         mainbox = {
           enabled = true;
-          spacing = 0;
+          spacing = 12;
           padding = 0;
           orientation = mkLiteral "vertical";
           children = [
@@ -63,7 +63,7 @@
         inputbar = {
           enabled = true;
           spacing = 0;
-          padding = 32;
+          padding = "0px 24px 0px 24px";
           children = [
             "textbox-prompt-colon"
             "entry"

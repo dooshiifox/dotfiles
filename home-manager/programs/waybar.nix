@@ -61,7 +61,7 @@ let
       "gcr-prompter ///// Unlock Login Keyring" = window_icon fg-secondary "" "Unlock Login Keyring";
       "chromium-browser ///// (.*) - Chromium" = window_icon dark-blue "";
       "\\s*/////\\s*" = "<span color='${dark-blue}'></span>   <span color='${light-blue}'></span>";
-      "${priority "~"}(.*) ///// (.*)" = "$2  <span size='10'>$1</span>";
+      "${priority "~"}(.*) ///// (.*)" = "$2     <span size='small' color='${light-gray}'>$1</span>";
     };
 in
 {
