@@ -1,5 +1,56 @@
 # https://github.com/nix-community/home-manager/blob/master/modules/programs/waybar.nix
-{ config, ... }:
+{ config, lib, ... }:
+let
+  window_icon =
+    color: icon: title:
+    "<span color='${color}'>${icon}</span>   <b>${title}</b>";
+  window_icons_map = lib.mapAttrs' (
+    name: val:
+    lib.nameValuePair (if lib.strings.hasInfix "/////" name then name else name + " ///// (.*)") (
+      if builtins.isFunction val then val "$1" else val
+    )
+  );
+  window_icons =
+    with config.lib.theme.colors;
+    # https://www.nerdfonts.com/cheat-sheet
+    # sleep 1 && hyprctl activewindow -j | jq '.initialClass + " ///// " + .initialTitle'
+    window_icons_map {
+      "firefox-devedition ///// (.*) — (Mozilla Firefox|Firefox Developer Edition)" =
+        window_icon pink "";
+      "firefox-devedition ///// (Mozilla Firefox|Firefox Developer Edition)" =
+        window_icon pink ""
+          "Firefox";
+      "codium ///// (.*) - VSCodium" = window_icon light-blue "󰨞";
+      "vesktop ///// (?:.*?Discord.{3})?(.*)" = window_icon dark-blue "";
+      "Kitty ///// (?:nvim|e|ni) (.*)" = window_icon lime "";
+      "Kitty ///// rmpc.*" = window_icon red "󰎆" "rmpc";
+      "Kitty ///// Yazi: (.*)" = window_icon yellow "󰇥";
+      "Kitty ///// (kitty|fish)" = window_icon light-magenta "󰄛" "~";
+      "Kitty ///// (.*)" = window_icon light-magenta "󰄛";
+      "com.obsproject.Studio ///// OBS.*? - (.*)" = window_icon fg-secondary "";
+      "obsidian ///// (.*?)( - obsidian)? - Obsidian.*" = window_icon magenta "";
+      "thunderbird ///// (.*) - Mozilla Thunderbird" = window_icon dark-blue "";
+      "Rofi ///// rofi - .*" = window_icon fg-secondary "" "Rofi";
+      "nemo" = window_icon orange "";
+      "io.bassi.Amberol" = window_icon light-blue "";
+      "ymuse ///// ymuse" = window_icon dark-blue "󰎆" "ymuse";
+      "org.prismlauncher.PrismLauncher" = window_icon lime "";
+      "Minecraft(?:.*)" = window_icon lime "󰍳";
+      "keymapp" = window_icon lime "󰌌";
+      "jetbrains-idea-ce" = window_icon orange "󰬷";
+      "steam" = window_icon fg-secondary "";
+      "org.telegram.desktop" = window_icon light-blue "";
+      "Postman" = window_icon orange "";
+      "org.qbittorrent.qBittorrent" = window_icon light-blue "";
+      "Electon ///// Antares SQL" = window_icon orange "󰆼";
+      "krita ///// Krita" = window_icon magenta "";
+      "soffice" = window_icon fg-secondary "󰏆";
+      "libreoffice-calc ///// (.*) — LibreOffice Calc" = window_icon lime "󰧷";
+      "gcr-prompter ///// Unlock Login Keyring" = window_icon fg-secondary "" "Unlock Login Keyring";
+      "chromium-browser ///// (.*) - Chromium" = window_icon dark-blue "";
+      "\\s*/////\\s*" = "<span color='${dark-blue}'></span>   <span color='${light-blue}'></span>";
+    };
+in
 {
   programs.waybar = {
     enable = true;
@@ -24,13 +75,13 @@
           "mpd"
         ];
         modules-right = [
-          # "idle_inhibitor";
           "pulseaudio"
           "network"
           "cpu"
           "memory"
           "temperature"
           "battery"
+          "idle_inhibitor"
           "clock"
         ];
 
@@ -50,35 +101,7 @@
           format = "{class} ///// {title}";
           tooltip = false;
           max-length = 50;
-          rewrite = with config.lib.theme.colors; {
-            "firefox-devedition ///// (.*) — (Mozilla Firefox|Firefox Developer Edition)" =
-              "<span color='${pink}'></span>   <b>$1</b>";
-            "firefox-devedition ///// (Mozilla Firefox|Firefox Developer Edition)" =
-              "<span color='${pink}'></span>   <b>Firefox</b>";
-            "codium ///// (.*) - VSCodium" = "<span color='${light-blue}'>󰨞</span>   <b>$1</b>";
-            "vesktop ///// (.*?Discord.{3})?(.*)" = "<span color='${dark-blue}>'></span>   <b>$2</b>";
-            "Kitty ///// (nvim|e) (.*)" = "<span color='${lime}'></span>   <b>$2</b>";
-            "Kitty ///// (?!nvim |e )(.*)" = "<span color='${light-magenta}'>󰄛</span>   <b>$1</b>";
-            "Kitty ///// (kitty|fish)" = "<span color='${light-magenta}'>󰄛</span>   <b>~</b>";
-            "com.obsproject.Studio ///// OBS.*? - (.*)" = "   <b>$1</b>";
-            "obsidian ///// (.*?)( - obsidian)? - Obsidian.*" = "<span color='${magenta}'></span>   <b>$1</b>";
-            "thunderbird ///// (.*) - Mozilla Thunderbird" = "<span color='${dark-blue}'></span>   <b>$1</b>";
-            "Rofi ///// rofi - .*" = "   <b>Rofi</b>";
-            "nemo ///// (.*)" = "<span color='${orange}'></span>   <b>$1</b>";
-            "io.bassi.Amberol ///// (.*)" = "<span color='${light-blue}'></span>   <b>$1</b>";
-            "ymuse ///// ymuse" = "<span color='${dark-blue}'>󰎆</span>   <b>ymuse</b>";
-            "org.prismlauncher.PrismLauncher ///// (.*)" = "<span color='${lime}'></span>   <b>$1</b>";
-            "Minecraft(.*)///// (.*)" = "<span color='${lime}'>󰍳</span>   <b>$2</b>";
-            "keymapp ///// (.*)" = "<span color='${lime}'>󰌌</span>   <b>$1</b>";
-            "jetbrains-idea-ce ///// (.*)" = "<span color='${orange}'>󰬷</span>   <b>$1</b>";
-            "steam ///// (.*)" = "   <b>$1</b>";
-            "org.telegram.desktop ///// (.*)" = "<span color='${light-blue}'></span>  <b>$1</b>";
-            "Postman ///// (.*)" = "<span color='${orange}'></span>  <b>$1</b>";
-            "\\s*/////\\s*" = "<span color='${dark-blue}'></span>   <span color='${light-blue}'></span>";
-            # TODO: home-manager generates the config in alphabetical order, meaning this
-            # comes first i think. Find a way to make this come last.
-            # "(.*)/////(.*)" = "$2  <span size='10px'>$1</span>";
-          };
+          rewrite = window_icons;
           separate-outputs = true;
         };
 
@@ -214,6 +237,13 @@
             ""
             ""
           ];
+        };
+        idle_inhibitor = {
+          format = "{icon}";
+          format-icons = {
+            activated = "󰛨 ";
+            deactivated = "󰒲 ";
+          };
         };
         clock = {
           format = "<b>{:%H:%M</b>  <small>%a %e %B</small>} ";
