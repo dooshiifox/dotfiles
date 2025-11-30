@@ -33,7 +33,7 @@
       {
         # Main
         window = {
-          height = 480;
+          height = 460;
           width = 800;
           transparency = "real";
           fullscreen = false;
@@ -63,7 +63,7 @@
         inputbar = {
           enabled = true;
           spacing = 0;
-          padding = "0px 24px 0px 24px";
+          padding = "24px 24px 24px 24px";
           children = [
             "textbox-prompt-colon"
             "entry"
