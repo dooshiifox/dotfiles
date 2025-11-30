@@ -28,6 +28,7 @@
         active = mkLiteral config.lib.theme.colors.bg-secondary-opacity;
         text = mkLiteral config.lib.theme.colors.fg;
         secondary-text = mkLiteral config.lib.theme.colors.fg-secondary;
+        radius = builtins.toString config.lib.theme.border-radius;
       in
       {
         # Main
@@ -41,8 +42,8 @@
           spacing = 0;
           padding = 0;
           border = 1;
-          border-color = mkLiteral config.lib.theme.colors.border-opacity;
-          border-radius = config.lib.theme.border-radius;
+          # border-color = mkLiteral config.lib.theme.colors.border-opacity;
+          # border-radius = config.lib.theme.border-radius;
           background-color = mkLiteral "transparent";
         };
 
@@ -77,12 +78,12 @@
           padding = mkLiteral "12px 4px 0 0";
           text-color = text;
           background-color = background;
-          border-radius = mkLiteral "12px 0px 0px 12px";
+          border-radius = mkLiteral "${radius}px 0px 0px ${radius}px";
         };
 
         entry = {
           enabled = true;
-          border-radius = mkLiteral "0 12px 12px 0";
+          border-radius = mkLiteral "0 ${radius}px ${radius}px 0";
           spacing = 12;
           padding = 12;
           text-color = text;
@@ -99,6 +100,7 @@
           orientation = mkLiteral "horizontal";
           children = [ "listview" ];
           background-color = background;
+          border-radius = mkLiteral "${radius}px ${radius}px ${radius}px ${radius}px";
         };
 
         listview = {

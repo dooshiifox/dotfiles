@@ -35,7 +35,7 @@ let
       "codium ///// (.*) - VSCodium" = window_icon light-blue "󰨞";
       "vesktop ///// (?:.*?Discord.{3})?(.*)" = window_icon dark-blue "";
       "${priority 1}Kitty ///// (?:nvim|e|ni) (.*)" = window_icon lime "";
-      "${priority 1}Kitty ///// rmpc.*" = window_icon red "󰎆" "rmpc";
+      "${priority 1}Kitty ///// rmpc.*" = window_icon orange "󰎆" "rmpc";
       "${priority 1}Kitty ///// Yazi: (.*)" = window_icon yellow "󰇥";
       "${priority 1}Kitty ///// (kitty|fish)" = window_icon light-magenta "󰄛" "~";
       "Kitty ///// (.*)" = window_icon light-magenta "󰄛";
@@ -54,14 +54,14 @@ let
       "org.telegram.desktop" = window_icon light-blue "";
       "Postman" = window_icon orange "";
       "org.qbittorrent.qBittorrent" = window_icon light-blue "";
-      "Electon ///// Antares SQL" = window_icon orange "󰆼";
-      "krita ///// Krita" = window_icon magenta "";
+      "Electron ///// Antares SQL" = window_icon orange "󰆼" "Antares SQL";
+      "krita ///// Krita" = window_icon magenta "" "Krita";
       "soffice" = window_icon fg-secondary "󰏆";
       "libreoffice-calc ///// (.*) — LibreOffice Calc" = window_icon lime "󰧷";
       "gcr-prompter ///// Unlock Login Keyring" = window_icon fg-secondary "" "Unlock Login Keyring";
       "chromium-browser ///// (.*) - Chromium" = window_icon dark-blue "";
       "\\s*/////\\s*" = "<span color='${dark-blue}'></span>   <span color='${light-blue}'></span>";
-      "${priority "~"}(.*) ///// (.*)" = "$2  <span size='10px'>$1</span>";
+      "${priority "~"}(.*) ///// (.*)" = "$2  <span size='10'>$1</span>";
     };
 in
 {
