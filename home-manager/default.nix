@@ -213,6 +213,7 @@
     mpc # Interact with MPD from the command line
     cava # music visualizer
     lrcget # LRCLIB frontend
+    nicotine-plus # Soulseek client
 
     # Piracy
     qbittorrent # Torrent downloader

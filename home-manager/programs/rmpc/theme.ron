@@ -367,6 +367,7 @@
 					pane: Split(
 						direction: Horizontal,
 						panes: [
+							(size: "3", pane: Pane(Property(content: [(kind: Text(""))]))),
 							(
 								size: "30%",
 								pane: Split(
@@ -379,7 +380,7 @@
 									]
 								),
 							),
-							(size: "2", pane: Pane(Property(content: [(kind: Text(""))]))),
+							(size: "4", pane: Pane(Property(content: [(kind: Text(""))]))),
 							(
 								size: "70%",
 								pane: Split(
@@ -575,6 +576,7 @@
 									]
 								)
 							),
+							(size: "3", pane: Pane(Property(content: [(kind: Text(""))]))),
 						]
 					)
 				),
