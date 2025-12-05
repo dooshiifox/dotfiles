@@ -265,12 +265,12 @@
 			sample_bits: 16,
 		),
 		framerate: 60,
-		// autosens: true,
+		autosens: true,
 		sensitivity: 100,
 		lower_cutoff_freq: 20,
 		higher_cutoff_freq: 15000,
 		smoothing: (
-			noise_reduction: 10
+			noise_reduction: 20
 		),
 		eq: []
 	),

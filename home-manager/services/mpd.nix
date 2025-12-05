@@ -7,6 +7,7 @@
       audio_output {
       	type "pipewire"
       	name "My PipeWire Output"
+        buffer_time     "25000"   # (25ms); default is 500000 microseconds (0.5s)
       }
       audio_output {
       	type   "fifo"

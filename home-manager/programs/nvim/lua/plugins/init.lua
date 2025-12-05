@@ -464,12 +464,33 @@ return {
 		},
 	},
 	{
-		"L3MON4D3/LuaSnip",
+		"nvim-mini/mini.snippets",
 		opts = {
-			region_check_events = "InsertEnter,InsertLeave",
-			delete_check_events = "TextChanged,InsertLeave",
+			snippets = {
+				{
+					prefix = "rtest",
+					body = {
+						"#[cfg(test)]",
+						"mod test {",
+						"\tuse super::*;",
+						"",
+						"\t#[test]",
+						"\tfn test() {",
+						"\t\t$0",
+						"\t}",
+						"}",
+					},
+				},
+			},
 		},
 	},
+	-- {
+	-- 	"L3MON4D3/LuaSnip",
+	-- 	opts = {
+	-- 		region_check_events = "InsertEnter,InsertLeave",
+	-- 		delete_check_events = "TextChanged,InsertLeave",
+	-- 	},
+	-- },
 	{
 		"adibhanna/laravel.nvim",
 		dependencies = {

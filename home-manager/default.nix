@@ -212,6 +212,7 @@
     ymuse # MPD front-end
     mpc # Interact with MPD from the command line
     cava # music visualizer
+    lrcget # LRCLIB frontend
 
     # Piracy
     qbittorrent # Torrent downloader
@@ -222,7 +223,7 @@
     ################
     godot-mono # Game engine
     love # 2D game engine
-    (callPackage ./programs/olympus/package.nix { }) # Celeste mod loader
+    olympus # Celeste mod loader
     lumafly # Hollow Knight mod loader
     cubiomes-viewer # Minecraft biome viewer
     (prismlauncher.override {
