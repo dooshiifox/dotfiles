@@ -61,7 +61,9 @@ let
       "gcr-prompter ///// Unlock Login Keyring" = window_icon fg-secondary "" "Unlock Login Keyring";
       "chromium-browser ///// (.*) - Chromium" = window_icon dark-blue "";
       "\\s*/////\\s*" = "<span color='${dark-blue}'></span>   <span color='${light-blue}'></span>";
-      "${priority "~"}(.*) ///// (.*)" = "$2     <span size='small' color='${light-gray}'>$1</span>";
+      # last priority
+      "${priority "~"}(.*) ///// (.*)" =
+        "<span color='${fg}'>$2</span>     <span size='small' color='${fg-secondary}'>$1</span>";
     };
 in
 {
@@ -325,8 +327,15 @@ window#waybar {
 #scratchpad:hover,
 #power-profiles-daemon:hover,
 #language:hover,
-#mpd:hover {
-    background: ${config.lib.theme.hexToRgbaString config.lib.theme.colors.dark-grey 0.5};
+#mpd:hover,
+#workspaces button:hover
+{
+    background: ${config.lib.theme.colors.bg-highlight};
+    color: ${config.lib.theme.colors.fg-highlight};
+}
+#workspaces button.active {
+    background: ${config.lib.theme.colors.bg-raised};
+    color: ${config.lib.theme.colors.fg};
 }
 
 #workspaces button {
@@ -342,20 +351,9 @@ window#waybar {
     padding: 4px;
 }
 
-#workspaces button.active {
-    background: ${config.lib.theme.hexToRgbaString config.lib.theme.colors.dark-grey 0.5};
-}
-
-#workspaces button:hover {
-    background: ${config.lib.theme.colors.dark-grey};
-    color: ${config.lib.theme.colors.fg};
-    box-shadow: none;
-}
-
 #window {
     padding-left: 20px;
 }
-
 ";
   };
 }

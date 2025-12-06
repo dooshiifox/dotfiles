@@ -45,12 +45,12 @@ in
           --bg: ${colors.bg-opacity} !important;
           --toolbarseparator-color: ${colors.border-opacity} !important;
           --chrome-content-separator-color: transparent !important;
-          --tab-selected-bgcolor: ${colors.bg-secondary-opacity} !important;
+          --tab-selected-bgcolor: ${colors.bg-raised-opacity} !important;
           --tab-selected-outline-color: ${colors.border-active-opacity} !important;
           /* Floating menus */
-          --arrowpanel-background: ${colors.bg-secondary} !important;
+          --arrowpanel-background: ${colors.bg-raised} !important;
           --arrowpanel-color: ${colors.fg} !important;
-          --panel-background: ${colors.bg-secondary} !important;
+          --panel-background: ${colors.bg-raised} !important;
           --panel-color: ${colors.fg} !important;
           /* Background tab text */
           --lwt-text-color: ${colors.fg-secondary} !important;
@@ -83,7 +83,7 @@ in
           height: 36px;
         }
         #urlbar[open] #urlbar-results {
-          background: ${colors.bg-secondary} !important;
+          background: ${colors.bg-raised} !important;
           /* backdrop-filter: blur(12px); */
           border: 0.01px solid var(--arrowpanel-border-color);
           box-shadow: 0 2px 14px rgba(0, 0, 0, 0.13);
@@ -106,9 +106,9 @@ in
         @-moz-document url("about:home"), url("about:newtab") {
           html {
             --newtab-background-color: transparent !important;
-            --newtab-background-color-secondary: ${colors.bg-secondary}80 !important;
+            --newtab-background-color-secondary: ${colors.bg-raised}80 !important;
             --newtab-text-primary-color: ${colors.fg} !important;
-            --newtab-text-secondary-color: ${colors.bg-secondary} !important;
+            --newtab-text-secondary-color: ${colors.bg-raised} !important;
           }
         }
         @-moz-document regexp(".*youtube\\.com.*") {
@@ -131,8 +131,12 @@ in
           }
         }
 
-        @-moz-document regexp("(?!.*(about:home|about:newtab).*).*") {
+        @-moz-document regexp("(?!.*(about:home|about:newtab|twitch.tv).*).*") {
+          /* :where(html) causes it to be low specificity */
           :where(html) {
+            background: white;
+          }
+          :where(#__docusaurus) {
             background: white;
           }
         }

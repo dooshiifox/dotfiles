@@ -110,27 +110,27 @@ return {
 			options = {
 				theme = {
 					normal = {
-						a = { bg = colors.light_blue, fg = colors.black, gui = "bold" },
+						a = { bg = colors.light_blue, fg = colors.bg, gui = "bold" },
 						b = { bg = colors.dark_grey, fg = colors.light_blue },
 						c = { bg = colors.bg, fg = colors.light_grey },
 					},
 					insert = {
-						a = { bg = colors.lime, fg = colors.black, gui = "bold" },
+						a = { bg = colors.lime, fg = colors.bg, gui = "bold" },
 						b = { bg = colors.dark_grey, fg = colors.lime },
 						c = { bg = colors.bg, fg = colors.light_grey },
 					},
 					visual = {
-						a = { bg = colors.light_magenta, fg = colors.black, gui = "bold" },
+						a = { bg = colors.light_magenta, fg = colors.bg, gui = "bold" },
 						b = { bg = colors.dark_grey, fg = colors.light_magenta },
 						c = { bg = colors.bg, fg = colors.light_grey },
 					},
 					replace = {
-						a = { bg = colors.pink, fg = colors.black, gui = "bold" },
+						a = { bg = colors.pink, fg = colors.bg, gui = "bold" },
 						b = { bg = colors.dark_grey, fg = colors.pink },
 						c = { bg = colors.bg, fg = colors.light_grey },
 					},
 					command = {
-						a = { bg = colors.yellow, fg = colors.black, gui = "bold" },
+						a = { bg = colors.yellow, fg = colors.bg, gui = "bold" },
 						b = { bg = colors.dark_grey, fg = colors.yellow },
 						c = { bg = colors.bg, fg = colors.light_grey },
 					},

@@ -3,19 +3,17 @@ local colors = require("colors")
 local function color_to_term(color)
 	local cterm = {
 		-- https://neovim.io/doc/user/syntax.html#cterm-colors
-		[colors.fg] = "White",
-		[colors.white] = "White",
-		[colors.fg_secondary] = "LightGray",
-		[colors.light_grey] = "LightGray",
-		[colors.grey] = "DarkGray",
-		[colors.dark_grey] = "DarkGray",
-		[colors.bg_tertiary] = "DarkGray",
-		[colors.bg_secondary] = "Black",
-		[colors.bg] = "Black",
-		[colors.black] = "Black",
-		[colors.brown] = "DarkYellow",
+		[colors.bg] = colors.is_dark and "Black" or "White",
+		[colors.bg_raised] = colors.is_dark and "Black" or "White",
+		[colors.bg_highlight] = colors.is_dark and "DarkGray" or "LightGray",
+		[colors.grey] = colors.is_dark and "DarkGray" or "LightGray",
+		[colors.fg_secondary] = colors.is_dark and "LightGray" or "DarkGray",
+		[colors.fg] = colors.is_dark and "White" or "Black",
+		[colors.fg_raised] = colors.is_dark and "White" or "Black",
+		[colors.fg_highlight] = colors.is_dark and "White" or "Black",
 		[colors.red] = "DarkRed",
 		[colors.pink] = "LightRed",
+		[colors.brown] = "DarkYellow",
 		[colors.orange] = "DarkYellow",
 		[colors.yellow] = "LightYellow",
 		[colors.cream] = "LightYellow",
@@ -27,7 +25,7 @@ local function color_to_term(color)
 		[colors.light_blue] = "LightBlue",
 		[colors.magenta] = "DarkMagenta",
 		[colors.light_magenta] = "LightMagenta",
-		[colors.border] = "DarkGray",
+		[colors.border] = colors.is_dark and "DarkGray" or "LightGray",
 		[colors.border_active] = "LightBlue",
 		[colors.accent] = "LightBlue",
 		[colors.accent_fg] = "Black",
@@ -35,7 +33,12 @@ local function color_to_term(color)
 	return cterm[color]
 end
 
-local function set(name, args)
+local function set(name, dark_args, light_args)
+	local args = dark_args
+	if not colors.is_dark and light_args ~= nil then
+		args = light_args
+	end
+
 	if args.fg and not args.ctermfg then
 		args.ctermfg = color_to_term(args.fg)
 	end

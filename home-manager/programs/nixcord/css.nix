@@ -274,41 +274,41 @@
   .theme-darker,
   .theme-midnight,
   .visual-refresh {
-    --activity-card-background: ${theme.colors.bg-secondary} !important;
-    --background-accent: ${theme.colors.bg-secondary} !important;
-    --background-floating: ${theme.colors.bg-secondary} !important;
+    --activity-card-background: ${theme.colors.bg-raised} !important;
+    --background-accent: ${theme.colors.bg-raised} !important;
+    --background-floating: ${theme.colors.bg-raised} !important;
     --background-mentioned-hover: ${theme.colors.orange}10 !important;
     --background-mentioned: ${theme.colors.orange}0b !important;
-    --background-message-highlight: ${theme.colors.bg-secondary} !important;
-    --background-message-hover: ${theme.colors.bg-secondary}80 !important;
-    --background-modifier-accent: ${theme.colors.bg-secondary-opacity} !important;
-    --background-modifier-active: ${theme.colors.bg-secondary-opacity} !important;
-    --background-modifier-hover: ${theme.colors.bg-secondary-opacity} !important;
-    --background-modifier-selected: ${theme.colors.bg-secondary-opacity} !important;
+    --background-message-highlight: ${theme.colors.bg-raised} !important;
+    --background-message-hover: ${theme.colors.bg-raised}80 !important;
+    --background-modifier-accent: ${theme.colors.bg-raised-opacity} !important;
+    --background-modifier-active: ${theme.colors.bg-raised-opacity} !important;
+    --background-modifier-hover: ${theme.colors.bg-raised-opacity} !important;
+    --background-modifier-selected: ${theme.colors.bg-raised-opacity} !important;
     --background-primary: ${theme.colors.bg} !important;
-    --background-secondary-alt: ${theme.colors.bg-secondary} !important;
-    --background-secondary: ${theme.colors.bg-secondary} !important;
-    --background-surface-highest: ${theme.colors.bg-tertiary} !important;
-    --background-surface-higher: ${theme.colors.bg-secondary} !important;
-    --background-surface-high: ${theme.colors.bg-secondary} !important;
-    --background-tertiary: ${theme.colors.bg-tertiary} !important;
-    --background-base-low: ${theme.colors.bg-opacity} !important;
-    --background-base-lower: ${theme.colors.bg-secondary-opacity} !important;
+    --background-secondary-alt: ${theme.colors.bg-raised} !important;
+    --background-secondary: ${theme.colors.bg-raised} !important;
+    --background-surface-highest: ${theme.colors.bg-highlight} !important;
+    --background-surface-higher: ${theme.colors.bg-raised} !important;
+    --background-surface-high: ${theme.colors.bg-raised} !important;
+    --background-tertiary: ${theme.colors.bg-highlight} !important;
+    --background-base-low: ${theme.colors.bg-inset-opacity} !important;
+    --background-base-lower: ${theme.colors.bg-inset2-opacity} !important;
     --background-base-lowest: transparent !important;
-    --background-base-tertiary: ${theme.colors.bg-tertiary} !important;
-    --background-code: ${theme.colors.bg-tertiary} !important;
-    --background-mod-subtle: ${theme.colors.bg-tertiary}80 !important;
-    --background-mod-strong: ${theme.colors.bg-tertiary}40 !important;
-    --bg-base-secondary: ${theme.colors.bg-secondary} !important;
-    --bg-base-tertiary: ${theme.colors.bg-tertiary} !important;
+    --background-base-tertiary: ${theme.colors.bg-highlight} !important;
+    --background-code: ${theme.colors.bg-highlight} !important;
+    --background-mod-subtle: ${theme.colors.bg-highlight}80 !important;
+    --background-mod-strong: ${theme.colors.bg-highlight}40 !important;
+    --bg-base-secondary: ${theme.colors.bg-raised} !important;
+    --bg-base-tertiary: ${theme.colors.bg-highlight} !important;
     --bg-brand: ${theme.colors.accent}80 !important;
-    --bg-mod-faint: ${theme.colors.bg-secondary} !important;
+    --bg-mod-faint: ${theme.colors.bg-raised} !important;
     --bg-overlay-2: transparent !important;
-    --bg-overlay-3: ${theme.colors.bg-secondary} !important;
-    --bg-overlay-color-inverse: ${theme.colors.bg-secondary} !important;
-    --bg-surface-raised: ${theme.colors.bg-secondary} !important;
-    --bg-surface-overlay: ${theme.colors.bg-secondary} !important;
-    --black: ${theme.colors.black} !important;
+    --bg-overlay-3: ${theme.colors.bg-raised} !important;
+    --bg-overlay-color-inverse: ${theme.colors.bg-raised} !important;
+    --bg-surface-raised: ${theme.colors.bg-raised} !important;
+    --bg-surface-overlay: ${theme.colors.bg-raised} !important;
+    --black: ${theme.colors.shades.grey."900"} !important;
     --blurple-50: ${theme.colors.accent} !important;
     --border-faint: ${theme.colors.border} !important;
     --brand-05a: ${theme.colors.accent} !important;
@@ -328,21 +328,21 @@
     --button-outline-danger-border-hover: ${theme.colors.red} !important;
     --button-positive-background: ${theme.colors.green} !important;
     --button-positive-background-hover: ${theme.colors.lime} !important;
-    --button-secondary-background: ${theme.colors.bg-secondary} !important;
-    --button-secondary-background-hover: ${theme.colors.bg-secondary-opacity} !important;
-    --card-primary-bg: ${theme.colors.bg-secondary} !important;
+    --button-secondary-background: ${theme.colors.bg-raised} !important;
+    --button-secondary-background-hover: ${theme.colors.bg-raised-opacity} !important;
+    --card-primary-bg: ${theme.colors.bg-raised} !important;
     --channel-icon: ${theme.colors.grey} !important;
-    --channels-default: ${theme.colors.light-grey} !important;
+    --channels-default: ${theme.colors.grey} !important;
     --channel-text-area-placeholder: ${theme.colors.fg-secondary} !important;
-    --channeltextarea-background: ${theme.colors.bg-secondary} !important;
-    --chat-background-default: ${theme.colors.bg-secondary-opacity} !important;
+    --channeltextarea-background: ${theme.colors.bg-raised} !important;
+    --chat-background-default: ${theme.colors.bg-raised-opacity} !important;
     --checkbox-background-checked: ${theme.colors.accent} !important;
     --checkbox-border-checked: ${theme.colors.accent} !important;
-    --checkbox-background-default: ${theme.colors.bg-secondary} !important;
-    --checkbox-border-default: ${theme.colors.bg-tertiary} !important;
+    --checkbox-background-default: ${theme.colors.bg-raised} !important;
+    --checkbox-border-default: ${theme.colors.bg-highlight} !important;
     --control-brand-foreground-new: ${theme.colors.accent} !important;
     --control-brand-foreground: ${theme.colors.accent} !important;
-    --custom-notice-text: ${theme.colors.bg-secondary} !important;
+    --custom-notice-text: ${theme.colors.bg-raised} !important;
     --custom-channel-members-bg: transparent !important;
     --font-display: var(--font, "gg sans") !important;
     --font-headline: var(--font, "gg sans") !important;
@@ -353,28 +353,28 @@
     --header-secondary: ${theme.colors.fg-secondary} !important;
     --home-background: ${theme.colors.bg} !important;
     --info-warning-foreground: ${theme.colors.orange} !important;
-    --input-background: ${theme.colors.bg-secondary-opacity} !important;
-    --interactive-active: ${theme.colors.white} !important;
-    --interactive-hover: ${theme.colors.fg} !important;
+    --input-background: ${theme.colors.bg-raised-opacity} !important;
+    --interactive-active: ${theme.colors.fg-raised} !important;
+    --interactive-hover: ${theme.colors.fg-highlight} !important;
     --interactive-muted: ${theme.colors.grey} !important;
     --interactive-normal: ${theme.colors.fg} !important;
     --mention-background: ${theme.colors.accent}40 !important;
     --mention-foreground: ${theme.colors.fg} !important;
     --menu-item-danger-active-bg: ${theme.colors.red} !important;
     --menu-item-danger-hover-bg: ${theme.colors.pink} !important;
-    --menu-item-default-hover-bg: ${theme.colors.bg-tertiary} !important;
-    --message-reacted-background: ${theme.colors.bg-secondary} !important;
+    --menu-item-default-hover-bg: ${theme.colors.bg-highlight} !important;
+    --message-reacted-background: ${theme.colors.bg-raised} !important;
     --message-reacted-text: ${theme.colors.fg-secondary} !important;
-    --modal-background: ${theme.colors.bg-secondary} !important;
+    --modal-background: ${theme.colors.bg-raised} !important;
     --modal-footer-background: ${theme.colors.bg} !important;
     --notice-background-positive: ${theme.colors.green} !important;
     --notice-text-positive: ${theme.colors.fg} !important;
-    --plum-23: ${theme.colors.dark-grey} !important;
+    --plum-23: ${theme.colors.grey} !important;
     --primary-130: ${theme.colors.fg-secondary} !important;
     --primary-300: ${theme.colors.fg-secondary} !important;
     --primary-500: ${theme.colors.grey} !important;
     --primary-600: ${theme.colors.bg} !important;
-    --primary-630: ${theme.colors.black} !important;
+    --primary-630: ${theme.colors.bg} !important;
     --primary-660: ${theme.colors.bg} !important;
     --primary-800: ${theme.colors.bg} !important;
     --red-400: ${theme.colors.pink} !important;
@@ -382,9 +382,9 @@
     --red-500: ${theme.colors.pink} !important;
     --red-630: ${theme.colors.pink} !important;
     --red: ${theme.colors.pink} !important;
-    --scrollbar-auto-thumb: ${theme.colors.bg-secondary-opacity} !important;
+    --scrollbar-auto-thumb: ${theme.colors.bg-raised-opacity} !important;
     --scrollbar-auto-track: transparent;
-    --scrollbar-thin-thumb: ${theme.colors.bg-secondary-opacity} !important;
+    --scrollbar-thin-thumb: ${theme.colors.bg-raised-opacity} !important;
     --scrollbar-thin-track: transparent;
     --search-popout-option-fade: none;
     --search-popout-option-non-text-color: ${theme.colors.fg} !important;
@@ -398,7 +398,7 @@
     --status-warning-background: ${theme.colors.bg} !important;
     --status-warning: ${theme.colors.orange} !important;
     --teal-430: ${theme.colors.cyan} !important;
-    --text-brand: ${theme.colors.white} !important;
+    --text-brand: ${theme.colors.fg-raised} !important;
     --text-feedback-positive: ${theme.colors.green} !important;
     --text-feedback-negative: ${theme.colors.red} !important;
     --text-feedback-warning: ${theme.colors.orange} !important;
@@ -410,7 +410,7 @@
     --text-positive: ${theme.colors.green} !important;
     --text-primary: ${theme.colors.fg} !important;
     --text-secondary: ${theme.colors.fg-secondary} !important;
-    --text-tertiary: ${theme.colors.light-grey} !important;
+    --text-tertiary: ${theme.colors.grey} !important;
     --text-warning: ${theme.colors.orange} !important;
     --textbox-markdown-syntax: ${theme.colors.fg} !important;
     --theme-base-color: ${theme.colors.bg} !important;
@@ -425,7 +425,7 @@
 
   /*--- Default Folder Color Recolor ---*/
   .default__459fb {
-    background-color: ${theme.colors.white} !important;
+    background-color: ${theme.colors.fg-raised} !important;
   }
 
   /*--- Add Friend Button Text Recolor ---*/
@@ -435,22 +435,22 @@
 
   /*--- Close Icon Path Recolor ---*/
   svg[class^="closeIcon__"] path {
-    fill: ${theme.colors.bg-secondary} !important;
+    fill: ${theme.colors.bg-raised} !important;
   }
 
   /*--- Listen Along Invite Recolor ---*/
   .invite__4d3fa {
-    background: ${theme.colors.bg-secondary} !important;
+    background: ${theme.colors.bg-raised} !important;
     border-color: ${theme.colors.border} !important;
   }
 
   /*--- Activity Card Background Recolor ---*/
   .card__73069 {
-    background-color: ${theme.colors.bg-secondary};
+    background-color: ${theme.colors.bg-raised};
   }
 
   div[class^="bar__"] {
-    background-color: ${theme.colors.bg-secondary} !important;
+    background-color: ${theme.colors.bg-raised} !important;
     border-color: ${theme.colors.border} !important;
   }
   /*--- Voice Bar Text Recolor ---*/
@@ -478,7 +478,7 @@
 
   /*--- Summaries Tag Icon Recolor ---*/
   .summariesBetaTag_cf58b5 {
-    color: ${theme.colors.bg-tertiary};
+    color: ${theme.colors.bg-highlight};
   }
 
   .lottieIcon__5eb9b.lottieIconColors__5eb9b.buttonIcon_e131a9 {
@@ -486,12 +486,12 @@
   }
   div[class^="actionButtons"] [class^="button"][class*="buttonColor_"],
   div[class^="actionButtons"] [class^="button"] [class*="buttonColor_"] {
-    background-color: ${theme.colors.bg-tertiary};
+    background-color: ${theme.colors.bg-highlight};
   }
 
   /* --- Checkbox Recolor (OFF) --- */
   .container__87bf1 {
-    background-color: ${theme.colors.bg-tertiary} !important;
+    background-color: ${theme.colors.bg-highlight} !important;
   }
   /* --- Checkbox Recolor (ON) --- */
   .checked__87bf1 {
@@ -565,7 +565,7 @@
 
   /*--- Store Gradient Recolors ---*/
   .gradient_e9ef78 {
-    background: ${theme.colors.bg-secondary} !important;
+    background: ${theme.colors.bg-raised} !important;
   }
   .bannerGradient__955a3 {
     background: ${theme.colors.bg} !important;
@@ -624,13 +624,13 @@
   /*--- BIG WORK IN PROGRESS. DISCORD MADE SOME BIG CHANGES. ---*/
   .visual-refresh {
     div[class^="autocomplete__"] {
-      background-color: ${theme.colors.bg-tertiary} !important;
+      background-color: ${theme.colors.bg-highlight} !important;
     }
     path[fill^="rgba(88, 101, 242, 1)"] {
       fill: ${theme.colors.green} !important;
     }
     div[class^="topicsPillContainer"] {
-      --bg-overlay-2: ${theme.colors.bg-tertiary-opacity} !important;
+      --bg-overlay-2: ${theme.colors.bg-highlight-opacity} !important;
     }
     .bg__960e4 {
       background: transparent !important;
@@ -648,10 +648,10 @@
       background-color: transparent !important;
     }
     .searchBar__97492 {
-      background-color: ${theme.colors.bg-secondary-opacity} !important;
+      background-color: ${theme.colors.bg-highlight-opacity} !important;
     }
     .channelTextArea_f75fb0 {
-      background: ${theme.colors.bg-tertiary-opacity} !important;
+      background: ${theme.colors.bg-highlight-opacity} !important;
     }
     .chatContent_f75fb0 {
       background-color: transparent !important;
@@ -661,11 +661,11 @@
       background: transparent !important;
     }
     .voiceBar__7aaec {
-      background-color: ${theme.colors.bg-tertiary-opacity} !important;
+      background-color: ${theme.colors.bg-highlight-opacity} !important;
     }
     button.button__67645.redGlow__67645,
     span.button__67645.redGlow__67645 {
-      background-color: ${theme.colors.bg-tertiary-opacity} !important;
+      background-color: ${theme.colors.bg-highlight-opacity} !important;
     }
 
     .chat_f75fb0 {

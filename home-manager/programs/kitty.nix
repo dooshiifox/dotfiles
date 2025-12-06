@@ -50,9 +50,9 @@ in
 
       url_color ${colors.accent}
 
-      active_tab_background ${colors.bg-tertiary}
-      active_tab_foreground ${colors.fg}
-      inactive_tab_background ${colors.bg-secondary}
+      active_tab_background ${colors.bg-highlight}
+      active_tab_foreground ${colors.fg-highlight}
+      inactive_tab_background ${colors.bg-raised}
       inactive_tab_foreground ${colors.fg-secondary}
       tab_bar_background ${colors.bg}
       tab_bar_margin_color ${colors.bg}
