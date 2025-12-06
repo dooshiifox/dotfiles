@@ -276,32 +276,35 @@ rec {
         };
       };
 
-      variant = "dark";
-      bg = shades.grey."950";
-      bg-raised = shades.grey."900";
-      bg-highlight = shades.grey."800";
-      bg-inset = "#000000";
-      bg-inset2 = "#000000";
-      grey = shades.grey."400";
-      fg-secondary = shades.grey."300";
-      fg = shades.grey."200";
-      fg-raised = shades.grey."100";
-      fg-highlight = shades.grey."50";
+      # variant = "dark";
+      # bg = shades.grey."950";
+      # bg-raised = shades.grey."900";
+      # bg-highlight = shades.grey."800";
+      # bg-inset = "#000000";
+      # bg-inset2 = "#000000";
+      # grey = shades.grey."400";
+      # fg-secondary = shades.grey."300";
+      # fg = shades.grey."200";
+      # fg-raised = shades.grey."100";
+      # fg-highlight = shades.grey."50";
+      # border = bg-highlight;
+      # border-active = grey;
+      # accent = light-blue;
 
-      border = bg-highlight;
-      border-active = grey;
-
-      # variant = "light";
-      # bg = shades.grey."100";
-      # bg-secondary = shades.grey."200";
-      # bg-tertiary = shades.grey."300";
-      # fg-secondary = shades.grey."800";
-      # fg = shades.grey."950";
-      # border = shades.grey."300";
-      # border-active = shades.grey."400";
-      # accent = cyan;
-      # # Text on an accent background
-      # accent-fg = shades.grey."900";
+      variant = "light";
+      bg = shades.grey."200";
+      bg-raised = shades.grey."100";
+      bg-highlight = shades.grey."50";
+      bg-inset = shades.grey."300";
+      bg-inset2 = shades.grey."400";
+      grey = shades.grey."600";
+      fg-secondary = shades.grey."800";
+      fg = shades.grey."900";
+      fg-raised = shades.grey."950";
+      fg-highlight = shades.grey."950";
+      border = shades.grey."400";
+      border-active = shades.grey."600";
+      accent = cyan;
 
       brown = "#ab4b25";
       red = "#f36b88";
@@ -318,7 +321,6 @@ rec {
       # TODO:
       magenta = "#C6A0F6";
       light-magenta = "#F5BDE6";
-      accent = light-blue;
 
       bg-opacity = hexWithOpacity bg opacity.bg;
       bg-raised-opacity = hexWithOpacity bg-raised opacity.bg;
