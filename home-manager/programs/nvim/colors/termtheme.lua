@@ -36,15 +36,25 @@ end
 local function set(name, dark_args, light_args)
 	local args = dark_args
 	if not colors.is_dark and light_args ~= nil then
-		args = light_args
+		if light_args == "swap" then
+			local x = args.bg or colors.fg
+			local x2 = args.ctermbg
+			args.bg = args.fg
+			args.ctermbg = args.ctermfg
+			args.fg = x
+			args.ctermfg = x2
+			args.bold = true
+		else
+			args = light_args
+		end
 	end
 
-	if args.fg and not args.ctermfg then
-		args.ctermfg = color_to_term(args.fg)
-	end
-	if args.bg and not args.ctermbg then
-		args.ctermbg = color_to_term(args.bg)
-	end
+	-- if args.fg and not args.ctermfg then
+	-- 	args.ctermfg = color_to_term(args.fg)
+	-- end
+	-- if args.bg and not args.ctermbg then
+	-- 	args.ctermbg = color_to_term(args.bg)
+	-- end
 
 	vim.api.nvim_set_hl(0, name, args)
 end
@@ -77,10 +87,10 @@ set("FloatBorder", { link = "WinSeparator" })
 set("FloatShadow", { bg = colors.bg_raised })
 set("FloatShadowThrough", { bg = colors.bg_raised })
 set("Title", { fg = colors.fg, bold = true })
-set("Added", { fg = colors.lime })
-set("Changed", { fg = colors.yellow })
-set("Removed", { fg = colors.pink })
-set("Error", { bg = colors.red, bold = true })
+set("Added", { fg = colors.lime }, "swap")
+set("Changed", { fg = colors.yellow }, "swap")
+set("Removed", { fg = colors.pink }, "swap")
+set("Error", { bg = colors.red, bold = true }, "swap")
 set("RenderMarkdownCodeInline", { italic = true, bg = colors.bg_highlight, fg = colors.fg })
 set("RenderMarkdownH1Bg", { bg = colors.bg_highlight, bold = true, fg = colors.fg, sp = colors.grey, underline = true })
 set(
@@ -88,17 +98,17 @@ set(
 	{ bg = colors.bg_raised, bold = true, italic = true, fg = colors.fg, sp = colors.grey, underline = true }
 )
 
-set("DiagnosticHint", { fg = colors.light_blue })
-set("DiagnosticInfo", { fg = colors.cyan })
-set("DiagnosticOk", { fg = colors.lime })
-set("DiagnosticWarn", { fg = colors.orange })
-set("DiagnosticError", { fg = colors.pink })
+set("DiagnosticHint", { fg = colors.light_blue }, "swap")
+set("DiagnosticInfo", { fg = colors.cyan }, "swap")
+set("DiagnosticOk", { fg = colors.lime }, "swap")
+set("DiagnosticWarn", { fg = colors.orange }, "swap")
+set("DiagnosticError", { fg = colors.pink }, "swap")
 set("DiagnosticUnderlineHint", { sp = colors.light_blue, undercurl = true })
 set("DiagnosticUnderlineInfo", { sp = colors.cyan, undercurl = true })
 set("DiagnosticUnderlineOk", { sp = colors.lime, undercurl = true })
 set("DiagnosticUnderlineWarn", { sp = colors.orange, undercurl = true })
 set("DiagnosticUnderlineError", { sp = colors.pink, undercurl = true })
-set("DiagnosticUnnecessary", { fg = colors.fg_secondary, sp = colors.fg_secondary, underdotted = true })
+set("DiagnosticUnnecessary", { fg = colors.fg_secondary, sp = colors.fg_secondary, underdotted = true }, "swap")
 
 set("SnacksIndent", { fg = colors.bg_raised })
 set("SnacksIndentScope", { fg = colors.bg_highlight })
@@ -122,33 +132,37 @@ set("MiniIconsAzure", { fg = colors.light_blue })
 set("MiniIconsPurple", { fg = colors.light_magenta })
 set("MiniIconsGrey", { fg = colors.light_grey })
 
-set("Comment", { fg = colors.green, italic = true })
-set("@comment.documentation", { fg = colors.green, italic = true })
+set(
+	"Comment",
+	{ fg = colors.green, italic = true },
+	{ bg = colors.green, italic = true, bold = true, fg = colors.bg_highlight }
+) -- test
+set("@comment.documentation", { link = "Comment" })
 set("@lsp.mod.documentation", { link = "@comment.documentation" })
 set("Delimiter", { fg = colors.fg })
 set("@tag.delimiter", { link = "Delimiter" })
-set("@punctuation.special", { fg = colors.yellow })
+set("@punctuation.special", { fg = colors.yellow }, "swap")
 set("@constructor.lua", { link = "Delimiter" })
-set("Constant", { fg = colors.orange })
+set("Constant", { fg = colors.orange }, "swap")
 set("@constant.builtin", { link = "Constant" })
 set("@string.escape", { link = "Constant" })
-set("Keyword", { fg = colors.light_magenta, italic = true })
+set("Keyword", { fg = colors.light_magenta, italic = true }, "swap")
 set("@tag.blade", { link = "Keyword" })
 set("@function.macro.rust", { link = "Keyword" })
 set("@lsp.type.modifier", { link = "Keyword" })
 set("@lsp.type.lifetime", { link = "Keyword" })
-set("@tag", { fg = colors.pink })
-set("String", { fg = colors.lime })
-set("Identifier", { fg = colors.cyan })
+set("@tag", { fg = colors.pink }, "swap")
+set("String", { fg = colors.lime }, "swap")
+set("Identifier", { fg = colors.cyan }, "swap")
 set("@variable", { link = "Identifier" })
 set("@variable.member", { link = "Identifier" })
-set("Function", { fg = colors.dark_blue })
-set("@module", { fg = colors.dark_cyan })
-set("Type", { fg = colors.orange })
-set("@lsp.type.enumMember", { fg = colors.orange })
-set("@type.builtin", { fg = colors.orange, italic = true })
-set("@tag.attribute", { fg = colors.orange, italic = true })
-set("Special", { fg = colors.cyan })
-set("PreProc", { fg = colors.dark_blue, italic = true })
+set("Function", { fg = colors.dark_blue }, "swap")
+set("@module", { fg = colors.dark_cyan }, "swap")
+set("Type", { fg = colors.orange }, "swap")
+set("@lsp.type.enumMember", { fg = colors.orange }, "swap")
+set("@type.builtin", { fg = colors.orange, italic = true }, "swap")
+set("@tag.attribute", { fg = colors.orange, italic = true }, "swap")
+set("Special", { fg = colors.cyan }, "swap")
+set("PreProc", { fg = colors.dark_blue, italic = true }, "swap")
 set("@lsp.type.macro.rust", { link = "PreProc" })
-set("@lsp.type.selfKeyword", { fg = colors.red, bold = true })
+set("@lsp.type.selfKeyword", { fg = colors.red, bold = true }, "swap")

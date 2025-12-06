@@ -24,6 +24,7 @@ return {
 	},
 	{
 		"folke/tokyonight.nvim",
+		enabled = false,
 		opts = {
 			transparent = true,
 			styles = {
@@ -110,28 +111,48 @@ return {
 			options = {
 				theme = {
 					normal = {
-						a = { bg = colors.light_blue, fg = colors.bg, gui = "bold" },
-						b = { bg = colors.dark_grey, fg = colors.light_blue },
+						a = {
+							bg = colors.is_dark and colors.light_blue or colors.dark_blue,
+							fg = colors.is_dark and colors.bg or colors.fg,
+							gui = "bold",
+						},
+						b = { bg = colors.fg, fg = colors.light_blue },
 						c = { bg = colors.bg, fg = colors.light_grey },
 					},
 					insert = {
-						a = { bg = colors.lime, fg = colors.bg, gui = "bold" },
-						b = { bg = colors.dark_grey, fg = colors.lime },
+						a = {
+							bg = colors.is_dark and colors.lime or colors.green,
+							fg = colors.is_dark and colors.bg or colors.fg,
+							gui = "bold",
+						},
+						b = { bg = colors.fg, fg = colors.lime },
 						c = { bg = colors.bg, fg = colors.light_grey },
 					},
 					visual = {
-						a = { bg = colors.light_magenta, fg = colors.bg, gui = "bold" },
-						b = { bg = colors.dark_grey, fg = colors.light_magenta },
+						a = {
+							bg = colors.is_dark and colors.light_magenta or colors.magenta,
+							fg = colors.is_dark and colors.bg or colors.fg,
+							gui = "bold",
+						},
+						b = { bg = colors.fg, fg = colors.light_magenta },
 						c = { bg = colors.bg, fg = colors.light_grey },
 					},
 					replace = {
-						a = { bg = colors.pink, fg = colors.bg, gui = "bold" },
-						b = { bg = colors.dark_grey, fg = colors.pink },
+						a = {
+							bg = colors.is_dark and colors.pink or colors.red,
+							fg = colors.is_dark and colors.bg or colors.fg,
+							gui = "bold",
+						},
+						b = { bg = colors.fg, fg = colors.pink },
 						c = { bg = colors.bg, fg = colors.light_grey },
 					},
 					command = {
-						a = { bg = colors.yellow, fg = colors.bg, gui = "bold" },
-						b = { bg = colors.dark_grey, fg = colors.yellow },
+						a = {
+							bg = colors.is_dark and colors.yellow or colors.orange,
+							fg = colors.is_dark and colors.bg or colors.fg,
+							gui = "bold",
+						},
+						b = { bg = colors.fg, fg = colors.yellow },
 						c = { bg = colors.bg, fg = colors.light_grey },
 					},
 					inactive = {
