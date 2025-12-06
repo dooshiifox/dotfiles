@@ -15,8 +15,8 @@
     };
 
     volumes = {
-      "/" = {
-        path = "/data";
+      "/torrent" = {
+        path = "/torrent/";
         # Permissions
         # https://github.com/9001/copyparty/?tab=readme-ov-file#accounts-and-volumes
         access = {
@@ -33,6 +33,20 @@
           e2ts = true;
           # Announces fileserver on file explorers
           # https://github.com/9001/copyparty/?tab=readme-ov-file#zeroconf
+          z = true;
+        };
+      };
+
+      "/music" = {
+        path = "/home/dooshii/Music/";
+        access = {
+          r = "*";
+          A = [ "dooshii" ];
+        };
+        flags = {
+          scan = 60;
+          e2dsa = true;
+          e2ts = true;
           z = true;
         };
       };

@@ -270,7 +270,7 @@
 		lower_cutoff_freq: 20,
 		higher_cutoff_freq: 15000,
 		smoothing: (
-			noise_reduction: 5
+			noise_reduction: 0
 		),
 		eq: []
 	),

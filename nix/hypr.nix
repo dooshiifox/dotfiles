@@ -52,6 +52,7 @@ in
       NIXOS_OZONE_WL = "1";
       HYPRCURSOR_THEME = "Bibata-Modern-Classic";
       HYPRCURSOR_SIZE = "20";
+      GSK_RENDERER = "1";
     };
   };
 
