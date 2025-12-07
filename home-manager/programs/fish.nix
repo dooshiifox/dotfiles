@@ -29,6 +29,7 @@
       "mrng" = "${config.lib.theme.source-folder}/scripts/music/rng";
       "ni" = "${config.lib.theme.source-folder}/scripts/nix-rebuild ${profile}";
       "clean-old-gens" = "${config.lib.theme.source-folder}/scripts/clean-old-gens";
+      "bcdl" = "${config.lib.theme.source-folder}/scripts/bcdl";
       "todo" = "nvim /home/dooshii/Documents/obsidian/Todo.md";
       "o" = "nvim /home/dooshii/Documents/obsidian/";
       "x" = "exit";

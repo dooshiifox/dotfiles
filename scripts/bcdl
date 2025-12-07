@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+download() {
+	for url in "$@"; do
+		if [[ "$url" == *"/track/"* ]]; then
+			yt-dlp \
+				-o "$XDG_MUSIC_DIR/%(artist)s - Singles/%(artist)s - %(track)s.%(ext)s" \
+				--write-thumbnail \
+				--embed-thumbnail \
+				--embed-metadata \
+				--parse-metadata "%(tags|)l:%(genre)s" \
+				--parse-metadata "%(track_number|1)s:%(track_number)s" \
+				--parse-metadata "%(album,track)s:%(album)s" \
+				-f "ba" \
+				"$url"
+		elif [[ "$url" == *"/album/"* ]]; then
+			yt-dlp \
+				-o "$XDG_MUSIC_DIR/%(artist)s - %(album)s/%(track_number)02d  %(track)s.%(ext)s" \
+				-o "thumbnail:$XDG_MUSIC_DIR/%(artist)s - %(album)s/cover.%(ext)s" \
+				--no-overwrite \
+				--write-thumbnail \
+				--embed-thumbnail \
+				--embed-metadata \
+				--parse-metadata "%(tags|)l:%(genre)s" \
+				-f "ba" \
+				"$url"
+		else
+			echo "Unknown URL: $url" >&2
+		fi
+	done
+}
+
+if [[ "$#" -gt 0 ]]; then
+	download $@
+else
+	while true; do
+		read -rp "URL: " -e urls
+		url_arr=($urls)
+		download ${url_arr[@]}
+	done
+fi
