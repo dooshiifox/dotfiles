@@ -116,7 +116,7 @@ return {
 							fg = colors.is_dark and colors.bg or colors.fg,
 							gui = "bold",
 						},
-						b = { bg = colors.fg, fg = colors.light_blue },
+						b = { bg = colors.bg_highlight, fg = colors.light_blue, gui = "bold" },
 						c = { bg = colors.bg, fg = colors.light_grey },
 					},
 					insert = {
@@ -125,7 +125,7 @@ return {
 							fg = colors.is_dark and colors.bg or colors.fg,
 							gui = "bold",
 						},
-						b = { bg = colors.fg, fg = colors.lime },
+						b = { bg = colors.bg_highlight, fg = colors.lime, gui = "bold" },
 						c = { bg = colors.bg, fg = colors.light_grey },
 					},
 					visual = {
@@ -134,7 +134,7 @@ return {
 							fg = colors.is_dark and colors.bg or colors.fg,
 							gui = "bold",
 						},
-						b = { bg = colors.fg, fg = colors.light_magenta },
+						b = { bg = colors.bg_highlight, fg = colors.light_magenta, gui = "bold" },
 						c = { bg = colors.bg, fg = colors.light_grey },
 					},
 					replace = {
@@ -143,7 +143,7 @@ return {
 							fg = colors.is_dark and colors.bg or colors.fg,
 							gui = "bold",
 						},
-						b = { bg = colors.fg, fg = colors.pink },
+						b = { bg = colors.bg_highlight, fg = colors.pink, gui = "bold" },
 						c = { bg = colors.bg, fg = colors.light_grey },
 					},
 					command = {
@@ -152,7 +152,7 @@ return {
 							fg = colors.is_dark and colors.bg or colors.fg,
 							gui = "bold",
 						},
-						b = { bg = colors.fg, fg = colors.yellow },
+						b = { bg = colors.bg_highlight, fg = colors.yellow, gui = "bold" },
 						c = { bg = colors.bg, fg = colors.light_grey },
 					},
 					inactive = {
@@ -167,7 +167,7 @@ return {
 				lualine_z = {
 					{
 						"location",
-						padding = { left = 0, right = 1 },
+						padding = { left = 1, right = 1 },
 					},
 				},
 			},
@@ -183,9 +183,6 @@ return {
 	{
 		"saghen/blink.cmp",
 		opts = {
-			signature = {
-				enabled = true,
-			},
 			completion = {
 				list = {
 					selection = { preselect = false },
@@ -193,19 +190,13 @@ return {
 				menu = {
 					border = "rounded",
 					winhighlight = "Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,CursorLine:BlinkCmpDocCursorLine,Search:None",
+					draw = {
+						padding = 1,
+					},
 				},
 				documentation = {
 					window = {
 						border = "rounded",
-					},
-				},
-			},
-			sources = {
-				default = { "laravel", "lsp", "path", "snippets", "buffer" },
-				providers = {
-					laravel = {
-						name = "laravel",
-						module = "laravel.blink_source",
 					},
 				},
 			},
@@ -422,28 +413,11 @@ return {
 			})
 		end,
 	},
-	-- {
-	-- 	"sphamba/smear-cursor.nvim",
-	-- 	opts = {
-	-- 		stiffness = 1,
-	-- 		trailing_stiffness = 0.8,
-	-- 		never_draw_over_target = false,
-	-- 		legacy_computing_symbols_support = true,
-	-- 		damping = 1,
-	-- 		trailing_exponent = 4,
-	-- 		anticipation = 0.95,
-	-- 		distance_stop_animating = 0.5,
-	-- 		time_interval = 1000 / 120, -- 1s / 120fps
-	-- 	},
-	-- },
 	{
 		"lukas-reineke/virt-column.nvim",
 		opts = {
 			highlight = "VirtColumn",
 		},
-		-- config = function(_, opts)
-		-- 	require("virt-column").setup(opts)
-		-- end,
 	},
 	{
 		"stevearc/overseer.nvim",
@@ -504,28 +478,5 @@ return {
 				},
 			},
 		},
-	},
-	-- {
-	-- 	"L3MON4D3/LuaSnip",
-	-- 	opts = {
-	-- 		region_check_events = "InsertEnter,InsertLeave",
-	-- 		delete_check_events = "TextChanged,InsertLeave",
-	-- 	},
-	-- },
-	{
-		"adibhanna/laravel.nvim",
-		dependencies = {
-			"MunifTanjim/nui.nvim",
-			"nvim-lua/plenary.nvim",
-		},
-		keys = {
-			{ "<leader>la", ":Artisan<cr>", desc = "Laravel Artisan" },
-			{ "<leader>lc", ":Composer<cr>", desc = "Composer" },
-			{ "<leader>lr", ":LaravelRoute<cr>", desc = "Laravel Routes" },
-			{ "<leader>lm", ":LaravelMake<cr>", desc = "Laravel Make" },
-		},
-		config = function()
-			require("laravel").setup()
-		end,
 	},
 }

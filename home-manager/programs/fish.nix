@@ -45,7 +45,7 @@
     '';
 
     # Causes slow Nix builds when set to true
-    generateCompletions = true;
+    generateCompletions = false;
 
     functions = {
       mkcd = "mkdir -p $argv; cd $argv;";
