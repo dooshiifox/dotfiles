@@ -25,6 +25,7 @@ vim.o.shiftwidth = 4
 
 vim.o.showtabline = 0
 -- vim.o.winborder = "rounded"
+vim.o.pumborder = "rounded"
 
 vim.g.lazyvim_php_lsp = "intelephense"
 vim.filetype.add({

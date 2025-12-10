@@ -32,7 +32,7 @@ PLAY_BIAS: dict[Optional[float], float] = {
 }
 
 # Songs present in the queue will not be added to the queue
-MAX_QUEUE_SIZE = int(sys.argv[2]) if len(sys.argv) > 2 else 200
+MAX_QUEUE_SIZE = int(sys.argv[2]) if len(sys.argv) > 2 else 400
 
 
 def cmd(command: str) -> str | None:

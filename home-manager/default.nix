@@ -62,6 +62,7 @@
     # Social
     telegram-desktop # Telegram client
     wasistlos # Whatsapp client
+    slack # Slack client
 
     # Basic services
     protonvpn-gui
