@@ -135,9 +135,10 @@
     gitg # Visual git viewer
     git-crypt # Git encryption
 
-    # Misc
+    # Databases
     mysql84 # Database client
     antares # Database viewer
+    dbeaver-bin # Another database viewer
 
     # Neovim LSPs and formatters and linters and such
     astro-language-server

@@ -8,6 +8,10 @@
 	lyrics_dir: "/home/dooshii/Music/",
 	theme: "dooshii",
     enable_mouse: true,
+	max_fps: 60,
+	enable_lyrics_hot_reload: true,
+	enable_lyrics_index: true,
+	status_update_interval_ms: 200,
 	keybinds: (
 		global: {
             ":":       CommandMode,
