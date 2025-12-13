@@ -167,10 +167,12 @@
     jq # JSON processor
     zip # `zip` command
     unzip # `unzip` command
+    unrar-free # `unrar-free` command (extract RAR files)
     psmisc # `fuser` command
     pciutils # `lspci` command
     patchelf # Modify ELF headers to make some stuff work on NixOS
     tldr # Simplified man pages
+    tree # Recursive ls
     uutils-coreutils-noprefix # rust coreutils replacement
     xh # Better `curl`
     dust # Better `du`
@@ -254,9 +256,6 @@
     wl-clicker # autoclicker
     azahar # 3DS emulator
   ];
-
-  # TODO: Not the right place for it, figure out where
-  # programs.steam.extraCompatPackages = [pkgs.proton-ge-bin];
 
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
