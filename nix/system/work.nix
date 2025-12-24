@@ -19,23 +19,23 @@ in
   # https://github.com/NixOS/nixos-hardware/blob/master/asus/zenbook/ux371/default.nix
   services.thermald.enable = true;
   powerManagement.cpuFreqGovernor = "powersave";
-  # boot.kernelParams = [ "i915" ];
+  boot.kernelParams = [ "i915" ];
   services.fstrim.enable = true;
 
   # boot.initrd.kernelModules = [ "xe" ];
   hardware.graphics.enable = true;
   hardware.graphics.extraPackages = with pkgs; [
-    # intel-vaapi-driver
-    # intel-ocl
-    # intel-media-driver
-    # intel-compute-runtime
-    # vpl-gpu-rt
-    # rocmPackages.clr.icd
-    # ocl-icd
+    intel-vaapi-driver
+    intel-ocl
+    intel-media-driver
+    intel-compute-runtime
+    vpl-gpu-rt
+    rocmPackages.clr.icd
+    ocl-icd
   ];
   hardware.graphics.extraPackages32 = with pkgs; [
-    # driversi686Linux.intel-vaapi-driver
-    # driversi686Linux.intel-media-driver
+    driversi686Linux.intel-vaapi-driver
+    driversi686Linux.intel-media-driver
   ];
 
   fileSystems."/home/dooshii/Shared" = {
