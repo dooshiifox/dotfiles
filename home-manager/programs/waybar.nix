@@ -32,6 +32,8 @@ let
       "firefox-devedition ///// (Mozilla Firefox|Firefox Developer Edition)" =
         window_icon pink ""
           "Firefox";
+      "librewolf ///// (.*) — (LibreWolf)" = window_icon light-blue "";
+      "librewolf ///// (LibreWolf)" = window_icon light-blue "" "LibreWolf";
       "codium ///// (.*) - VSCodium" = window_icon light-blue "󰨞";
       "vesktop ///// (?:.*?Discord.{3})?(.*)" = window_icon dark-blue "";
       "${priority 1}Kitty ///// (?:nvim|e|ni) (.*)" = window_icon lime "";

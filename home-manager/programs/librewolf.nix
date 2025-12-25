@@ -1,5 +1,4 @@
-# Firefox web browser
-# https://github.com/nix-community/home-manager/blob/master/modules/programs/firefox.nix
+# Librewolf web browser
 { pkgs, config, ... }:
 let
   mimeTypes = [
@@ -26,20 +25,19 @@ in
   xdg.mimeApps.defaultApplications = builtins.listToAttrs (
     map (mimeType: {
       name = mimeType;
-      value = [ "firefox-devedition.desktop" ];
+      value = [ "librewolf.desktop" ];
     }) mimeTypes
   );
+  home.sessionVariables.BROWSER = "librewolf";
 
-  programs.firefox = {
+  programs.librewolf = {
     enable = true;
-    package = pkgs.firefox-devedition;
 
     policies = { };
 
     profiles.dooshii = {
       id = 0;
       isDefault = true;
-      name = "dev-edition-default";
       userChrome = ''
         :root {
           --bg: ${colors.bg-opacity} !important;
@@ -235,12 +233,6 @@ in
           # twitch-chat-pronouns
           # youtube-disable-number-seek
         ];
-
-        #settings = {
-        #  "{7a7a4a92-a2a0-41d1-9fd7-1e92480d612d}".settings = {
-        #    dbInChromeStorage = true; # required for Stylus
-        #  };
-        #};
       };
     };
   };

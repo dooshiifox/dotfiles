@@ -33,7 +33,7 @@
       "$mod" = "SUPER";
       bind = [
         "$mod, T, exec, kitty"
-        "$mod, B, exec, firefox-devedition"
+        "$mod, B, exec, $BROWSER"
         "$mod, F, exec, nemo"
         "$mod, M, exec, thunderbird"
         "$mod, Space, exec, pkill rofi || rofi -show drun"

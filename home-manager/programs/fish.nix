@@ -51,10 +51,10 @@
       mkcd = "mkdir -p $argv; cd $argv;";
       # Echo whatever you want here
       fish_greeting = "";
-      # Opens firefox at https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query={query}
-      nixs = "firefox-devedition \"https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=$argv\"";
-      # Opens firefox at https://mynixos.com/search?q={query}
-      nixo = "firefox-devedition \"https://mynixos.com/search?q=$argv\"";
+      # Opens browser at https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query={query}
+      nixs = "$BROWSER \"https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=$argv\"";
+      # Opens browser at https://mynixos.com/search?q={query}
+      nixo = "$BROWSER \"https://mynixos.com/search?q=$argv\"";
       # Uses the provided nix packages in a new shell
       use = "nix-shell --command fish -p $argv";
       mrat = "cd ~/Documents/CodingProjects/mpd-rating/ && pnpm dev --host";

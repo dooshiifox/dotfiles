@@ -12,7 +12,7 @@
     ./direnv.nix
     ./eza.nix
     ./fd.nix
-    ./firefox.nix
+    ./librewolf.nix
     ./fish.nix
     ./gh.nix
     ./git.nix
