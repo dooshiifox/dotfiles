@@ -1,10 +1,6 @@
 # https://github.com/nix-community/home-manager/blob/master/modules/programs/vscode.nix
-{pkgs, ...}: let
-  mimeTypes = [
-    "application/json"
-    "text/plain"
-  ];
-in {
+{ pkgs, ... }:
+{
   programs.vscode = {
     enable = true;
 
@@ -15,7 +11,8 @@ in {
       enableUpdateCheck = false;
       enableExtensionUpdateCheck = false;
 
-      extensions = with pkgs.vscode-marketplace;
+      extensions =
+        with pkgs.vscode-marketplace;
         [
           alexcvzz.vscode-sqlite
           alexisvt.flutter-snippets
@@ -204,7 +201,7 @@ in {
         "editor.stickyScroll.enabled" = false;
 
         # Indent
-        "indentRainbow.excludedLanguages" = [];
+        "indentRainbow.excludedLanguages" = [ ];
         "indentRainbow.errorColor" = "rgba(242,121,92,0.04)";
         "indentRainbow.colors" = [
           "rgba(242,167,92,0.05)"
@@ -317,7 +314,7 @@ in {
         };
         "json.schemas" = [
           {
-            "fileMatch" = ["/deno.json"];
+            "fileMatch" = [ "/deno.json" ];
             "url" = "https://deno.land/x/deno/cli/schemas/config-file.v1.json";
           }
         ];
@@ -409,7 +406,7 @@ in {
         "nix.serverSettings" = {
           "nil" = {
             "formatting" = {
-              "command" = ["alejandra"];
+              "command" = [ "alejandra" ];
             };
           };
         };
@@ -427,7 +424,7 @@ in {
           "blade" = "html";
         };
         "tailwindCSS.emmetCompletions" = true;
-        "tailwindCSS.experimental.classRegex" = ["tailwind\\('([^']*)'\\)"];
+        "tailwindCSS.experimental.classRegex" = [ "tailwind\\('([^']*)'\\)" ];
         "tailwindCSS.classAttributes" = [
           "class"
           "className"
@@ -458,7 +455,7 @@ in {
         "sqltools.disableNodeDetectNotifications" = true;
 
         # Docker
-        "docker.containers.description" = ["Status"];
+        "docker.containers.description" = [ "Status" ];
         "docker.containers.label" = "ContainerName";
 
         # Php
@@ -548,12 +545,14 @@ in {
         {
           "key" = "ctrl+c";
           "command" = "workbench.action.terminal.copySelection";
-          "when" = "terminalFocus && terminalHasBeenCreated && terminalTextSelected || terminalFocus && terminalProcessSupported && terminalTextSelected";
+          "when" =
+            "terminalFocus && terminalHasBeenCreated && terminalTextSelected || terminalFocus && terminalProcessSupported && terminalTextSelected";
         }
         {
           "key" = "ctrl+shift+c";
           "command" = "-workbench.action.terminal.copySelection";
-          "when" = "terminalFocus && terminalHasBeenCreated && terminalTextSelected || terminalFocus && terminalProcessSupported && terminalTextSelected";
+          "when" =
+            "terminalFocus && terminalHasBeenCreated && terminalTextSelected || terminalFocus && terminalProcessSupported && terminalTextSelected";
         }
         {
           "key" = "ctrl+v";
@@ -618,7 +617,8 @@ in {
         {
           "key" = "shift+enter";
           "command" = "-python.execSelectionInTerminal";
-          "when" = "editorTextFocus && !findInputFocussed && !jupyter.ownsSelection && !notebookEditorFocused && !replaceInputFocussed && editorLangId == 'python'";
+          "when" =
+            "editorTextFocus && !findInputFocussed && !jupyter.ownsSelection && !notebookEditorFocused && !replaceInputFocussed && editorLangId == 'python'";
         }
         {
           "key" = "ctrl+shift+alt+t";
@@ -627,10 +627,4 @@ in {
       ];
     };
   };
-
-  xdg.mimeApps.defaultApplications = builtins.listToAttrs (map (mimeType: {
-      name = mimeType;
-      value = ["codium.desktop"];
-    })
-    mimeTypes);
 }

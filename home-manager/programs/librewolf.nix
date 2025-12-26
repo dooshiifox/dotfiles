@@ -22,12 +22,15 @@ let
   colors = theme.colors;
 in
 {
-  xdg.mimeApps.defaultApplications = builtins.listToAttrs (
-    map (mimeType: {
-      name = mimeType;
-      value = [ "librewolf.desktop" ];
-    }) mimeTypes
-  );
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = builtins.listToAttrs (
+      map (mimeType: {
+        name = mimeType;
+        value = "librewolf.desktop";
+      }) mimeTypes
+    );
+  };
   home.sessionVariables.BROWSER = "librewolf";
 
   programs.librewolf = {
