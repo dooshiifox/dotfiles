@@ -117,7 +117,7 @@
       nixosConfigurations.work = build {
         profile = "work";
         has_secrets = true;
-        wallpaper = /home/dooshii/Pictures/2022-apraug-ko.png;
+        wallpaper = /home/dooshii/Pictures/${"Jacatos Full Resolution Downloads"}/2022/April-Aug/kogrrr.png;
       };
     };
 }
