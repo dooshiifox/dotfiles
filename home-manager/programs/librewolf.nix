@@ -44,7 +44,19 @@ in
   programs.librewolf = {
     enable = true;
 
-    policies = { };
+    policies = {
+      AppAutoUpdate = false;
+      BackgroundAppUpdate = false;
+      DisableFirefoxStudies = true;
+      DisableFirefoxAccounts = true;
+      DisableProfileImport = true;
+      DisableProfileRefresh = true;
+      DisableSetDesktopBackground = true;
+      DisablePocket = true;
+      DisableTelemetry = true;
+      OfferToSaveLogins = false;
+      DontCheckDefaultBrowser = true;
+    };
 
     profiles.dooshii = {
       id = 0;
@@ -237,12 +249,16 @@ in
         "devtools.webconsole.timestampMessages" = true;
         "devtools.webextensions.@react-devtools.enabled" = true;
         "extensions.recommendations.hideNotice" = true;
+        "extensions.webextensions.ExtensionStorageIDB.enabled" = false;
         "font.name.monospace.x-western" = theme.fonts.monospace.name;
         "font.name.sans-serif.x-western" = theme.fonts.sansSerif.name;
         "font.name.serif.x-western" = theme.fonts.serif.name;
         "media.videocontrols.picture-in-picture.video-toggle.enabled" = false;
         "middlemouse.paste" = false;
+        "privacy.clearOnShutdown.history" = false;
+        "privacy.clearOnShutdown.cookies" = false;
         "privacy.clearOnShutdown_v2.formdata" = false;
+        "network.cookie.lifetimePolicy" = 0;
         "privacy.fingerprintingProtection" = true;
         "privacy.resistFingerprinting" = false;
         "privacy.sanitize.sanitizeOnShutdown" = false;
@@ -252,6 +268,7 @@ in
         "ui.prefersReducedMotion" = true;
         "signon.autofillForms" = false;
         "services.sync.prefs.sync.signon.autofillForms" = false;
+        "webgl.disabled" = false;
       };
       search = {
         default = "ddg";
