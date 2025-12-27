@@ -24,11 +24,11 @@
         };
         betterUploadButton.enable = true;
         callTimer.enable = true;
-        clearURLs.enable = true;
+        # clearURLs.enable = true;
         colorSighted.enable = true;
         copyFileContents.enable = true;
         crashHandler.enable = true;
-        customRPC.enable = true;
+        # customRPC.enable = true;
         dearrow.enable = true;
         disableCallIdle.enable = true;
         experiments.enable = true;
@@ -41,7 +41,7 @@
         imageZoom.enable = true;
         memberCount.enable = true;
         messageLogger.enable = true;
-        mutualGroupDMs.enable = true;
+        # mutualGroupDMs.enable = true;
         noDevtoolsWarning.enable = true;
         noF1.enable = true;
         noMosaic.enable = true;

@@ -34,7 +34,7 @@ echo "$commit_msg" >.git/nix_commit_msg
 
 # I don't know why this is needed but it is
 # TODO: Fix this
-rm -f -- /home/dooshii/.mozilla/firefox/dooshii/search.json.mozlz4.hmbackup /home/dooshii/.config/plover/plover.cfg.hmbackup
+rm -f -- /home/dooshii/.mozilla/firefox/dooshii/search.json.mozlz4.hmbackup /home/dooshii/.librewolf/dooshii/search.json.mozlz4.hmbackup /home/dooshii/.config/plover/plover.cfg.hmbackup
 
 # Rebuild, output simplified errors, log tracebacks
 sudo nixos-rebuild switch --show-trace --flake .#"$profile"

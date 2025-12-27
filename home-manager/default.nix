@@ -125,7 +125,7 @@
     # Java
     javaPackages.compiler.openjdk25
     gradle # Java development
-    jetbrains.idea-community-bin
+    jetbrains.idea-oss
 
     # Modding
     avalonia-ilspy # Decompile C#
@@ -138,6 +138,7 @@
     mysql84 # Database client
     antares # Database viewer
     dbeaver-bin # Another database viewer
+    sqlit-tui # ANOTHER database viewer
 
     # Neovim LSPs and formatters and linters and such
     astro-language-server

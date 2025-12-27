@@ -1,5 +1,11 @@
 # Librewolf web browser
-{ pkgs, config, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  has_secrets,
+  ...
+}:
 let
   mimeTypes = [
     "application/json"
@@ -22,6 +28,8 @@ let
   colors = theme.colors;
 in
 {
+  imports = lib.optional has_secrets ../../secrets/librewolf.nix;
+
   xdg.mimeApps = {
     enable = true;
     defaultApplications = builtins.listToAttrs (
@@ -152,6 +160,7 @@ in
         "app.normandy.first_run" = false;
         "app.normandy.migrationsApplied" = 12;
         "browser.aboutConfig.showWarning" = false;
+        "browser.bookmarks.restore_default_bookmarks" = false;
         "browser.contentblocking.category" = "strict";
         "browser.discovery.enabled" = false;
         "browser.eme.ui.firstContentShown" = true;
@@ -159,8 +168,11 @@ in
         "browser.engagement.downloads-button.has-used" = true;
         "browser.engagement.fxa-toolbar-menu-button.has-used" = true;
         "browser.engagement.sidebar-button.has-used" = true;
-        "browser.firefox-view.feature-tour" =
-          "{\"message\":\"FIREFOX_VIEW_FEATURE_TOUR\",\"screen\":\"\",\"complete\":true}";
+        "browser.firefox-view.feature-tour" = builtins.toJSON {
+          "message" = "FIREFOX_VIEW_FEATURE_TOUR";
+          "screen" = "";
+          "complete" = true;
+        };
         "browser.firefox-view.view-count" = 1;
         "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
         "browser.startup.page" = 3;
@@ -168,7 +180,41 @@ in
         "browser.tabs.inTitlebar" = 0;
         "browser.theme.toolbar-theme" = 0;
         "browser.toolbarbuttons.introduced.sidebar-button" = true;
+        "browser.toolbars.bookmarks.visibility" = "newtab";
         "browser.translations.panelShown" = true;
+        "browser.uiCustomization.state" = builtins.toJSON {
+          "placements" = {
+            "nav-bar" = [
+              "back-button"
+              "forward-button"
+              "stop-reload-button"
+              "customizableui-special-spring1"
+              "vertical-spacer"
+              "urlbar-container"
+              "customizableui-special-spring2"
+              "downloads-button"
+              "fxa-toolbar-menu-button"
+              "sponsorblocker_ajay_app-browser-action"
+              "dearrow_ajay_app-browser-action"
+              "jid1-mnnxcxisbpnsxq_jetpack-browser-action"
+              "ublock0_raymondhill_net-browser-action"
+              "unified-extensions-button"
+            ];
+            "toolbar-menubar" = [
+              "menubar-items"
+            ];
+            "TabsToolbar" = [
+              "tabbrowser-tabs"
+              "new-tab-button"
+              "alltabs-button"
+            ];
+            "PersonalToolbar" = [
+              "personal-bookmarks"
+            ];
+          };
+          "currentVersion" = 23;
+          "newElementCount" = 2;
+        };
         "browser.urlbar.placeholderName" = "DuckDuckGo";
         "browser.urlbar.shortcuts.bookmarks" = false;
         "browser.urlbar.shortcuts.history" = false;
@@ -177,6 +223,7 @@ in
         "browser.urlbar.suggest.engines" = false;
         "browser.urlbar.suggest.quickactions" = false;
         "browser.urlbar.suggest.topsites" = false;
+        "clipboard.autocopy" = false; # middle-paste behaviour
         "devtools.debugger.ui.editor-wrapping" = true;
         "devtools.dom.enabled" = true;
         "devtools.everOpened" = true;
@@ -184,6 +231,7 @@ in
         "devtools.inspector.selectedSidebar" = "ruleview";
         "devtools.inspector.showUserAgentStyles" = true;
         "devtools.inspector.three-pane-enabled" = false;
+        "devtools.toolbox.host" = "right";
         "devtools.webconsole.groupWarningMessages" = false;
         "devtools.webconsole.input.eagerEvaluation" = false;
         "devtools.webconsole.timestampMessages" = true;
@@ -192,9 +240,13 @@ in
         "font.name.monospace.x-western" = theme.fonts.monospace.name;
         "font.name.sans-serif.x-western" = theme.fonts.sansSerif.name;
         "font.name.serif.x-western" = theme.fonts.serif.name;
+        "media.videocontrols.picture-in-picture.video-toggle.enabled" = false;
         "middlemouse.paste" = false;
-        "privacy.donottrackheader.enabled" = true;
+        "privacy.clearOnShutdown_v2.formdata" = false;
         "privacy.fingerprintingProtection" = true;
+        "privacy.resistFingerprinting" = false;
+        "privacy.sanitize.sanitizeOnShutdown" = false;
+        "privacy.trackingprotection.enabled" = true;
         "sidebar.new-sidebar.has-used" = true;
         "sidebar.visibility" = "hide-sidebar";
         "ui.prefersReducedMotion" = true;
