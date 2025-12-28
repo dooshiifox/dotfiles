@@ -32,17 +32,21 @@ in
       clear_all_shortcuts yes
       map ctrl+c copy_or_interrupt
       map ctrl+v paste_from_clipboard
+
       map ctrl+t new_tab_with_cwd
       map ctrl+w close_tab
+
       map ctrl+shift+alt+tab move_tab_backward
       map ctrl+shift+tab previous_tab
       map ctrl+tab next_tab
       map ctrl+alt+tab move_tab_forward
+
       map alt+enter next_layout
       map shift+alt+enter new_window
       map ctrl+alt+enter move_window_to_top
       map shift+ctrl+alt+enter focus_visible_window
-      mouse_map ctrl+left click ungrabbed mouse_handle_click selection link prompt
+
+      mouse_map ctrl+left click ungrabbed,grabbed mouse_handle_click selection link prompt
 
       symbol_map U+e000-U+e00a,U+ea60-U+ebeb,U+e0a0-U+e0c8,U+e0ca,U+e0cc-U+e0d7,U+e200-U+e2a9,U+e300-U+e3e3,U+e5fa-U+e6b7,U+e700-U+e8ef,U+ed00-U+efc1,U+f000-U+f2ff,U+f000-U+f2e0,U+f300-U+f381,U+f400-U+f533,U+f0001-U+f1af0 Symbols Nerd Font Mono
 
