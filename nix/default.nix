@@ -72,7 +72,7 @@
     wget
     lshw
     libnotify
-    pkgs.dconf
+    dconf
     # inputs.agenix.packages."${system}".default
 
     # Hardware
@@ -82,8 +82,9 @@
     brightnessctl # Also backlight control
     acpi # Battery info
 
-    # Encrypted drive
-    cryptsetup
+    # Filesystem stuff
+    cryptsetup # Encrypted drive
+    ntfs3g # NTFS (Windows support)
   ];
 
   # This value determines the NixOS release from which the default
