@@ -39,9 +39,19 @@ in
   ];
 
   fileSystems."/home/dooshii/Shared" = {
-    device = "/dev/disk/by-uuid/37A8B79370430E62";
+    device = "UUID=37A8B79370430E62";
     fsType = "ext4";
-    options = [ "rw" ];
+    options = [
+      "defaults"
+      "rw"
+      "uid=1000"
+      "X-mount.owner=dooshii"
+      "nofail"
+      "exec"
+      "user"
+      "auto"
+    ];
+    depends = [ "/" ];
     enable = true;
   };
   fileSystems."/home/dooshii/Windows" = {

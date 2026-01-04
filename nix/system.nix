@@ -15,7 +15,6 @@
 
     kernelParams = [
       "systemd.mask=systemd-vconsole-setup.service"
-      "systemd.mask=dev-tpmrm0.device" # this is to mask that stupid 1.5 mins systemd bug
       "nowatchdog"
     ];
     initrd = {
@@ -40,6 +39,7 @@
   ####################
 
   networking.hostName = "dooshii"; # Define your hostname.
+  systemd.network.wait-online.enable = false;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
