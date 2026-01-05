@@ -133,7 +133,7 @@ in
           }
         }
         @-moz-document regexp(".*youtube\\.com.*") {
-          html, html[dark], ytd-app, #full-bleed-container, #movie_player {
+          html, html[dark], body, ytd-app, #full-bleed-container, #movie_player {
             background: transparent !important;
           }
         }
