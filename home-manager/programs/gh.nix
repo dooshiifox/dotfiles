@@ -7,6 +7,7 @@
       aliases = {
         co = "pr checkout";
       };
+      git_protocol = "ssh";
     };
   };
 }

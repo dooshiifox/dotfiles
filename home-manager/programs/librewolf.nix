@@ -154,7 +154,7 @@ in
 
         @-moz-document regexp("(?!.*(about:home|about:newtab|twitch.tv).*).*") {
           /* :where(html) causes it to be low specificity */
-          :where(html) {
+          :where(html), :where(body) {
             background: white;
           }
           :where(#__docusaurus) {
@@ -226,8 +226,6 @@ in
               "personal-bookmarks"
             ];
           };
-          "currentVersion" = 23;
-          "newElementCount" = 2;
         };
         "browser.urlbar.placeholderName" = "DuckDuckGo";
         "browser.urlbar.shortcuts.bookmarks" = false;
@@ -243,7 +241,9 @@ in
         "devtools.everOpened" = true;
         "devtools.inspector.activeSidebar" = "ruleview";
         "devtools.inspector.selectedSidebar" = "ruleview";
+        "devtools.inspector.showAllAnonymousContent" = true;
         "devtools.inspector.showUserAgentStyles" = true;
+        "devtools.inspector.show_pseudo_elements" = true;
         "devtools.inspector.three-pane-enabled" = false;
         "devtools.toolbox.host" = "right";
         "devtools.webconsole.groupWarningMessages" = false;
