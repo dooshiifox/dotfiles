@@ -154,7 +154,7 @@ in
 
         @-moz-document regexp("(?!.*(about:home|about:newtab|twitch.tv).*).*") {
           /* :where(html) causes it to be low specificity */
-          :where(html), :where(body) {
+          :where(html) {
             background: white;
           }
           :where(#__docusaurus) {
