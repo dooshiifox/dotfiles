@@ -206,13 +206,13 @@ in
               "customizableui-special-spring2"
               "downloads-button"
               "fxa-toolbar-menu-button"
-              # "sponsorblocker_ajay_app-browser-action"
-              # "dearrow_ajay_app-browser-action"
               "jid1-mnnxcxisbpnsxq_jetpack-browser-action"
               "ublock0_raymondhill_net-browser-action"
               "78272b6fa58f4a1abaac99321d503a20_proton_me-browser-action"
               "jetpack-extension_dashlane_com-browser-action"
               "unified-extensions-button"
+              "fxa-toolbar-menu-button"
+              "reset-pbm-toolbar-button"
             ];
             "toolbar-menubar" = [
               "menubar-items"
@@ -220,12 +220,22 @@ in
             "TabsToolbar" = [
               "tabbrowser-tabs"
               "new-tab-button"
-              "alltabs-button"
             ];
+            "vertical-tabs" = [ ];
             "PersonalToolbar" = [
               "personal-bookmarks"
             ];
           };
+          "dirtyAreaCache" = [
+            "unified-extensions-area"
+            "nav-bar"
+            "toolbar-menubar"
+            "TabsToolbar"
+            "vertical-tabs"
+            "PersonalToolbar"
+          ];
+          "currentVersion" = 23;
+          "newElementCount" = 1;
         };
         "browser.urlbar.placeholderName" = "DuckDuckGo";
         "browser.urlbar.shortcuts.bookmarks" = false;
