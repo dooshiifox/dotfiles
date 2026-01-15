@@ -200,6 +200,14 @@ return {
 					},
 				},
 			},
+			sources = {
+				default = { "lsp", "buffer", "snippets", "path", "blade-nav" },
+				providers = {
+					["blade-nav"] = {
+						module = "blade-nav.blink",
+					},
+				},
+			},
 		},
 	},
 
@@ -301,23 +309,36 @@ return {
 			servers = {
 				-- see: https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#intelephense
 				intelephense = {
-					filetypes = { "php", "blade" },
+					filetypes = {
+						"php",
+						"php_only",
+						"blade",
+					},
 					init_options = {
 						licenceKey = "/home/dooshii/nixos/secrets/intelephense.txt",
 						clearCache = true,
 					},
-				},
-				html = {
-					filetypes = { "html", "blade" },
-					init_options = {
-						-- configurationSection = { "html", "css", "javascript" },
-						-- embeddedLanguages = {
-						-- 	css = true,
-						-- 	javascript = true,
-						-- },
-						provideFormatter = true,
+					settings = {
+						intelephense = {
+							filetypes = { "php", "blade", "php_only" },
+							files = {
+								associations = { "*.php", "*.blade.php" }, -- Associating .blade.php files as well
+								maxSize = 5000000,
+							},
+						},
 					},
 				},
+				-- html = {
+				-- 	filetypes = { "html", "blade" },
+				-- 	init_options = {
+				-- 		-- configurationSection = { "html", "css", "javascript" },
+				-- 		-- embeddedLanguages = {
+				-- 		-- 	css = true,
+				-- 		-- 	javascript = true,
+				-- 		-- },
+				-- 		provideFormatter = true,
+				-- 	},
+				-- },
 			},
 		},
 	},
@@ -329,14 +350,8 @@ return {
 		opts = {
 			formatters_by_ft = {
 				php = { "pint", "php_cs_fixer" },
-				blade = { "blade_formatter" },
-			},
-			formatters = {
-				blade_formatter = {
-					command = "blade-formatter",
-					args = { "-w", "$FILENAME" },
-					stdin = false,
-				},
+				php_only = { "pint", "php_cs_fixer" },
+				blade = { "blade-formatter", "pint" },
 			},
 		},
 	},
@@ -486,5 +501,12 @@ return {
 				border = "rounded",
 			},
 		},
+	},
+	{
+		"ricardoramirezr/blade-nav.nvim",
+		dependencies = {
+			"saghen/blink.cmp",
+		},
+		ft = { "blade", "php" },
 	},
 }

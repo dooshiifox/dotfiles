@@ -24,7 +24,7 @@ from mpd import MPDClient
 # immediately to the end of the queue, regardless of `MAX_QUEUE_SIZE`
 # e.g.,
 # DEFAULT_PLAY_BIAS = "100000|0|0|0|0|0.3|0.7|1|0.8|0.6|0.4"
-DEFAULT_PLAY_BIAS = "-1|0|0|0|0|0.1|0.3|0.8|1|0.9|0.6"
+DEFAULT_PLAY_BIAS = "-1|0|0|0|0|0.04|0.15|0.8|1|0.9|0.6"
 bias_str = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_PLAY_BIAS
 PLAY_BIAS: dict[Optional[float], float] = {
     (None if i == 0 else i): bias

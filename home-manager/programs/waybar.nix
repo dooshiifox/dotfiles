@@ -261,6 +261,7 @@ in
             activated = "󰛨";
             deactivated = "󰒲";
           };
+          on-click-right = "loginctl lock-session && systemctl suspend";
         };
         clock = {
           format = "<b>{:%H:%M</b>  <small>%a %e %B</small>} ";
