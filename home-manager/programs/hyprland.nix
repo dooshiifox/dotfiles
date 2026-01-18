@@ -127,9 +127,6 @@
           color = "rgba(00000099)";
         };
       };
-      misc = {
-        vfr = false;
-      };
       animations = {
         enabled = true;
         bezier = [
@@ -177,6 +174,11 @@
         # "cd ~/Documents/CodingProjects/mpd-rating/ && pnpm dev --host"
         # "${config.lib.theme.source-folder}/scripts/music/rng"
         "sudo systemctl start docker.service"
+        "[workspace 1 silent; monitor eDP-1] librewolf"
+        "[workspace 2 silent; monitor HDMI-A-1] kitty"
+        "[workspace 3 silent; monitor eDP-1] vesktop"
+        "[workspace 4 silent; monitor eDP-1] Telegram"
+        "[workspace 4 silent; monitor eDP-1] slack"
       ];
 
       windowrulev2 = [
