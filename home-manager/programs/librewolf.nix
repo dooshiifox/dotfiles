@@ -262,9 +262,11 @@ in
         "devtools.webextensions.@react-devtools.enabled" = true;
         "extensions.recommendations.hideNotice" = true;
         "extensions.webextensions.ExtensionStorageIDB.enabled" = false;
-        "font.name.monospace.x-western" = theme.fonts.monospace.name;
-        "font.name.sans-serif.x-western" = theme.fonts.sansSerif.name;
-        "font.name.serif.x-western" = theme.fonts.serif.name;
+        "font.name.monospace.x-western" = theme.fonts.monospace.en.name;
+        "font.name.sans-serif.x-western" = theme.fonts.sansSerif.en.name;
+        "font.name.serif.x-western" = theme.fonts.serif.en.name;
+        "font.name.sans-serif.ja" = theme.fonts.sansSerif.jp.name;
+        "font.name.serif.ja" = theme.fonts.serif.jp.name;
         "media.videocontrols.picture-in-picture.video-toggle.enabled" = false;
         "middlemouse.paste" = false;
         "privacy.clearOnShutdown.history" = false;

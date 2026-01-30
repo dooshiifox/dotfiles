@@ -273,7 +273,7 @@ in
 
     style = "
 * {
-    font-family: ${config.lib.theme.fonts.regular.name}, ${config.lib.theme.fonts.symbols.name}, FontAwesome, Roboto, Helvetica, Arial,
+    font-family: ${config.lib.theme.fonts.regular.en.name}, ${config.lib.theme.fonts.regular.jp.name}, ${config.lib.theme.fonts.symbols.name}, FontAwesome, Roboto, Helvetica, Arial,
         sans-serif;
     font-size: 15px;
     transition: background-color 0.2s ease-out;
@@ -281,7 +281,7 @@ in
 
 window#waybar {
     color: ${config.lib.theme.colors.fg-secondary};
-    font-family: ${config.lib.theme.fonts.regular.name}, ${config.lib.theme.fonts.symbols.name}, feather;
+    font-family: ${config.lib.theme.fonts.regular.en.name}, ${config.lib.theme.fonts.regular.jp.name}, ${config.lib.theme.fonts.symbols.name}, feather;
     transition: background-color 0.5s;
     background: ${config.lib.theme.hexaToRgbaString config.lib.theme.colors.bg-opacity};
     border-radius: 12px;
@@ -343,7 +343,7 @@ window#waybar {
 
 #workspaces button {
     background: transparent;
-    font-family: ${config.lib.theme.fonts.regular.name}, ${config.lib.theme.fonts.symbols.name}, feather;
+    font-family: ${config.lib.theme.fonts.regular.en.name}, ${config.lib.theme.fonts.regular.jp.name}, ${config.lib.theme.fonts.symbols.name}, feather;
     color: ${config.lib.theme.colors.fg-secondary};
     border: none;
     border-radius: 8px;

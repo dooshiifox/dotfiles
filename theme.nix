@@ -225,27 +225,41 @@ rec {
     };
     border-radius = 12;
 
-    # These should be nerd fonts
     fonts = rec {
       sansSerif = {
-        package = pkgs.quicksand;
-        name = "Quicksand";
+        en = {
+          package = pkgs.quicksand;
+          name = "Quicksand";
+        };
+        jp = {
+          package = pkgs.noto-fonts-cjk-sans;
+          name = "Noto Sans JP";
+        };
       };
       serif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Serif";
+        en = {
+          package = pkgs.dejavu_fonts;
+          name = "DejaVu Serif";
+        };
+        jp = {
+          package = pkgs.noto-fonts-cjk-serif;
+          name = "Noto Serif JP";
+        };
       };
       monospace = {
-        package = pkgs.nerd-fonts.jetbrains-mono;
-        name = "JetBrainsMonoNL Nerd Font Mono";
+        en = {
+          package = pkgs.nerd-fonts.jetbrains-mono;
+          name = "JetBrainsMonoNL Nerd Font Mono";
+        };
       };
       regular = sansSerif;
+
       symbols = {
         package = pkgs.nerd-fonts.symbols-only;
         name = "Symbols Nerd Font";
       };
       emoji = {
-        package = pkgs.noto-fonts-emoji;
+        package = pkgs.noto-fonts-color-emoji;
         name = "Noto Color Emoji";
       };
     };

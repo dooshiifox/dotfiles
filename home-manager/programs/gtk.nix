@@ -115,7 +115,7 @@ in
     };
 
     font = {
-      inherit (config.lib.theme.fonts.regular) package name;
+      inherit (config.lib.theme.fonts.regular.en) package name;
       size = 11;
     };
   };

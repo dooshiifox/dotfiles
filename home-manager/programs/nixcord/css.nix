@@ -1,9 +1,9 @@
 { theme }:
 ''
   :root {
-    --font-primary: ${theme.fonts.sansSerif.name};
-    --font-display: ${theme.fonts.sansSerif.name};
-    --font-code: ${theme.fonts.monospace.name};
+    --font-primary: ${theme.fonts.sansSerif.en.name};
+    --font-display: ${theme.fonts.sansSerif.en.name};
+    --font-code: ${theme.fonts.monospace.en.name};
   }
 
   div[class^="bar"]:has(div[class^="trailing"]),

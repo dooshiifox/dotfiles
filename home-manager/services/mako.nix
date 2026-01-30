@@ -24,7 +24,7 @@
 
       text-color = config.lib.theme.colors.fg;
       border-radius = config.lib.theme.border-radius;
-      font = "${config.lib.theme.fonts.regular.name} 14";
+      font = "${config.lib.theme.fonts.regular.en.name} 14";
       markup = true;
       actions = true;
       on-button-left = "invoke-default-action";

@@ -24,6 +24,17 @@ download() {
 				--parse-metadata "%(tags|)l:%(genre)s" \
 				-f "ba" \
 				"$url"
+		elif [[ "$url" == *"watch?v="* ]]; then
+			yt-dlp \
+				-o "$XDG_MUSIC_DIR/%(uploader)s - Singles/%(uploader)s - %(title)s.%(ext)s" \
+				--write-thumbnail \
+				--embed-thumbnail \
+				--embed-metadata \
+				--parse-metadata "%(tags|)l:%(genre)s" \
+				--parse-metadata "%(track_number|1)s:%(track_number)s" \
+				--parse-metadata "%(album,title)s:%(album)s" \
+				-x --audio-format "mp3" --no-keep-video \
+				"$url"
 		else
 			echo "Unknown URL: $url" >&2
 		fi

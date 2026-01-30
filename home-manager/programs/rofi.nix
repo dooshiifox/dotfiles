@@ -7,7 +7,7 @@
   programs.rofi = {
     enable = true;
     terminal = "${pkgs.kitty}/bin/kitty";
-    font = "${config.lib.theme.fonts.regular.name} 12";
+    font = "${config.lib.theme.fonts.regular.en.name} 12";
     modes = [ "drun" ];
     location = "center";
     xoffset = 0;

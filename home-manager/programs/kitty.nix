@@ -9,7 +9,7 @@ in
   programs.kitty = {
     enable = true;
     font = {
-      inherit (theme.fonts.monospace) package name;
+      inherit (theme.fonts.monospace.en) package name;
       size = 11;
     };
 

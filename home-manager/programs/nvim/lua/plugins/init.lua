@@ -350,7 +350,7 @@ return {
 			formatters_by_ft = {
 				php = { "pint", "php_cs_fixer" },
 				php_only = { "pint", "php_cs_fixer" },
-				blade = { "blade-formatter", "pint" },
+				blade = { "pint", "blade-formatter" },
 			},
 		},
 	},
