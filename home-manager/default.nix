@@ -76,19 +76,7 @@
       openssl # SSL/TLS cryptography library
 
       # Fonts
-      nerd-fonts.jetbrains-mono
-      nerd-fonts.fira-code
-      nerd-fonts.ubuntu-sans
-      nerd-fonts.droid-sans-mono
-      nerd-fonts.symbols-only
-      nerd-fonts.space-mono
-      nerd-font-patcher
-      quicksand
-      cantarell-fonts
       gnome-characters
-      # TODO: Port this over
-      # https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=nerd-fonts-inter
-      # For now, manually install.
 
       ################
       # Developing
@@ -265,6 +253,18 @@
       config.lib.theme.fonts.symbols.package
       config.lib.theme.fonts.emoji.package
     ];
+
+  fonts = {
+    fontconfig = {
+      enable = true;
+      defaultFonts = {
+        serif = (builtins.map (x: x.name) (builtins.attrValues config.lib.theme.fonts.serif));
+        sansSerif = (builtins.map (x: x.name) (builtins.attrValues config.lib.theme.fonts.sansSerif));
+        monospace = (builtins.map (x: x.name) (builtins.attrValues config.lib.theme.fonts.monospace));
+        emoji = [ config.lib.theme.fonts.emoji.name ];
+      };
+    };
+  };
 
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage

@@ -225,6 +225,9 @@ rec {
     };
     border-radius = 12;
 
+    # Fonts get installed automatically, however different languages will
+    # need to be declared manually in apps. In addition, some apps only support
+    # one font.
     fonts = rec {
       sansSerif = {
         en = {
