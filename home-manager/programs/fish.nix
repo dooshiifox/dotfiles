@@ -44,7 +44,7 @@
       set fish_command_color blue
     '';
 
-    # Causes slow Nix builds when set to true
+    # Causes slow Nix builds when set to true and also breaks git integration
     generateCompletions = false;
 
     functions = {

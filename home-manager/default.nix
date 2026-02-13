@@ -220,6 +220,7 @@
       love # 2D game engine
       olympus # Celeste mod loader
       lumafly # Hollow Knight mod loader
+      r2modman # Mod loader for a lot of games
       cubiomes-viewer # Minecraft biome viewer
       (prismlauncher.override {
         jdks = [

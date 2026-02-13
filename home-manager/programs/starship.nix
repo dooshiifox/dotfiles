@@ -3,5 +3,6 @@
 {
   programs.starship = {
     enable = true;
+    # todo: make this clearer: https://starship.rs/config/#git-status
   };
 }
