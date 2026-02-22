@@ -209,7 +209,7 @@ in
               "jid1-mnnxcxisbpnsxq_jetpack-browser-action"
               "ublock0_raymondhill_net-browser-action"
               "78272b6fa58f4a1abaac99321d503a20_proton_me-browser-action"
-              "jetpack-extension_dashlane_com-browser-action"
+              # "jetpack-extension_dashlane_com-browser-action"
               "unified-extensions-button"
               "fxa-toolbar-menu-button"
               "reset-pbm-toolbar-button"
@@ -308,7 +308,7 @@ in
           betterttv
           firefox-color
           tampermonkey
-          dashlane
+          # dashlane
           proton-pass
           decentraleyes
           privacy-badger

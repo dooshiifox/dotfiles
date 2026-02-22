@@ -323,6 +323,19 @@ return {
 							filetypes = { "php", "blade", "php_only" },
 							files = {
 								associations = { "*.php", "*.blade.php" }, -- Associating .blade.php files as well
+								exclude = {
+									"**/.git/**",
+									"**/.svn/**",
+									"**/.hg/**",
+									"**/CVS/**",
+									"**/.DS_Store/**",
+									"**/node_modules/**",
+									"**/bower_components/**",
+									"**/vendor/**/{Tests,tests}/**",
+									"**/.history/**",
+									"**/vendor/**/vendor/**",
+									"**/.direnv/**",
+								},
 								maxSize = 5000000,
 							},
 						},
