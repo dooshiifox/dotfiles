@@ -335,6 +335,7 @@ return {
 									"**/.history/**",
 									"**/vendor/**/vendor/**",
 									"**/.direnv/**",
+									"**/storage/**",
 								},
 								maxSize = 5000000,
 							},

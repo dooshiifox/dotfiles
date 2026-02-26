@@ -127,8 +127,12 @@ class BiasedRandomRating:
             album = song.get("album")
             title = song.get("title")
             disc = song.get("disc")
+            if isinstance(disc, list):
+                disc = disc[0]
             disc = int(disc) if disc is not None else None
             track = song.get("track")
+            if isinstance(track, list):
+                track = track[0]
             track = int(track) if track is not None else None
 
             self.songs[file] = SongData(

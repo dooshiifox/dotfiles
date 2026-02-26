@@ -14,7 +14,7 @@
   programs.fish = {
     enable = true;
     shellAliases = {
-      "," = "clear";
+      "," = "clear && printf \"\e[H\e[3J\"";
       "cat" = "bat";
       "celeste" = "ulimit -n 8192 && /home/dooshii/Documents/Games/Celeste/Celeste";
       "i" = "${config.lib.theme.source-folder}/scripts/system/init";
