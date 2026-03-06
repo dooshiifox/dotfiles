@@ -45,7 +45,7 @@
         "$mod, E, movefocus, u"
         "$mod, A, movefocus, d"
         "$mod, Escape, swapactiveworkspaces, 0 1"
-        ", Print, exec, grimblast copy area"
+        ", Print, exec, grimblast copysave area ~/Pictures/screenshots/$(date +\"%Y%m%d_%H%M%S\").png"
 
         "$mod, 1, workspace, 1"
         "$mod SHIFT, 1, movetoworkspace, 1"
