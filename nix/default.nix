@@ -9,7 +9,6 @@
 {
   imports = [
     ./copyparty.nix
-    ./android.nix
     ./docker.nix
     ./games.nix
     ./nix-ld.nix
@@ -78,7 +77,7 @@
     # Hardware
     libratbag # Gaming mouse configuration
     g810-led # Logitech keyboard configuration
-    xorg.xbacklight # Backlight control
+    xbacklight # Backlight control
     brightnessctl # Also backlight control
     acpi # Battery info
 

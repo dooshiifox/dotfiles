@@ -8,13 +8,9 @@
     # https://kaylorben.github.io/nixcord/
     enable = true;
     vesktop.enable = true;
-    dorion = {
-      enable = true;
-      useNativeTitlebar = false;
-    };
     config = {
-      frameless = true;
-      transparent = true;
+      # frameless = true;
+      # transparent = true;
       enabledThemes = [ "theme.css" ];
 
       plugins = {

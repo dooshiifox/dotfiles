@@ -111,7 +111,7 @@
   }
 
   /* Make guild icons circular unless selected */
-  [data-list-item-id^="guildsnav"]>img,
+  /* [data-list-item-id^="guildsnav"]>img,
   [data-list-item-id^="guildsnav"]>div,
   div[aria-label="Direct Messages"]>div,
   div[aria-label="Add a Server"] {
@@ -131,10 +131,10 @@
 
   [class*="iconSizeMini"] {
     border-radius: 50% !important;
-  }
+  } */
 
   /* Increase the size of the guild icons */
-  div[aria-label="Servers"]>div[class^="listItem"],
+  /* div[aria-label="Servers"]>div[class^="listItem"],
   div[aria-label="Servers"]>div[class^="folderGroup"],
   [data-list-id="guildsnav"] div[class^="tutorialContainer"]>div[class^="listItem"],
   [id^="folder-items"]>[class^="listItem"],
@@ -158,7 +158,7 @@
   }
   [class^="sidebarResizeHandle"] {
     border-right: 1px solid var(--border-subtle);
-  }
+  } */
 
   /* .visual-refresh div[aria-label="Direct Messages"]>div {
     background-color: var(--neutral-63);
@@ -269,443 +269,445 @@
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE. */
 
-  .theme-light,
-  .theme-dark,
-  .theme-darker,
-  .theme-midnight,
-  .visual-refresh {
-    --activity-card-background: ${theme.colors.bg-raised} !important;
-    --background-accent: ${theme.colors.bg-raised} !important;
-    --background-floating: ${theme.colors.bg-raised} !important;
-    --background-mentioned-hover: ${theme.colors.orange}10 !important;
-    --background-mentioned: ${theme.colors.orange}0b !important;
-    --background-message-highlight: ${theme.colors.bg-raised} !important;
-    --background-message-hover: ${theme.colors.bg-raised}80 !important;
-    --background-modifier-accent: ${theme.colors.bg-raised-opacity} !important;
-    --background-modifier-active: ${theme.colors.bg-raised-opacity} !important;
-    --background-modifier-hover: ${theme.colors.bg-raised-opacity} !important;
-    --background-modifier-selected: ${theme.colors.bg-raised-opacity} !important;
-    --background-primary: ${theme.colors.bg} !important;
-    --background-secondary-alt: ${theme.colors.bg-raised} !important;
-    --background-secondary: ${theme.colors.bg-raised} !important;
-    --background-surface-highest: ${theme.colors.bg-highlight} !important;
-    --background-surface-higher: ${theme.colors.bg-raised} !important;
-    --background-surface-high: ${theme.colors.bg-raised} !important;
-    --background-tertiary: ${theme.colors.bg-highlight} !important;
-    --background-base-low: ${theme.colors.bg-inset-opacity} !important;
-    --background-base-lower: ${theme.colors.bg-inset2-opacity} !important;
-    --background-base-lowest: transparent !important;
-    --background-base-tertiary: ${theme.colors.bg-highlight} !important;
-    --background-code: ${theme.colors.bg-highlight} !important;
-    --background-mod-subtle: ${theme.colors.bg-highlight}80 !important;
-    --background-mod-strong: ${theme.colors.bg-highlight}40 !important;
-    --bg-base-secondary: ${theme.colors.bg-raised} !important;
-    --bg-base-tertiary: ${theme.colors.bg-highlight} !important;
-    --bg-brand: ${theme.colors.accent}80 !important;
-    --bg-mod-faint: ${theme.colors.bg-raised} !important;
-    --bg-overlay-2: transparent !important;
-    --bg-overlay-3: ${theme.colors.bg-raised} !important;
-    --bg-overlay-color-inverse: ${theme.colors.bg-raised} !important;
-    --bg-surface-raised: ${theme.colors.bg-raised} !important;
-    --bg-surface-overlay: ${theme.colors.bg-raised} !important;
-    --black: ${theme.colors.shades.grey."900"} !important;
-    --blurple-50: ${theme.colors.accent} !important;
-    --border-faint: ${theme.colors.border} !important;
-    --brand-05a: ${theme.colors.accent} !important;
-    --brand-10a: ${theme.colors.accent} !important;
-    --brand-15a: ${theme.colors.accent} !important;
-    --brand-260: ${theme.colors.accent} !important;
-    --brand-360: ${theme.colors.accent} !important;
-    --brand-500: ${theme.colors.accent} !important;
-    --brand-560: ${theme.colors.accent} !important;
-    --button-danger-background: ${theme.colors.red} !important;
-    --button-filled-brand-background: ${theme.colors.accent} !important;
-    --button-filled-brand-background-hover: ${theme.colors.accent} !important;
-    --button-filled-brand-text: ${theme.colors.accent-fg} !important;
-    --button-filled-brand-text-hover: ${theme.colors.accent-fg} !important;
-    --button-outline-positive-border: ${theme.colors.lime} !important;
-    --button-outline-danger-background-hover: ${theme.colors.pink} !important;
-    --button-outline-danger-border-hover: ${theme.colors.red} !important;
-    --button-positive-background: ${theme.colors.green} !important;
-    --button-positive-background-hover: ${theme.colors.lime} !important;
-    --button-secondary-background: ${theme.colors.bg-raised} !important;
-    --button-secondary-background-hover: ${theme.colors.bg-raised-opacity} !important;
-    --card-primary-bg: ${theme.colors.bg-raised} !important;
-    --channel-icon: ${theme.colors.grey} !important;
-    --channels-default: ${theme.colors.grey} !important;
-    --channel-text-area-placeholder: ${theme.colors.fg-secondary} !important;
-    --channeltextarea-background: ${theme.colors.bg-raised} !important;
-    --chat-background-default: ${theme.colors.bg-raised-opacity} !important;
-    --checkbox-background-checked: ${theme.colors.accent} !important;
-    --checkbox-border-checked: ${theme.colors.accent} !important;
-    --checkbox-background-default: ${theme.colors.bg-raised} !important;
-    --checkbox-border-default: ${theme.colors.bg-highlight} !important;
-    --control-brand-foreground-new: ${theme.colors.accent} !important;
-    --control-brand-foreground: ${theme.colors.accent} !important;
-    --custom-notice-text: ${theme.colors.bg-raised} !important;
-    --custom-channel-members-bg: transparent !important;
-    --font-display: var(--font, "gg sans") !important;
-    --font-headline: var(--font, "gg sans") !important;
-    --font-primary: var(--font, "gg sans") !important;
-    --green-330: ${theme.colors.lime} !important;
-    --green-360: ${theme.colors.lime} !important;
-    --header-primary: ${theme.colors.fg} !important;
-    --header-secondary: ${theme.colors.fg-secondary} !important;
-    --home-background: ${theme.colors.bg} !important;
-    --info-warning-foreground: ${theme.colors.orange} !important;
-    --input-background: ${theme.colors.bg-raised-opacity} !important;
-    --interactive-active: ${theme.colors.fg-raised} !important;
-    --interactive-hover: ${theme.colors.fg-highlight} !important;
-    --interactive-muted: ${theme.colors.grey} !important;
-    --interactive-normal: ${theme.colors.fg} !important;
-    --mention-background: ${theme.colors.accent}40 !important;
-    --mention-foreground: ${theme.colors.fg} !important;
-    --menu-item-danger-active-bg: ${theme.colors.red} !important;
-    --menu-item-danger-hover-bg: ${theme.colors.pink} !important;
-    --menu-item-default-hover-bg: ${theme.colors.bg-highlight} !important;
-    --message-reacted-background: ${theme.colors.bg-raised} !important;
-    --message-reacted-text: ${theme.colors.fg-secondary} !important;
-    --modal-background: ${theme.colors.bg-raised} !important;
-    --modal-footer-background: ${theme.colors.bg} !important;
-    --notice-background-positive: ${theme.colors.green} !important;
-    --notice-text-positive: ${theme.colors.fg} !important;
-    --plum-23: ${theme.colors.grey} !important;
-    --primary-130: ${theme.colors.fg-secondary} !important;
-    --primary-300: ${theme.colors.fg-secondary} !important;
-    --primary-500: ${theme.colors.grey} !important;
-    --primary-600: ${theme.colors.bg} !important;
-    --primary-630: ${theme.colors.bg} !important;
-    --primary-660: ${theme.colors.bg} !important;
-    --primary-800: ${theme.colors.bg} !important;
-    --red-400: ${theme.colors.pink} !important;
-    --red-460: ${theme.colors.pink} !important;
-    --red-500: ${theme.colors.pink} !important;
-    --red-630: ${theme.colors.pink} !important;
-    --red: ${theme.colors.pink} !important;
-    --scrollbar-auto-thumb: ${theme.colors.bg-raised-opacity} !important;
-    --scrollbar-auto-track: transparent;
-    --scrollbar-thin-thumb: ${theme.colors.bg-raised-opacity} !important;
-    --scrollbar-thin-track: transparent;
-    --search-popout-option-fade: none;
-    --search-popout-option-non-text-color: ${theme.colors.fg} !important;
-    --status-danger-background: ${theme.colors.red} !important;
-    --status-danger: ${theme.colors.red} !important;
-    --status-negative: ${theme.colors.red} !important;
-    --status-positive-background: ${theme.colors.green} !important;
-    --status-positive-text: ${theme.colors.fg} !important;
-    --status-positive: ${theme.colors.lime} !important;
-    --status-success: ${theme.colors.green} !important;
-    --status-warning-background: ${theme.colors.bg} !important;
-    --status-warning: ${theme.colors.orange} !important;
-    --teal-430: ${theme.colors.cyan} !important;
-    --text-brand: ${theme.colors.fg-raised} !important;
-    --text-feedback-positive: ${theme.colors.green} !important;
-    --text-feedback-negative: ${theme.colors.red} !important;
-    --text-feedback-warning: ${theme.colors.orange} !important;
-    --text-feedback-success: ${theme.colors.green} !important;
-    --text-link: ${theme.colors.accent} !important;
-    --text-muted: ${theme.colors.fg-secondary} !important;
-    --text-negative: ${theme.colors.red} !important;
-    --text-normal: ${theme.colors.fg-secondary} !important;
-    --text-positive: ${theme.colors.green} !important;
-    --text-primary: ${theme.colors.fg} !important;
-    --text-secondary: ${theme.colors.fg-secondary} !important;
-    --text-tertiary: ${theme.colors.grey} !important;
-    --text-warning: ${theme.colors.orange} !important;
-    --textbox-markdown-syntax: ${theme.colors.fg} !important;
-    --theme-base-color: ${theme.colors.bg} !important;
-    --white-100: ${theme.colors.fg} !important;
-    --white-200: ${theme.colors.fg} !important;
-    --white-500: ${theme.colors.fg} !important;
-    --white: ${theme.colors.fg} !important;
-    --yellow-360: ${theme.colors.yellow} !important;
-    --yellow-300: ${theme.colors.yellow} !important;
-    --__lottieIconColor: ${theme.colors.fg-secondary} !important;
-  }
+  thisissomeweirdcodetodisablethebelowcauseidontwantitrightnow {
+    .theme-light,
+    .theme-dark,
+    .theme-darker,
+    .theme-midnight,
+    .visual-refresh {
+      --activity-card-background: ${theme.colors.bg-raised} !important;
+      --background-accent: ${theme.colors.bg-raised} !important;
+      --background-floating: ${theme.colors.bg-raised} !important;
+      --background-mentioned-hover: ${theme.colors.orange}10 !important;
+      --background-mentioned: ${theme.colors.orange}0b !important;
+      --background-message-highlight: ${theme.colors.bg-raised} !important;
+      --background-message-hover: ${theme.colors.bg-raised}80 !important;
+      --background-modifier-accent: ${theme.colors.bg-raised-opacity} !important;
+      --background-modifier-active: ${theme.colors.bg-raised-opacity} !important;
+      --background-modifier-hover: ${theme.colors.bg-raised-opacity} !important;
+      --background-modifier-selected: ${theme.colors.bg-raised-opacity} !important;
+      --background-primary: ${theme.colors.bg} !important;
+      --background-secondary-alt: ${theme.colors.bg-raised} !important;
+      --background-secondary: ${theme.colors.bg-raised} !important;
+      --background-surface-highest: ${theme.colors.bg-highlight} !important;
+      --background-surface-higher: ${theme.colors.bg-raised} !important;
+      --background-surface-high: ${theme.colors.bg-raised} !important;
+      --background-tertiary: ${theme.colors.bg-highlight} !important;
+      --background-base-low: ${theme.colors.bg-inset-opacity} !important;
+      --background-base-lower: ${theme.colors.bg-inset2-opacity} !important;
+      --background-base-lowest: transparent !important;
+      --background-base-tertiary: ${theme.colors.bg-highlight} !important;
+      --background-code: ${theme.colors.bg-highlight} !important;
+      --background-mod-subtle: ${theme.colors.bg-highlight}80 !important;
+      --background-mod-strong: ${theme.colors.bg-highlight}40 !important;
+      --bg-base-secondary: ${theme.colors.bg-raised} !important;
+      --bg-base-tertiary: ${theme.colors.bg-highlight} !important;
+      --bg-brand: ${theme.colors.accent}80 !important;
+      --bg-mod-faint: ${theme.colors.bg-raised} !important;
+      --bg-overlay-2: transparent !important;
+      --bg-overlay-3: ${theme.colors.bg-raised} !important;
+      --bg-overlay-color-inverse: ${theme.colors.bg-raised} !important;
+      --bg-surface-raised: ${theme.colors.bg-raised} !important;
+      --bg-surface-overlay: ${theme.colors.bg-raised} !important;
+      --black: ${theme.colors.shades.grey."900"} !important;
+      --blurple-50: ${theme.colors.accent} !important;
+      --border-faint: ${theme.colors.border} !important;
+      --brand-05a: ${theme.colors.accent} !important;
+      --brand-10a: ${theme.colors.accent} !important;
+      --brand-15a: ${theme.colors.accent} !important;
+      --brand-260: ${theme.colors.accent} !important;
+      --brand-360: ${theme.colors.accent} !important;
+      --brand-500: ${theme.colors.accent} !important;
+      --brand-560: ${theme.colors.accent} !important;
+      --button-danger-background: ${theme.colors.red} !important;
+      --button-filled-brand-background: ${theme.colors.accent} !important;
+      --button-filled-brand-background-hover: ${theme.colors.accent} !important;
+      --button-filled-brand-text: ${theme.colors.accent-fg} !important;
+      --button-filled-brand-text-hover: ${theme.colors.accent-fg} !important;
+      --button-outline-positive-border: ${theme.colors.lime} !important;
+      --button-outline-danger-background-hover: ${theme.colors.pink} !important;
+      --button-outline-danger-border-hover: ${theme.colors.red} !important;
+      --button-positive-background: ${theme.colors.green} !important;
+      --button-positive-background-hover: ${theme.colors.lime} !important;
+      --button-secondary-background: ${theme.colors.bg-raised} !important;
+      --button-secondary-background-hover: ${theme.colors.bg-raised-opacity} !important;
+      --card-primary-bg: ${theme.colors.bg-raised} !important;
+      --channel-icon: ${theme.colors.grey} !important;
+      --channels-default: ${theme.colors.grey} !important;
+      --channel-text-area-placeholder: ${theme.colors.fg-secondary} !important;
+      --channeltextarea-background: ${theme.colors.bg-raised} !important;
+      --chat-background-default: ${theme.colors.bg-raised-opacity} !important;
+      --checkbox-background-checked: ${theme.colors.accent} !important;
+      --checkbox-border-checked: ${theme.colors.accent} !important;
+      --checkbox-background-default: ${theme.colors.bg-raised} !important;
+      --checkbox-border-default: ${theme.colors.bg-highlight} !important;
+      --control-brand-foreground-new: ${theme.colors.accent} !important;
+      --control-brand-foreground: ${theme.colors.accent} !important;
+      --custom-notice-text: ${theme.colors.bg-raised} !important;
+      --custom-channel-members-bg: transparent !important;
+      --font-display: var(--font, "gg sans") !important;
+      --font-headline: var(--font, "gg sans") !important;
+      --font-primary: var(--font, "gg sans") !important;
+      --green-330: ${theme.colors.lime} !important;
+      --green-360: ${theme.colors.lime} !important;
+      --header-primary: ${theme.colors.fg} !important;
+      --header-secondary: ${theme.colors.fg-secondary} !important;
+      --home-background: ${theme.colors.bg} !important;
+      --info-warning-foreground: ${theme.colors.orange} !important;
+      --input-background: ${theme.colors.bg-raised-opacity} !important;
+      --interactive-active: ${theme.colors.fg-raised} !important;
+      --interactive-hover: ${theme.colors.fg-highlight} !important;
+      --interactive-muted: ${theme.colors.grey} !important;
+      --interactive-normal: ${theme.colors.fg} !important;
+      --mention-background: ${theme.colors.accent}40 !important;
+      --mention-foreground: ${theme.colors.fg} !important;
+      --menu-item-danger-active-bg: ${theme.colors.red} !important;
+      --menu-item-danger-hover-bg: ${theme.colors.pink} !important;
+      --menu-item-default-hover-bg: ${theme.colors.bg-highlight} !important;
+      --message-reacted-background: ${theme.colors.bg-raised} !important;
+      --message-reacted-text: ${theme.colors.fg-secondary} !important;
+      --modal-background: ${theme.colors.bg-raised} !important;
+      --modal-footer-background: ${theme.colors.bg} !important;
+      --notice-background-positive: ${theme.colors.green} !important;
+      --notice-text-positive: ${theme.colors.fg} !important;
+      --plum-23: ${theme.colors.grey} !important;
+      --primary-130: ${theme.colors.fg-secondary} !important;
+      --primary-300: ${theme.colors.fg-secondary} !important;
+      --primary-500: ${theme.colors.grey} !important;
+      --primary-600: ${theme.colors.bg} !important;
+      --primary-630: ${theme.colors.bg} !important;
+      --primary-660: ${theme.colors.bg} !important;
+      --primary-800: ${theme.colors.bg} !important;
+      --red-400: ${theme.colors.pink} !important;
+      --red-460: ${theme.colors.pink} !important;
+      --red-500: ${theme.colors.pink} !important;
+      --red-630: ${theme.colors.pink} !important;
+      --red: ${theme.colors.pink} !important;
+      --scrollbar-auto-thumb: ${theme.colors.bg-raised-opacity} !important;
+      --scrollbar-auto-track: transparent;
+      --scrollbar-thin-thumb: ${theme.colors.bg-raised-opacity} !important;
+      --scrollbar-thin-track: transparent;
+      --search-popout-option-fade: none;
+      --search-popout-option-non-text-color: ${theme.colors.fg} !important;
+      --status-danger-background: ${theme.colors.red} !important;
+      --status-danger: ${theme.colors.red} !important;
+      --status-negative: ${theme.colors.red} !important;
+      --status-positive-background: ${theme.colors.green} !important;
+      --status-positive-text: ${theme.colors.fg} !important;
+      --status-positive: ${theme.colors.lime} !important;
+      --status-success: ${theme.colors.green} !important;
+      --status-warning-background: ${theme.colors.bg} !important;
+      --status-warning: ${theme.colors.orange} !important;
+      --teal-430: ${theme.colors.cyan} !important;
+      --text-brand: ${theme.colors.fg-raised} !important;
+      --text-feedback-positive: ${theme.colors.green} !important;
+      --text-feedback-negative: ${theme.colors.red} !important;
+      --text-feedback-warning: ${theme.colors.orange} !important;
+      --text-feedback-success: ${theme.colors.green} !important;
+      --text-link: ${theme.colors.accent} !important;
+      --text-muted: ${theme.colors.fg-secondary} !important;
+      --text-negative: ${theme.colors.red} !important;
+      --text-normal: ${theme.colors.fg-secondary} !important;
+      --text-positive: ${theme.colors.green} !important;
+      --text-primary: ${theme.colors.fg} !important;
+      --text-secondary: ${theme.colors.fg-secondary} !important;
+      --text-tertiary: ${theme.colors.grey} !important;
+      --text-warning: ${theme.colors.orange} !important;
+      --textbox-markdown-syntax: ${theme.colors.fg} !important;
+      --theme-base-color: ${theme.colors.bg} !important;
+      --white-100: ${theme.colors.fg} !important;
+      --white-200: ${theme.colors.fg} !important;
+      --white-500: ${theme.colors.fg} !important;
+      --white: ${theme.colors.fg} !important;
+      --yellow-360: ${theme.colors.yellow} !important;
+      --yellow-300: ${theme.colors.yellow} !important;
+      --__lottieIconColor: ${theme.colors.fg-secondary} !important;
+    }
 
-  /*--- Default Folder Color Recolor ---*/
-  .default__459fb {
-    background-color: ${theme.colors.fg-raised} !important;
-  }
+    /*--- Default Folder Color Recolor ---*/
+    .default__459fb {
+      background-color: ${theme.colors.fg-raised} !important;
+    }
 
-  /*--- Add Friend Button Text Recolor ---*/
-  .addFriend__133bf {
-    color: ${theme.colors.bg} !important;
-  }
+    /*--- Add Friend Button Text Recolor ---*/
+    .addFriend__133bf {
+      color: ${theme.colors.bg} !important;
+    }
 
-  /*--- Close Icon Path Recolor ---*/
-  svg[class^="closeIcon__"] path {
-    fill: ${theme.colors.bg-raised} !important;
-  }
+    /*--- Close Icon Path Recolor ---*/
+    svg[class^="closeIcon__"] path {
+      fill: ${theme.colors.bg-raised} !important;
+    }
 
-  /*--- Listen Along Invite Recolor ---*/
-  .invite__4d3fa {
-    background: ${theme.colors.bg-raised} !important;
-    border-color: ${theme.colors.border} !important;
-  }
+    /*--- Listen Along Invite Recolor ---*/
+    .invite__4d3fa {
+      background: ${theme.colors.bg-raised} !important;
+      border-color: ${theme.colors.border} !important;
+    }
 
-  /*--- Activity Card Background Recolor ---*/
-  .card__73069 {
-    background-color: ${theme.colors.bg-raised};
-  }
+    /*--- Activity Card Background Recolor ---*/
+    .card__73069 {
+      background-color: ${theme.colors.bg-raised};
+    }
 
-  div[class^="bar__"] {
-    background-color: ${theme.colors.bg-raised} !important;
-    border-color: ${theme.colors.border} !important;
-  }
-  /*--- Voice Bar Text Recolor ---*/
-  .barText__7aaec {
-    color: ${theme.colors.lime} !important;
-  }
-  .unreadIcon__7aaec {
-    color: ${theme.colors.lime} !important;
-  }
+    div[class^="bar__"] {
+      background-color: ${theme.colors.bg-raised} !important;
+      border-color: ${theme.colors.border} !important;
+    }
+    /*--- Voice Bar Text Recolor ---*/
+    .barText__7aaec {
+      color: ${theme.colors.lime} !important;
+    }
+    .unreadIcon__7aaec {
+      color: ${theme.colors.lime} !important;
+    }
 
-  /*--- Mentions Bar Text Recolor ---*/
-  .mentionsBar__7aaec .barText__7aaec {
-    color: ${theme.colors.fg-secondary} !important;
-  }
+    /*--- Mentions Bar Text Recolor ---*/
+    .mentionsBar__7aaec .barText__7aaec {
+      color: ${theme.colors.fg-secondary} !important;
+    }
 
-  /*--- Forum Background Recolor ---*/
-  .container_f369db {
-    background-color: var(--bg-overlay-2);
-  }
+    /*--- Forum Background Recolor ---*/
+    .container_f369db {
+      background-color: var(--bg-overlay-2);
+    }
 
-  /*--- Sidebar Icon Recolor ---*/
-  .circleIconButton__5bc7e {
-    color: ${theme.colors.fg-secondary};
-  }
+    /*--- Sidebar Icon Recolor ---*/
+    .circleIconButton__5bc7e {
+      color: ${theme.colors.fg-secondary};
+    }
 
-  /*--- Summaries Tag Icon Recolor ---*/
-  .summariesBetaTag_cf58b5 {
-    color: ${theme.colors.bg-highlight};
-  }
+    /*--- Summaries Tag Icon Recolor ---*/
+    .summariesBetaTag_cf58b5 {
+      color: ${theme.colors.bg-highlight};
+    }
 
-  .lottieIcon__5eb9b.lottieIconColors__5eb9b.buttonIcon_e131a9 {
-    --__lottieIconColor: ${theme.colors.fg-secondary} !important;
-  }
-  div[class^="actionButtons"] [class^="button"][class*="buttonColor_"],
-  div[class^="actionButtons"] [class^="button"] [class*="buttonColor_"] {
-    background-color: ${theme.colors.bg-highlight};
-  }
+    .lottieIcon__5eb9b.lottieIconColors__5eb9b.buttonIcon_e131a9 {
+      --__lottieIconColor: ${theme.colors.fg-secondary} !important;
+    }
+    div[class^="actionButtons"] [class^="button"][class*="buttonColor_"],
+    div[class^="actionButtons"] [class^="button"] [class*="buttonColor_"] {
+      background-color: ${theme.colors.bg-highlight};
+    }
 
-  /* --- Checkbox Recolor (OFF) --- */
-  .container__87bf1 {
-    background-color: ${theme.colors.bg-highlight} !important;
-  }
-  /* --- Checkbox Recolor (ON) --- */
-  .checked__87bf1 {
-    background-color: ${theme.colors.accent} !important;
-  }
-  path[fill^="rgba(35, 165, 90, 1)"] {
-    fill: ${theme.colors.accent} !important;
-  }
-
-  /* --- Secure Lock Icon Recolor --- */
-  .lockIcon__2666b {
-    display: none;
-  }
-
-  /*--- Status Icon Recolor (DO NOT DISTURB) ---*/
-  svg[fill^="#f23f43"],
-  rect[fill^="#f23f43"] {
-    fill: var(--status-danger) !important;
-  }
-  /*--- Status Icon Recolor (IDLE) ---*/
-  svg[fill^="#f0b232"],
-  rect[fill^="#f0b232"] {
-    fill: var(--status-warning) !important;
-  }
-  /*--- Status Icon Recolor (ONLINE) ---*/
-  path[fill^="#23a55a"],
-  svg[fill^="#23a55a"],
-  rect[fill^="#23a55a"] {
-    fill: var(--status-positive) !important;
-  }
-  /*--- Status Icon Recolor (OFFLINE) ---*/
-  svg[fill^="#80848e"],
-  rect[fill^="#80848e"] {
-    fill: ${theme.colors.grey} !important;
-  }
-
-  /*--- Default Color Swap ---*/
-  path[fill^="currentColor"],
-  svg[fill^="currentColor"],
-  rect[fill^="currentColor"] {
-    fill: ${theme.colors.fg} !important;
-  }
-  path[d^="M12 22a10 10 0 1"] {
-    fill: ${theme.colors.fg-secondary} !important;
-  }
-
-  /*--- Voice Chat Icon Badge Recolor ---*/
-  div[class^="iconBadge"] path[d^="M12 3a1 1 0 0 0-1-1h-.06"],
-  div[class^="iconBadge"] path[d^="M15.16 16.51c-.57.28"] {
-    fill: ${theme.colors.fg-secondary} !important;
-  }
-
-  /*--- Nitro Icon Recolor ---*/
-  .premiumLabel_e681d1 svg path,
-  svg.guildBoostBadge__5dba5 path {
-    fill: ${theme.colors.magenta} !important;
-  }
-
-  /*--- Server Booster Icon Recolor ---*/
-  .premiumIcon__5d473 {
-    color: ${theme.colors.magenta};
-  }
-
-  /*--- Call Container Recolor ---*/
-  .callContainer_cb9592 {
-    background-color: ${theme.colors.bg};
-  }
-  .gradientContainer_bfe55a {
-    background-image: ${theme.colors.bg};
-  }
-
-  /*--- Store Gradient Recolors ---*/
-  .gradient_e9ef78 {
-    background: ${theme.colors.bg-raised} !important;
-  }
-  .bannerGradient__955a3 {
-    background: ${theme.colors.bg} !important;
-  }
-
-  /*--- Increase Text Legibility ---*/
-  * {
-    text-rendering: optimizeLegibility !important;
-  }
-
-  /*--- Codeblock Syntax Highlighting Recolor ---*/
-  .hljs-attr {
-    color: ${theme.colors.orange} !important;
-  }
-  .hljs-attribute {
-    color: ${theme.colors.orange} !important;
-  }
-  .hljs-number {
-    color: ${theme.colors.orange} !important;
-  }
-  .hljs-selector-class {
-    color: ${theme.colors.fg} !important;
-  }
-  .hljs-comment {
-    color: ${theme.colors.grey} !important;
-  }
-  .hljs-subst {
-    color: ${theme.colors.dark-blue} !important;
-  }
-  .hljs-selector-pseudo {
-    color: ${theme.colors.green} !important;
-  }
-  .hljs-section {
-    color: ${theme.colors.green} !important;
-  }
-  .hljs-keyword {
-    color: ${theme.colors.magenta} !important;
-  }
-  .hljs-variable {
-    color: ${theme.colors.light-blue} !important;
-  }
-  .hljs-meta {
-    color: ${theme.colors.grey} !important;
-  }
-  .hljs-built_in {
-    color: ${theme.colors.green} !important;
-  }
-  .hljs-string {
-    color: ${theme.colors.lime} !important;
-  }
-  .hljs-title {
-    color: ${theme.colors.magenta} !important;
-  }
-
-  /*--- Visual Refresh Recolor ---*/
-  /*--- BIG WORK IN PROGRESS. DISCORD MADE SOME BIG CHANGES. ---*/
-  .visual-refresh {
-    div[class^="autocomplete__"] {
+    /* --- Checkbox Recolor (OFF) --- */
+    .container__87bf1 {
       background-color: ${theme.colors.bg-highlight} !important;
     }
-    path[fill^="rgba(88, 101, 242, 1)"] {
-      fill: ${theme.colors.green} !important;
+    /* --- Checkbox Recolor (ON) --- */
+    .checked__87bf1 {
+      background-color: ${theme.colors.accent} !important;
     }
-    div[class^="topicsPillContainer"] {
-      --bg-overlay-2: ${theme.colors.bg-highlight-opacity} !important;
-    }
-    .bg__960e4 {
-      background: transparent !important;
-    }
-    .wrapper_ef3116 {
-      background-color: transparent !important;
-    }
-    .sidebar_c48ade {
-      background-color: transparent !important;
-    }
-    [class*="sidebarListRounded"] {
-      backdrop-filter: unset !important;
-    }
-    [class*="tabBody"] {
-      background-color: transparent !important;
-    }
-    .searchBar__97492 {
-      background-color: ${theme.colors.bg-highlight-opacity} !important;
-    }
-    .channelTextArea_f75fb0 {
-      background: ${theme.colors.bg-highlight-opacity} !important;
-    }
-    .chatContent_f75fb0 {
-      background-color: transparent !important;
-    }
-    .members_c8ffbb,
-    .member_c8ffbb {
-      background: transparent !important;
-    }
-    .voiceBar__7aaec {
-      background-color: ${theme.colors.bg-highlight-opacity} !important;
-    }
-    button.button__67645.redGlow__67645,
-    span.button__67645.redGlow__67645 {
-      background-color: ${theme.colors.bg-highlight-opacity} !important;
+    path[fill^="rgba(35, 165, 90, 1)"] {
+      fill: ${theme.colors.accent} !important;
     }
 
-    .chat_f75fb0 {
-      background-color: transparent;
-    }
-
-    div[class*="folderButton"] > div > div[class*="lowerBadge"] {
-      bottom: -3px !important;
-      right: -3px !important;
+    /* --- Secure Lock Icon Recolor --- */
+    .lockIcon__2666b {
+      display: none;
     }
 
     /*--- Status Icon Recolor (DO NOT DISTURB) ---*/
-    svg[fill^="#d83a42"],
-    rect[fill^="#d83a42"] {
+    svg[fill^="#f23f43"],
+    rect[fill^="#f23f43"] {
       fill: var(--status-danger) !important;
     }
     /*--- Status Icon Recolor (IDLE) ---*/
-    svg[fill^="#ca9654"],
-    rect[fill^="#ca9654"] {
+    svg[fill^="#f0b232"],
+    rect[fill^="#f0b232"] {
       fill: var(--status-warning) !important;
     }
     /*--- Status Icon Recolor (ONLINE) ---*/
-    path[fill^="#43a25a"],
-    svg[fill^="#43a25a"],
-    rect[fill^="#43a25a"] {
+    path[fill^="#23a55a"],
+    svg[fill^="#23a55a"],
+    rect[fill^="#23a55a"] {
       fill: var(--status-positive) !important;
     }
     /*--- Status Icon Recolor (OFFLINE) ---*/
-    svg[fill^="#83838b"],
-    rect[fill^="#83838b"] {
+    svg[fill^="#80848e"],
+    rect[fill^="#80848e"] {
       fill: ${theme.colors.grey} !important;
     }
-  }
-  body, #app-mount, .app_a3002d, .app__160d8 {
-    background-color: transparent !important;
-  }
-  html {
-    background-color: ${theme.colors.bg-opacity};
-  }
-  [class*="fieldList"] {
-    background-color: unset;
+
+    /*--- Default Color Swap ---*/
+    path[fill^="currentColor"],
+    svg[fill^="currentColor"],
+    rect[fill^="currentColor"] {
+      fill: ${theme.colors.fg} !important;
+    }
+    path[d^="M12 22a10 10 0 1"] {
+      fill: ${theme.colors.fg-secondary} !important;
+    }
+
+    /*--- Voice Chat Icon Badge Recolor ---*/
+    div[class^="iconBadge"] path[d^="M12 3a1 1 0 0 0-1-1h-.06"],
+    div[class^="iconBadge"] path[d^="M15.16 16.51c-.57.28"] {
+      fill: ${theme.colors.fg-secondary} !important;
+    }
+
+    /*--- Nitro Icon Recolor ---*/
+    .premiumLabel_e681d1 svg path,
+    svg.guildBoostBadge__5dba5 path {
+      fill: ${theme.colors.magenta} !important;
+    }
+
+    /*--- Server Booster Icon Recolor ---*/
+    .premiumIcon__5d473 {
+      color: ${theme.colors.magenta};
+    }
+
+    /*--- Call Container Recolor ---*/
+    .callContainer_cb9592 {
+      background-color: ${theme.colors.bg};
+    }
+    .gradientContainer_bfe55a {
+      background-image: ${theme.colors.bg};
+    }
+
+    /*--- Store Gradient Recolors ---*/
+    .gradient_e9ef78 {
+      background: ${theme.colors.bg-raised} !important;
+    }
+    .bannerGradient__955a3 {
+      background: ${theme.colors.bg} !important;
+    }
+
+    /*--- Increase Text Legibility ---*/
+    * {
+      text-rendering: optimizeLegibility !important;
+    }
+
+    /*--- Codeblock Syntax Highlighting Recolor ---*/
+    .hljs-attr {
+      color: ${theme.colors.orange} !important;
+    }
+    .hljs-attribute {
+      color: ${theme.colors.orange} !important;
+    }
+    .hljs-number {
+      color: ${theme.colors.orange} !important;
+    }
+    .hljs-selector-class {
+      color: ${theme.colors.fg} !important;
+    }
+    .hljs-comment {
+      color: ${theme.colors.grey} !important;
+    }
+    .hljs-subst {
+      color: ${theme.colors.dark-blue} !important;
+    }
+    .hljs-selector-pseudo {
+      color: ${theme.colors.green} !important;
+    }
+    .hljs-section {
+      color: ${theme.colors.green} !important;
+    }
+    .hljs-keyword {
+      color: ${theme.colors.magenta} !important;
+    }
+    .hljs-variable {
+      color: ${theme.colors.light-blue} !important;
+    }
+    .hljs-meta {
+      color: ${theme.colors.grey} !important;
+    }
+    .hljs-built_in {
+      color: ${theme.colors.green} !important;
+    }
+    .hljs-string {
+      color: ${theme.colors.lime} !important;
+    }
+    .hljs-title {
+      color: ${theme.colors.magenta} !important;
+    }
+
+    /*--- Visual Refresh Recolor ---*/
+    /*--- BIG WORK IN PROGRESS. DISCORD MADE SOME BIG CHANGES. ---*/
+    .visual-refresh {
+      div[class^="autocomplete__"] {
+        background-color: ${theme.colors.bg-highlight} !important;
+      }
+      path[fill^="rgba(88, 101, 242, 1)"] {
+        fill: ${theme.colors.green} !important;
+      }
+      div[class^="topicsPillContainer"] {
+        --bg-overlay-2: ${theme.colors.bg-highlight-opacity} !important;
+      }
+      .bg__960e4 {
+        background: transparent !important;
+      }
+      .wrapper_ef3116 {
+        background-color: transparent !important;
+      }
+      .sidebar_c48ade {
+        background-color: transparent !important;
+      }
+      [class*="sidebarListRounded"] {
+        backdrop-filter: unset !important;
+      }
+      [class*="tabBody"] {
+        background-color: transparent !important;
+      }
+      .searchBar__97492 {
+        background-color: ${theme.colors.bg-highlight-opacity} !important;
+      }
+      .channelTextArea_f75fb0 {
+        background: ${theme.colors.bg-highlight-opacity} !important;
+      }
+      .chatContent_f75fb0 {
+        background-color: transparent !important;
+      }
+      .members_c8ffbb,
+      .member_c8ffbb {
+        background: transparent !important;
+      }
+      .voiceBar__7aaec {
+        background-color: ${theme.colors.bg-highlight-opacity} !important;
+      }
+      button.button__67645.redGlow__67645,
+      span.button__67645.redGlow__67645 {
+        background-color: ${theme.colors.bg-highlight-opacity} !important;
+      }
+
+      .chat_f75fb0 {
+        background-color: transparent;
+      }
+
+      div[class*="folderButton"] > div > div[class*="lowerBadge"] {
+        bottom: -3px !important;
+        right: -3px !important;
+      }
+
+      /*--- Status Icon Recolor (DO NOT DISTURB) ---*/
+      svg[fill^="#d83a42"],
+      rect[fill^="#d83a42"] {
+        fill: var(--status-danger) !important;
+      }
+      /*--- Status Icon Recolor (IDLE) ---*/
+      svg[fill^="#ca9654"],
+      rect[fill^="#ca9654"] {
+        fill: var(--status-warning) !important;
+      }
+      /*--- Status Icon Recolor (ONLINE) ---*/
+      path[fill^="#43a25a"],
+      svg[fill^="#43a25a"],
+      rect[fill^="#43a25a"] {
+        fill: var(--status-positive) !important;
+      }
+      /*--- Status Icon Recolor (OFFLINE) ---*/
+      svg[fill^="#83838b"],
+      rect[fill^="#83838b"] {
+        fill: ${theme.colors.grey} !important;
+      }
+    }
+    body, #app-mount, .app_a3002d, .app__160d8 {
+      background-color: transparent !important;
+    }
+    html {
+      background-color: ${theme.colors.bg-opacity};
+    }
+    [class*="fieldList"] {
+      background-color: unset;
+    }
   }
 ''

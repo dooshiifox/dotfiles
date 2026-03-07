@@ -41,7 +41,7 @@
       "payroll-time" = "/home/dooshii/Documents/CodingProjects/payroll-time/target/release/payroll-time";
     };
     interactiveShellInit = ''
-      set fish_command_color blue
+      set -gx fish_command_color blue
     '';
 
     # Causes slow Nix builds when set to true and also breaks git integration

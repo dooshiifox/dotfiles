@@ -48,18 +48,6 @@
       nemo-with-extensions
       cryptsetup
 
-      # Ensure you enable these in GNOME Extensions
-      # With Pop Shell, disable mouse stacking
-      # Can't customize keybinds with Pop Shell yet: https://github.com/NixOS/nixpkgs/issues/92265
-      # gnomeExtensions.pop-shell # Pop_OS! extension stuff (like grid view)
-      # gnomeExtensions.pano # Global clipboard manager
-      # gnomeExtensions.rounded-window-corners-reborn # Rounded window corners
-      # gnomeExtensions.hide-top-bar # Remove stinky top bar eww
-      # gnomeExtensions.gsconnect # KDE Connect for Gnome. Connect to your phone!
-      # gnomeExtensions.color-picker # Color picker
-      # gnomeExtensions.unite
-      # gnome-tweaks # Customize GNOME
-
       # Social
       telegram-desktop # Telegram client
       wasistlos # Whatsapp client
@@ -130,6 +118,9 @@
       dbeaver-bin # Another database viewer
       sqlit-tui # ANOTHER database viewer
 
+      # Android
+      android-tools # Provides `adb`
+
       # Neovim LSPs and formatters and linters and such
       astro-language-server
       bash-language-server
@@ -141,7 +132,7 @@
       eslint
       hadolint # Dockerfile linter
       intelephense # PHP, freemium
-      nixfmt-rfc-style # Official formatter, replacing alejandra
+      nixfmt # Official formatter, replacing alejandra
       nil # Nix language server
       vscode-langservers-extracted # HTML, CSS, some others too
 
@@ -149,7 +140,7 @@
       # Terminal
       ################
       curl # Transferring files
-      neofetch # Info about your system
+      fastfetch # Info about your system
       tokei # Count lines of code
       websocat # Connect to websockets for development
       wmctrl # Interact with X window managers

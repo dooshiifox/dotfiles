@@ -39,9 +39,9 @@
           # jnoortheen.nix-ide
           mkhl.direnv
           ms-azuretools.vscode-docker
-          ms-dotnettools.csdevkit
-          ms-dotnettools.csharp
-          ms-dotnettools.vscode-dotnet-runtime
+          # ms-dotnettools.csdevkit
+          # ms-dotnettools.csharp
+          # ms-dotnettools.vscode-dotnet-runtime
           msjsdiag.vscode-react-native
           ms-python.black-formatter
           ms-python.debugpy

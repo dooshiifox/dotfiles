@@ -68,6 +68,7 @@ in
           --chrome-content-separator-color: transparent !important;
           --tab-selected-bgcolor: ${colors.bg-raised-opacity} !important;
           --tab-selected-outline-color: ${colors.border-active-opacity} !important;
+          --tabpanel-background-color: transparent !important;
           /* Floating menus */
           --arrowpanel-background: ${colors.bg-raised} !important;
           --arrowpanel-color: ${colors.fg} !important;

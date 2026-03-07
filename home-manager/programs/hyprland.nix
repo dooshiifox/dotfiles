@@ -181,9 +181,20 @@
         "[workspace 4 silent; monitor eDP-1] slack"
       ];
 
-      windowrulev2 = [
-        "float, class:Minecraft.*"
-        "noinitialfocus,class:(jetbrains-)(.*),title:^win(.*), initialTitle:win.*, floating:1"
+      windowrule = [
+        {
+          name = "float-minecraft";
+          "match:class" = "Minecraft.*";
+          float = "on";
+        }
+        {
+          name = "float-jetbrains-popup";
+          "match:class" = "(jetbrains-)(.*)";
+          "match:title" = "^win(.*)";
+          "match:initial_title" = "win.*";
+          float = "on";
+          no_initial_focus = "on";
+        }
       ];
 
       device = [
