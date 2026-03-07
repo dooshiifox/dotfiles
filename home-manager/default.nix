@@ -237,6 +237,7 @@
       ryubing # Switch emulator
       wl-clicker # autoclicker
       azahar # 3DS emulator
+      cockatrice # Card game
     ]
     ++ (builtins.map (x: x.package) (builtins.attrValues config.lib.theme.fonts.serif))
     ++ (builtins.map (x: x.package) (builtins.attrValues config.lib.theme.fonts.sansSerif))
