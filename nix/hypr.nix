@@ -94,7 +94,7 @@ in
             };
             themestr = lib.concatMapAttrsStringSep ";" (name: val: "${name}=${val}") colors;
           in
-          "${pkgs.tuigreet}/bin/tuigreet --time --remember --asterisks --asterisks-char ● --theme '${themestr}' --cmd Hyprland";
+          "${pkgs.tuigreet}/bin/tuigreet --time --remember --asterisks --asterisks-char ● --theme '${themestr}' --cmd start-hyprland";
         user = "greeter";
       };
       default_session = initial_session;

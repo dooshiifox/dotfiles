@@ -5,6 +5,7 @@
     # https://wiki.hypr.land/Hypr-Ecosystem/hyprpaper/#configuration
     settings = {
       ipc = true; # Default but just to be sure. Allows usage over hyprctl
+      splash = false; # Splash text
       wallpaper = [
         {
           monitor = "";

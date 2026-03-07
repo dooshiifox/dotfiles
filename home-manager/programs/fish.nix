@@ -40,9 +40,6 @@
       "audio" = "GSK_RENDERER=gl pavucontrol";
       "payroll-time" = "/home/dooshii/Documents/CodingProjects/payroll-time/target/release/payroll-time";
     };
-    interactiveShellInit = ''
-      set -gx fish_command_color blue
-    '';
 
     # Causes slow Nix builds when set to true and also breaks git integration
     generateCompletions = false;
@@ -50,7 +47,9 @@
     functions = {
       mkcd = "mkdir -p $argv; cd $argv;";
       # Echo whatever you want here
-      fish_greeting = "";
+      fish_greeting = ''
+        set -gx fish_command_color blue
+      '';
       # Opens browser at https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query={query}
       nixs = "$BROWSER \"https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=$argv\"";
       # Opens browser at https://mynixos.com/search?q={query}
