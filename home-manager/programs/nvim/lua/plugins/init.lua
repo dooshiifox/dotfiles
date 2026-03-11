@@ -101,6 +101,24 @@ return {
 		},
 	},
 	{
+		"folke/which-key.nvim",
+		opts = {
+			spec = {
+				{
+					-- todo: figure out why this works but `yp` doesnt
+					"<leader>yp",
+					function()
+						local path = vim.fn.expand("%:p")
+						vim.fn.setreg("+", path)
+						vim.notify('Copied "' .. path .. '" to the clipboard!')
+					end,
+					-- mode = "no",
+					desc = "Copy current path",
+				},
+			},
+		},
+	},
+	{
 		"dstein64/nvim-scrollview",
 		event = "VeryLazy",
 		opts = {},
@@ -373,6 +391,7 @@ return {
 		opts = {
 			ensure_installed = {
 				"pint",
+				"intelephense",
 			},
 			ui = {
 				border = "rounded",

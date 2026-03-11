@@ -9,6 +9,16 @@
     settings = {
       aliases = {
         lgb = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(normal)%s%C(reset) %C(dim white)- %an%C(reset)'";
+        c = "commit -m ";
+        ca = "commit --amend"; # Commit amend
+        cu = "reset HEAD~"; # Commit undo
+        p = "pull --rebase"; # Pull
+        pc = "rebase --abort"; # Pull cancel
+        pm = "pull"; # Pull merge
+        last = "log -p -1"; # View latest changes
+        explore = "checkout";
+        unstage = "reset --staged";
+        new = "checkout -b";
       };
 
       init.defaultBranch = "main";
