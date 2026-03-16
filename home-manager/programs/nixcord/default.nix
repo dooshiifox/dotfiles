@@ -42,7 +42,7 @@
         noF1.enable = true;
         noMosaic.enable = true;
         noProfileThemes.enable = true;
-        normalizeMessageLinks.enable = true;
+        # normalizeMessageLinks.enable = true;
         permissionsViewer.enable = true;
         reactErrorDecoder.enable = true;
         relationshipNotifier.enable = true;

@@ -52,6 +52,7 @@
       telegram-desktop # Telegram client
       wasistlos # Whatsapp client
       slack # Slack client
+      signal-desktop # Signal client
 
       # Basic services
       protonvpn-gui
@@ -184,7 +185,7 @@
       blanket # Pleasant sounds :3
       eartag # Music metadata editor
       ffmpeg # Command-line audio & video manipulation
-      helvum # Pipe audio and connect up inputs and outputs
+      crosspipe # Pipe audio and connect up inputs and outputs
       playerctl # Interact with MPRIS-compatible programs from the command line
       obsidian # Markdown editor
       vlc # Video & audio player
