@@ -179,6 +179,7 @@
       ################
       audacity # Ugly audio editor
       krita # Ugly image editor
+      wayscriber # Draw over the screen yay
       blender # Not as ugly 3d modeling
 
       amberol # Simple audio player
