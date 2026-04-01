@@ -153,7 +153,7 @@ in
           }
         }
 
-        @-moz-document regexp("(?!.*(about:home|about:newtab|twitch.tv).*).*") {
+        @-moz-document regexp("(?!.*(about:home|about:newtab|twitch.tv|cryptoswift.eu).*).*") {
           /* :where(html) causes it to be low specificity */
           :where(html) {
             background: white;

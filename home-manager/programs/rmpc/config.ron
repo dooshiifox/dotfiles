@@ -34,10 +34,11 @@
             "f":       SeekForward,
             "b":       SeekBack,
 
-            ",":       VolumeDown,
-            ".":       VolumeUp,
+            ".":       VolumeDown,
+            ",":       VolumeUp,
 
             "p":       TogglePause,
+            "k":       TogglePause,
             "s":       Stop,
 
             "z":       ExternalCommand(command: ["/home/dooshii/nixos/scripts/music/song-end-behaviour"], description: "Adjust the song-end behaviour"),
@@ -105,8 +106,8 @@
 				direction: Vertical,
 				panes: [
 					(
-						size: "3",
-						pane: Pane(Tabs),
+						size: "2",
+						pane: Component("tabs"),
 					),
 					(
 						size: "100%",

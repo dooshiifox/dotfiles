@@ -235,12 +235,31 @@
 		})
     ),
 	components: {
+		"tabs": Split(
+			direction: Vertical,
+			panes: [
+				(
+					size: "1",
+					pane: Pane(Tabs),
+				),
+				(
+					size: "1",
+					pane: Pane(Property(
+						content: [(
+							kind: Text("▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔"),
+							style: (fg: "blue")
+						)],
+						align: Center
+					))
+				),
+			]
+		),
 		"header": Split(
 			direction: Vertical,
 			panes: [
 				(
-					size: "3",
-					pane: Pane(Tabs),
+					size: "2",
+					pane: Component("tabs"),
 				),
 				(
 					size: "6",
