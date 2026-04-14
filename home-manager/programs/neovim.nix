@@ -7,6 +7,8 @@
     defaultEditor = true;
     coc.enable = false;
     withNodeJs = true;
+    withRuby = false;
+    withPython3 = false;
   };
 
   home.file."./.config/nvim/".source =

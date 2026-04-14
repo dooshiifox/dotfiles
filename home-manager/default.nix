@@ -14,7 +14,10 @@
   home.homeDirectory = "/home/dooshii";
   xdg = {
     enable = true;
-    userDirs.enable = true;
+    userDirs = {
+      enable = true;
+      setSessionVariables = true;
+    };
     # Portals defined in `nix/wayland.nix`
   };
 
@@ -55,7 +58,7 @@
       signal-desktop # Signal client
 
       # Basic services
-      protonvpn-gui
+      proton-vpn
       protonmail-desktop
       proton-pass
       gnome-calculator
@@ -83,7 +86,7 @@
 
       # Javascript
       nodejs_22 # Javascript runtime; also provides npm
-      nodePackages.pnpm # Faster, less disk space npm
+      pnpm # Faster, less disk space npm
 
       # PHP
       php84 # PHP runtime
@@ -232,7 +235,7 @@
       # inputs.ow-mod-man.packages.x86_64-linux.owmods-cli # Outer Wilds mod loader
       # ns-usbloader # Nintendo Switch homebrew manager
       joycond # Switch Pro controller and joycon support
-      cemu # Wii-U emulator
+      # cemu # Wii-U emulator - compilation error 2026-04-14
       joycond-cemuhook # Motion control support
       archipelago # Randomiser
       dolphin-emu # Wii / Gamecube emulator
@@ -240,6 +243,7 @@
       wl-clicker # autoclicker
       azahar # 3DS emulator
       cockatrice # Card game
+      openmw # Morrowind source engine remake
     ]
     ++ (builtins.map (x: x.package) (builtins.attrValues config.lib.theme.fonts.serif))
     ++ (builtins.map (x: x.package) (builtins.attrValues config.lib.theme.fonts.sansSerif))

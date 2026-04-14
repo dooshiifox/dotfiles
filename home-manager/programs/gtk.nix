@@ -99,7 +99,7 @@ let
   '';
 in
 {
-  gtk = {
+  gtk = rec {
     enable = true;
 
     gtk3.extraConfig = extra-config;
@@ -113,6 +113,7 @@ in
       package = pkgs.adw-gtk3;
       name = "adw-gtk3";
     };
+    gtk4.theme = theme;
 
     font = {
       inherit (config.lib.theme.fonts.regular.en) package name;
