@@ -115,6 +115,17 @@ return {
 					-- mode = "no",
 					desc = "Copy current path",
 				},
+				{
+					"zs",
+					":ISwapNodeWithRight",
+					desc = "Swap node right",
+				},
+				{
+					"zS",
+					":ISwapNodeWithLeft",
+					desc = "Swap node left",
+				},
+				-- todo: bring back old zs which left-aligns a line
 			},
 		},
 	},
@@ -540,5 +551,9 @@ return {
 			"saghen/blink.cmp",
 		},
 		ft = { "blade", "php" },
+	},
+	{
+		"mizlan/iswap.nvim",
+		event = "VeryLazy",
 	},
 }

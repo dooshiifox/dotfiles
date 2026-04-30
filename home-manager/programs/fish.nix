@@ -50,13 +50,12 @@
       fish_greeting = ''
         set -gx fish_command_color blue
       '';
-      # Opens browser at https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query={query}
       nixs = "$BROWSER \"https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=$argv\"";
-      # Opens browser at https://mynixos.com/search?q={query}
       nixo = "$BROWSER \"https://mynixos.com/search?q=$argv\"";
       # Uses the provided nix packages in a new shell
       use = "nix-shell --command fish -p $argv";
       mrat = "cd ~/Documents/CodingProjects/mpd-rating/ && pnpm dev --host";
+      rgfile = "find . -iname \"*$argv*\" -print";
       flip.body = ''
         if test $(hyprctl monitors -j | jq '.[] | select(.name=="eDP-1") | .transform') = 0
         	hyprctl keyword monitor eDP-1,2880x1800@120,0x0,2,transform,2

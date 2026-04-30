@@ -4,6 +4,12 @@
   inputs = {
     # NixOS official package source
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-patcher.url = "github:gepbird/nixpkgs-patcher";
+    nixpkgs-patch-zapp = {
+      url = "https://github.com/NixOS/nixpkgs/pull/515143.diff";
+      flake = false;
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager/master";
       # The `follows` keyword in inputs is used for inheritance.
@@ -42,7 +48,7 @@
   outputs =
     inputs@{
       self,
-      nixpkgs,
+      nixpkgs-patcher,
       home-manager,
       ...
     }:
@@ -60,8 +66,7 @@
           has_secrets,
           wallpaper,
         }:
-        nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
+        nixpkgs-patcher.lib.nixosSystem {
           specialArgs = {
             inherit
               inputs
@@ -71,7 +76,8 @@
               ;
             for_profile = for_profile profile;
             if_secrets = optionals has_secrets;
-          };
+          }
+          // inputs;
           modules = [
             ./theme.nix
             ./nix

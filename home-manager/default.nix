@@ -63,6 +63,7 @@
       proton-pass
       gnome-calculator
       keymapp # Keyboard
+      zapp # Keyboard but CLI
 
       # Networking
       openssl # SSL/TLS cryptography library

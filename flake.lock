@@ -705,6 +705,33 @@
         "type": "github"
       }
     },
+    "nixpkgs-patch-zapp": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-Bny8xNrls80d1JeTOLWn2JkdiLKkL47f387sRC617q8=",
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/pull/515143.diff"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/pull/515143.diff"
+      }
+    },
+    "nixpkgs-patcher": {
+      "locked": {
+        "lastModified": 1776988475,
+        "narHash": "sha256-A8NZ7PAwmNQ/p9u0+CONi70AzZJHFf/91oPlA9XiLEY=",
+        "owner": "gepbird",
+        "repo": "nixpkgs-patcher",
+        "rev": "0d45855a3c558f4bf067249dae4bef58b4455d85",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gepbird",
+        "repo": "nixpkgs-patcher",
+        "type": "github"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1775423009,
@@ -940,6 +967,8 @@
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixcord": "nixcord",
         "nixpkgs": "nixpkgs_6",
+        "nixpkgs-patch-zapp": "nixpkgs-patch-zapp",
+        "nixpkgs-patcher": "nixpkgs-patcher",
         "plover-flake": "plover-flake"
       }
     },
