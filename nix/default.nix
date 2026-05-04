@@ -84,6 +84,9 @@
     # Filesystem stuff
     cryptsetup # Encrypted drive
     ntfs3g # NTFS (Windows support)
+
+    # important library stuff
+    libusb1
   ];
 
   # This value determines the NixOS release from which the default
