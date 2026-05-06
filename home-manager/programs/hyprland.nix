@@ -189,6 +189,11 @@
           float = "on";
         }
         {
+          name = "float-bevy";
+          "match:class" = "shortlike";
+          float = "on";
+        }
+        {
           name = "float-jetbrains-popup";
           "match:class" = "(jetbrains-)(.*)";
           "match:title" = "^win(.*)";
