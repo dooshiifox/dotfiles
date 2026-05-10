@@ -54,8 +54,11 @@
       nixo = "$BROWSER \"https://mynixos.com/search?q=$argv\"";
       # Uses the provided nix packages in a new shell
       use = "nix-shell --command fish -p $argv";
-      mrat = "cd ~/Documents/CodingProjects/mpd-rating/ && pnpm dev --host";
+      # mrat = "cd ~/Documents/CodingProjects/mpd-rating/ && pnpm dev --host";
+      # Search for a file
       rgfile = "find . -iname \"*$argv*\" -print";
+      # Rerun the last command
+      t = "last_cmd=$(history | head -1) eval $last_cmd";
       flip.body = ''
         if test $(hyprctl monitors -j | jq '.[] | select(.name=="eDP-1") | .transform') = 0
         	hyprctl keyword monitor eDP-1,2880x1800@120,0x0,2,transform,2
