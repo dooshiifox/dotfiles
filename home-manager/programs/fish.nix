@@ -39,6 +39,14 @@
       "code" = "codium";
       "audio" = "GSK_RENDERER=gl pavucontrol";
       "payroll-time" = "/home/dooshii/Documents/CodingProjects/payroll-time/target/release/payroll-time";
+
+      # Git
+      "go" = "git checkout"; # git checkOut
+      "gob" = "git checkout -b"; # git checkOut branch
+      "gundo" = "git reset HEAD~"; # git undo
+      "gy" = "git commit -m";
+      "gd" = "git pull"; # git download
+      "gu" = "git push"; # git upload
     };
 
     # Causes slow Nix builds when set to true and also breaks git integration
