@@ -151,6 +151,7 @@
       wmctrl # Interact with X window managers
       bc # Arbitrary precision math
       jq # JSON processor
+      yq # JSON/YAML/XML/INI/etc processor
       zip # `zip` command
       unzip # `unzip` command
       unrar-free # `unrar-free` command (extract RAR files)
