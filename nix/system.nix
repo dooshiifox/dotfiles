@@ -55,7 +55,15 @@
     "9.9.9.9"
   ];
   networking.firewall.enable = false;
-  services.dnsmasq.enable = true; # Routes *.test websites to localhost. among other things
+  # Routes *.test websites to localhost. among other things
+  services.dnsmasq = {
+    enable = true;
+    settings = {
+      address = [
+        "/test/127.0.0.1"
+      ];
+    };
+  };
 
   ####################
   #   LOCALIZATION / TIME
