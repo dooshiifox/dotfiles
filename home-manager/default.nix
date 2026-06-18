@@ -67,6 +67,7 @@
 
       # Networking
       openssl # SSL/TLS cryptography library
+      mkcert # Locally-trusted website certificates
 
       # Fonts
       gnome-characters

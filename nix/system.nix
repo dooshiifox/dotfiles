@@ -55,6 +55,7 @@
     "9.9.9.9"
   ];
   networking.firewall.enable = false;
+  services.dnsmasq.enable = true; # Routes *.test websites to localhost. among other things
 
   ####################
   #   LOCALIZATION / TIME
