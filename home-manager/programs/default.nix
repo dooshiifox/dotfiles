@@ -21,6 +21,7 @@
     ./kitty.nix
     ./mpv.nix
     ./neovim.nix
+    ./nushell.nix
     ./obs-studio.nix
     ./plover.nix
     ./ripgrep.nix
