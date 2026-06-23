@@ -16,8 +16,7 @@
     shellAliases = {
       "," = "clear && printf \"\\e[H\\e[3J\"";
       "cat" = "bat";
-      "celeste" = "ulimit -n 8192 && /home/dooshii/Documents/Games/Celeste/Celeste";
-      "i" = "${config.lib.theme.source-folder}/scripts/system/init";
+      "celeste" = "ulimit -n 8192 && /home/dooshii/Documents/Games/celeste/Celeste";
       "jk" = "cd ..";
       "jkk" = "cd ../..";
       "jkkk" = "cd ../../..";
@@ -35,7 +34,6 @@
       "x" = "exit";
       "q" = "exit";
       "e" = "nvim";
-      "ytdlmp3" = "yt-dlp --extract-audio --audio-format mp3 -o \"%(title)s.%(ext)s\" --embed-thumbnail";
       "code" = "codium";
       "audio" = "GSK_RENDERER=gl pavucontrol";
       "payroll-time" = "/home/dooshii/Documents/CodingProjects/payroll-time/target/release/payroll-time";
