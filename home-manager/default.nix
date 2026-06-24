@@ -53,7 +53,7 @@
 
       # Social
       telegram-desktop # Telegram client
-      wasistlos # Whatsapp client
+      karere # Whatsapp client
       slack # Slack client
       signal-desktop # Signal client
 

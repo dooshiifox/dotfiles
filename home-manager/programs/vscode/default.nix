@@ -1,10 +1,8 @@
 # https://github.com/nix-community/home-manager/blob/master/modules/programs/vscode.nix
 { pkgs, ... }:
 {
-  programs.vscode = {
+  programs.vscodium = {
     enable = true;
-
-    package = pkgs.vscodium;
 
     profiles.default = {
       # If I run nix build often enough... Also they're annoying.

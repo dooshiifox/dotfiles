@@ -9,6 +9,7 @@
     withNodeJs = true;
     withRuby = false;
     withPython3 = false;
+    sideloadInitLua = true; # https://github.com/nix-community/home-manager/issues/5982#issuecomment-4615838595
   };
 
   home.file."./.config/nvim/".source =

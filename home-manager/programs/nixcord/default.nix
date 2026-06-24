@@ -14,10 +14,10 @@
       enabledThemes = [ "theme.css" ];
 
       plugins = {
-        betterNotesBox = {
-          enable = true;
-          noSpellCheck = true;
-        };
+        #  betterNotesBox = {
+        #   enable = true;
+        #   noSpellCheck = true;
+        # };
         betterUploadButton.enable = true;
         callTimer.enable = true;
         # clearURLs.enable = true;
