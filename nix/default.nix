@@ -45,6 +45,10 @@
     "dotnet-sdk-6.0.428"
     "dotnet-runtime-6.0.36"
     "aspnetcore-runtime-6.0.36"
+    "librewolf-151.0.2-1"
+    "librewolf-unwrapped-151.0.2-1"
+    "librewolf-bin-151.0.1-2"
+    "librewolf-bin-unwrapped-151.0.1-2"
   ];
 
   nixpkgs.overlays = [

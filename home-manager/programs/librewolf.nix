@@ -1,4 +1,4 @@
-# Floorp web browser
+# Librewolf web browser
 {
   pkgs,
   config,
@@ -28,21 +28,22 @@ let
   colors = theme.colors;
 in
 {
-  imports = lib.optional has_secrets ../../secrets/floorp.nix;
+  imports = lib.optional has_secrets ../../secrets/librewolf.nix;
 
   xdg.mimeApps = {
     enable = true;
     defaultApplications = builtins.listToAttrs (
       map (mimeType: {
         name = mimeType;
-        value = "floorp.desktop";
+        value = "librewolf.desktop";
       }) mimeTypes
     );
   };
-  home.sessionVariables.BROWSER = "floorp";
+  home.sessionVariables.BROWSER = "librewolf";
 
-  programs.floorp = {
+  programs.librewolf = {
     enable = true;
+    package = pkgs.librewolf-bin;
 
     policies = {
       AppAutoUpdate = false;
