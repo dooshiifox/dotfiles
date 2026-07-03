@@ -1,10 +1,13 @@
-args@{ }:
+args:
 let
   procon2-init = import ./package.nix args;
 in
 {
   # Add the initialization tool to system packages
-  environment.systemPackages = [ procon2-init ];
+  environment.systemPackages = [
+    procon2-init
+    (args.pkgs.writeScriptBin "procon2-init" "${procon2-init}/bin/procon2-init")
+  ];
 
   # Udev rules for Nintendo Pro Controller 2
   services.udev.extraRules = ''
