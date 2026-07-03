@@ -56,7 +56,47 @@ in
     };
   };
 
-  services.dbus.enable = true;
+  services = {
+    dbus.enable = true;
+
+    greetd = {
+      enable = true;
+      useTextGreeter = true;
+      settings = rec {
+        initial_session = {
+          # start Hyprland with a TUI login manager
+          command =
+            let
+              # https://github.com/ratatui/ratatui/blob/c7c34980254e4ffe6416cb8e20ba2c49300948a3/ratatui-core/src/style/color.rs#L8
+              colors = {
+                time = "lightred";
+                container = "black";
+                border = "grey";
+                text = "white";
+                greet = "lightblue";
+                prompt = "green";
+                input = "lightgreen";
+                action = "lightblue";
+                button = "yellow";
+              };
+              themestr = lib.concatMapAttrsStringSep ";" (name: val: "${name}=${val}") colors;
+            in
+            "${pkgs.tuigreet}/bin/tuigreet --time --remember --asterisks --asterisks-char ● --theme '${themestr}' --cmd start-hyprland";
+          user = "greeter";
+        };
+        default_session = initial_session;
+      };
+    };
+
+    gnome = {
+      gnome-keyring.enable = true;
+      sushi.enable = true;
+    };
+
+    udisks2.enable = true;
+    blueman.enable = true;
+  };
+
   xdg.portal = {
     enable = true;
     wlr.enable = true;
@@ -72,42 +112,5 @@ in
     };
   };
 
-  services.greetd = {
-    enable = true;
-    useTextGreeter = true;
-    settings = rec {
-      initial_session = {
-        # start Hyprland with a TUI login manager
-        command =
-          let
-            # https://github.com/ratatui/ratatui/blob/c7c34980254e4ffe6416cb8e20ba2c49300948a3/ratatui-core/src/style/color.rs#L8
-            colors = {
-              time = "lightred";
-              container = "black";
-              border = "grey";
-              text = "white";
-              greet = "lightblue";
-              prompt = "green";
-              input = "lightgreen";
-              action = "lightblue";
-              button = "yellow";
-            };
-            themestr = lib.concatMapAttrsStringSep ";" (name: val: "${name}=${val}") colors;
-          in
-          "${pkgs.tuigreet}/bin/tuigreet --time --remember --asterisks --asterisks-char ● --theme '${themestr}' --cmd start-hyprland";
-        user = "greeter";
-      };
-      default_session = initial_session;
-    };
-  };
-
-  services.gnome = {
-    gnome-keyring.enable = true;
-    sushi.enable = true;
-  };
-
-  services.udisks2.enable = true;
-
   programs.hyprland.enable = true;
-  services.blueman.enable = true;
 }

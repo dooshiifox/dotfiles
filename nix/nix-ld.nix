@@ -34,7 +34,7 @@
       udev
       pkg-config
     ]
-    ++ lib.optionals (config.hardware.graphics.enable) [
+    ++ lib.optionals config.hardware.graphics.enable [
       pipewire
       cups
       libxkbcommon

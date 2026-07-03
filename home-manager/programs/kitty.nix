@@ -3,7 +3,7 @@
 { config, ... }:
 let
   theme = config.lib.theme;
-  colors = theme.colors;
+  inherit (theme) colors;
 in
 {
   programs.kitty = {

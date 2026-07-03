@@ -38,35 +38,39 @@
     "nix-command"
     "flakes"
   ];
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-25.9.0"
-    "freeimage-unstable-2021-11-01"
-    "dotnet-sdk-6.0.428"
-    "dotnet-runtime-6.0.36"
-    "aspnetcore-runtime-6.0.36"
-    "librewolf-151.0.2-1"
-    "librewolf-unwrapped-151.0.2-1"
-    "librewolf-bin-151.0.1-2"
-    "librewolf-bin-unwrapped-151.0.1-2"
-  ];
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      permittedInsecurePackages = [
+        "electron-25.9.0"
+        "freeimage-unstable-2021-11-01"
+        "dotnet-sdk-6.0.428"
+        "dotnet-runtime-6.0.36"
+        "aspnetcore-runtime-6.0.36"
+        "librewolf-151.0.2-1"
+        "librewolf-unwrapped-151.0.2-1"
+        "librewolf-bin-151.0.1-2"
+        "librewolf-bin-unwrapped-151.0.1-2"
+      ];
+    };
 
-  nixpkgs.overlays = [
-    inputs.nix-vscode-extensions.overlays.default
-    inputs.firefox-addons.overlays.default
-    inputs.copyparty.overlays.default
-    inputs.neovim-nightly-overlay.overlays.default
+    overlays = [
+      inputs.nix-vscode-extensions.overlays.default
+      inputs.firefox-addons.overlays.default
+      inputs.copyparty.overlays.default
+      inputs.neovim-nightly-overlay.overlays.default
 
-    # https://lix.systems/add-to-config/
-    (final: prev: {
-      inherit (prev.lixPackageSets.stable)
-        nixpkgs-review
-        nix-eval-jobs
-        nix-fast-build
-        colmena
-        ;
-    })
-  ];
+      # https://lix.systems/add-to-config/
+      (final: prev: {
+        inherit (prev.lixPackageSets.stable)
+          nixpkgs-review
+          nix-eval-jobs
+          nix-fast-build
+          colmena
+          ;
+      })
+    ];
+  };
   # https://lix.systems/add-to-config/
   nix.package = pkgs.lixPackageSets.stable.lix;
 

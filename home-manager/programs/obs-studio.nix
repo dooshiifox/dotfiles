@@ -1,6 +1,6 @@
 # Records the screen
 # https://github.com/nix-community/home-manager/blob/master/modules/programs/obs-studio.nix
-{pkgs, ...}: {
+{ pkgs, ... }: {
   programs.obs-studio = {
     enable = true;
     plugins = with pkgs; [

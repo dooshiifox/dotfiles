@@ -25,7 +25,7 @@ let
     "x-scheme-handler/https"
   ];
   theme = config.lib.theme;
-  colors = theme.colors;
+  inherit (theme) colors;
 in
 {
   imports = lib.optional has_secrets ../../secrets/librewolf.nix;

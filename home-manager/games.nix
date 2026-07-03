@@ -11,7 +11,7 @@ let
   };
   # Wayland Surface Interface
   wsi = true;
-  gamescope = pkgs.gamescope;
+  inherit (pkgs) gamescope;
   gamescope-wsi = pkgs.gamescope-wsi or null;
 
   baseOptions = {
@@ -24,7 +24,7 @@ let
     output-width = mainMonitor.width;
     rt = true;
   }
-  // lib.optionalAttrs (mainMonitor.vrr) {
+  // lib.optionalAttrs mainMonitor.vrr {
     adaptive-sync = true;
   };
 
