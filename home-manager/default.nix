@@ -8,6 +8,7 @@
   imports = [
     ./programs
     ./services
+    ./games.nix
   ];
 
   home.username = "dooshii";
@@ -59,8 +60,6 @@
 
       # Basic services
       proton-vpn
-      protonmail-desktop
-      proton-pass
       gnome-calculator
       keymapp # Keyboard
       zapp # Keyboard but CLI
@@ -109,7 +108,7 @@
       # Java
       javaPackages.compiler.openjdk25
       gradle # Java development
-      jetbrains.idea-oss
+      # jetbrains.idea-oss
 
       # Modding
       avalonia-ilspy # Decompile C#
@@ -122,13 +121,13 @@
       mysql84 # Database client
       antares # Database viewer
       dbeaver-bin # Another database viewer
-      sqlit-tui # ANOTHER database viewer
+      # sqlit-tui # ANOTHER database viewer
 
       # Android
       android-tools # Provides `adb`
 
       # Neovim LSPs and formatters and linters and such
-      astro-language-server
+      # astro-language-server
       bash-language-server
       black # Python formatter
       blade-formatter
@@ -138,8 +137,9 @@
       eslint
       hadolint # Dockerfile linter
       intelephense # PHP, freemium
-      nixfmt # Official formatter, replacing alejandra
+      nixfmt # Official formatter
       nil # Nix language server
+      statix # Nix linter
       vscode-langservers-extracted # HTML, CSS, some others too
 
       ################
@@ -194,7 +194,7 @@
       ffmpeg # Command-line audio & video manipulation
       crosspipe # Pipe audio and connect up inputs and outputs
       playerctl # Interact with MPRIS-compatible programs from the command line
-      obsidian # Markdown editor
+      # obsidian # Markdown editor
       vlc # Video & audio player
       pulseaudio # Audio server
       pamixer # Pulseaudio cli mixer
@@ -215,10 +215,10 @@
       ################
       # Games
       ################
-      godot-mono # Game engine
+      # godot-mono # Game engine
       love # 2D game engine
       olympus # Celeste mod loader
-      lumafly # Hollow Knight mod loader
+      # lumafly # Hollow Knight mod loader
       r2modman # Mod loader for a lot of games
       cubiomes-viewer # Minecraft biome viewer
       (prismlauncher.override {
@@ -230,8 +230,7 @@
       ferium # Minecraft mod manager
       steam-run # Use dynamically linked games
       mangohud # Computer usage overlay. `mangohud %command%` in Steam
-      protonup-ng # ProtonGE. Use `protonup -d "~/.steam/root/compatibilitytools.d/"` to install GE
-      lutris # Steam but for Humble Bundle too
+      # protonup-ng # ProtonGE. Use `protonup -d "~/.steam/root/compatibilitytools.d/"` to install GE
       wine # Window compatibility
       winetricks # Wine helpers
       # inputs.ow-mod-man.packages.x86_64-linux.owmods-gui # Outer Wilds mod loader
@@ -240,13 +239,13 @@
       joycond # Switch Pro controller and joycon support
       # cemu # Wii-U emulator - compilation error 2026-04-14
       joycond-cemuhook # Motion control support
-      archipelago # Randomiser
-      dolphin-emu # Wii / Gamecube emulator
-      ryubing # Switch emulator
-      wl-clicker # autoclicker
-      azahar # 3DS emulator
-      cockatrice # Card game
-      openmw # Morrowind source engine remake
+      # archipelago # Randomiser
+      # dolphin-emu # Wii / Gamecube emulator
+      # ryubing # Switch emulator
+      # wl-clicker # autoclicker
+      # azahar # 3DS emulator
+      # cockatrice # Card game
+      # openmw # Morrowind source engine remake
     ]
     ++ (builtins.map (x: x.package) (builtins.attrValues config.lib.theme.fonts.serif))
     ++ (builtins.map (x: x.package) (builtins.attrValues config.lib.theme.fonts.sansSerif))

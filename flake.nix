@@ -66,6 +66,8 @@
           has_secrets,
           wallpaper,
         }:
+        # Auto-patches any input diff labelled `nixpkgs-patch-...`
+        # for including unmerged nixpkgs packages
         nixpkgs-patcher.lib.nixosSystem {
           specialArgs = {
             inherit
@@ -99,7 +101,6 @@
                 ./home-manager
               ];
 
-              # Optionally, use home-manager.extraSpecialArgs to pass arguments
               home-manager.extraSpecialArgs = {
                 inherit
                   inputs
