@@ -16,7 +16,6 @@ in
 
     # Auto-initialize when plugged in
     SUBSYSTEM=="usb", ATTR{idVendor}=="057e", ATTR{idProduct}=="2069", ACTION=="add", RUN+="${procon2-init}/bin/procon2-init"
-    SUBSYSTEM=="usb", ATTR{idVendor}=="057e", ATTR{idProduct}=="2069", ACTION=="add", RUN+="${pkgs.libnotify}/bin/notify-send 'ProCon 2 Connected'"
   '';
 
   # Ensure users are in the input group for gamepad access

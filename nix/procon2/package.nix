@@ -2,7 +2,12 @@
 # https://github.com/TophC7/mix.nix/blob/ccb310fdbf1547fd35a472eb9ceb21a9d5f890b4/packages/procon2-init/default.nix
 { lib, pkgs, ... }:
 let
-  inherit (pkgs) python3 libusb1 makeWrapper;
+  inherit (pkgs)
+    python3
+    libusb1
+    makeWrapper
+    libnotify
+    ;
 
   pythonEnv = python3.withPackages (
     ps: with ps; [
@@ -23,6 +28,7 @@ python3.pkgs.buildPythonApplication {
   buildInputs = [
     pythonEnv
     libusb1
+    libnotify
   ];
 
   installPhase = ''
