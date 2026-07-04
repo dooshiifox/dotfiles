@@ -13,6 +13,7 @@
     ./games.nix
     ./media.nix
     ./nix-ld.nix
+    ./procon2
     ./system.nix
     ./hypr.nix
     # Include the results of the hardware scan.
