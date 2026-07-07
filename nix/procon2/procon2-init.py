@@ -304,10 +304,13 @@ def main():
 
     try:
         initialize_controller(dev, name)
-        subprocess.Popen('notify-send "ProCon2 Connected"', shell=True)
+        subprocess.Popen('notify-send -a "ProCon2" "ProCon2 Connected"', shell=True)
         return 0
     except Exception as e:
         print(f"\n✗ Error: {e}")
+        subprocess.Popen(
+            'notify-send -a "ProCon2" "Error connecting ProCon2" "{e}"', shell=True
+        )
         import traceback
 
         traceback.print_exc()
