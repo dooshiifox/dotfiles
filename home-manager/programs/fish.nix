@@ -16,25 +16,19 @@
     shellAliases = {
       "," = "clear && printf \"\\e[H\\e[3J\"";
       "cat" = "bat";
+      "catt" = "bat -ppp";
       "celeste" = "ulimit -n 8192 && /home/dooshii/Documents/Games/celeste/Celeste";
-      "jk" = "cd ..";
-      "jkk" = "cd ../..";
-      "jkkk" = "cd ../../..";
-      "jkkkk" = "cd ../../../..";
-      "jkkkkk" = "cd ../../../../..";
       "l" = "exa -la";
       "ll" = "exa -l";
-      "ls" = "exa";
       "mrng" = "${config.lib.theme.source-folder}/scripts/music/rng";
       "ni" = "${config.lib.theme.source-folder}/scripts/nix-rebuild ${profile}";
       "clean-old-gens" = "${config.lib.theme.source-folder}/scripts/clean-old-gens";
       "bcdl" = "${config.lib.theme.source-folder}/scripts/bcdl";
-      "todo" = "nvim /home/dooshii/Documents/obsidian/Todo.md";
-      "o" = "nvim /home/dooshii/Documents/obsidian/";
+      "todo" = "nvim /home/dooshii/Documents/notes/Todo.md";
+      "n" = "nvim /home/dooshii/Documents/notes/";
       "x" = "exit";
       "q" = "exit";
       "e" = "nvim";
-      "code" = "codium";
       "audio" = "GSK_RENDERER=gl pavucontrol";
       "payroll-time" = "/home/dooshii/Documents/CodingProjects/payroll-time/target/release/payroll-time";
 
@@ -42,7 +36,6 @@
       "go" = "git checkout"; # git checkOut
       "gob" = "git checkout -b"; # git checkOut branch
       "gundo" = "git reset HEAD~"; # git undo
-      "gy" = "git commit -m";
       "gd" = "git pull"; # git download
       "gu" = "git push"; # git upload
     };
@@ -50,7 +43,7 @@
     # Causes slow Nix builds when set to true and also breaks git integration
     generateCompletions = false;
 
-    functions = {
+    functions = rec {
       mkcd = "mkdir -p $argv; cd $argv;";
       # Echo whatever you want here
       fish_greeting = ''
@@ -60,11 +53,13 @@
       nixo = "$BROWSER \"https://mynixos.com/search?q=$argv\"";
       # Uses the provided nix packages in a new shell
       use = "nix-shell --command fish -p $argv";
+      gy = "git commit -m \"$argv\"";
       # mrat = "cd ~/Documents/CodingProjects/mpd-rating/ && pnpm dev --host";
       # Search for a file
       rgfile = "find . -iname \"*$argv*\" -print";
       # Rerun the last command
       t = "last_cmd=$(history | head -1) eval $last_cmd";
+      te = t;
       flip.body = ''
         if test $(hyprctl monitors -j | jq '.[] | select(.name=="eDP-1") | .transform') = 0
         	hyprctl keyword monitor eDP-1,2880x1800@120,0x0,2,transform,2
