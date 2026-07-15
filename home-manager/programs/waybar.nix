@@ -256,8 +256,9 @@ in
         "custom/dnd" = {
           exec = "${config.lib.theme.source-folder}/scripts/is-do-not-disturb";
           exec-on-event = true;
-          tooltip = "Do Not Disturb";
           format = "{text}";
+          tooltip = true;
+          tooltip-format = "Do Not Disturb";
           interval = 60;
           on-click = "makoctl mode -t do-not-disturb";
         };
