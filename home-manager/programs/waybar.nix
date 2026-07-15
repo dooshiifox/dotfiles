@@ -38,6 +38,8 @@ let
       "floorp ///// (Floorp)" = window_icon magenta "󰯻" "Floorp";
       "codium ///// (.*) - VSCodium" = window_icon light-blue "󰨞";
       "vesktop ///// (?:.*?Discord.{3})?(.*)" = window_icon dark-blue "";
+      "signal" = window_icon dark-blue "󰍡";
+      "slack" = window_icon green "";
       "${priority 1}Kitty ///// (?:nvim|e|ni) (.*)" = window_icon lime "";
       "${priority 1}Kitty ///// rmpc.*" = window_icon orange "󰎆" "rmpc";
       "${priority 1}Kitty ///// Yazi: (.*)" = window_icon yellow "󰇥";
@@ -254,7 +256,7 @@ in
         "custom/dnd" = {
           exec = "${config.lib.theme.source-folder}/scripts/is-do-not-disturb";
           exec-on-event = true;
-          tooltip = false;
+          tooltip = "Do Not Disturb";
           format = "{text}";
           interval = 60;
           on-click = "makoctl mode -t do-not-disturb";
@@ -266,10 +268,12 @@ in
             deactivated = "󰒲";
           };
           on-click-right = "loginctl lock-session && systemctl suspend";
+          tooltip-format-activated = "Automatic Screen Lock Disabled";
+          tooltip-format-deactivated = "Automatic Screen Lock Enabled";
         };
         clock = {
           format = "<b>{:%H:%M</b>  <small>%a %e %B</small>} ";
-          tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+          tooltip-format = "<tt><small>{calendar}</small></tt>";
           format-alt = "{:%Y-%m-%d}";
         };
       };
