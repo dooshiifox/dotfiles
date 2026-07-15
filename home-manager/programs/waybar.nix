@@ -253,6 +253,8 @@ in
         };
         "custom/dnd" = {
           exec = "${config.lib.theme.source-folder}/scripts/is-do-not-disturb";
+          return-type = "json";
+          tooltip = false;
           format = "{icon}";
           format-icons = {
             on = "󰂠";
