@@ -256,6 +256,7 @@ in
           exec-on-event = true;
           tooltip = false;
           format = "{text}";
+          interval = 1;
           on-click = "makoctl mode -t do-not-disturb";
         };
         idle_inhibitor = {
