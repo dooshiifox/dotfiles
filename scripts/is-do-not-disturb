@@ -2,7 +2,7 @@
 
 modes=$(makoctl mode)
 if [[ $modes == *"do-not-disturb"* ]]; then
-	echo "{\"alt\":\"on\"}"
+	echo "󰂠"
 else
-	echo "{\"alt\":\"off\"}"
+	echo "󰂞"
 fi

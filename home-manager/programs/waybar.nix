@@ -253,13 +253,9 @@ in
         };
         "custom/dnd" = {
           exec = "${config.lib.theme.source-folder}/scripts/is-do-not-disturb";
-          return-type = "json";
+          exec-on-event = true;
           tooltip = false;
-          format = "{icon}";
-          format-icons = {
-            on = "󰂠";
-            off = "󰂞";
-          };
+          format = "{text}";
           on-click = "makoctl mode -t do-not-disturb";
         };
         idle_inhibitor = {
