@@ -49,12 +49,12 @@ local function set(name, dark_args, light_args)
 		end
 	end
 
-	-- if args.fg and not args.ctermfg then
-	-- 	args.ctermfg = color_to_term(args.fg)
-	-- end
-	-- if args.bg and not args.ctermbg then
-	-- 	args.ctermbg = color_to_term(args.bg)
-	-- end
+	if args.fg and not args.ctermfg then
+		args.ctermfg = color_to_term(args.fg)
+	end
+	if args.bg and not args.ctermbg then
+		args.ctermbg = color_to_term(args.bg)
+	end
 
 	vim.api.nvim_set_hl(0, name, args)
 end
