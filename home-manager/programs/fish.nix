@@ -31,6 +31,7 @@
       "e" = "nvim";
       "audio" = "GSK_RENDERER=gl pavucontrol";
       "payroll-time" = "/home/dooshii/Documents/CodingProjects/payroll-time/target/release/payroll-time";
+      "shh" = "makoctl mode -t do-not-disturb";
 
       # Git
       "go" = "git checkout"; # git checkOut

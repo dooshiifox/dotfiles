@@ -100,6 +100,7 @@ in
           "memory"
           "temperature"
           "battery"
+          "custom/dnd"
           "idle_inhibitor"
           "clock"
         ];
@@ -138,13 +139,6 @@ in
           server = "/tmp/mpd_socket";
         };
 
-        # "idle_inhibitor" = {
-        #     "format" = "{icon}";
-        #     "format-icons" = {
-        #         "activated" = "";
-        #         "deactivated" = "";
-        #     };
-        # };
         pulseaudio = {
           format = "{icon}";
           tooltip-format = "{desc} - {volume}%";
@@ -257,6 +251,15 @@ in
             ""
           ];
         };
+        "custom/dnd" = {
+          exec = "${config.lib.theme.source-folder}/scripts/is-do-not-disturb";
+          format = "{icon}";
+          format-icons = {
+            on = "󰂠";
+            off = "󰂞";
+          };
+          on-click = "makoctl mode -t do-not-disturb";
+        };
         idle_inhibitor = {
           format = "{icon}";
           format-icons = {
@@ -304,6 +307,7 @@ window#waybar {
 #tray,
 #mode,
 #idle_inhibitor,
+#custom-dnd,
 #scratchpad,
 #power-profiles-daemon,
 #language,
@@ -329,6 +333,7 @@ window#waybar {
 #tray:hover,
 #mode:hover,
 #idle_inhibitor:hover,
+#custom-dnd:hover,
 #scratchpad:hover,
 #power-profiles-daemon:hover,
 #language:hover,

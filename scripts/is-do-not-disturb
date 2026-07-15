@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+modes=$(makoctl mode)
+if [[ $modes == *"do-not-disturb"* ]]; then
+	echo "{\"alt\":\"on\"}"
+else
+	echo "{\"alt\":\"off\"}"
+fi
