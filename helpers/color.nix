@@ -307,7 +307,7 @@ rec {
     in
     oklchToHex lerped;
 
-  brightness-towards =
+  darken-towards =
     darken-hex: towards-hex: percentage:
     let
       from-oklch = hexToOklch darken-hex;
@@ -322,4 +322,8 @@ rec {
       ];
     in
     oklchToHex lerped;
+
+  brighten-towards =
+    brighten-hex: towards-hex: percentage:
+    color-lerp brighten-hex towards-hex percentage;
 }

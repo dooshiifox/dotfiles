@@ -159,23 +159,26 @@ rec {
     colors =
       let
         light-mode-color-lerp =
-          into:
+          fn: into:
           builtins.mapAttrs (
             name: hex:
             if variant == "light" && !(lib.hasPrefix "bg" name) && !(lib.hasPrefix "fg" name) then
-              (color-lib.brightness-towards hex into 0.4)
+              (fn hex into 0.4)
             else
               hex
           ) active-theme;
       in
       active-theme
-      // {
+      // rec {
         # Required
         system = "base24";
         name = "Custom Theme";
         slug = "custom-theme";
         author = "dooshii";
         inherit variant shades;
+
+        fg-color = light-mode-color-lerp color-lib.darken-towards colors.fg;
+        bg-color = light-mode-color-lerp color-lib.brighten-towards colors.bg;
 
         bg-opacity = hexWithOpacity active-theme.bg opacity.bg;
         bg-raised-opacity = hexWithOpacity active-theme.bg-raised opacity.bg;
@@ -197,25 +200,22 @@ rec {
         base05 = active-theme.fg;
         base06 = active-theme.fg-raised;
         base07 = active-theme.fg-highlight;
-        base08 = active-theme.red;
-        base09 = active-theme.orange;
-        base0A = active-theme.yellow;
-        base0B = active-theme.green;
-        base0C = active-theme.dark-cyan;
-        base0D = active-theme.dark-blue;
-        base0E = active-theme.magenta;
-        base0F = active-theme.brown;
+        base08 = fg-color.red;
+        base09 = fg-color.orange;
+        base0A = fg-color.yellow;
+        base0B = fg-color.green;
+        base0C = fg-color.dark-cyan;
+        base0D = fg-color.dark-blue;
+        base0E = fg-color.magenta;
+        base0F = fg-color.brown;
         base10 = active-theme.bg-inset;
         base11 = active-theme.bg-inset2;
-        base12 = active-theme.pink;
-        base13 = active-theme.cream;
-        base14 = active-theme.lime;
-        base15 = active-theme.cyan;
-        base16 = active-theme.light-blue;
-        base17 = active-theme.light-magenta;
-
-        fg-color = light-mode-color-lerp colors.fg;
-        bg-color = light-mode-color-lerp colors.bg;
+        base12 = fg-color.pink;
+        base13 = fg-color.cream;
+        base14 = fg-color.lime;
+        base15 = fg-color.cyan;
+        base16 = fg-color.light-blue;
+        base17 = fg-color.light-magenta;
       };
 
   };
