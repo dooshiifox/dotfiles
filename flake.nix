@@ -128,5 +128,10 @@
         has_secrets = true;
         wallpaper = /home/dooshii/Pictures/${"Jacatos Full Resolution Downloads"}/2022/April-Aug/kogrrr.png;
       };
+
+      test = (import ./helpers/color.nix) {
+        inherit inputs;
+        lib = inputs.nixpkgs.lib;
+      };
     };
 }

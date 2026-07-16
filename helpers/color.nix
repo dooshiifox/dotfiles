@@ -2,6 +2,8 @@ inputs@{ lib, ... }:
 rec {
   math = (import ./math.nix) inputs;
 
+  log = v: builtins.trace (builtins.toJSON v);
+
   decToHexMap = [
     "0"
     "1"
@@ -119,7 +121,7 @@ rec {
     "${builtins.elemAt decToHexMap (num / 16)}${builtins.elemAt decToHexMap (num - (num / 16) * 16)}";
   hexWithOpacity = hex: opacity: "${hex}${to2Hex (builtins.ceil (opacity * 255))}";
 
-  rgbToHex = rgb: lib.strings.concatStrings (builtins.map to2Hex rgb);
+  rgbToHex = rgb: "#${lib.strings.concatStrings (builtins.map to2Hex rgb)}";
 
   /**
     convert sRGB to linear RGB
@@ -180,7 +182,7 @@ rec {
     n:
     let
       abs = math.abs n;
-      linear = if abs <= 0.04045 then abs / 12.92 else ((abs + 0.055) / 1.055);
+      linear = if abs <= 0.04045 then abs / 12.92 else math.powf ((abs + 0.055) / 1.055) 24 10;
     in
     if n < 0 then -linear else linear;
   srgbFromLinear =
@@ -199,9 +201,9 @@ rec {
     hex:
     let
       rgb = hexToRgb3 hex;
-      lsrgb = builtins.map (x: srgbToLinear (x / 255)) rgb;
+      lsrgb = builtins.map (x: srgbToLinear (x / 255.0)) rgb;
     in
-    lsrgbToOklab lsrgb;
+    (lsrgbToOklab lsrgb);
   lsrgbToOklab =
     lsrgb:
     let
@@ -265,8 +267,8 @@ rec {
     in
     [
       l
-      (c * math.cos ((h * math.pi) / 180))
-      (c * math.sin ((h * math.pi) / 180))
+      (c * math.cos ((h * math.pi) / 180.))
+      (c * math.sin ((h * math.pi) / 180.))
     ];
 
   hexToOklch =
@@ -277,13 +279,15 @@ rec {
       a = builtins.elemAt oklab 1;
       b = builtins.elemAt oklab 2;
       c = math.sqrt (a * a + b * b);
-      h = (math.atan2 b a) * 180 / math.pi;
+      h = (math.atan2 b a) * 180. / math.pi;
     in
-    [
-      l
-      c
-      (if c < 0.000004 then 0 else normalizeHue h)
-    ];
+    log
+      [ l a b c h ]
+      [
+        l
+        c
+        (if c < 0.000004 then 0 else normalizeHue h)
+      ];
   oklchToHex = oklch: oklabToHex (oklchToOklab oklch);
 
   color-lerp =
@@ -291,11 +295,19 @@ rec {
     let
       from-oklch = hexToOklch from-hex;
       to-oklch = hexToOklch to-hex;
-      lerped = [
-        (math.lerp (builtins.elemAt from-oklch 0) (builtins.elemAt to-oklch 0) percentage)
-        (math.lerp (builtins.elemAt from-oklch 1) (builtins.elemAt to-oklch 1) percentage)
-        (math.lerp (builtins.elemAt from-oklch 2) (builtins.elemAt to-oklch 2) percentage)
-      ];
+      lerped =
+        let
+          from-hue = builtins.elemAt from-oklch 2;
+          to-hue = builtins.elemAt to-oklch 2;
+          to-hue-alt = if to-hue > 180 then to-hue - 360 else to-hue + 360;
+          to-hue-correct =
+            if math.abs (from-hue - to-hue) < math.abs (from-hue - to-hue-alt) then to-hue else to-hue-alt;
+        in
+        log { inherit from-hue to-hue-correct; } [
+          (math.lerp (builtins.elemAt from-oklch 0) (builtins.elemAt to-oklch 0) percentage)
+          (math.lerp (builtins.elemAt from-oklch 1) (builtins.elemAt to-oklch 1) percentage)
+          (math.lerp from-hue to-hue-correct percentage)
+        ];
     in
     oklchToHex lerped;
 }

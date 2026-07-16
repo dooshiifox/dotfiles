@@ -67,7 +67,13 @@ math
 
   mod =
     mod: base:
-    if base >= 0 && base < mod then base else lib.trivial.mod ((lib.trivial.mod base mod) + mod) mod;
+    if base >= 0 && base < mod then
+      base
+    else
+      let
+        mul = lib.floor (base / mod);
+      in
+      base - (mul * mod);
 
   atan2 =
     y: x:
