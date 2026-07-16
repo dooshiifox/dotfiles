@@ -1,6 +1,9 @@
 # https://github.com/nix-community/home-manager/blob/master/modules/programs/waybar.nix
 { config, lib, ... }:
 let
+  colors = config.lib.theme.colors;
+  inherit (colors) fg-color;
+
   window_icon =
     color: icon: title:
     "<span color='${color}'>${icon}</span>   <b>${title}</b>";
@@ -23,9 +26,9 @@ let
   */
   priority = index: "(?!${builtins.toString index})";
   window_icons =
-    with config.lib.theme.colors;
     # https://www.nerdfonts.com/cheat-sheet
     # sleep 1 && hyprctl activewindow -j | jq '.initialClass + " ///// " + .initialTitle'
+    with fg-color;
     window_icons_map {
       "firefox-devedition ///// (.*) — (Mozilla Firefox|Firefox Developer Edition)" =
         window_icon pink "";
@@ -124,7 +127,7 @@ in
           tooltip = false;
           max-length = 50;
           rewrite = window_icons;
-          separate-outputs = true;
+          "separate-outputs" = true;
         };
 
         mpd = {
@@ -186,7 +189,7 @@ in
             ""
             ""
             ""
-            "<span color='${config.lib.theme.colors.yellow}'></span>"
+            "<span color='${fg-color.yellow}'></span>"
             "<span color='${config.lib.theme.colors.orange}'></span>"
             "<span color='${config.lib.theme.colors.pink}'></span>"
           ];

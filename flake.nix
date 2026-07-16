@@ -43,6 +43,8 @@
     plover-flake.url = "github:openstenoproject/plover-flake";
     copyparty.url = "github:9001/copyparty";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+
+    nix-math.url = "github:xddxdd/nix-math";
   };
 
   outputs =
