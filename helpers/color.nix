@@ -2,8 +2,6 @@ inputs@{ lib, ... }:
 rec {
   math = (import ./math.nix) inputs;
 
-  log = v: builtins.trace (builtins.toJSON v);
-
   decToHexMap = [
     "0"
     "1"
@@ -281,13 +279,11 @@ rec {
       c = math.sqrt (a * a + b * b);
       h = (math.atan2 b a) * 180. / math.pi;
     in
-    log
-      [ l a b c h ]
-      [
-        l
-        c
-        (if c < 0.000004 then 0 else normalizeHue h)
-      ];
+    [
+      l
+      c
+      (if c < 0.000004 then 0 else normalizeHue h)
+    ];
   oklchToHex = oklch: oklabToHex (oklchToOklab oklch);
 
   color-lerp =
@@ -303,11 +299,27 @@ rec {
           to-hue-correct =
             if math.abs (from-hue - to-hue) < math.abs (from-hue - to-hue-alt) then to-hue else to-hue-alt;
         in
-        log { inherit from-hue to-hue-correct; } [
+        [
           (math.lerp (builtins.elemAt from-oklch 0) (builtins.elemAt to-oklch 0) percentage)
           (math.lerp (builtins.elemAt from-oklch 1) (builtins.elemAt to-oklch 1) percentage)
           (math.lerp from-hue to-hue-correct percentage)
         ];
+    in
+    oklchToHex lerped;
+
+  brightness-towards =
+    darken-hex: towards-hex: percentage:
+    let
+      from-oklch = hexToOklch darken-hex;
+      to-oklch = hexToOklch towards-hex;
+      lerped = [
+        # lerp the lightness from one to the other,
+        # lerp the chroma from the current value to 1,
+        # keep the current hue
+        (math.lerp (builtins.elemAt from-oklch 0) (builtins.elemAt to-oklch 0) percentage)
+        (math.lerp (builtins.elemAt from-oklch 1) 1 percentage)
+        (builtins.elemAt from-oklch 2)
+      ];
     in
     oklchToHex lerped;
 }

@@ -163,7 +163,7 @@ rec {
           builtins.mapAttrs (
             name: hex:
             if variant == "light" && !(lib.hasPrefix "bg" name) && !(lib.hasPrefix "fg" name) then
-              (color-lib.color-lerp hex into 0.5)
+              (color-lib.brightness-towards hex into 0.5)
             else
               hex
           ) active-theme;
