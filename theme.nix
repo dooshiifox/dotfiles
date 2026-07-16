@@ -74,8 +74,8 @@ rec {
 
     on-color = bg: color-lib.highestContrast colors.bg colors.fg bg;
 
-    # mode = "dark";
-    variant = "dark";
+    variant = "light";
+    # variant = "dark";
 
     light = rec {
       bg = shades.grey."200";

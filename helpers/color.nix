@@ -205,9 +205,9 @@ rec {
   lsrgbToOklab =
     lsrgb:
     let
-      r = builtins.elemAt 0 lsrgb;
-      g = builtins.elemAt 1 lsrgb;
-      b = builtins.elemAt 2 lsrgb;
+      r = builtins.elemAt lsrgb 0;
+      g = builtins.elemAt lsrgb 1;
+      b = builtins.elemAt lsrgb 2;
       lv = math.cbrt (0.4122214708 * r + 0.5363325363 * g + 0.0514459929 * b);
       mv = math.cbrt (0.2119034982 * r + 0.6806995451 * g + 0.1073969566 * b);
       sv = math.cbrt (0.0883024619 * r + 0.2817188376 * g + 0.6299787005 * b);
@@ -220,14 +220,14 @@ rec {
   oklabToRgb =
     oklab:
     let
-      l = builtins.elemAt 0 oklab;
-      a = builtins.elemAt 1 oklab;
-      b = builtins.elemAt 2 oklab;
+      l = builtins.elemAt oklab 0;
+      a = builtins.elemAt oklab 1;
+      b = builtins.elemAt oklab 2;
     in
     if a == 0 && b == 0 then
       let
         v = math.powi l 3;
-        srgb = srgbFromLinear (math.clamp (v 0 1)) * 255;
+        srgb = lib.floor (srgbFromLinear (math.clamp v 0 1) * 255);
         clamped = math.clamp srgb 0 255;
       in
       [
@@ -248,9 +248,9 @@ rec {
         bv = -0.0041960865 * lv - 0.7034186145 * mv + 1.7076147009 * sv;
       in
       [
-        (math.clamp (srgbFromLinear (math.clamp (r 0 1)) * 255) 0 255)
-        (math.clamp (srgbFromLinear (math.clamp (g 0 1)) * 255) 0 255)
-        (math.clamp (srgbFromLinear (math.clamp (bv 0 1)) * 255) 0 255)
+        (math.clamp (lib.floor (srgbFromLinear (math.clamp r 0 1) * 255)) 0 255)
+        (math.clamp (lib.floor (srgbFromLinear (math.clamp g 0 1) * 255)) 0 255)
+        (math.clamp (lib.floor (srgbFromLinear (math.clamp bv 0 1) * 255)) 0 255)
       ];
   oklabToHex = oklab: rgbToHex (oklabToRgb oklab);
 
@@ -259,9 +259,9 @@ rec {
   oklchToOklab =
     oklch:
     let
-      l = builtins.elemAt 0 oklch;
-      c = builtins.elemAt 1 oklch;
-      h = builtins.elemAt 2 oklch;
+      l = builtins.elemAt oklch 0;
+      c = builtins.elemAt oklch 1;
+      h = builtins.elemAt oklch 2;
     in
     [
       l
@@ -273,9 +273,9 @@ rec {
     hex:
     let
       oklab = hexToOklab hex;
-      l = builtins.elemAt 0 oklab;
-      a = builtins.elemAt 1 oklab;
-      b = builtins.elemAt 2 oklab;
+      l = builtins.elemAt oklab 0;
+      a = builtins.elemAt oklab 1;
+      b = builtins.elemAt oklab 2;
       c = math.sqrt (a * a + b * b);
       h = (math.atan2 b a) * 180 / math.pi;
     in
@@ -292,9 +292,9 @@ rec {
       from-oklch = hexToOklch from-hex;
       to-oklch = hexToOklch to-hex;
       lerped = [
-        (math.lerp (builtins.elemAt 0 from-oklch) (builtins.elemAt 0 to-oklch) percentage)
-        (math.lerp (builtins.elemAt 1 from-oklch) (builtins.elemAt 1 to-oklch) percentage)
-        (math.lerp (builtins.elemAt 2 from-oklch) (builtins.elemAt 2 to-oklch) percentage)
+        (math.lerp (builtins.elemAt from-oklch 0) (builtins.elemAt to-oklch 0) percentage)
+        (math.lerp (builtins.elemAt from-oklch 1) (builtins.elemAt to-oklch 1) percentage)
+        (math.lerp (builtins.elemAt from-oklch 2) (builtins.elemAt to-oklch 2) percentage)
       ];
     in
     oklchToHex lerped;
