@@ -317,7 +317,7 @@ rec {
         # lerp the chroma from the current value to 1,
         # keep the current hue
         (math.lerp (builtins.elemAt from-oklch 0) (builtins.elemAt to-oklch 0) percentage)
-        ((builtins.elemAt from-oklch 1) + (0.1 * percentage))
+        ((builtins.elemAt from-oklch 1) + (0.15 * percentage))
         (builtins.elemAt from-oklch 2)
       ];
     in
