@@ -138,6 +138,8 @@ let
     "${builtins.elemAt decToHexMap (num / 16)}${builtins.elemAt decToHexMap (num - (num / 16) * 16)}";
   hexWithOpacity = hex: opacity: "${hex}${to2Hex (builtins.ceil (opacity * 255))}";
 
+  rgbToHex = rgb: lib.strings.concatStrings (builtins.map to2Hex rgb);
+
   /**
     Type abs :: Float -> Float
   */
@@ -212,6 +214,24 @@ let
       bgvec = hexToRgb3 background;
     in
     if abs (contrastApca bgvec text1vec) < abs (contrastApca bgvec text2vec) then text2 else text1;
+
+  cbrt = num: powf num 1 3;
+
+  srbgToLinear =
+    n:
+    let
+      abs = lib.abs n;
+      linear = if abs <= 0.04045 then abs / 12.92 else ((abs + 0.055) / 1.055);
+    in
+    if n < 0 then -linear else linear;
+  hexToOklab = 1;
+
+  lerp =
+    a: b: t:
+    a * (1 - t) + (b * t);
+  color-lerp =
+    from-hex: to-hex: percentage:
+    from-hex;
 in
 rec {
   imports = [ inputs.base16.nixosModule ];
@@ -268,47 +288,14 @@ rec {
     };
 
     source-folder = "/home/dooshii/nixos";
-    wallpaper = root.wallpaper;
+    inherit (root) wallpaper;
 
     on-color = bg: highestContrast colors.bg colors.fg bg;
 
-    colors = rec {
-      # Required
-      system = "base24";
-      name = "Custom Theme";
-      slug = "custom-theme";
-      author = "dooshii";
+    # mode = "dark";
+    variant = "dark";
 
-      shades = {
-        grey = {
-          "50" = "#ffffff";
-          "100" = "#edf4f7";
-          "200" = "#ced9dd";
-          "300" = "#b0c6ce";
-          "400" = "#95a7be";
-          "600" = "#545b65";
-          "800" = "#373b41";
-          "900" = "#1f2024";
-          "950" = "#07070a";
-        };
-      };
-
-      # variant = "dark";
-      # bg = shades.grey."950";
-      # bg-raised = shades.grey."900";
-      # bg-highlight = shades.grey."800";
-      # bg-inset = "#000000";
-      # bg-inset2 = "#000000";
-      # grey = shades.grey."400";
-      # fg-secondary = shades.grey."300";
-      # fg = shades.grey."200";
-      # fg-raised = shades.grey."100";
-      # fg-highlight = shades.grey."50";
-      # border = bg-highlight;
-      # border-active = grey;
-      # accent = light-blue;
-
-      variant = "light";
+    light = rec {
       bg = shades.grey."200";
       bg-raised = shades.grey."100";
       bg-highlight = shades.grey."50";
@@ -338,43 +325,99 @@ rec {
       # TODO:
       magenta = "#C6A0F6";
       light-magenta = "#F5BDE6";
+    };
+    dark = rec {
+      bg = shades.grey."950";
+      bg-raised = shades.grey."900";
+      bg-highlight = shades.grey."800";
+      bg-inset = "#000000";
+      bg-inset2 = "#000000";
+      grey = shades.grey."400";
+      fg-secondary = shades.grey."300";
+      fg = shades.grey."200";
+      fg-raised = shades.grey."100";
+      fg-highlight = shades.grey."50";
+      border = bg-highlight;
+      border-active = grey;
+      accent = light-blue;
 
-      bg-opacity = hexWithOpacity bg opacity.bg;
-      bg-raised-opacity = hexWithOpacity bg-raised opacity.bg;
-      bg-highlight-opacity = hexWithOpacity bg-highlight opacity.bg;
-      bg-inset-opacity = hexWithOpacity bg-inset opacity.bg;
-      bg-inset2-opacity = hexWithOpacity bg-inset2 opacity.bg;
-      border-opacity = hexWithOpacity border opacity.border;
-      border-active-opacity = hexWithOpacity border-active opacity.border;
-      accent-fg = on-color light-blue;
+      brown = "#ab4b25";
+      red = "#f36b88";
+      pink = "#EBA0AC";
+      orange = "#FAB387";
+      yellow = "#f5dd8b";
+      cream = "#fce9ce";
+      green = "#7fb86d";
+      lime = "#A6E3A1";
+      dark-cyan = "#66c4b7";
+      cyan = "#91d7e3";
+      dark-blue = "#8c9de7";
+      light-blue = "#abc4fd";
+      # TODO:
+      magenta = "#C6A0F6";
+      light-magenta = "#F5BDE6";
+    };
+
+    shades = {
+      grey = {
+        "50" = "#ffffff";
+        "100" = "#edf4f7";
+        "200" = "#ced9dd";
+        "300" = "#b0c6ce";
+        "400" = "#95a7be";
+        "600" = "#545b65";
+        "800" = "#373b41";
+        "900" = "#1f2024";
+        "950" = "#07070a";
+      };
+    };
+
+    active-theme = if variant == "light" then light else dark;
+
+    colors = active-theme // {
+      # Required
+      system = "base24";
+      name = "Custom Theme";
+      slug = "custom-theme";
+      author = "dooshii";
+      inherit variant shades;
+
+      bg-opacity = hexWithOpacity active-theme.bg opacity.bg;
+      bg-raised-opacity = hexWithOpacity active-theme.bg-raised opacity.bg;
+      bg-highlight-opacity = hexWithOpacity active-theme.bg-highlight opacity.bg;
+      bg-inset-opacity = hexWithOpacity active-theme.bg-inset opacity.bg;
+      bg-inset2-opacity = hexWithOpacity active-theme.bg-inset2 opacity.bg;
+      border-opacity = hexWithOpacity active-theme.border opacity.border;
+      border-active-opacity = hexWithOpacity active-theme.border-active opacity.border;
+      accent-fg = on-color active-theme.light-blue;
 
       # Alias
-      gray = grey;
+      gray = active-theme.grey;
 
-      base00 = bg;
-      base01 = bg-raised;
-      base02 = bg-highlight;
-      base03 = grey;
-      base04 = fg-secondary;
-      base05 = fg;
-      base06 = fg-raised;
-      base07 = fg-highlight;
-      base08 = red;
-      base09 = orange;
-      base0A = yellow;
-      base0B = green;
-      base0C = dark-cyan;
-      base0D = dark-blue;
-      base0E = magenta;
-      base0F = brown;
-      base10 = bg-inset;
-      base11 = bg-inset2;
-      base12 = pink;
-      base13 = cream;
-      base14 = lime;
-      base15 = cyan;
-      base16 = light-blue;
-      base17 = light-magenta;
+      base00 = active-theme.bg;
+      base01 = active-theme.bg-raised;
+      base02 = active-theme.bg-highlight;
+      base03 = active-theme.grey;
+      base04 = active-theme.fg-secondary;
+      base05 = active-theme.fg;
+      base06 = active-theme.fg-raised;
+      base07 = active-theme.fg-highlight;
+      base08 = active-theme.red;
+      base09 = active-theme.orange;
+      base0A = active-theme.yellow;
+      base0B = active-theme.green;
+      base0C = active-theme.dark-cyan;
+      base0D = active-theme.dark-blue;
+      base0E = active-theme.magenta;
+      base0F = active-theme.brown;
+      base10 = active-theme.bg-inset;
+      base11 = active-theme.bg-inset2;
+      base12 = active-theme.pink;
+      base13 = active-theme.cream;
+      base14 = active-theme.lime;
+      base15 = active-theme.cyan;
+      base16 = active-theme.light-blue;
+      base17 = active-theme.light-magenta;
     };
 
     inherit hexWithOpacity;
