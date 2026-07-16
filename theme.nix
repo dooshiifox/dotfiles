@@ -6,11 +6,15 @@ root@{
 }:
 let
   color-lib = (import ./helpers/color.nix) root;
+  # variant = "light";
+  variant = "dark";
 in
 rec {
   imports = [ inputs.base16.nixosModule ];
 
   config.lib.theme = rec {
+    inherit variant;
+
     inherit (color-lib)
       hexWithOpacity
       hexToRgbaString
@@ -73,9 +77,6 @@ rec {
     inherit (root) wallpaper;
 
     on-color = bg: color-lib.highestContrast colors.bg colors.fg bg;
-
-    variant = "light";
-    # variant = "dark";
 
     light = rec {
       bg = shades.grey."200";
