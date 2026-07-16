@@ -187,7 +187,7 @@ rec {
         bg-inset2-opacity = hexWithOpacity active-theme.bg-inset2 opacity.bg;
         border-opacity = hexWithOpacity active-theme.border opacity.border;
         border-active-opacity = hexWithOpacity active-theme.border-active opacity.border;
-        accent-fg = on-color active-theme.light-blue;
+        accent-fg = on-color fg-color.accent;
 
         # Alias
         gray = active-theme.grey;
