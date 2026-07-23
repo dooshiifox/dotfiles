@@ -230,12 +230,18 @@ return {
 				},
 			},
 			sources = {
-				default = { "lsp", "buffer", "snippets", "path", "blade-nav" },
-				providers = {
-					["blade-nav"] = {
-						module = "blade-nav.blink",
-					},
+				default = {
+					"lsp",
+					"buffer",
+					"snippets",
+					"path",
+					-- "blade-nav"
 				},
+				-- providers = {
+				-- 	["blade-nav"] = {
+				-- 		module = "blade-nav.blink",
+				-- 	},
+				-- },
 			},
 		},
 	},
@@ -547,6 +553,7 @@ return {
 	},
 	{
 		"ricardoramirezr/blade-nav.nvim",
+		enabled = false,
 		dependencies = {
 			"saghen/blink.cmp",
 		},

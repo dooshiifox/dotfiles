@@ -36,7 +36,7 @@
         friendsSince.enable = true;
         imageZoom.enable = true;
         memberCount.enable = true;
-        messageLogger.enable = true;
+        # messageLogger.enable = true;
         # mutualGroupDMs.enable = true;
         noDevtoolsWarning.enable = true;
         noF1.enable = true;
