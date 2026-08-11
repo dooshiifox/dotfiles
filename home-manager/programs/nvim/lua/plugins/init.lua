@@ -563,4 +563,10 @@ return {
 		"mizlan/iswap.nvim",
 		event = "VeryLazy",
 	},
+	{
+		"DamianVCechov/hexview.nvim",
+		config = function()
+			require("hexview").setup()
+		end,
+	},
 }

@@ -75,14 +75,18 @@
       bindel = [
         ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
         ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+
+        # TODO: currently broken
+        # hyprctl dispatch execr "brightnessctl s 10 2> /home/dooshii/hello"
+        # has "Failed to set brightness: Invalid request descriptor"
+        ", XF86MonBrightnessUp, exec, brightnessctl s 5%+"
+        ", XF86MonBrightnessDown, exec, brightnessctl s 5%-"
       ];
       bindl = [
         ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ", XF86AudioPlay, exec, rmpc togglepause" # mpc does not work here?????
         ", XF86AudioPrev, exec, rmpc prev"
         ", XF86AudioNext, exec, rmpc next"
-        ", XF86MonBrightnessUp, exec, brightnessctl s 5%+"
-        ", XF86MonBrightnessDown, exec, brightnessctl s 5%-"
       ];
       bindm = [
         "$mod,mouse:272,movewindow"

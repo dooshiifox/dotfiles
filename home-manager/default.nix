@@ -251,6 +251,13 @@
         # azahar # 3DS emulator
         # cockatrice # Card game
         # openmw # Morrowind source engine remake
+        (vintagestory.overrideAttrs (prev: rec {
+          version = "1.22.6";
+          src = pkgs.fetchurl {
+            url = "https://cdn.vintagestory.at/gamefiles/stable/vs_client_linux-x64_${version}.tar.gz";
+            hash = "sha256-xJPyaYklEq2BeUX9+7hNPI6WC6ibcQDS+sKeqKYSh3A=";
+          };
+        }))
       ]
       ++ (builtins.map (x: x.package) (builtins.attrValues config.lib.theme.fonts.serif))
       ++ (builtins.map (x: x.package) (builtins.attrValues config.lib.theme.fonts.sansSerif))
