@@ -11,6 +11,7 @@
     ./copyparty.nix
     ./docker.nix
     ./games.nix
+    ./hamachi.nix
     ./media.nix
     ./nix-ld.nix
     ./procon2
