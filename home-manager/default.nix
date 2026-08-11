@@ -258,6 +258,7 @@
             hash = "sha256-xJPyaYklEq2BeUX9+7hNPI6WC6ibcQDS+sKeqKYSh3A=";
           };
         }))
+        logmein-hamachi
       ]
       ++ (builtins.map (x: x.package) (builtins.attrValues config.lib.theme.fonts.serif))
       ++ (builtins.map (x: x.package) (builtins.attrValues config.lib.theme.fonts.sansSerif))
