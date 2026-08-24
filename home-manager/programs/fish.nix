@@ -33,6 +33,10 @@
       "payroll-time" = "/home/dooshii/Documents/CodingProjects/payroll-time/target/release/payroll-time";
       "shh" = "makoctl mode -t do-not-disturb";
 
+      # Theres a monitor above the internal laptop monitor.
+      "monitorabove" =
+        "hyprctl keyword monitor HDMI-A-1,1920x1080@60,0x0,1 && hyprctl keyword monitor eDP-1,2880x1800@120,0x1080,2 && systemctl --user restart waybar";
+
       # Git
       "go" = "git checkout"; # git checkOut
       "gob" = "git checkout -b"; # git checkOut branch
