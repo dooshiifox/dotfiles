@@ -1,6 +1,7 @@
 let
   mpv = "mpv.desktop";
   yazi = "yazi.desktop";
+  nvim = "nvim.desktop";
   browser = "librewolf.desktop";
 in
 {
@@ -15,6 +16,8 @@ in
     defaultApplications = {
       "video/quicktime" = mpv;
       "video/mp4" = mpv;
+
+      "text/markdown" = nvim;
 
       "image/png" = browser;
       "image/jpeg" = browser;
