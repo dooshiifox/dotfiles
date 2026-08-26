@@ -400,6 +400,7 @@ return {
 				php = { "pint", "php_cs_fixer" },
 				php_only = { "pint", "php_cs_fixer" },
 				blade = { "pint", "blade-formatter" },
+				javascript = { "eslint_d", "prettierd", "prettier", stop_after_first = true },
 			},
 		},
 	},

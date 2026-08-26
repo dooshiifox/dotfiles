@@ -141,6 +141,7 @@
         dockerfile-language-server
         docker-compose-language-service
         eslint
+        eslint_d
         hadolint # Dockerfile linter
         intelephense # PHP, freemium
         nixfmt # Official formatter
