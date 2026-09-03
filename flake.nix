@@ -45,8 +45,6 @@
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     nix-math.url = "github:xddxdd/nix-math";
-
-    septabee.url = "github:Ap6661/septabee-flake";
   };
 
   outputs =
@@ -88,7 +86,6 @@
             ./theme.nix
             ./nix
             inputs.copyparty.nixosModules.default
-            inputs.septabee.nixosModules.x86_64-linux.default
 
             # make home-manager as a module of nixos so that
             # home-manager configuration will be deployed automatically

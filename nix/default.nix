@@ -15,6 +15,7 @@
     ./media.nix
     ./nix-ld.nix
     ./procon2
+    ./septabee
     ./system.nix
     ./hypr.nix
     # Include the results of the hardware scan.
@@ -97,8 +98,6 @@
 
     # important library stuff
     libusb1
-
-    inputs.septabee.packages.x86_64-linux.default
   ];
 
   # This value determines the NixOS release from which the default
