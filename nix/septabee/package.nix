@@ -42,9 +42,8 @@ pkgs.stdenv.mkDerivation {
   installPhase = ''
     runHook preInstall
 
-    mkdir -p "$out/bin" "$out/lib/septabee"
-    cp -r ./linux/* "$out/lib/septabee"
-    ln -s "$out/lib/septabee/septabee" "$out/bin/septabee"
+    mkdir -p "$out/bin" 
+    cp -r ./linux/* "$out/bin/"
 
     runHook postInstall
   '';
