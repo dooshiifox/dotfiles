@@ -14,7 +14,7 @@ in
     group = "root";
     permissions = "u-rwx,g=rx,o=rx";
     capabilities = "cap_sys_nice+ep";
-    source = "${septabee-pkg}/bin/septabee";
+    source = "${septabee-pkg}/lib/septabee/septabee";
   };
 
   security.wrappers.septabee-sounds = {
@@ -22,6 +22,6 @@ in
     group = "root";
     permissions = "u-rwx,g=rx,o=rx";
     capabilities = "cap_sys_nice+ep";
-    source = "${septabee-pkg}/bin/septabee-sounds";
+    source = "${septabee-pkg}/lib/septabee/septabee-sounds";
   };
 }

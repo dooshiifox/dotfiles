@@ -14,11 +14,10 @@ let
     wayland
     libxkbcommon
   ];
-  version = "yeet-44";
 in
 pkgs.stdenv.mkDerivation {
-  name = "septabee-${version}";
-  inherit version;
+  pname = "septabee";
+  version = "yeet-44";
   src = pkgs.fetchurl {
     url = "https://septabee.nekoweb.org/important_stuff/SEPTABEE_DOWNLOADS/version_B/septabee_linux_B_T2.7z";
     sha256 = "sha256-OMnbRBTku8yi4b3Ay7d70EbB/e2Qh+PfzK2O8qRFoaA=";
@@ -38,10 +37,15 @@ pkgs.stdenv.mkDerivation {
     runHook postUnpack
   '';
 
+  dontBuild = true;
+
   installPhase = ''
     runHook preInstall
-    mkdir -p "$out/bin" 
-    cp -r ./linux/* "$out/bin/"
+
+    mkdir -p "$out/bin" "$out/lib/septabee"
+    cp -r ./linux/* "$out/lib/septabee"
+    ln -s "$out/lib/septabee/septabee" "$out/bin/septabee"
+
     runHook postInstall
   '';
 
@@ -57,10 +61,5 @@ pkgs.stdenv.mkDerivation {
       "
   '';
 
-  meta = with lib; {
-    description = "weird DAW";
-    license = licenses.mit;
-    platforms = platforms.linux;
-    maintainers = [ ];
-  };
+  meta.mainProgram = "septabee";
 }
