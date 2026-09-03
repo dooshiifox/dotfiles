@@ -97,6 +97,8 @@
 
     # important library stuff
     libusb1
+
+    inputs.septabee.packages.x86_64-linux.default
   ];
 
   # This value determines the NixOS release from which the default

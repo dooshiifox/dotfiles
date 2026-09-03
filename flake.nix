@@ -45,6 +45,8 @@
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     nix-math.url = "github:xddxdd/nix-math";
+
+    septabee.url = "github:Ap6661/septabee-flake";
   };
 
   outputs =
@@ -86,32 +88,35 @@
             ./theme.nix
             ./nix
             inputs.copyparty.nixosModules.default
+            inputs.septabee.nixosModules.x86_64-linux.default
 
             # make home-manager as a module of nixos so that
             # home-manager configuration will be deployed automatically
             # when executing `nixos-rebuild switch`
             home-manager.nixosModules.home-manager
             {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "hmbackup";
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                backupFileExtension = "hmbackup";
 
-              home-manager.users.dooshii.imports = [
-                inputs.plover-flake.homeManagerModules.plover
-                inputs.nixcord.homeModules.nixcord
-                ./theme.nix
-                ./home-manager
-              ];
+                users.dooshii.imports = [
+                  inputs.plover-flake.homeManagerModules.plover
+                  inputs.nixcord.homeModules.nixcord
+                  ./theme.nix
+                  ./home-manager
+                ];
 
-              home-manager.extraSpecialArgs = {
-                inherit
-                  inputs
-                  profile
-                  has_secrets
-                  wallpaper
-                  ;
-                for_profile = for_profile profile;
-                if_secrets = optionals has_secrets;
+                extraSpecialArgs = {
+                  inherit
+                    inputs
+                    profile
+                    has_secrets
+                    wallpaper
+                    ;
+                  for_profile = for_profile profile;
+                  if_secrets = optionals has_secrets;
+                };
               };
             }
           ];

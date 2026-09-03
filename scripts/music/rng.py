@@ -370,6 +370,7 @@ class BiasedRandomRating:
         if previous_song.rating is None:
             self.client.previous()
             self.client.pause()
+            self.last_playing_song = current_song
             return
 
         self.last_playing_song = current_song
@@ -613,8 +614,7 @@ class InfoPrinter:
         """
         Prints the available commands and their descriptions.
         """
-        print(
-            """
+        print("""
     h: Print this help
     c: Print info
     r: Sets the rating/bias of the currently playing song
@@ -628,8 +628,7 @@ class InfoPrinter:
         averagealbum: Print the average rating of songs in an album
         averageall: Print the average rating of all songs in all albums
         songsalbum: Print all ratings of songs in an album
-    """
-        )
+    """)
 
     def print_inputable(self):
         """Miscelannouskjdna commands"""
