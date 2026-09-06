@@ -7,18 +7,6 @@ let
     freetype
     pipewire
     libx11
-    libGL
-    libdecor
-
-    libxcb
-    libxau
-    libxcursor
-    libxinerama
-    libxrandr
-    libxi
-    libxrender
-    libxext
-
     stdenv.cc.cc.lib
     lilv
     zstd
@@ -29,10 +17,10 @@ let
 in
 pkgs.stdenv.mkDerivation {
   pname = "septabee";
-  version = "yeet-44";
+  version = "B_T4";
   src = pkgs.fetchurl {
-    url = "https://septabee.nekoweb.org/important_stuff/SEPTABEE_DOWNLOADS/version_B/septabee_linux_B_T3.7z";
-    sha256 = "sha256-vdXJ4Qusvi/ehztmp2iibiFZLJvbU7+mRnR7KSmxrFA=";
+    url = "https://septabee.nekoweb.org/important_stuff/SEPTABEE_DOWNLOADS/version_B/septabee_linux_B_T4.7z";
+    sha256 = "sha256-Uuu3g11TCczOSDx15AqEJTosPkPjBNaWjBAPFf8uNw8=";
   };
 
   nativeBuildInputs = with pkgs; [
