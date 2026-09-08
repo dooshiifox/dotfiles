@@ -1,10 +1,52 @@
+local config = require("hyprextra")
+
+hl.config({
+	input = {
+		kb_layout = "us",
+		follow_mouse = 1,
+		force_no_accel = true,
+		natural_scroll = false,
+		touchpad = {
+			natural_scroll = true,
+		},
+	},
+	general = {
+		gaps_in = 4,
+		gaps_out = 8,
+		border_size = 2,
+		col = {
+			active_border = config.border_active_opacity,
+			inactive_border = config.border_inactive_opacity,
+		},
+		layout = "dwindle",
+	},
+	decoration = {
+		rounding = config.radius,
+		active_opacity = 1,
+		inactive_opacity = config.inactive_opacity,
+		fullscreen_opacity = 1,
+		shadow = {
+			enabled = true,
+			range = 12,
+			render_power = 3,
+			offset = { 0, 2 },
+			color = "rgba(00000099)",
+		},
+		blur = {
+			enabled = true,
+			size = 8,
+			passes = 2,
+			vibrancy = 0.1696,
+		},
+	},
+})
+
 hl.monitor({
 	output = "HDMI-A-1",
 	mode = "1920x1080@120",
 	position = "0x0",
 	scale = 1,
 })
-
 hl.monitor({
 	output = "eDP-1",
 	mode = "2880x1800@120",
@@ -12,13 +54,25 @@ hl.monitor({
 	scale = 2,
 })
 
-hl.bind("SUPER + T", hl.dsp.exec_cmd("kitty"))
-hl.bind("SUPER + B", hl.dsp.exec_cmd("librewolf"))
+hl.gesture({
+	fingers = 3,
+	direction = "horizontal",
+	action = "workspace",
+})
 
 hl.bind("SUPER + Space", hl.dsp.exec_cmd("pkill rofi || rofi -show drun"))
+hl.bind("SUPER + T", hl.dsp.exec_cmd("kitty"))
+hl.bind("SUPER + B", hl.dsp.exec_cmd("librewolf"))
+hl.bind("SUPER + F", hl.dsp.exec_cmd("nemo"))
+hl.bind("SUPER + D", hl.dsp.exec_cmd("wayscriber --active")) -- TODO: use systemd mode. how to auto-enable?
+hl.bind("SUPER + C", hl.dsp.exec_cmd("hyprpicker -a")) -- colorpicker
+hl.bind("Print", hl.dsp.exec_cmd('grimblast copysave area ~/Pictures/screenshots/$(date +"%Y%m%d_%H%M%S").png'))
 
 hl.bind("SUPER + W", hl.dsp.window.close())
 hl.bind("SUPER + V", hl.dsp.window.float({ action = "toggle" }))
+hl.bind("SUPER + Escape", hl.dsp.workspace.swap_monitors({ monitor1 = 0, monitor2 = 1 }))
+hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true })
+hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 hl.bind("SUPER + H", hl.dsp.focus({ direction = "left" }))
 hl.bind("SUPER + A", hl.dsp.focus({ direction = "down" }))
@@ -31,5 +85,25 @@ for i = 1, 10 do
 	hl.bind("SUPER + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 
-hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true })
-hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { mouse = true })
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"), { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), { locked = true, repeating = true })
+-- TODO: currently broken
+-- hyprctl dispatch execr "brightnessctl s 10 2> /home/dooshii/hello"
+-- has "Failed to set brightness: Invalid request descriptor"
+hl.bind(
+	"XF86AudioRaiseVolume",
+	hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
+	{ locked = true, repeating = true }
+)
+hl.bind(
+	"XF86AudioLowerVolume",
+	hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
+	{ locked = true, repeating = true }
+)
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), { locked = true })
+hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"), { locked = true })
+-- historically has been `rmpc`. maybe change this back idk.
+hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
+hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })

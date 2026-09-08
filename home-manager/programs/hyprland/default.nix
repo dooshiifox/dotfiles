@@ -1,11 +1,31 @@
-{
+args@{
   config,
   pkgs,
   ...
 }:
+let
+  lua = import ../../../helpers/lua.nix args;
+  theme = config.lib.theme;
+  inherit (theme) colors hexaToRgbaString;
+in
 {
   xdg.configFile."hypr/hyprconfig.lua".source =
-    config.lib.file.mkOutOfStoreSymlink "${config.lib.theme.source-folder}/home-manager/programs/hyprland/hyprconfig.lua";
+    config.lib.file.mkOutOfStoreSymlink "${theme.source-folder}/home-manager/programs/hyprland/hyprconfig.lua";
+
+  xdg.configFile."hypr/hyprextra.lua".text = ''
+    local m = {
+      colors = ${lua.nix-to-lua colors},
+      border_active_opacity = "${hexaToRgbaString colors.border-active-opacity}",
+      border_inactive_opacity = "${hexaToRgbaString colors.border-opacity}",
+      radius = ${toString theme.border-radius},
+      inactive_opacity = ${toString theme.opacity.unfocused}
+    }
+
+    return m
+  '';
+
+  # TODO: symlink "${pkgs.hyprland}/share/hypr/stubs" to a directory and
+  # update .luarc.json
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -19,75 +39,14 @@
     '';
 
     # settings = {
-    #   bind = [
-    #     # "SUPER + F, exec, nemo"
-    #     # "SUPER + C, exec, hyprpicker -a"
-    #     # "SUPER, Escape, swapactiveworkspaces, 0 1"
-    #     # ", Print, exec, grimblast copysave area ~/Pictures/screenshots/$(date +\"%Y%m%d_%H%M%S\").png"
-    #     # "SUPER, D, exec, wayscriber --active" # TODO: use systemd mode. how to auto-enable?
-    #   ];
-    #
-    #   # l - works on lockscreen
-    #   # e - repeat, re-runs when key is held
-    #   # bindel = [
-    #   #   ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
-    #   #   ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-    #   #
-    #   #   # TODO: currently broken
-    #   #   # hyprctl dispatch execr "brightnessctl s 10 2> /home/dooshii/hello"
-    #   #   # has "Failed to set brightness: Invalid request descriptor"
-    #   #   ", XF86MonBrightnessUp, exec, brightnessctl s 5%+"
-    #   #   ", XF86MonBrightnessDown, exec, brightnessctl s 5%-"
-    #   # ];
-    #   # bindl = [
-    #   #   ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-    #   #   ", XF86AudioPlay, exec, rmpc togglepause" # mpc does not work here?????
-    #   #   ", XF86AudioPrev, exec, rmpc prev"
-    #   #   ", XF86AudioNext, exec, rmpc next"
-    #   # ];
-    #   # bindm = [
-    #   #   "SUPER,mouse:272,movewindow"
-    #   #   "SUPER,mouse:273,resizewindow"
-    #   # ];
-    #   #
-    #   # input = {
-    #   #   kb_layout = "us";
-    #   #   follow_mouse = 1;
-    #   #   force_no_accel = true;
-    #   #   natural_scroll = false;
-    #   #   touchpad = {
-    #   #     natural_scroll = true;
-    #   #   };
-    #   # };
     #   # general = {
-    #   #   gaps_in = 4;
-    #   #   gaps_out = 8;
-    #   #   border_size = 2;
     #   #   "col.active_border" =
     #   #     config.lib.theme.hexaToRgbaString config.lib.theme.colors.border-active-opacity;
     #   #   "col.inactive_border" = config.lib.theme.hexaToRgbaString config.lib.theme.colors.border-opacity;
-    #   #
-    #   #   layout = "dwindle";
     #   # };
     #   # decoration = {
     #   #   rounding = config.lib.theme.border-radius;
-    #   #   blur = {
-    #   #     enabled = true;
-    #   #     size = 12;
-    #   #     passes = 3;
-    #   #     new_optimizations = true;
-    #   #   };
     #   #   inactive_opacity = config.lib.theme.opacity.unfocused;
-    #   #   active_opacity = 1.0;
-    #   #   fullscreen_opacity = 1.0;
-    #   #
-    #   #   shadow = {
-    #   #     enabled = true;
-    #   #     range = 12;
-    #   #     render_power = 4;
-    #   #     offset = "0 2";
-    #   #     color = "rgba(00000099)";
-    #   #   };
     #   # };
     #   # animations = {
     #   #   enabled = true;
@@ -112,9 +71,6 @@
     #   # };
     #   # master = {
     #   # };
-    #   # gestures.gesture = [
-    #   #   "3, horizontal, workspace"
-    #   # ];
     #   # misc = {
     #   #   disable_hyprland_logo = true;
     #   # };

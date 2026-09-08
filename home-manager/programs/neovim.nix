@@ -1,33 +1,8 @@
 # Neovim
 # https://github.com/nix-community/home-manager/blob/master/modules/programs/neovim.nix
-{ config, lib, ... }:
+args@{ config, ... }:
 let
-  nix-to-lua =
-    i:
-    if builtins.isAttrs i then
-      let
-        table = builtins.concatStringsSep ", " (
-          builtins.attrValues (
-            builtins.mapAttrs (
-              name: value:
-              let
-                snake_case = lib.replaceString "-" "_" name;
-              in
-              "${snake_case} = ${nix-to-lua value}"
-            ) i
-          )
-        );
-      in
-      "{ ${table} }"
-    else if builtins.isList i then
-      let
-        list = builtins.concatStringsSep ", " (map nix-to-lua i);
-      in
-      "{ ${list} }"
-    else if builtins.isString i then
-      "\"${i}\""
-    else
-      toString i;
+  lua = import ../../helpers/lua.nix args;
 in
 {
   programs.neovim = {
@@ -74,8 +49,8 @@ in
       cols.accent_fg = "${accent-fg}"
       cols.is_dark = ${if variant == "dark" then "true" else "false"};
 
-      cols.fg_color = ${nix-to-lua fg-color}
-      cols.bg_color = ${nix-to-lua bg-color}
+      cols.fg_color = ${lua.nix-to-lua fg-color}
+      cols.bg_color = ${lua.nix-to-lua bg-color}
 
       return cols
     '';
