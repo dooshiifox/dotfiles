@@ -8,7 +8,7 @@
             builtins.mapAttrs (
               name: value:
               let
-                snake_case = lib.replaceString "-" "_" name;
+                snake_case = lib.replaceString "-" "_" (nix-to-lua name);
               in
               "[${snake_case}] = ${nix-to-lua value}"
             ) i
