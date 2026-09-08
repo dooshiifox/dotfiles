@@ -53,7 +53,7 @@ pkgs.stdenv.mkDerivation {
       --chdir "$out" \
       --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath depends}" \
       --run "
-        data_home=\"\''\${XDG_DATA_HOME:-\$HOME/.local/share}\"
+        data_home=\"''${XDG_DATA_HOME:-\$HOME/.local/share}\"
         abi_dir=\"\$data_home/Septabee/llvm-stuffs/abi-8\"
 
         mkdir -p \"\$abi_dir\"

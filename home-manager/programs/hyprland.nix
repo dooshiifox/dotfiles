@@ -13,8 +13,9 @@
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
-    # systemd.enable = false;
     xwayland.enable = true;
+
+    configType = "lua";
 
     settings = {
       monitor = [
@@ -229,6 +230,7 @@
   };
 
   home.pointerCursor = {
+    enable = true;
     hyprcursor.enable = true;
     hyprcursor.size = 20;
     package = pkgs.bibata-cursors;

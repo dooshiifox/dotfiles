@@ -7,7 +7,8 @@
   programs.nixcord = {
     # https://kaylorben.github.io/nixcord/
     enable = true;
-    vesktop.enable = true;
+    discord.equicord.enable = true;
+
     config = {
       # frameless = true;
       # transparent = true;
