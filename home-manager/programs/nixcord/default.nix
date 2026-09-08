@@ -33,7 +33,7 @@
         fixSpotifyEmbeds.enable = true;
         fixYoutubeEmbeds.enable = true;
         forceOwnerCrown.enable = true;
-        friendsSince.enable = true;
+        # friendsSince.enable = true;
         imageZoom.enable = true;
         memberCount.enable = true;
         # messageLogger.enable = true;

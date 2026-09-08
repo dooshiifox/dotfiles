@@ -5,10 +5,6 @@
     # NixOS official package source
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-patcher.url = "github:gepbird/nixpkgs-patcher";
-    nixpkgs-patch-zapp = {
-      url = "https://github.com/NixOS/nixpkgs/pull/515143.diff";
-      flake = false;
-    };
 
     home-manager = {
       url = "github:nix-community/home-manager/master";
