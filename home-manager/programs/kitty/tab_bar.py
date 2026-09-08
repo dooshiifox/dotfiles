@@ -2,9 +2,12 @@ from kitty.tab_bar import as_rgb, draw_title, TabBarData, ExtraData, DrawData
 from kitty.utils import color_as_int
 from kitty.fast_data_types import Screen, Color
 import json
+import os
 
-with open("./colors.json") as f:
-    colors = json.load(f)
+
+def debug(content: str):
+    with open("debug.txt", "a") as f:
+        f.write(content + "\n")
 
 
 def draw_tab(
@@ -17,6 +20,11 @@ def draw_tab(
     is_last: bool,
     extra_data: ExtraData,
 ) -> int:
+    global colors
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    with open(dir_path + "/colors.json") as f:
+        colors = json.load(f)
+
     orig_fg = screen.cursor.fg
     left_sep, right_sep = (" ", "")
     tab_bg = screen.cursor.bg
@@ -93,6 +101,8 @@ def custom_title(tab: TabBarData, draw: DrawData):
 
 
 def term_color(col: str | int | Color):
+    global colors
+
     if col is None:
         debug("term color called with none")
         return ""
@@ -108,8 +118,3 @@ def term_color(col: str | int | Color):
         col = colors[col]
     col = col.replace("#", "").strip().lower()
     return term_color(int(col, base=16))
-
-
-def debug(content: str):
-    with open("debug.txt", "a") as f:
-        f.write(content + "\n")

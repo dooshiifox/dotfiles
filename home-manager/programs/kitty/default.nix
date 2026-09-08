@@ -6,8 +6,7 @@ let
   inherit (theme) colors;
 in
 {
-  xdg.configFile."kitty/tab_bar.py".source =
-    config.lib.file.mkOutOfStoreSymlink "${config.lib.theme.source-folder}/home-manager/programs/kitty/tab_bar.py";
+  xdg.configFile."kitty/tab_bar.py".source = ./tab_bar.py;
   xdg.configFile."kitty/colors.json".text = builtins.toJSON colors;
 
   programs.kitty = {
