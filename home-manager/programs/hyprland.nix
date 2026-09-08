@@ -38,12 +38,12 @@
       hl.bind("SUPER + Space", hl.dsp.exec_cmd("pkill rofi || rofi -show drun"))
 
       hl.bind("SUPER + W", hl.dsp.window.close())
-      hl.bind("SUPER + V", hl.dsp.window.float({ action = "toggle" ))
+      hl.bind("SUPER + V", hl.dsp.window.float({ action = "toggle" }))
 
-      hl.bind("SUPER + H", hl.dsp.focus({ direction = "left" ))
-      hl.bind("SUPER + A", hl.dsp.focus({ direction = "down" ))
-      hl.bind("SUPER + E", hl.dsp.focus({ direction = "up" ))
-      hl.bind("SUPER + I", hl.dsp.focus({ direction = "right" ))
+      hl.bind("SUPER + H", hl.dsp.focus({ direction = "left" }))
+      hl.bind("SUPER + A", hl.dsp.focus({ direction = "down" }))
+      hl.bind("SUPER + E", hl.dsp.focus({ direction = "up" }))
+      hl.bind("SUPER + I", hl.dsp.focus({ direction = "right" }))
 
       for i = 1, 10 do
         local key = i % 10 -- 10 maps to 0
