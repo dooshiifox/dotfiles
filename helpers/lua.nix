@@ -10,7 +10,7 @@
               let
                 snake_case = lib.replaceString "-" "_" name;
               in
-              "${snake_case} = ${nix-to-lua value}"
+              "[${snake_case}] = ${nix-to-lua value}"
             ) i
           )
         );
