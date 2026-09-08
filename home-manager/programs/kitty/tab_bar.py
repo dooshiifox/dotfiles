@@ -1,7 +1,10 @@
 from kitty.tab_bar import as_rgb, draw_title, TabBarData, ExtraData, DrawData
 from kitty.utils import color_as_int
 from kitty.fast_data_types import Screen, Color
-from .colors import colors
+import json
+
+with open("./colors.json") as f:
+    colors = json.load(f)
 
 
 def draw_tab(

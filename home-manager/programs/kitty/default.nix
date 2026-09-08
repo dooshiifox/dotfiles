@@ -1,17 +1,14 @@
 # A fast terminal
 # https://github.com/nix-community/home-manager/blob/master/modules/programs/kitty.nix
-args@{ config, ... }:
+{ config, ... }:
 let
-  python = import ../../../helpers/python.nix args;
   theme = config.lib.theme;
   inherit (theme) colors;
 in
 {
   xdg.configFile."kitty/tab_bar.py".source =
     config.lib.file.mkOutOfStoreSymlink "${config.lib.theme.source-folder}/home-manager/programs/kitty/tab_bar.py";
-  xdg.configFile."kitty/colors.py".text = ''
-    colors = ${python.nix-to-python colors}
-  '';
+  xdg.configFile."kitty/colors.json".text = builtins.toJSON colors;
 
   programs.kitty = {
     enable = true;
