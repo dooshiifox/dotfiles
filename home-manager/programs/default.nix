@@ -17,7 +17,7 @@
     ./gtk.nix
     ./kitty.nix
     ./mpv.nix
-    ./neovim.nix
+    ./nvim
     ./nushell.nix
     ./obs-studio.nix
     ./plover.nix

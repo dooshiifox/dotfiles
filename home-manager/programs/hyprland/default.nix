@@ -9,6 +9,8 @@ let
   inherit (theme) colors hexaToRgbaString;
 in
 {
+  # TODO: symlink "${pkgs.hyprland}/share/hypr/stubs" to a directory and
+  # update .luarc.json
   xdg.configFile."hypr/hyprconfig.lua".source =
     config.lib.file.mkOutOfStoreSymlink "${theme.source-folder}/home-manager/programs/hyprland/hyprconfig.lua";
 
@@ -24,121 +26,15 @@ in
     return m
   '';
 
-  # TODO: symlink "${pkgs.hyprland}/share/hypr/stubs" to a directory and
-  # update .luarc.json
-
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
     xwayland.enable = true;
 
     configType = "lua";
-
     extraConfig = ''
       require("hyprconfig")
     '';
-
-    # settings = {
-    #   # general = {
-    #   #   "col.active_border" =
-    #   #     config.lib.theme.hexaToRgbaString config.lib.theme.colors.border-active-opacity;
-    #   #   "col.inactive_border" = config.lib.theme.hexaToRgbaString config.lib.theme.colors.border-opacity;
-    #   # };
-    #   # decoration = {
-    #   #   rounding = config.lib.theme.border-radius;
-    #   #   inactive_opacity = config.lib.theme.opacity.unfocused;
-    #   # };
-    #   # animations = {
-    #   #   enabled = true;
-    #   #   bezier = [
-    #   #     "fastBezier, 0.05, 1.1, 0.2, 1.0"
-    #   #     "linear, 0.0, 0.0, 1.0, 1.0"
-    #   #     "liner, 1, 1, 1, 1"
-    #   #   ];
-    #   #   animation = [
-    #   #     "windows, 1, 7, fastBezier, slide"
-    #   #     "windowsOut, 1, 7, fastBezier, slide"
-    #   #     "border, 1, 10, fastBezier"
-    #   #     "fade, 1, 7, fastBezier"
-    #   #     "workspaces, 1, 6, fastBezier"
-    #   #     "border, 1, 1, liner"
-    #   #     "borderangle, 1, 40, liner, loop"
-    #   #     "borderangle, 1, 100, linear, loop"
-    #   #   ];
-    #   # };
-    #   # dwindle = {
-    #   #   preserve_split = true;
-    #   # };
-    #   # master = {
-    #   # };
-    #   # misc = {
-    #   #   disable_hyprland_logo = true;
-    #   # };
-    #   #
-    #   # env = [
-    #   #   "HYPRCURSOR_THEME,Bibata-Modern-Classic"
-    #   #   "HYPRCURSOR_SIZE,20"
-    #   # ]
-    #   # ++ for_profile "old" [
-    #   #   "LIBVA_DRIVER_NAME,nvidia"
-    #   #   "__GLX_VENDOR_LIBRARY_NAME,nvidia"
-    #   #   "NVD_BACKEND,direct"
-    #   #   # Prefer igpu
-    #   #   "AQ_DRM_DEVICES,/dev/dri/card2:/dev/dri/card1"
-    #   # ];
-    #   #
-    #   # # exec-once = [
-    #   # #   # "cd ~/Documents/CodingProjects/mpd-rating/ && pnpm dev --host"
-    #   # #   # "${config.lib.theme.source-folder}/scripts/music/rng"
-    #   # #   "sudo systemctl start docker.service"
-    #   # #   "[workspace 1 silent; monitor eDP-1] librewolf"
-    #   # #   "[workspace 2 silent; monitor HDMI-A-1] kitty"
-    #   # #   "[workspace 3 silent; monitor eDP-1] vesktop"
-    #   # #   "[workspace 3 silent; monitor eDP-1] signal-desktop"
-    #   # #   "[workspace 3 silent; monitor eDP-1] Telegram"
-    #   # #   "[workspace 4 silent; monitor eDP-1] slack"
-    #   # #   "[workspace 4 silent; monitor eDP-1] thunderbird"
-    #   # #   "[workspace 4 silent; monitor eDP-1] karere"
-    #   # # ];
-    #   #
-    #   # windowrule = [
-    #   #   {
-    #   #     name = "float-minecraft";
-    #   #     "match:class" = "Minecraft.*";
-    #   #     float = "on";
-    #   #   }
-    #   #   {
-    #   #     name = "float-bevy";
-    #   #     "match:class" = "shortlike";
-    #   #     float = "on";
-    #   #   }
-    #   #   {
-    #   #     name = "float-jetbrains-popup";
-    #   #     "match:class" = "(jetbrains-)(.*)";
-    #   #     "match:title" = "^win(.*)";
-    #   #     "match:initial_title" = "win.*";
-    #   #     float = "on";
-    #   #     no_initial_focus = "on";
-    #   #   }
-    #   # ];
-    #   #
-    #   # device = [
-    #   #   {
-    #   #     # TODO: Script to switch between the two monitors
-    #   #     # hyprctl -r -- keyword device[wdht1f01:00-2575:092e-stylus]:output HDMI-A-1
-    #   #     # hyprctl -r -- keyword device[wdht1f01:00-2575:092e-stylus]:output eDP-1
-    #   #     # Unfortunately, https://github.com/hyprwm/Hyprland/issues/5724
-    #   #     name = "wdht1f01:00-2575:092e-stylus";
-    #   #     output = "eDP-1";
-    #   #   }
-    #   # ];
-    #   #
-    #   # debug = {
-    #   #   disable_logs = false;
-    #   #   disable_time = false;
-    #   #   enable_stdout_logs = true;
-    #   # };
-    # };
   };
 
   home.pointerCursor = {

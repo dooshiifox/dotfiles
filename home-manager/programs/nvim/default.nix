@@ -2,7 +2,7 @@
 # https://github.com/nix-community/home-manager/blob/master/modules/programs/neovim.nix
 args@{ config, ... }:
 let
-  lua = import ../../helpers/lua.nix args;
+  lua = import ../../../helpers/lua.nix args;
 in
 {
   programs.neovim = {
