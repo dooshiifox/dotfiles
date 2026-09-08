@@ -28,7 +28,7 @@
     ./yazi.nix
     ./yt-dlp.nix
     ./zoxide.nix
-    ./hyprland.nix
+    ./hyprland
     ./hyprlock.nix
     ./pywal.nix
     ./waybar.nix
