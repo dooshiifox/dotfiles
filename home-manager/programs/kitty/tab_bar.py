@@ -2,7 +2,6 @@ from kitty.tab_bar import as_rgb, draw_title, TabBarData, ExtraData, DrawData
 from kitty.utils import color_as_int
 from kitty.fast_data_types import Screen, Color
 import json
-import os
 
 
 def debug(content: str):
@@ -21,9 +20,7 @@ def draw_tab(
     extra_data: ExtraData,
 ) -> int:
     global colors
-    dir_path = os.path.dirname(os.path.realpath(__file__))
-    with open(dir_path + "/colors.json") as f:
-        colors = json.load(f)
+    colors = json.loads("{COLORS}")
 
     orig_fg = screen.cursor.fg
     left_sep, right_sep = (" ", "")

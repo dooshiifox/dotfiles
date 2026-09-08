@@ -1,13 +1,18 @@
 # A fast terminal
 # https://github.com/nix-community/home-manager/blob/master/modules/programs/kitty.nix
-{ config, ... }:
+{ config, lib, ... }:
 let
   theme = config.lib.theme;
   inherit (theme) colors;
+
 in
 {
-  xdg.configFile."kitty/tab_bar.py".source = ./tab_bar.py;
-  xdg.configFile."kitty/colors.json".text = builtins.toJSON colors;
+  xdg.configFile."kitty/tab_bar.py".text =
+    let
+      jsonColors = builtins.toJSON colors;
+      escaped-json-colors = lib.replaceString "\"" "\\\"" (lib.replaceString "\\" "\\\\" jsonColors);
+    in
+    lib.replaceString "{COLORS}" escaped-json-colors (builtins.readFile ./tab_bar.py);
 
   programs.kitty = {
     enable = true;
