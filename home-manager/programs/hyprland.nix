@@ -174,19 +174,19 @@
         "AQ_DRM_DEVICES,/dev/dri/card2:/dev/dri/card1"
       ];
 
-      exec-once = [
-        # "cd ~/Documents/CodingProjects/mpd-rating/ && pnpm dev --host"
-        # "${config.lib.theme.source-folder}/scripts/music/rng"
-        "sudo systemctl start docker.service"
-        "[workspace 1 silent; monitor eDP-1] librewolf"
-        "[workspace 2 silent; monitor HDMI-A-1] kitty"
-        "[workspace 3 silent; monitor eDP-1] vesktop"
-        "[workspace 3 silent; monitor eDP-1] signal-desktop"
-        "[workspace 3 silent; monitor eDP-1] Telegram"
-        "[workspace 4 silent; monitor eDP-1] slack"
-        "[workspace 4 silent; monitor eDP-1] thunderbird"
-        "[workspace 4 silent; monitor eDP-1] karere"
-      ];
+      # exec-once = [
+      #   # "cd ~/Documents/CodingProjects/mpd-rating/ && pnpm dev --host"
+      #   # "${config.lib.theme.source-folder}/scripts/music/rng"
+      #   "sudo systemctl start docker.service"
+      #   "[workspace 1 silent; monitor eDP-1] librewolf"
+      #   "[workspace 2 silent; monitor HDMI-A-1] kitty"
+      #   "[workspace 3 silent; monitor eDP-1] vesktop"
+      #   "[workspace 3 silent; monitor eDP-1] signal-desktop"
+      #   "[workspace 3 silent; monitor eDP-1] Telegram"
+      #   "[workspace 4 silent; monitor eDP-1] slack"
+      #   "[workspace 4 silent; monitor eDP-1] thunderbird"
+      #   "[workspace 4 silent; monitor eDP-1] karere"
+      # ];
 
       windowrule = [
         {
