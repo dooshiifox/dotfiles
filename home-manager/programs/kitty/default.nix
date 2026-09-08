@@ -1,11 +1,18 @@
 # A fast terminal
 # https://github.com/nix-community/home-manager/blob/master/modules/programs/kitty.nix
-{ config, ... }:
+args@{ config, ... }:
 let
+  python = import ../../../helpers/python.nix args;
   theme = config.lib.theme;
   inherit (theme) colors;
 in
 {
+  xdg.configFile."kitty/tab_bar.py".source =
+    config.lib.file.mkOutOfStoreSymlink "${config.lib.theme.source-folder}/home-manager/programs/kitty/tab_bar.py";
+  xdg.configFile."kitty/colors.py".text = ''
+    colors = ${python.nix-to-python colors}
+  '';
+
   programs.kitty = {
     enable = true;
     font = {
@@ -92,7 +99,7 @@ in
       color21 ${colors.base06}
 
       tab_bar_edge top
-      tab_bar_style slant
+      tab_bar_style custom
     '';
   };
 }

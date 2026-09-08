@@ -15,7 +15,7 @@
     ./git.nix
     ./gitui.nix
     ./gtk.nix
-    ./kitty.nix
+    ./kitty
     ./mpv.nix
     ./nvim
     ./nushell.nix
