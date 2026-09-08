@@ -36,6 +36,14 @@ in
     profiles.dooshii = {
       id = 0;
       isDefault = true;
+
+      # FIXING THIS IF NEEDED:
+      # Open browser -> F12 -> 3 dots -> Settings
+      #   - Enable browser chrome and add-on debugging toolboxes -> Tick
+      #   - Enable remote debugging -> Tick
+      # Shift + Ctrl + Alt + I -> "Ok" -> Edit in there then copy changes here.
+      # No hot-reloading, need to restart the browser to test it. Remote
+      # debugging will turn itself off every time you restart the browser.
       userChrome = ''
         :root {
           --bg: ${colors.bg-opacity} !important;
@@ -59,7 +67,8 @@ in
         #tabbrowser-tabpanels,
         #nav-bar,
         #navigator-toolbox,
-        hbox#urlbar-background {
+        hbox#urlbar-background,
+        body {
           background: transparent !important;
         }
 
@@ -129,10 +138,10 @@ in
         }
 
         @-moz-document regexp("(?!.*(about:home|about:newtab|twitch.tv|cryptoswift.eu).*).*") {
-          /* :where(html) causes it to be low specificity */
-          :where(html) {
+          /* breaks on so many websites........ */
+          /* :where(html) {
             background: white;
-          }
+          } */
           :where(#__docusaurus) {
             background: white;
           }
