@@ -17,10 +17,10 @@ let
 in
 pkgs.stdenv.mkDerivation {
   pname = "septabee";
-  version = "B_T4";
+  version = "B_T6";
   src = pkgs.fetchurl {
-    url = "https://septabee.nekoweb.org/important_stuff/SEPTABEE_DOWNLOADS/version_B/septabee_linux_B_T4.7z";
-    sha256 = "sha256-Uuu3g11TCczOSDx15AqEJTosPkPjBNaWjBAPFf8uNw8=";
+    url = "https://septabee.nekoweb.org/important_stuff/SEPTABEE_DOWNLOADS/version_B/septabee_linux_B_T6.7z";
+    sha256 = "sha256-tkBRI8GcpOjtZs9sA0ycIPeq6eaFjDVH2YBfTXl7Leo=";
   };
 
   nativeBuildInputs = with pkgs; [
