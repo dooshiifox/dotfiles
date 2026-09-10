@@ -24,7 +24,7 @@ rec {
     fg-highlight = shades.grey."50";
     border = bg-highlight;
     border-active = grey;
-    accent = light-blue;
+    accent = lime;
 
     brown = "#885a3d";
     red = "#ff757e";
