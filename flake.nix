@@ -127,9 +127,12 @@
         wallpaper = /home/dooshii/Pictures/${"Jacatos Full Resolution Downloads"}/2022/April-Aug/kogrrr.png;
       };
 
-      test = (import ./helpers/color.nix) {
-        inherit inputs;
+      # nix repl --inputs-from ./
+      # nix-repl> :lf .
+      test = (import ./themes) {
+        pkgs = { };
         lib = inputs.nixpkgs.lib;
+        wallpaper = /home;
       };
     };
 }
