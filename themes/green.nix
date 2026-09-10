@@ -32,7 +32,7 @@ rec {
     orange = "#f5ae5e";
     yellow = "#f3df5a";
     cream = "#fde2cf";
-    green = "#3e6829";
+    green = "#6aa34e";
     lime = "#addd5d";
     dark-cyan = "#55afbf";
     cyan = "#74cfd1";

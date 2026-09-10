@@ -3,10 +3,10 @@
 #![enable(unwrap_variant_newtypes)]
 (
 	draw_borders: true,
-    borders_style: (fg: "blue", modifiers: "Bold"),
+    borders_style: (fg: "light_green", modifiers: "Bold"),
     show_song_table_header: false,
-    highlighted_item_style: (fg: "blue", modifiers: "Bold"),
-    current_item_style: (fg: "black", bg: "blue", modifiers: "Bold"),
+    highlighted_item_style: (fg: "light_green", modifiers: "Bold"),
+    current_item_style: (fg: "black", bg: "light_green", modifiers: "Bold"),
     text_color: "gray",
     header: (
         rows: [
@@ -28,9 +28,9 @@
                     ),
                 ],
                 right: [
-                    (kind: Property(Widget(ScanStatus)), style: (fg: "blue")),
+                    (kind: Property(Widget(ScanStatus)), style: (fg: "light_green")),
                     (kind: Text("  ")),
-                    (kind: Property(Widget(Volume)), style: (fg: "blue")),
+                    (kind: Property(Widget(Volume)), style: (fg: "light_green")),
                     (kind: Text("  ")),
                 ]
             ),
@@ -101,7 +101,7 @@
 					(kind: Property(Status(RandomV2(
 						on_label: "Shuffle [x]",
 						off_label: "Shuffle [x]",
-						on_style: (fg: "blue", modifiers: "Bold"),
+						on_style: (fg: "light_green", modifiers: "Bold"),
 						off_style: (fg: "dark_gray")
 					)))),
 					(kind: Text(" / "), style: (fg: "dark_gray")),
@@ -119,24 +119,24 @@
         ],
 	),
 	symbols: (song: "󰝚 ", dir: " ", playlist: "󰲸 ", marker: "* ", ellipsis: "...",
-        song_style: (fg: "blue"), dir_style: (fg: "blue")
+        song_style: (fg: "light_green"), dir_style: (fg: "light_green")
     ),
     tab_bar: (
         enabled: true,
-        active_style: (fg: "black", bg: "blue", modifiers: "Bold"),
+        active_style: (fg: "black", bg: "light_green", modifiers: "Bold"),
         inactive_style: (fg: "gray"),
     ),
 	progress_bar: (
         symbols: ["┣", "━", "●", "┄", "┤"],
         track_style: (fg: "dark_gray", modifiers: "Bold"),
-        elapsed_style: (fg: "blue", modifiers: "Bold"),
-        thumb_style: (fg: "blue", modifiers: "Bold"),
+        elapsed_style: (fg: "light_green", modifiers: "Bold"),
+        thumb_style: (fg: "light_green", modifiers: "Bold"),
     ),
     scrollbar: (
         symbols: ["│", "█", "┬", "┴"],
         track_style: (fg: "dark_gray"),
         ends_style: (fg: "dark_gray"),
-        thumb_style: (fg: "blue"),
+        thumb_style: (fg: "light_green"),
     ),
 	song_table_format: [
 		(
@@ -247,7 +247,7 @@
 					pane: Pane(Property(
 						content: [(
 							kind: Text("▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔"),
-							style: (fg: "blue")
+							style: (fg: "light_green")
 						)],
 						align: Center
 					))
@@ -319,7 +319,7 @@
 					size: "45%",
 					pane: Pane(Property(content: [
 						(kind: Text("Title ")),
-						(kind: Text(" "), style: (fg: "blue"))
+						(kind: Text(" "), style: (fg: "light_green"))
 					])),
 				),
 				(
@@ -338,7 +338,7 @@
 					size: "25%",
 					pane: Pane(Property(content: [
 						(kind: Text("Album ")),
-						(kind: Text("󰀥 "), style: (fg: "blue"))
+						(kind: Text("󰀥 "), style: (fg: "light_green"))
 					])),
 				),
 				(
@@ -349,7 +349,7 @@
 					size: "30%",
 					pane: Pane(Property(content: [
 						(kind: Text("Artist ")),
-						(kind: Text(" "), style: (fg: "blue"))
+						(kind: Text(" "), style: (fg: "light_green"))
 					])),
 				),
 				(
@@ -359,7 +359,7 @@
 				(
 					size: "7",
 					pane: Pane(Property(content: [
-						(kind: Text("   "), style: (fg: "blue"))
+						(kind: Text("   "), style: (fg: "light_green"))
 					])),
 				),
 				(
@@ -369,7 +369,7 @@
 				(
 					size: "8",
 					pane: Pane(Property(content: [
-						(kind: Text("     "), style: (fg: "blue"))
+						(kind: Text("     "), style: (fg: "light_green"))
 					])),
 				),
 				(
@@ -470,7 +470,7 @@
 										(
 											size: "1",
 											pane: Pane(Property(
-												content: [(kind: Property(Widget(Volume)), style: (fg: "blue"))],
+												content: [(kind: Property(Widget(Volume)), style: (fg: "light_green"))],
 												align: Center
 											))
 										),
@@ -572,7 +572,7 @@
 														(kind: Property(Status(RandomV2(
 															on_label: "Shuffle [x]",
 															off_label: "Shuffle [x]",
-															on_style: (fg: "blue", modifiers: "Bold"),
+															on_style: (fg: "light_green", modifiers: "Bold"),
 															off_style: (fg: "dark_gray")
 														)))),
 													], align: Center))
