@@ -3,6 +3,14 @@ rec {
   slug = "jacato-green";
   author = "dooshii";
 
+  opacity = rec {
+    # The background in some apps will be multiplicative with opacity.bg
+    unfocused = 0.9;
+    bg = 0.85;
+    border = bg;
+  };
+  border-radius = 4;
+
   dark = rec {
     bg = shades.grey."950";
     bg-raised = shades.grey."900";
@@ -44,8 +52,8 @@ rec {
       "400" = "#acb8ab";
       "600" = "#586656";
       "800" = "#3c4239";
-      "900" = "#1f241c";
-      "950" = "#0d120a";
+      "900" = "#21231f";
+      "950" = "#0f110e";
     };
   };
 }
