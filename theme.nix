@@ -3,7 +3,7 @@ let
   themes = import ./themes root;
 
   # v THIS IS THE LINE YOU WANT TO EDIT
-  theme = themes.slate.light;
+  theme = themes.slate.dark;
   # ^ THAT IS THE LINE YOU WANT TO EDIT
   #
   # should we find out a way to put this as part of `flake.nix` profiles?
