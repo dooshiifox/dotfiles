@@ -174,4 +174,5 @@ let
 in
 {
   slate = light-dark ./slate.nix;
+  green = multiple-schemes (import ./green.nix) [ "dark" ];
 }
