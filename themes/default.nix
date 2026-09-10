@@ -112,7 +112,9 @@ let
             fn: into:
             builtins.mapAttrs (
               name: hex:
-              if variant == "light" && !(lib.hasPrefix "bg" name) && !(lib.hasPrefix "fg" name) then
+              if
+                variant == "light" && !(lib.isAttrs hex) && !(lib.hasPrefix "bg" name) && !(lib.hasPrefix "fg" name)
+              then
                 (fn hex into 0.4)
               else
                 hex
@@ -128,8 +130,8 @@ let
             variant
             ;
 
-          fg-color = light-mode-color-lerp color-lib.darken-towards colors.fg;
-          bg-color = light-mode-color-lerp color-lib.brighten-towards colors.bg;
+          fg-color = light-mode-color-lerp color-lib.darken-towards theme.colors.fg;
+          bg-color = light-mode-color-lerp color-lib.brighten-towards theme.colors.bg;
 
           bg-opacity = hexWithOpacity theme.colors.bg opacity.bg;
           bg-raised-opacity = hexWithOpacity theme.colors.bg-raised opacity.bg;
