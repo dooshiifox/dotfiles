@@ -1,6 +1,6 @@
 # Records the screen
 # https://github.com/nix-community/home-manager/blob/master/modules/programs/obs-studio.nix
-{ pkgs, ... }: {
+{ pkgs, config, ... }: {
   programs.obs-studio = {
     enable = true;
     plugins = with pkgs; [
@@ -9,4 +9,98 @@
       obs-studio-plugins.obs-pipewire-audio-capture
     ];
   };
+
+  xdg.configFile."obs-studio/themes/Yami_Custom.ovt".text =
+    let
+      theme = config.lib.theme;
+      inherit (theme) colors;
+
+      variables =
+        let
+          opacityify =
+            base-color: amount:
+            let
+              opacity = 1 - (amount * 0.15);
+            in
+            theme.hexWithOpacity base-color opacity;
+          shade =
+            base-color: name:
+            builtins.listToAttrs (
+              builtins.genList (i: {
+                name = name + (toString (i + 1));
+                value = opacityify base-color i;
+              }) 6
+            );
+        in
+        (shade colors.red "red")
+        // (shade colors.yellow "yellow")
+        // (shade colors.lime "green")
+        // (shade colors.dark-cyan "teal")
+        // (shade colors.dark-blue "blue")
+        // (shade colors.magenta "purple")
+        // (shade colors.light-magenta "pink")
+        // {
+          white1 = colors.shades.grey."50";
+          white2 = colors.shades.grey."100";
+          white3 = colors.shades.grey."200";
+          white4 = colors.shades.grey."300";
+          white5 = colors.shades.grey."400";
+          black5 = colors.shades.grey."600";
+          black4 = colors.shades.grey."700";
+          black3 = colors.shades.grey."800";
+          black2 = colors.shades.grey."900";
+          black1 = colors.shades.grey."950";
+
+          # why the fuck are there 8 greys of such small differences.
+          grey1 = colors.shades.grey."600";
+          grey2 = colors.shades.grey."700";
+          grey3 = colors.shades.grey."700";
+          grey4 = colors.shades.grey."800";
+          grey5 = colors.shades.grey."800";
+          grey6 = colors.shades.grey."800";
+          grey7 = colors.shades.grey."900";
+          grey8 = colors.shades.grey."900";
+
+          bg_window = colors.bg-opacity;
+          bg_base = colors.bg-raised-opacity;
+          bg_preview = colors.bg-inset-opacity;
+
+          primary_lighter = opacityify colors.accent 1;
+          primary_light = opacityify colors.accent 2;
+          primary = opacityify colors.accent 3;
+          primary_dark = opacityify colors.accent 4;
+          primary_darker = opacityify colors.accent 5;
+
+          warning = "var(--yellow3)";
+          danger = "var(--red3)";
+
+          text = "var(--white1)";
+          text_light = "var(--white1)";
+          text_muted = "var(--white5)";
+          text_disabled = "var(--text_muted)";
+          text_inactive = "var(--white1)";
+
+          border_color = colors.border-opacity;
+          border_radius = (toString theme.rounded.button) + "px";
+          border_radius_small = (toString (theme.rounded.button / 2)) + "px";
+          border_radius_large = (toString theme.rounded.window) + "px";
+        };
+
+      variables-css = builtins.concatStringsSep ";\n    " (
+        builtins.attrValues (builtins.mapAttrs (name: value: "--${name}: ${value}") variables)
+      );
+    in
+    ''
+      @OBSThemeMeta {
+        name: 'Custom';
+        id: 'com.obsproject.Yami.Custom';
+        extends: 'com.obsproject.Yami';
+        author: 'Warchamp7';
+        dark: '${if theme.variant == "dark" then "true" else "false"}';
+      }
+
+      @OBSThemeVars {
+          ${variables-css}
+      }
+    '';
 }

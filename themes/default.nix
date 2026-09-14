@@ -50,6 +50,7 @@ let
         color-lerp
         ;
 
+      # TODO: move to flake.nix profile configuration
       source-folder = "/home/dooshii/nixos";
       inherit wallpaper;
 
@@ -60,6 +61,10 @@ let
         border = bg;
       };
       border-radius = 12;
+      rounded = {
+        window = theme.border-radius or border-radius;
+        button = builtins.floor ((theme.border-radius or border-radius) / 2);
+      };
 
       inherit (theme) variant;
       on-color = bg: color-lib.highestContrast theme.colors.bg theme.colors.fg bg;
