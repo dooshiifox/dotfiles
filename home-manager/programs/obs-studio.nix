@@ -63,7 +63,7 @@
 
           bg_window = colors.bg;
           bg_base = colors.bg-raised;
-          bg_preview = colors.bg-inset;
+          bg_preview = colors.bg;
 
           primary_lighter = like-background colors.accent 1;
           primary_light = like-background colors.accent 2;
@@ -80,7 +80,7 @@
           text_disabled = "var(--text_muted)";
           text_inactive = "var(--white1)";
 
-          border_color = colors.border-opacity;
+          border_color = colors.border;
           border_radius = (toString theme.rounded.button) + "px";
           border_radius_small = (toString (theme.rounded.button / 2)) + "px";
           border_radius_large = (toString theme.rounded.window) + "px";
