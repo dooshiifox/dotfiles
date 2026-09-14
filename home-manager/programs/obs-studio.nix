@@ -17,18 +17,18 @@
 
       variables =
         let
-          opacityify =
+          like-background =
             base-color: amount:
             let
-              opacity = 1 - (amount * 0.15);
+              opacity = amount * 0.15;
             in
-            theme.hexWithOpacity base-color opacity;
+            theme.darken-towards base-color colors.bg opacity;
           shade =
             base-color: name:
             builtins.listToAttrs (
               builtins.genList (i: {
                 name = name + (toString (i + 1));
-                value = opacityify base-color i;
+                value = like-background base-color i;
               }) 6
             );
         in
@@ -61,15 +61,15 @@
           grey7 = colors.shades.grey."900";
           grey8 = colors.shades.grey."900";
 
-          bg_window = colors.bg-opacity;
-          bg_base = colors.bg-raised-opacity;
-          bg_preview = colors.bg-inset-opacity;
+          bg_window = colors.bg;
+          bg_base = colors.bg-raised;
+          bg_preview = colors.bg-inset;
 
-          primary_lighter = opacityify colors.accent 1;
-          primary_light = opacityify colors.accent 2;
-          primary = opacityify colors.accent 3;
-          primary_dark = opacityify colors.accent 4;
-          primary_darker = opacityify colors.accent 5;
+          primary_lighter = like-background colors.accent 1;
+          primary_light = like-background colors.accent 2;
+          primary = like-background colors.accent 3;
+          primary_dark = like-background colors.accent 4;
+          primary_darker = like-background colors.accent 5;
 
           warning = "var(--yellow3)";
           danger = "var(--red3)";
@@ -86,8 +86,8 @@
           border_radius_large = (toString theme.rounded.window) + "px";
         };
 
-      variables-css = builtins.concatStringsSep ";\n    " (
-        builtins.attrValues (builtins.mapAttrs (name: value: "--${name}: ${value}") variables)
+      variables-css = builtins.concatStringsSep "\n  " (
+        builtins.attrValues (builtins.mapAttrs (name: value: "--${name}: ${value};") variables)
       );
     in
     ''
@@ -100,7 +100,7 @@
       }
 
       @OBSThemeVars {
-          ${variables-css}
+        ${variables-css}
       }
     '';
 }

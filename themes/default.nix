@@ -48,6 +48,7 @@ let
         hexaToRgbaString
         withoutHash
         color-lerp
+        darken-towards
         ;
 
       # TODO: move to flake.nix profile configuration
