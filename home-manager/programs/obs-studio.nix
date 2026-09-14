@@ -20,7 +20,7 @@
           like-background =
             base-color: amount:
             let
-              opacity = amount * 0.15;
+              opacity = amount * 0.17;
             in
             theme.darken-towards base-color colors.bg opacity;
           shade =
