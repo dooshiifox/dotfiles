@@ -93,13 +93,17 @@ set("StatusLine", { bg = "none", fg = colors.fg }) -- this is overridden by lual
 set("Directory", { fg = "dark_blue" })
 set("Visual", { bg = colors.bg_highlight }, { fg = "magenta", bg = "magenta" })
 set("Search", { bg = "yellow", fg = colors.bg, bold = true }, "swap")
-set("CurSearch", { bg = "accent", fg = colors.bg, bold = true }, { bg = "accent", fg = colors.fg })
+set(
+	"CurSearch",
+	{ bg = "accent", fg = colors.bg, bold = true, blend = 0 },
+	{ bg = "accent", fg = colors.fg, blend = 0 }
+)
 set("MatchParen", { bg = colors.bg_highlight, fg = colors.fg_raised, underline = true })
-set("Pmenu", { bg = "none", fg = colors.fg }, { bg = colors.bg_raised, fg = colors.fg })
+set("Pmenu", { bg = "none", fg = colors.fg, blend = 0 }, { bg = colors.bg_raised, fg = colors.fg, blend = 0 })
 set("PmenuSel", { link = "CurSearch" })
-set("PmenuSbar", { bg = colors.bg_raised, fg = colors.grey })
+set("PmenuSbar", { bg = colors.bg_raised, fg = colors.grey, blend = 0 })
 set("VertSplit", { fg = colors.border })
-set("NormalFloat", { bg = "none", fg = colors.fg })
+set("NormalFloat", { bg = "none", fg = colors.fg, blend = 0 })
 set("WinSeparator", { bg = "none", fg = colors.border })
 set("FloatBorder", { link = "WinSeparator" })
 set("PmenuBorder", { link = "FloatBorder" })

@@ -370,7 +370,6 @@ class BiasedRandomRating:
         if previous_song.rating is None:
             self.client.previous()
             self.client.pause()
-            self.last_playing_song = current_song
             return
 
         self.last_playing_song = current_song

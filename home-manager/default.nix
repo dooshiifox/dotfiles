@@ -206,6 +206,7 @@
         pulseaudio # Audio server
         pamixer # Pulseaudio cli mixer
         pavucontrol # Audio controller
+        davinci-resolve # Video editor
 
         libreoffice # Office suite
 
