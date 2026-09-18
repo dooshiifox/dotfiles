@@ -211,7 +211,13 @@ hl.on("hyprland.start", function()
 			monitor = "HDMI-A-1"
 		end
 
-		hl.exec_cmd(command, { workspace = workspace .. " silent", monitor })
+		hl.exec_cmd(command, {
+			workspace = workspace .. " silent",
+			-- shorthand { monitor } doesnt work unlike other languages,
+			-- because lua thinks its an array item at index 1.
+			-- this was weird to troubleshoot
+			monitor = monitor,
+		})
 	end
 
 	hl.exec_cmd("sudo systemctl start docker.service")
