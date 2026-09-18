@@ -179,6 +179,7 @@
         inxi # System settings
         bluetui # Bluetooth manager
         delta # Better git differ
+        libqalculate # Weirdly good math library
 
         kitty # Terminal
 
@@ -206,6 +207,15 @@
         pulseaudio # Audio server
         pamixer # Pulseaudio cli mixer
         pavucontrol # Audio controller
+
+        # Video Editor
+        # avidemux
+        # flowblade
+        # openshot-qt
+        # pitivi
+        shotcut
+        # lightworks
+        kdePackages.kdenlive
         davinci-resolve # Video editor
 
         libreoffice # Office suite
