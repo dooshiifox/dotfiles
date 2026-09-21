@@ -4,7 +4,7 @@ download() {
 	for url in "$@"; do
 		if [[ "$url" == *"/track/"* ]]; then
 			yt-dlp \
-				-o "$XDG_MUSIC_DIR/%(artist)s - Singles/%(artist)s - %(track)s.%(ext)s" \
+				-o "$XDG_MUSIC_DIR/%(artist).60s - Singles/%(artist).60s - %(track).60s.%(ext)s" \
 				--write-thumbnail \
 				--embed-thumbnail \
 				--embed-metadata \
@@ -15,8 +15,8 @@ download() {
 				"$url"
 		elif [[ "$url" == *"/album/"* ]]; then
 			yt-dlp \
-				-o "$XDG_MUSIC_DIR/%(artist)s - %(album)s/%(track_number)02d  %(track)s.%(ext)s" \
-				-o "thumbnail:$XDG_MUSIC_DIR/%(artist)s - %(album)s/cover.%(ext)s" \
+				-o "$XDG_MUSIC_DIR/%(artist).60s - %(album).60s/%(track_number)02d  %(track).60s.%(ext)s" \
+				-o "thumbnail:$XDG_MUSIC_DIR/%(artist).60s - %(album).60s/cover.%(ext)s" \
 				--no-overwrite \
 				--write-thumbnail \
 				--embed-thumbnail \
@@ -26,7 +26,7 @@ download() {
 				"$url"
 		elif [[ "$url" == *"watch?v="* ]]; then
 			yt-dlp \
-				-o "$XDG_MUSIC_DIR/%(uploader)s - Singles/%(uploader)s - %(title)s.%(ext)s" \
+				-o "$XDG_MUSIC_DIR/%(uploader).60s - Singles/%(uploader).60s - %(title).60s.%(ext)s" \
 				--write-thumbnail \
 				--embed-thumbnail \
 				--embed-metadata \
