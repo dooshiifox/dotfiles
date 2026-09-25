@@ -278,32 +278,49 @@ in
       };
       extensions = {
         # https://gitlab.com/rycee/nur-expressions/-/blob/master/pkgs/firefox-addons/addons.json
-        packages = with pkgs.firefox-addons; [
-          augmented-steam
-          pronoundb
-          xkit-rewritten
-          stylus
-          bandcamp-player-volume-control
-          return-youtube-dislikes
-          indie-wiki-buddy
-          web-archives
-          dearrow
-          greasemonkey
-          tweaks-for-youtube
-          betterttv
-          firefox-color
-          tampermonkey
-          # dashlane
-          proton-pass
-          decentraleyes
-          privacy-badger
-          hoppscotch
-          shinigami-eyes
-          sponsorblock
-          ublock-origin
-          # twitch-chat-pronouns
-          # youtube-disable-number-seek
-        ];
+        packages =
+          with pkgs.firefox-addons;
+          let
+            white-background-enforcer =
+              let
+                version = "1.4";
+              in
+              buildFirefoxXpiAddon {
+                pname = "white-background-enforcer";
+                inherit version;
+                addonId = "wbge@nickesc.github.io"; # addons.mozilla.org/the-addon -> More information -> Copy add-on ID
+                url = "https://github.com/nickesc/white-background-enforcer/releases/download/${version}/wbge-${version}.xpi";
+                sha256 = "sha256-/svwBdw91uh6w8787myKI3iOpJjgvYaNiN4h2stV88I=";
+                meta = { }; # required but not actually checked
+              };
+          in
+          [
+            augmented-steam
+            pronoundb
+            xkit-rewritten
+            stylus
+            bandcamp-player-volume-control
+            return-youtube-dislikes
+            indie-wiki-buddy
+            web-archives
+            dearrow
+            greasemonkey
+            tweaks-for-youtube
+            betterttv
+            firefox-color
+            tampermonkey
+            # dashlane
+            proton-pass
+            decentraleyes
+            privacy-badger
+            hoppscotch
+            shinigami-eyes
+            sponsorblock
+            ublock-origin
+            # twitch-chat-pronouns
+            # youtube-disable-number-seek
+            white-background-enforcer
+          ];
       };
     };
   };
