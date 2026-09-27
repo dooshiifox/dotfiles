@@ -7,6 +7,8 @@
       obs-studio-plugins.wlrobs
       obs-studio-plugins.obs-vkcapture
       obs-studio-plugins.obs-pipewire-audio-capture
+      obs-studio-plugins.obs-multi-rtmp
+      # obs-studio-plugins.obs-aitum-multistream
     ];
   };
 
