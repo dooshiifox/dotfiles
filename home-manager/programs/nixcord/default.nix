@@ -1,6 +1,6 @@
 { config, ... }:
 {
-  xdg.configFile."vesktop/themes/theme.css".text = import ./css.nix { theme = config.lib.theme; };
+  xdg.configFile."Equicord/themes/theme.css".text = import ./css.nix { theme = config.lib.theme; };
 
   # Necessary one-time-only setup. Install Dorion and log in, then close.
   # nix run github:KaylorBen/nixcord#dorion

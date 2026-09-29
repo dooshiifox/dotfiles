@@ -40,7 +40,7 @@ let
       "floorp ///// (.*) — (Floorp)" = window_icon magenta "󰯻";
       "floorp ///// (Floorp)" = window_icon magenta "󰯻" "Floorp";
       "codium ///// (.*) - VSCodium" = window_icon light-blue "󰨞";
-      "vesktop ///// (?:.*?Discord.{3})?(.*)" = window_icon dark-blue "";
+      "discord ///// (?:.*?Discord.{3})?(.*)" = window_icon dark-blue "";
       "signal" = window_icon dark-blue "󰍡";
       "slack" = window_icon green "";
       "${priority 1}Kitty ///// (?:nvim|e|ni) (.*)" = window_icon lime "";
